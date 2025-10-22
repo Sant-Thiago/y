@@ -1,0 +1,210 @@
+.container {
+    background-color: white;
+    
+    width: 100vw;
+}
+
+.nav {
+    padding: 0.5rem 1rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    margin: auto;
+
+    max-width: 1200px;
+}
+
+.navBurguer {
+
+    position: absolute;
+    right: -1rem;
+    top: -0.5rem; /* exemplo  de quem?*/
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    padding: 1rem;
+
+    gap: 1rem;
+
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.btnBurguer {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 40%;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    gap: 2rem;
+
+    width: 80%;
+    max-width: 420px;
+
+    text-align: right;
+    margin: 0;
+    
+    
+    font-size: 1.5rem;
+}
+
+a {
+    width: 60%;
+    
+    color: black;
+
+    text-decoration: none;
+    
+    transition: 0.3s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logoImg {
+    height: 60px;
+}
+
+
+.burguer {
+    z-index: 1;
+}
+
+@media (min-width: 1000px) {
+
+    .nav {
+        width: 90%;
+        margin: auto;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        margin: auto;
+
+        max-width: 1600px;
+        width: 80%;
+        border: 1px solid black;
+    
+    }
+
+
+    .navBurguer {
+        display: none;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 2rem;
+
+        position: relative;
+
+        max-width: 1000px;
+        text-align: unset;
+
+        margin: auto;
+        
+        font-size: 1.5rem;
+
+        /* border: 1px solid black; */
+    }
+    
+    a {
+        display: inline-block;
+        width: max-content;
+        color: rgb(95, 95, 95);
+
+        flex-shrink: 0;
+
+        text-decoration: none;
+
+        cursor: pointer;
+        
+        transition: 0.3s;
+
+    }   
+    
+    a:hover {
+        color: black;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .btnPlus {
+        background-color: transparent;
+        
+        border: none;
+
+        color: rgb(95, 95, 95);
+
+        cursor: pointer;
+    }
+
+    .btnPlus:hover {
+        color: black;
+    }
+
+    .btnPlus > * {
+        font-size: 1.5rem;
+    }
+
+    .overflowList {
+        position: absolute;
+        top: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border: 3px solid rgb(135, 135, 135);
+
+        border-radius: 18px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        width: max-content;
+        background-color: white;
+    }
+
+    .overflowList > a {
+        text-decoration: none;
+
+        text-align: center;
+
+        border-bottom: 2px solid rgb(135, 135, 135);
+
+        width: 100%;
+
+        padding: 10px 0;
+        margin: 0 15px;
+    }
+
+    .overflowList > a:last-child {
+        border-bottom: none;
+    }
+}
