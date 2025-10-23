@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Banner.module.css';
-import bannerImage from '@/assets/banner_image.jpeg';
-import bannerImage2 from '@/assets/banner_image_2.jpeg';
+import bannerImage from '@/utils/assets/banner_image.jpeg';
+import bannerImage2 from '@/utils/assets/banner_image_2.jpeg';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function Banner() {

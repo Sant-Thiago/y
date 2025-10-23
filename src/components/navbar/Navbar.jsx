@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css';
-import logoImg from '../../../src/assets/no_profile.png';
+import logoImg from '@/utils/assets/no_profile.png';
 import { useEffect, useRef, useState } from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import { FaCross, FaPlus } from 'react-icons/fa6';
@@ -19,6 +19,8 @@ export default function Navbar({
     ];
 
     const listRef = useRef(null);
+    const [hide, setHide] = useState(false);
+    const navbarHeight = 76;
     const [visibleLinks, setVisibleLinks] = useState(links);
     const [isVisibleList, setIsVisibleList] = useState(false);
     const [isMoreOptions, setIsMoreOptions] = useState(null);
@@ -57,14 +59,30 @@ export default function Navbar({
             } else setIsMoreOptions(false);
         };
 
+        const handleScroll = () => {
+            if (window.scrollY > navbarHeight * 5) {
+                setHide(false);
+            } else if (window.scrollY > navbarHeight) {
+                setHide(true);
+            } else setHide(false);
+        };
+
         calculateVisible()
+        
+        window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", calculateVisible);
-        return () => window.removeEventListener("resize", calculateVisible);        
+
+
+        return () => {
+            window.removeEventListener("resize", calculateVisible);
+            window.removeEventListener("scroll", handleScroll);
+        };        
 
     }, []);
 
     return(
-        <header className={styles.container}>
+        <header 
+            className={`${styles.container} ${hide ? styles.hide : ""}`}>
 
             <nav className={styles.nav}>
 

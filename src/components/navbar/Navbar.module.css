@@ -1,11 +1,27 @@
 .container {
     background-color: white;
-    
+
     width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    transition: 0.5s ease;
+    z-index: 1;
+}
+
+.hide {
+    transition: 0.2s ease;
+    transform: translateY(-100%);
+}
+
+.show {
+    transform: translateY(0);
 }
 
 .nav {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
 }
 
 .wrapper {
@@ -16,6 +32,7 @@
     position: relative;
 
     margin: auto;
+    width: 80%; /* por equanto mas o ideial é cada tamanho de tela ter uma config diferente*/
 
     max-width: 1200px;
 }

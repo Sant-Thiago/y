@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -14,4 +15,11 @@ html, body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.home-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 78px;
 }

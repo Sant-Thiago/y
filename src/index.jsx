@@ -1,4 +1,4 @@
-import './index.css';
+import "@/utils/global.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createRoot } from 'react-dom/client';
