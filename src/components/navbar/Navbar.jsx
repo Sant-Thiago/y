@@ -60,18 +60,23 @@ export default function Navbar({
         };
 
         const handleScroll = () => {
-            if (window.scrollY > navbarHeight * 5) {
+            const scrolled = window.scrollY;
+
+            console.log(scrolled);
+            
+
+            if (scrolled > navbarHeight * 5) {
                 setHide(false);
-            } else if (window.scrollY > navbarHeight) {
+            } else if (scrolled > navbarHeight) {
                 setHide(true);
             } else setHide(false);
         };
 
-        calculateVisible()
         
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", calculateVisible);
-
+        
+        calculateVisible()
 
         return () => {
             window.removeEventListener("resize", calculateVisible);

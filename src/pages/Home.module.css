@@ -1,6 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 78px;
+    overflow-y: scroll;
+}
+
 .sectionCards {
     width: 100vw;
-    border: 1px solid rgb(26, 255, 0);
+
 
     min-height: calc(100vh - 76px);
 }

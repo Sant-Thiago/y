@@ -77,6 +77,7 @@ export default function Banner() {
                         key={idx}
                     />
                 ))}
+                
             </div>
             <button
                 onClick={prevSlide}

@@ -4,12 +4,13 @@ import Navbar from "../components/navbar/Navbar";
 import styles from "./Home.module.css";
 import restaurantImg from "@/utils/assets/inner_restaurant.jpg"
 import ifoodImg from "@/utils/assets/ifood_banner.png"
+import Location from "../components/location/Location";
 
 export default function Home() {
     return(
         <>
             <Navbar />
-            <main className="home-main">
+            <main className={styles.container}>
                 <Banner />
                 <section className={styles.sectionCards}>
                     <Card 
@@ -28,7 +29,7 @@ export default function Home() {
                     />
                 </section>
                 <section>
-
+                    <Location />
                 </section>
             </main>
         </>
