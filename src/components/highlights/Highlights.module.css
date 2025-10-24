@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    width: 80%;
+
+    /* gap: 50px; */
+
+    margin: 0px auto;
+}
+
+.text {
+    width: 100%;
+    margin: auto;
+
+    color:  rgb(180, 151, 64);
+    
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.high {
+    font-size: 44px;
+
+    color: rgb(146, 58, 17);
+}
+
+.img {
+    height: 320px;
+
+}

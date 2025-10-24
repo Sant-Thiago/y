@@ -5,6 +5,7 @@ import styles from "./Home.module.css";
 import restaurantImg from "@/utils/assets/inner_restaurant.jpg"
 import ifoodImg from "@/utils/assets/ifood_banner.png"
 import Location from "../components/location/Location";
+import Highlights from "../components/highlights/Highlights";
 
 export default function Home() {
     return(
@@ -30,6 +31,9 @@ export default function Home() {
                 </section>
                 <section>
                     <Location />
+                </section>
+                <section>
+                    <Highlights />
                 </section>
             </main>
         </>
