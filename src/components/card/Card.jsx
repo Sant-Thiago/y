@@ -1,16 +1,50 @@
 import styles from "./Card.module.css";
 import restaurantImg from "@/utils/assets/inner_restaurant.jpg"
 import ifoodImg from "@/utils/assets/ifood_banner.png"
+import { useEffect, useRef, useState } from "react";
 
 export default function Card({
     img = restaurantImg,
     fstText = "Lorem ipsum elit",
     sndText = "Lorem",
     trdText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    btnText = "Faça Seu pedido"
+    btnText = "Faça Seu pedido",
+    animate = {left: true}
 }) {
+    const [isVisible, setIsVisible] = useState(false);
+    const cardRef = useRef(null);
+    
+    useEffect(() => {
+        const el = cardRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                setIsVisible(entry.isIntersecting);
+            });
+        }, {
+            threshold: 0.2,
+        });
+
+        observer.observe(el);
+
+        return () => {
+            if (el) observer.unobserve(el);
+            observer.disconnect();
+        };
+    }, []);
+
+    // decide classes
+    const directionClass =
+        animate === "top" ? styles.animateTop : styles.animateLeft;
+
     return (
-            <div className={styles.card}>
+            <div 
+                ref={cardRef}
+                className={`${styles.card} 
+                    ${isVisible ? styles.visible : ""} 
+                    ${isVisible ? directionClass : ""}`}
+                >
                 <img src={img} alt="card" className={styles.cardImage} />
                 <div className={styles.gradient}></div>
                 <div className={styles.texts}>

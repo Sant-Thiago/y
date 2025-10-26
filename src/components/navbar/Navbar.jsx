@@ -62,9 +62,6 @@ export default function Navbar({
         const handleScroll = () => {
             const scrolled = window.scrollY;
 
-            console.log(scrolled);
-            
-
             if (scrolled > navbarHeight * 5) {
                 setHide(false);
             } else if (scrolled > navbarHeight) {

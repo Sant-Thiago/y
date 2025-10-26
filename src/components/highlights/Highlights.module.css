@@ -6,7 +6,7 @@
 
     /* gap: 50px; */
 
-    margin: 0px auto;
+    margin: 40px auto;
 }
 
 .text {
@@ -27,5 +27,31 @@
 
 .img {
     height: 320px;
+    opacity: 0;
 
+    border-radius: 8px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 0;
+    
+    gap: 60px;
+}
+
+
+.animateLeft {
+    animation: slideInLeft 0.8s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

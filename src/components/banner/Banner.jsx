@@ -41,12 +41,18 @@ export default function Banner() {
     };
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            setAnimate(true);
+            setCurrent(prev => prev + 1);
+        }, 4000);
+
+        let timer;
+
         if (current <= 0) {
             const timer = setTimeout(() => {
                 setAnimate(false);
                 setCurrent(slides.length)
             }, 900);
-            return () => clearTimeout(timer);
         }
 
         if (current >= slides.length + 1) {
@@ -54,8 +60,12 @@ export default function Banner() {
                 setAnimate(false);
                 setCurrent(1);
             }, 900);
-            return () => clearTimeout(timer);
         }
+
+        return () => {
+            clearInterval(interval);
+            if (timer) clearTimeout(timer);
+        };
     }, [current, slides.length]);
 
 

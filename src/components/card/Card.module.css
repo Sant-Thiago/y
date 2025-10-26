@@ -8,18 +8,23 @@
 
 .card {
     position: relative;
-    width: 80%;
-    max-width: 1200px;
-    height: 400px;
+    width: 90%;
+    max-width: 900px;
+    height: 340px;
 
-    margin: 40px auto 88px;
+    margin: 40px auto 40px;
 
-    border-radius: 12px;
+    border-radius: 8px;
 
     overflow: hidden;
 
     cursor: pointer;
 
+    opacity: 0;
+
+    transform:  translateY(20px);
+
+    transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 .gradient {
@@ -42,13 +47,14 @@
 .texts {
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
 
     position: relative;
     padding: 8%;
 
     height: 100%;
 
-    gap: 20px;
+    /* gap: 20px; */
 }
 
 .fstText {
@@ -59,15 +65,17 @@
 
 .sndText {
     color: white;
-    font-weight: 800;
-    font-size: 80px;
+    font-weight: 700;
+    font-size: 64px;
+    /* line-height: 1; */
 }
 
 .trdText {
     color: white;
     font-weight: 600;
-    width: 70%;
+    width: 75%;
     font-size: 18px; /* 18 a 20 */
+    margin: 20px 0;
 }
 
 .btnCard {
@@ -92,3 +100,38 @@
     cursor: pointer;
 }
 
+
+.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.animateLeft {
+    animation: slideInLeft 0.8s forwards;
+}
+
+.animateTop {
+    animation: slideInTop 0.8s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

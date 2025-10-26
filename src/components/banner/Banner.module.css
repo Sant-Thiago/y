@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 172px);
     overflow: hidden;
 }
 
@@ -8,7 +8,7 @@
     display: flex;
     position: relative;
     width: 100%;
-    height: calc(100% - 76px);
+    height: calc(100% - 90px);
 }
 
 .bannerImage {
@@ -23,7 +23,7 @@
     position: absolute;
     top: 50%;
     
-    transform: translateY(-50%);
+    transform: translateY(-76px);
     
     font-size: 40px;
     color: white;
@@ -50,8 +50,10 @@
     position: absolute;
     display: flex;
 
-    bottom: 16px;
+    bottom: 28%;
     left: 50%;
+
+    z-index: 24;
 
     gap: 8px;
 

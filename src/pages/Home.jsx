@@ -20,6 +20,7 @@ export default function Home() {
                         sndText="Reserva"
                         trdText="Realizando a Reserva Online você garante seu lugar com segurança."
                         btnText="Faça sua reserva"
+
                     />
                     <Card 
                         img={ifoodImg}
@@ -27,10 +28,8 @@ export default function Home() {
                         sndText="Delivery"
                         trdText="Coma o melhor do EmpresaX em qualquer lugar! Peça nossos pratos no conforto da sua casa."
                         btnText="Faça seu pedido"
+                        animate="top"
                     />
-                </section>
-                <section>
-                    <Location />
                 </section>
                 <section>
                     <Highlights />
