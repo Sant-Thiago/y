@@ -3,6 +3,7 @@ import logoImg from '@/utils/assets/no_profile.png';
 import { useEffect, useRef, useState } from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import { FaCross, FaPlus } from 'react-icons/fa6';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 export default function Navbar({
     logoName = "logoName"
@@ -102,20 +103,22 @@ export default function Navbar({
                         <>
                         {isVisibleList ?
                             <div className={styles.navBurguer}>
-                                
-                                <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(false) }}> x </button>
-                                
-                                <ul className={styles.list}>
-                                    {visibleLinks.map((link) => (
-                                        <a href={link.href}>
-                                            {link.label}
-                                        </a>                        
-                                    ))}
-                                </ul>
+                                <div className={styles.backgroudNavBurguer}>
+                                    
+                                    <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(false) }}> x </button>
+                                    
+                                    <ul className={styles.list}>
+                                        {visibleLinks.map((link) => (
+                                            <a href={link.href}>
+                                                {link.label}
+                                            </a>
+                                        ))}
+                                    </ul>
+                                </div>
 
                             </div> 
                             : 
-                            <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(true) } }> here </button>
+                            <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(true) } }> <RxHamburgerMenu /> </button>
                         }
                         </>
                     :

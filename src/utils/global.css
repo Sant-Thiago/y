@@ -17,3 +17,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+    --redColor: rgb(61, 14, 14);
+    --goldColor: rgb(180, 151, 64);
+}

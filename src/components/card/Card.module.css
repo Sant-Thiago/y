@@ -1,3 +1,8 @@
+:root {
+    --redColor: rgb(61, 14, 14);
+    --goldColor: rgb(180, 151, 64);
+}
+
 .container {
     width: 100vw;
     /* height: calc(100vh - 78px); */
