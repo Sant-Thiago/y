@@ -4,21 +4,22 @@ import { useEffect, useRef, useState } from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import { FaCross, FaPlus } from 'react-icons/fa6';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({
     logoName = "logoName"
 }) {
     
     const links = [
-        { href: "#home", label: "Início" },
-        { href: "#location", label: "Localização" },
+        { href: "/home", label: "Início" },
+        { href: "/page", label: "Unidades" },
         { href: "#menu", label: "Cardápio" },
         { href: "#reserve", label: "Reservas" },
         { href: "#event", label: "Eventos" },
         { href: "#aboutUs", label: "Nossa História" },
         { href: "#contact", label: "Contato" }
     ];
-
+    
     const listRef = useRef(null);
     const [hide, setHide] = useState(false);
     const navbarHeight = 76;
@@ -63,7 +64,7 @@ export default function Navbar({
         const handleScroll = () => {
             const scrolled = window.scrollY;
 
-            if (scrolled > navbarHeight * 5) {
+            if (scrolled > navbarHeight * 3) {
                 setHide(false);
             } else if (scrolled > navbarHeight) {
                 setHide(true);
@@ -91,12 +92,12 @@ export default function Navbar({
 
                 <div className={styles.wrapper}>
                     
-                    <div className={styles.logo}>
+                    <Link to="/home" className={styles.logo}>
                         <img className={styles.logoImg} src={logoImg} alt="logomarca" /> 
                         <p className={styles.logoNames}>
                             {/* {logoName}     */}
                         </p>
-                    </div>
+                    </Link>
 
 
                     {isMobile ?
@@ -105,13 +106,13 @@ export default function Navbar({
                             <div className={styles.navBurguer}>
                                 <div className={styles.backgroudNavBurguer}>
                                     
-                                    <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(false) }}> x </button>
+                                    <button className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} onClick={ e => { setIsVisibleList(false) }}> x </button>
                                     
                                     <ul className={styles.list}>
                                         {visibleLinks.map((link) => (
-                                            <a href={link.href}>
+                                            <Link to={link.href}>
                                                 {link.label}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </ul>
                                 </div>
@@ -124,9 +125,9 @@ export default function Navbar({
                     :
                         <ul className={styles.list} ref={listRef}>
                             {visibleLinks.map((link) => (
-                                <a href={link.href}>
+                                <Link to={link.href}>
                                     {link.label}
-                                </a>                        
+                                </Link>                        
                             ))}
                             {isMoreOptions && 
                                 <div className={styles.dropdown}>
@@ -136,7 +137,7 @@ export default function Navbar({
                                         {isVisibleOverflowList && (
                                             <ul className={styles.overflowList}>
                                                 {overflowLinks.map(link  => (
-                                                    <a href={link.href}>{link.label}</a>
+                                                    <Link to={link.href}>{link.label}</Link>
                                                 ))}
                                             </ul>
                                         )}

@@ -3,6 +3,7 @@ import styles from "./Footer.module.css";
 import logoImg from '@/utils/assets/no_profile.png';
 import instagramIcon from "@/utils/assets/instagram.png"
 import whatsappIcon from "@/utils/assets/whatsapp.png";
+import { Link } from "react-router-dom";
 
 
 export default function Footer({
@@ -21,26 +22,26 @@ export default function Footer({
                 <div className={styles.redirections}>
                     <ul className={styles.list}>
                         <li>
-                            <a href="/page">Unidades</a>
+                            <Link to="/page">Unidades</Link>
                         </li>
                         <li>
-                            <a href="/events">Eventos</a>
+                            <Link to="/events">Eventos</Link>
                         </li>
                         <li>
-                            <a href="/contact">Contato</a>
+                            <Link to="/contact">Contato</Link>
                         </li>
                         <li>
-                            <a href="/menu">Cardápio</a>
+                            <Link to="/menu">Cardápio</Link>
                         </li>
                     </ul>
                 </div>
                 <div className={styles.politycies}>
                     <ul className={styles.list}>
                         <li>
-                            <a href="/wa.me/119991251902/trampo?">Trabalhe conosco</a>
+                            <Link to="/wa.me/119991251902/trampo?">Trabalhe conosco</Link>
                         </li>
                         <li>
-                            <a href="/politica-privacidade">Política de privacidade</a>
+                            <Link to="/politica-privacidade">Política de privacidade</Link>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +54,6 @@ export default function Footer({
                             value={inputValue} 
                             onChange={e => { setInputValue(e.target.value)} } 
                             placeholder="Seu e-mail..."    
-                            autoFocus
                         />
                         <button className={styles.button} onClick={e => { handleClick(e) }}>Inscrever</button>
                     </div>
@@ -62,10 +62,10 @@ export default function Footer({
                 <div>
                     <ul className={styles.socialList}>
                         <li>
-                            <a href="/instagram.com"><img src={instagramIcon} alt="" /></a>
+                            <Link to="/instagram.com"><img src={instagramIcon} alt="" /></Link>
                         </li>
                         <li>
-                            <a href="/wa.me.com"><img src={whatsappIcon} alt="" /></a>
+                            <Link to="/wa.me.com"><img src={whatsappIcon} alt="" /></Link>
                         </li>
                     </ul>
                 </div>

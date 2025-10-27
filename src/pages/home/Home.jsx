@@ -1,12 +1,12 @@
-import Banner from "../components/banner/Banner";
-import Card from "../components/card/Card";
-import Navbar from "../components/navbar/Navbar";
+import Banner from "../../components/banner/Banner";
+import Card from "../../components/card/Card";
+import Navbar from "../../components/navbar/Navbar";
 import styles from "./Home.module.css";
 import restaurantImg from "@/utils/assets/inner_restaurant.jpg"
 import ifoodImg from "@/utils/assets/ifood_banner.png"
-import Location from "../components/location/Location";
-import Highlights from "../components/highlights/Highlights";
-import Footer from "../components/footer/Footer";
+import Location from "../../components/location/Location";
+import Highlights from "../../components/highlights/Highlights";
+import Footer from "../../components/footer/Footer";
 
 export default function Home() {
     return(

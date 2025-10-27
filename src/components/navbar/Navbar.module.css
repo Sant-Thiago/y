@@ -71,6 +71,11 @@
     min-width: 360px;
 }
 
+
+.btnCloseBurguer {
+    margin-bottom: 24px;
+}
+
 .btnBurguer {
     width: 40px;
     height: 40px;
@@ -81,8 +86,6 @@
 
     font-size: 32px;
 
-    margin-bottom: 24px;
-    
     background-color: transparent;
     border: none;
 
