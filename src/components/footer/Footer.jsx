@@ -22,7 +22,7 @@ export default function Footer({
                 <div className={styles.redirections}>
                     <ul className={styles.list}>
                         <li>
-                            <Link to="/page">Unidades</Link>
+                            <Link to="/unidades">Unidades</Link>
                         </li>
                         <li>
                             <Link to="/events">Eventos</Link>

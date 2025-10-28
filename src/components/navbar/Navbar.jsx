@@ -12,7 +12,7 @@ export default function Navbar({
     
     const links = [
         { href: "/home", label: "Início" },
-        { href: "/page", label: "Unidades" },
+        { href: "/unidades", label: "Unidades" },
         { href: "#menu", label: "Cardápio" },
         { href: "#reserve", label: "Reservas" },
         { href: "#event", label: "Eventos" },
