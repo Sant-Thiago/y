@@ -4,7 +4,8 @@ import './App.css';
 import Home from "./pages/home/Home";
 import Units from "./pages/units/Units";
 import Layout from "./components/layout/Layout";
-import PrivacyPolicy from "./pages/policy/PrivacyPolicy";
+import PrivacyPolicy from "./pages/privacy_policy/PrivacyPolicy";
+import WorkWithUs from "./pages/work_with_us/WorkWithUs";
 
 function App() {
     return (
@@ -26,6 +27,11 @@ function App() {
                     <Route 
                         path="/politica-privacidade"
                         element={ <PrivacyPolicy />}
+                    />
+
+                    <Route
+                        path="/trabalhe-conosco"
+                        element={ <WorkWithUs /> }
                     />
                 </Routes>
             </Layout>

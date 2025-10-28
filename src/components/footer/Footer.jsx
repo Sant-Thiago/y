@@ -38,7 +38,7 @@ export default function Footer({
                 <div className={styles.politycies}>
                     <ul className={styles.list}>
                         <li>
-                            <Link to="/wa.me/119991251902/trampo?">Trabalhe conosco</Link>
+                            <Link to="/trabalhe-conosco">Trabalhe conosco</Link>
                         </li>
                         <li>
                             <Link to="/politica-privacidade">Política de privacidade</Link>
