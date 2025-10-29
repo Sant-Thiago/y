@@ -16,8 +16,8 @@ export default function Navbar({
         { href: "#menu", label: "Cardápio" },
         { href: "#reserve", label: "Reservas" },
         { href: "#event", label: "Eventos" },
-        { href: "#aboutUs", label: "Nossa História" },
-        { href: "#contact", label: "Contato" }
+        { href: "/quem-somos", label: "Nossa História" },
+        { href: "/trabalhe-conosco", label: "Contato" }
     ];
     
     const listRef = useRef(null);
