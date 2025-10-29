@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import styles from "./WorkWithUs.module.css";
 import companyImg from "@/utils/assets/company.jpeg";
 import trabalheConoscoImg from "@/utils/assets/trabalhe_conosco.png";
+import LilBanner from "../../components/lil_banner/LilBanner";
 
 
 // essa tela tem que ter uma integração para enviar email
@@ -33,11 +34,10 @@ export default function WorkWithUs({
         <>
             <Navbar />
             <main className={styles.container}>
-                <section className={styles.wrapperImg}>
-                    <img src={img} alt="image" className={styles.img} />
-                    <div className={styles.backgroundImg}></div>
-                    <h1 className={styles.textImg}>Fale conosco</h1>
-                </section>
+                <LilBanner 
+                    image={ img }
+                    text={"Fale conosco"}
+                />
 
                 <section className={styles.wrapper}>
                     <h2>Dúvidas, críticas ou sugestões, entre em contato conosco.</h2>

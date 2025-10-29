@@ -6,6 +6,7 @@ import Units from "./pages/units/Units";
 import Layout from "./components/layout/Layout";
 import PrivacyPolicy from "./pages/privacy_policy/PrivacyPolicy";
 import WorkWithUs from "./pages/work_with_us/WorkWithUs";
+import WhoWeAre from "./pages/who_we_are/WhoWeAre";
 
 function App() {
     return (
@@ -32,6 +33,11 @@ function App() {
                     <Route
                         path="/trabalhe-conosco"
                         element={ <WorkWithUs /> }
+                    />
+
+                    <Route
+                        path="/quem-somos"
+                        element={ <WhoWeAre /> }
                     />
                 </Routes>
             </Layout>
