@@ -2,28 +2,36 @@
     width: 100%;
     height: calc(100vh - 172px);
     overflow: hidden;
+    position: relative;
 }
 
 .slider {
     display: flex;
     position: relative;
     width: 100%;
-    height: calc(100% - 90px);
+    height: 100%;
+    transform: translateX(-100vw);
 }
 
 .bannerImage {
-    width: 100vw;
+    width: 100%;
     height: 100%;
+
+    flex-shrink: 0;
 
     object-fit: cover;
     object-position: center;
+}
+
+.hide {
+    display: none;
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     
-    transform: translateY(-76px);
+    transform: translateY(-50%);
     
     font-size: 40px;
     color: white;
@@ -50,7 +58,7 @@
     position: absolute;
     display: flex;
 
-    bottom: 28%;
+    bottom: 1.5rem;
     left: 50%;
 
     z-index: 24;

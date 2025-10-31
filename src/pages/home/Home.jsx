@@ -13,7 +13,9 @@ export default function Home() {
         <>
             <Navbar />
             <main className={styles.container}>
-                <Banner />
+                <Banner 
+                    draggable={false}
+                />
                 <section className={styles.sectionCards}>
                     <Card 
                         img={restaurantImg}

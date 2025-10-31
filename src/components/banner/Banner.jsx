@@ -4,80 +4,139 @@ import bannerImage from '@/utils/assets/banner_image.jpeg';
 import bannerImage2 from '@/utils/assets/banner_image_2.jpeg';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export default function Banner() {
-    const slides = [
+export default function Banner({
+    images = [
         { id: 1, img: bannerImage},
         { id: 2, img: bannerImage2},
-    ];
-    const [animate, setAnimate] = useState(true);
+    ],
+    height,
+    animationOn = true,
+    arrowOn = true,
+    timeTransition = 4000,
+    draggable = true
+}) {
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
     const [current, setCurrent] = useState(1);
     const [isAnimating, setIsAnimating] = useState(false);
-    const activeIndex = ((current - 1) % slides.length + slides.length) % slides.length;
+    
+    const currentRef = useRef(current);
+    const sliderRef = useRef(null);
+
+
+    const activeIndex = ((current - 1) % images.length + images.length) % images.length;
     const transitionDurationMs = 900
+    const extendedSlides = [images[images.length - 1], ...images, images[0]];
 
+    const setSliderTransform = (index, withTransition = true) => { 
+        if (sliderRef.current) { 
+            sliderRef.current.style.transition = withTransition ? `transform ${transitionDurationMs}ms ease` : "none"; 
+            sliderRef.current.style.transform = `translateX(-${index * 100}vw)`;
+        }
+     }
 
-    const extendedSlides = [
-        slides[slides.length - 1],
-        ...slides,
-        slides[0],
-    ];
+    const handleMouseDown = (e) => {
+        setIsDragging(true);
+        setStartX(e.pageX);
+        setSliderTransform(currentRef.current, false);
+    };
+
+    const handleMouseLeave = () => {
+        if (isDragging) handleMouseUp({ pageX: startX });
+    }
+
+    const handleMouseUp = (e) => {
+        if (!isDragging) return;
+        setIsDragging(false);
+    
+        const walk = e.pageX - startX;
+        const threshold = sliderRef.current.offsetWidth / 3;
+
+        if (walk < -threshold) {
+            nextSlide();
+        } else if (walk > threshold) {
+            prevSlide();
+        } else {
+            setSliderTransform(currentRef.current, true);
+        }
+    }
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return;
+
+        e.preventDefault();
+        
+        const walk = (e.pageX - startX);
+        const movePercentage = (walk / sliderRef.current.offsetWidth) * 100;
+
+        setSliderTransform(currentRef.current - movePercentage / 100, false);
+    }
 
     const nextSlide = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrent((prev) => prev + 1);
-        setAnimate(true);
-
-        setTimeout(() => setIsAnimating(false), transitionDurationMs);
+        if (isAnimating) return; 
+        setIsAnimating(true); 
+        
+        const next = currentRef.current + 1; 
+        currentRef.current = next; 
+        setCurrent(next); 
+        setSliderTransform(next); 
+        
+        setTimeout(() => { 
+            
+            if (currentRef.current > images.length) { 
+                currentRef.current = 1; 
+                setCurrent(1); 
+                setSliderTransform(1, false);
+            }
+            setIsAnimating(false); 
+        
+        }, transitionDurationMs);
     };
 
     const prevSlide = () => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        setCurrent((prev) => prev - 1);
-        setAnimate(true);
-
-        setTimeout(() => setIsAnimating(false), transitionDurationMs);
+        if (isAnimating) return; 
+        setIsAnimating(true); 
+        
+        const prev = currentRef.current - 1; 
+        currentRef.current = prev; 
+        setCurrent(prev); 
+        setSliderTransform(prev); 
+        
+        setTimeout(() => { 
+        
+            if (currentRef.current <= 0) { 
+                currentRef.current = images.length; 
+                setCurrent(images.length); 
+                setSliderTransform(images.length, false);
+            } 
+            setIsAnimating(false); 
+        
+        }, transitionDurationMs);
     };
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setAnimate(true);
-            setCurrent(prev => prev + 1);
-        }, 4000);
+        if (!animationOn || isDragging) return;
 
-        let timer;
-
-        if (current <= 0) {
-            const timer = setTimeout(() => {
-                setAnimate(false);
-                setCurrent(slides.length)
-            }, 900);
-        }
-
-        if (current >= slides.length + 1) {
-            const timer = setTimeout(() => {
-                setAnimate(false);
-                setCurrent(1);
-            }, 900);
-        }
-
-        return () => {
-            clearInterval(interval);
-            if (timer) clearTimeout(timer);
-        };
-    }, [current, slides.length]);
+        const interval = setInterval(() => nextSlide(), timeTransition);
+        
+        return () => clearInterval(interval)
+    }, [animationOn, isDragging]);
 
 
 
     return (
-        <section className={styles.container}>
+        <div 
+            className={styles.container}
+            style={{ height }}    
+            onMouseDown={e => e.preventDefault()}
+        >
             <div
+                ref={sliderRef}
                 className={styles.slider}
-                style={{ 
-                    transform: `translateX(-${current * 100}vw)`, 
-                    transition: animate ? "transform 0.9s ease" : "none" 
-                }}
+                onMouseDown={draggable ? handleMouseDown : undefined}
+                onMouseLeave={draggable ? handleMouseLeave : undefined}
+                onMouseUp={draggable ? handleMouseUp : undefined}
+                onMouseMove={draggable ? handleMouseMove : undefined}
             >
                 {extendedSlides.map((s, idx) => (
                     <img 
@@ -85,35 +144,41 @@ export default function Banner() {
                         alt="banner" 
                         className={styles.bannerImage} 
                         key={idx}
+                        draggable={false}
                     />
                 ))}
                 
             </div>
-            <button
-                onClick={prevSlide}
-                className={`${styles.arrow} ${styles.arrowPrev}`}
-            >
-                <IoIosArrowBack />
-            </button>
-            <button
-                onClick={nextSlide}
-                className={`${styles.arrow} ${styles.arrowNext}`}
-            >
-                <IoIosArrowForward />
-            </button>
+            {arrowOn && (
+                <>
+                    <button
+                        onClick={prevSlide}
+                        className={`${styles.arrow} ${styles.arrowPrev}`}
+                    >
+                        <IoIosArrowBack />
+                    </button>
+                    <button
+                        onClick={nextSlide}
+                        className={`${styles.arrow} ${styles.arrowNext}`}
+                    >
+                        <IoIosArrowForward />
+                    </button>
+                </>
+            )}
 
             <ul className={styles.indicators}>
-                {slides.map((s, idx) => (
+                {images.map((s, idx) => (
                     <li 
                         key={idx}
                         className={`${styles.dot} ${idx === activeIndex ? styles.active : ""}`}
                         onClick={() => {
+                            currentRef.current = idx + 1;
                             setCurrent(idx + 1);
-                            setAnimate(true);
+                            setSliderTransform(idx + 1, true);
                         }}
                     />
                 ))}
             </ul>
-        </section>
+        </div>
     )
 }

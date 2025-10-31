@@ -7,6 +7,7 @@ import Layout from "./components/layout/Layout";
 import PrivacyPolicy from "./pages/privacy_policy/PrivacyPolicy";
 import WorkWithUs from "./pages/work_with_us/WorkWithUs";
 import WhoWeAre from "./pages/who_we_are/WhoWeAre";
+import Menu from "./pages/menu/Menu";
 
 function App() {
     return (
@@ -38,6 +39,11 @@ function App() {
                     <Route
                         path="/quem-somos"
                         element={ <WhoWeAre /> }
+                    />
+
+                    <Route
+                        path="/cardapio"
+                        element={ <Menu /> }
                     />
                 </Routes>
             </Layout>

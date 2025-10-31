@@ -1,0 +1,112 @@
+.container {
+    margin-top: 78px;
+
+    height: 500px;
+}
+
+.cardapio {
+    margin: 8px 0;
+}
+
+.wrapperNav {
+    display: flex;
+    position: relative;
+
+    /* overflow: hidden; */
+}
+
+.wrapperNav > button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 50px;
+    height: 50px;
+    
+    background-color: rgb(133, 0, 73);
+    color: white;
+
+    border-radius: 16px 0;
+    border: none;
+
+    z-index: 1;
+
+    cursor: pointer;
+}
+
+.scroll {
+    overflow-x: scroll; /* Com esse o conteudo é visivel dps do wine*/
+    /* overflow: hidden; Com esse não scrola  */
+    margin-left: 25px;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.scroll {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    padding-left: 25px;
+
+    list-style: none;
+    
+    border: 2px solid rgb(221, 221, 221);
+    border-right: none;
+    border-top-left-radius: 16px;    
+}
+
+.navbar > li {
+    height: 44px;
+    align-items: center;
+    align-content: center;
+}
+
+.navbar > li > a {
+    display: block;
+    
+    height: 100%;
+    width: max-content;
+
+    padding: 0 10px;
+
+    align-content: center;
+
+    color: rgb(151, 151, 151);
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.navbar > li > .active {
+    color: black;
+    position: relative;
+}
+
+.border {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+
+    content: "";
+
+    display: block;
+
+    height: 2px;
+    width: 100%;
+
+    background-color: rgb(133, 0, 73);
+    z-index: 14;
+
+}

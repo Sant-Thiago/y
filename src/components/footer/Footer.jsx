@@ -31,7 +31,7 @@ export default function Footer({
                             <Link to="/contact">Contato</Link>
                         </li>
                         <li>
-                            <Link to="/menu">Cardápio</Link>
+                            <Link to="/cardapio">Cardápio</Link>
                         </li>
                     </ul>
                 </div>
