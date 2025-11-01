@@ -1,7 +1,5 @@
 .container {
     margin-top: 78px;
-
-    height: 500px;
 }
 
 .cardapio {
@@ -11,8 +9,7 @@
 .wrapperNav {
     display: flex;
     position: relative;
-
-    /* overflow: hidden; */
+    margin: 16px 0;
 }
 
 .wrapperNav > button {
@@ -34,37 +31,32 @@
     cursor: pointer;
 }
 
-.scroll {
-    overflow-x: scroll; /* Com esse o conteudo é visivel dps do wine*/
-    /* overflow: hidden; Com esse não scrola  */
-    margin-left: 25px;
-}
-
-.scroll::-webkit-scrollbar {
+.navbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
-}
-
-.scroll {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
 }
 
 .navbar {
     display: flex;
     align-items: center;
-
+    
     width: max-content;
+    height: 48px;
     
     scroll-behavior: smooth;
+    -ms-overflow-style: none; /* IE/Edge */
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
 
-    padding-left: 25px;
+    padding-left: 50px;
+
+    position: relative;
+
+    overflow-x: scroll;
 
     list-style: none;
     
-    border: 2px solid rgb(221, 221, 221);
-    border-right: none;
     border-top-left-radius: 16px;    
+    border-top: 2px solid rgb(221, 221, 221);
 }
 
 .navbar > li {
@@ -78,6 +70,8 @@
     
     height: 100%;
     width: max-content;
+
+    position: relative;
 
     padding: 0 10px;
 
@@ -94,9 +88,9 @@
     position: relative;
 }
 
-.border {
+.active::before {
     position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: 0;
 
     content: "";
@@ -107,6 +101,115 @@
     width: 100%;
 
     background-color: rgb(133, 0, 73);
-    z-index: 14;
+    z-index: 1;
+}
 
+.wrapperNav > .lineBottom {
+    background-color: rgb(221, 221, 221);
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.wrapperFoods {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titleWrapperFoods {
+    width: 100%;
+    position: relative;
+}
+
+.titleWrapperFoods > p {
+    align-items: center;
+    margin: auto;
+    width: fit-content;
+    padding: 0 8px;
+    background-color: white;
+
+    color: rgb(156, 29, 29);
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+}
+
+.titleWrapperFoods > p::before {
+    content: "";
+    display: block;
+    
+    width: 100%;
+    height: 1px;
+
+    background-color: rgb(212, 212, 212);
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform: translateY(-50%);
+
+    z-index: -1;
+}
+
+.foods {
+    width: 96%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.foods > h2 {
+    margin: 24px 0;
+}
+
+.wrapperCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.card {
+    display: flex;
+    gap: 12px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.wrapperImage img {
+    width: 112px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.wrapperInfoFood {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.priceAndCode {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.priceAndCode > .price {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.priceAndCode > .code {
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+}
+
+.description {
+    color: rgb(102, 102, 102);
 }
