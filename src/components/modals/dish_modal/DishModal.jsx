@@ -1,6 +1,7 @@
 import { IoShareSocialOutline } from "react-icons/io5";
 import styles from "./DishModal.module.css";
 import { useEffect, useRef, useState } from "react";
+import Toast from "../../toast/Toast";
 
 export default function DishModal({ price, description, image, id, name, onClose }) {
     const modalRef = useRef(null);
@@ -13,6 +14,18 @@ export default function DishModal({ price, description, image, id, name, onClose
     const [animationDone, setAnimationDone] = useState(false);
     const [closeByDrag, setCloseByDrag] = useState(false)
 
+    const [toastVisible, setToastVisible] = useState(false);
+    const [toastMsg, setToastMsg] = useState("");
+
+
+    const showToast = (msg) => {
+      setToastMsg(msg);
+      setToastVisible(true);
+
+      setTimeout(() => {
+        setToastVisible(false);
+      }, 1500)
+    }
 
     const closeModal = () => {
         setTransitionEnabled(true);
@@ -57,6 +70,28 @@ export default function DishModal({ price, description, image, id, name, onClose
     const handleAnimationEnd = () => {
         setAnimationDone(true);
     }
+
+    const handleShare = async () => {
+      const url = window.location.origin + "/cardapio?dish=" + id;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: name,
+            text: description,
+            url,
+          });
+          showToast("Link compartilhado com sucesso!");
+        } catch {}
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          showToast("Link copiado para a área de transferência!");
+        } catch {
+          showToast("Erro ao copiar link.");
+        }
+      }
+    };
 
     useEffect(() => {
         setVisible(true);
@@ -104,7 +139,12 @@ export default function DishModal({ price, description, image, id, name, onClose
           <div className={styles.wrapperInfo}>
             <div className={styles.wrapperTitle}>
               <h3>{name}</h3>
-              <IoShareSocialOutline size={24} color="gray" className={styles.share} />
+              <IoShareSocialOutline 
+                size={24} 
+                color="gray" 
+                className={styles.share} 
+                onClick={handleShare}  
+              />
             </div>
             <p className={styles.price}>
               {price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
@@ -112,6 +152,11 @@ export default function DishModal({ price, description, image, id, name, onClose
             <p className={styles.description}>{description}</p>
             <p className={styles.code}>Cód: {id}</p>
           </div>
+          <Toast
+            message={toastMsg}
+            visible={toastVisible}
+            onClose={() => setToastVisible(false)}
+          />
         </div>
       </div>
     </div>

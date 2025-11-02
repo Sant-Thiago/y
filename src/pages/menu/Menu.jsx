@@ -11,15 +11,25 @@ import wineImage from "@/utils/assets/wine.png";
 import Banner from "../../components/banner/Banner";
 import { useEffect, useRef, useState } from "react";
 import DishModal from "../../components/modals/dish_modal/DishModal";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Menu({}) {
+    const navigate = useNavigate();
+
     const navRef = useRef(null);
+    const sectionRefs = useRef([]);
+    const dishRef = useRef([]);
+
     const [selected, setSelected] = useState(0);
     const [isFixed, setIsFixed] = useState(false);
     const [navHeight, setNavHeight] = useState(0);
     const [isClicking, setIsClicking] = useState(false);
-    const sectionRefs = useRef([]);
     const [selectedDish, setSelectedDish] = useState(null);
+    const [linkProcessed, setLinkProcessed] = useState(false);
+
+
+    const [searchParams] = useSearchParams();
+    const dishParam = searchParams.get("dish");
 
     const info = [
         {
@@ -81,6 +91,15 @@ export default function Menu({}) {
         },
     ]
 
+    const handleCloseModal = () => {
+        setSelectedDish(null);
+
+        // Remove o parâmetro dish da URL sem recarregar a página
+        const params = new URLSearchParams(searchParams);
+        params.delete("dish");
+        navigate({ search: params.toString() }, { replace: true });
+    };
+
     const handleClickDish = (dish) => {
         setSelectedDish(dish);
     }
@@ -103,6 +122,29 @@ export default function Menu({}) {
 
         setTimeout(() => setIsClicking(false), 500);
     };
+
+    useEffect(() => {
+        if (!dishParam || linkProcessed) return;
+        
+        // Achar o prato com base no ID da URL
+        const foundDish = info.flatMap(cat => cat.dishes).find(d => d.id == dishParam);
+        if (!foundDish) return
+            
+        // Rolar até a categoria do prato
+        if (dishRef.current[dishParam]) {
+            const el = dishRef.current[dishParam];
+            const top = el.getBoundingClientRect().top + window.scrollY - 320;
+            setTimeout(() => {
+                window.scrollTo({ top, behavior: "smooth" });
+            }, 300);
+        }
+
+            // Esperar rolar e abrir o modal
+        setTimeout(() => {
+            setSelectedDish(foundDish);
+            setLinkProcessed(true);
+        }, 600);
+    }, [dishParam, info]);
 
     useEffect(() => {
         const nav = navRef.current;
@@ -202,6 +244,7 @@ export default function Menu({}) {
                                             <div 
                                                 className={styles.card}
                                                 onClick={() => { handleClickDish(dish) }}
+                                                ref={(el) => (dishRef.current[dish.id] = el)}
                                             >
                                                 <div className={styles.wrapperImage}>
                                                     <img src={dish.image} alt="comida" />
@@ -235,7 +278,7 @@ export default function Menu({}) {
                 {selectedDish && (
                     <DishModal 
                         {...selectedDish}
-                        onClose={() => setSelectedDish(null)}
+                        onClose={handleCloseModal}
                     />
                 )}
             </main>
