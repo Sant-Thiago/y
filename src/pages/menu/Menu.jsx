@@ -10,6 +10,7 @@ import wineImage from "@/utils/assets/wine.png";
 
 import Banner from "../../components/banner/Banner";
 import { useEffect, useRef, useState } from "react";
+import DishModal from "../../components/modals/dish_modal/DishModal";
 
 export default function Menu({}) {
     const navRef = useRef(null);
@@ -18,6 +19,7 @@ export default function Menu({}) {
     const [navHeight, setNavHeight] = useState(0);
     const [isClicking, setIsClicking] = useState(false);
     const sectionRefs = useRef([]);
+    const [selectedDish, setSelectedDish] = useState(null);
 
     const info = [
         {
@@ -78,6 +80,10 @@ export default function Menu({}) {
             ],
         },
     ]
+
+    const handleClickDish = (dish) => {
+        setSelectedDish(dish);
+    }
 
     const handleClick = (index) => {
         const element = sectionRefs.current[index];
@@ -193,7 +199,10 @@ export default function Menu({}) {
                                     <h2>{it.category}</h2>
                                     <div className={styles.wrapperCards}>
                                         {it.dishes.map((dish) => (
-                                            <div className={styles.card}>
+                                            <div 
+                                                className={styles.card}
+                                                onClick={() => { handleClickDish(dish) }}
+                                            >
                                                 <div className={styles.wrapperImage}>
                                                     <img src={dish.image} alt="comida" />
                                                 </div>
@@ -223,6 +232,12 @@ export default function Menu({}) {
                         ))}
                     </section>
                 </section>
+                {selectedDish && (
+                    <DishModal 
+                        {...selectedDish}
+                        onClose={() => setSelectedDish(null)}
+                    />
+                )}
             </main>
             <Footer />
         </>
