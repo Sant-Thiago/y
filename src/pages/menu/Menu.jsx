@@ -6,53 +6,135 @@ import bannerImage2 from '@/utils/assets/banner_image_2.jpeg';
 import food1 from "@/utils/assets/food_1.jpg";
 import food2 from "@/utils/assets/food_2.jpg";
 import food4 from "@/utils/assets/food_4.jpg";
+import wineImage from "@/utils/assets/wine.png";
 
 import Banner from "../../components/banner/Banner";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Menu({}) {
+    const navRef = useRef(null);
     const [selected, setSelected] = useState(0);
+    const [isFixed, setIsFixed] = useState(false);
+    const [navHeight, setNavHeight] = useState(0);
+    const [isClicking, setIsClicking] = useState(false);
+    const sectionRefs = useRef([]);
 
-    const cardapioInfo = [
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Entrada", itens: []},
-        {type: "Carnes", itens: []},
-        {type: "Bebidas", itens: []},
-        {type: "Carta de Vinhos", itens: []},
-    ];
-
-    const pratos = [
-        {img: food1, name: "Entradinha de Bruceta", price: 69.00, code: 420, description: "Bruceta quente forradinha hahahah"},
-        {img: food4, name: "Entradinha de Cruzinho", price: 3.00, code: 30, description: "Cruzinho apertado bem passado"}
+    const info = [
+        {
+            id: 1,
+            category: "Entradinhas",
+            dishes: [
+                {
+                    id: 429,
+                    name: "Entradinha de Bruceta",
+                    price: 69.00,
+                    description: "Bruceta quente forradinha hahahhaaa",
+                    image: food1,
+                }, {
+                    id: 30,
+                    name: "Entradinha de Cruizinho",
+                    price: 3.00,
+                    description: "Cruzinho apertado bem passado",
+                    image: food2,
+                }
+            ]
+        },
+        {
+            id: 2,
+            category: "Carnes",
+            dishes: [
+                {
+                    id: 101,
+                    name: "Picanha na Brasa",
+                    price: 89.9,
+                    description: "Corte nobre de picanha assada no carvão, suculenta e dourada.",
+                    image: food4,
+                }, {
+                    id: 102,
+                    name: "Costela ao Molho Barbecue",
+                    price: 74.5,
+                    description: "Costela bovina desfiando, coberta com molho barbecue artesanal.",
+                    image: food2,
+                },
+            ],
+        },
+        {
+            id: 3,
+            category: "Bebidas",
+            dishes: [
+                {   
+                    id: 201,
+                    name: "Caipirinha Clássica",
+                    price: 22.0,
+                    description: "Feita com cachaça artesanal, limão fresco e açúcar.",
+                    image: food1,
+                }, {
+                    id: 202,
+                    name: "Suco Natural de Maracujá",
+                    price: 12.0,
+                    description: "Suco natural e gelado, feito com polpa fresca de maracujá.",
+                    image: food2,
+                },    
+            ],
+        },
     ]
 
     const handleClick = (index) => {
+        const element = sectionRefs.current[index];
+        const offset = -100;
+        
+        if (!element) return;
+
+        const top = element.getBoundingClientRect().top + window.scrollY + offset;
+        
         setSelected(index);
+        setIsClicking(true);
+
+        window.scrollTo({
+            top,
+            behavior: "smooth"
+        })
+
+        setTimeout(() => setIsClicking(false), 500);
     };
+
+    useEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
+
+        setNavHeight(nav.offsetHeight);
+
+        const originalNavTop = nav.getBoundingClientRect().top + window.scrollY;
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            setIsFixed(scrollY >= originalNavTop);
+
+            if (isClicking) return;
+
+            const offset = -150;
+            sectionRefs.current.forEach((section, idx) => {
+                if (!section) return;
+
+                const top = section.getBoundingClientRect().top + window.scrollY + offset;
+                const bottom = top + section.offsetHeight;
+
+                if (window.scrollY >= top && window.scrollY < bottom) {
+                    setSelected(idx);
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [isClicking]);
 
     return (
         <>
-            <Navbar />
+            <Navbar 
+                hideAfterScroll={true}
+            />
             <main className={styles.container}>
                 <section className={styles.banner}>
                     <Banner 
@@ -63,11 +145,17 @@ export default function Menu({}) {
                    />
                 </section>
                 <section className={styles.cardapio}>
-                    <div className={styles.wrapperNav}>
-                        <button>wine</button>
-                        {cardapioInfo && (
+                    <div 
+                        ref={navRef} 
+                        className={`${styles.wrapperNav} ${isFixed ? styles.fixed : ""}`}
+                    >
+                        <div className={styles.lineTop}></div>
+                        <button className={styles.wineButton}>
+                            <img src={wineImage} alt="wine" />
+                        </button>
+                        {info && (
                             <ul className={styles.navbar}>
-                                {cardapioInfo.map((it, idx) => (
+                                {info.map((it, idx) => (
                                     <li 
                                         key={idx}
                                         onClick={() => handleClick(idx)}
@@ -75,7 +163,7 @@ export default function Menu({}) {
                                         <a 
                                             className={selected == idx ? styles.active : ""}
                                         >
-                                            {it.type}
+                                            {it.category}
                                             <div className={selected == idx ? styles.border : ""}></div>
                                         </a>
                                     </li>
@@ -88,42 +176,52 @@ export default function Menu({}) {
                         <div className={styles.lineBottom}></div>
                     </div>
 
-                    <div className={styles.wrapperFoods}>
-                        <div className={styles.titleWrapperFoods}>
-                            <p>Entradinhas</p>
-                        </div>
-                        
-                        <div className={styles.foods}>
-                            <h2>Entradinhas</h2>
-                            <div className={styles.wrapperCards}>
-                                {pratos && pratos.map((it, idx) => (
-                                    <div className={styles.card}>
-                                        <div className={styles.wrapperImage}>
-                                            <img src={it.img} alt="comida" />
-                                        </div>
-                                        <div className={styles.wrapperInfoFood}>
-                                            <h3 className={styles.title}>{it.name}</h3>
-                                            <div className={styles.priceAndCode}>
-                                                <p className={styles.price}>
-                                                    {it.price.toLocaleString("pt-BR", {
-                                                        style: "currency",
-                                                        currency: "BRL",
-                                                    })} 
-                                                </p>
-                                                <p className={styles.code}>
-                                                    Cód: {it.code}
-                                                </p>
-                                            </div>
-                                            <p className={styles.description}>
-                                                {it.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
+                    {isFixed && <div style={{ height: navHeight + 16}}></div>}
 
+                    <section className={styles.wrapperFoods}>
+                        {info && info.map((it, idx) => (
+                            <div 
+                                key={it.id}
+                                className={styles.cotainerFoods}
+                                ref={(el) => (sectionRefs.current[idx] = el)}
+                            >
+                                <div className={styles.titleFoods}>
+                                    <p>{it.category}</p>
+                                </div>
+                                
+                                <div className={styles.foods}>
+                                    <h2>{it.category}</h2>
+                                    <div className={styles.wrapperCards}>
+                                        {it.dishes.map((dish) => (
+                                            <div className={styles.card}>
+                                                <div className={styles.wrapperImage}>
+                                                    <img src={dish.image} alt="comida" />
+                                                </div>
+                                                <div className={styles.wrapperInfoFood}>
+                                                    <h3 className={styles.title}>{it.name}</h3>
+                                                    <div className={styles.priceAndCode}>
+                                                        <p className={styles.price}>
+                                                            {dish.price.toLocaleString("pt-BR", {
+                                                                style: "currency",
+                                                                currency: "BRL",
+                                                            })} 
+                                                        </p>
+                                                        <p className={styles.code}>
+                                                            Cód: {dish.id}
+                                                        </p>
+                                                    </div>
+                                                    <p className={styles.description}>
+                                                        {dish.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        ))}
+                    </section>
                 </section>
             </main>
             <Footer />

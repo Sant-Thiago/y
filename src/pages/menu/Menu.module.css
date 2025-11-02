@@ -1,5 +1,5 @@
 .container {
-    margin-top: 78px;
+    margin: 78px 0 96px;
 }
 
 .cardapio {
@@ -10,15 +10,33 @@
     display: flex;
     position: relative;
     margin: 16px 0;
+    background-color: white;
+
+    transition: all ease 0.2s ;
 }
 
-.wrapperNav > button {
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1);
+    z-index: 2;
+    margin: 0;
+}
+
+.wineButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: absolute;
     top: 0px;
     left: 0px;
 
     width: 50px;
     height: 50px;
+
     
     background-color: rgb(133, 0, 73);
     color: white;
@@ -30,6 +48,11 @@
 
     cursor: pointer;
 }
+
+.wineButton > img {
+    height: 60%;
+}
+
 
 .navbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
@@ -56,7 +79,6 @@
     list-style: none;
     
     border-top-left-radius: 16px;    
-    border-top: 2px solid rgb(221, 221, 221);
 }
 
 .navbar > li {
@@ -104,6 +126,16 @@
     z-index: 1;
 }
 
+.wrapperNav > .lineTop {
+    background-color: rgb(221, 221, 221);
+    width: 98%;
+    height: 2px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+
+}
+
 .wrapperNav > .lineBottom {
     background-color: rgb(221, 221, 221);
     width: 100%;
@@ -113,19 +145,20 @@
 }
 
 
-.wrapperFoods {
+.cotainerFoods {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin: 32px 0;
 }
 
-.titleWrapperFoods {
+.titleFoods {
     width: 100%;
     position: relative;
 }
 
-.titleWrapperFoods > p {
+.titleFoods > p {
     align-items: center;
     margin: auto;
     width: fit-content;
@@ -139,7 +172,7 @@
     font-size: 14px;
 }
 
-.titleWrapperFoods > p::before {
+.titleFoods > p::before {
     content: "";
     display: block;
     
@@ -163,7 +196,7 @@
 }
 
 .foods > h2 {
-    margin: 24px 0;
+    margin: 0 0 16px;
 }
 
 .wrapperCards {

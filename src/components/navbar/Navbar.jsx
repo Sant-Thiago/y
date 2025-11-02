@@ -7,7 +7,9 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
 export default function Navbar({
-    logoName = "logoName"
+    logoName = "logoName",
+    hideOnScroll = true,
+    hideAfterScroll = false
 }) {
     
     const links = [
@@ -34,17 +36,16 @@ export default function Navbar({
 
     useEffect(() => {
         const list = listRef?.current;
-
+        
         const calculateVisible = () => {
-            if (!list) return;
-            if (isMobile) return;
-
+            if (!list || isMobile) return;
+            
             const listWidth = list.offsetWidth;
             const children = Array.from(list.children);
-
+            
             let totalWidth = 0;
             let lastVisibleIndex = children.length - 1;
-
+            
             for (let i = 0; i < children.length; i++) {
                 totalWidth += children[i].offsetWidth + 32;
                 if (totalWidth > listWidth) {
@@ -52,19 +53,21 @@ export default function Navbar({
                     break;
                 }
             }
-
+            
             setVisibleLinks(links.slice(0, lastVisibleIndex + 1));
             setOverflowLinks(links.slice(lastVisibleIndex + 1));
-
+            
             if (lastVisibleIndex < children.length - 1) {
                 setIsMoreOptions(true);
             } else setIsMoreOptions(false);
         };
-
+        
         const handleScroll = () => {
+            if (!hideOnScroll) return;
+
             const scrolled = window.scrollY;
 
-            if (scrolled > navbarHeight * 3) {
+            if (scrolled > navbarHeight * 3 && !hideAfterScroll) {
                 setHide(false);
             } else if (scrolled > navbarHeight) {
                 setHide(true);
@@ -72,17 +75,17 @@ export default function Navbar({
         };
 
         
-        window.addEventListener("scroll", handleScroll);
+        if (hideOnScroll) window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", calculateVisible);
         
         calculateVisible()
 
         return () => {
             window.removeEventListener("resize", calculateVisible);
-            window.removeEventListener("scroll", handleScroll);
+            if (hideOnScroll) window.removeEventListener("scroll", handleScroll);
         };        
 
-    }, []);
+    }, [hideOnScroll, isMobile]);
 
     return(
         <header 
