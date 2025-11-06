@@ -1,0 +1,75 @@
+.titleWines {
+    padding: 8px 16px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.wines {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;   
+}
+
+.cardWine {
+    padding: 16px;
+    /* background-color: rgb(230, 205, 132); */
+    display: flex;
+
+    gap: 16px;
+
+    min-height: 300px;
+}
+
+.cardWine > .wrapperImage {
+    height: 100%;
+}
+
+.cardWine > .wrapperImage > img {
+    width: 112px;
+    object-fit: cover;
+    border-radius: 8px;
+
+    height: 65%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.288);
+}
+
+.wrapperInfoWine {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.wrapperInfoWine > .priceAndCode > .price {
+    font-weight: 500;
+}
+
+.wrapperTag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    width: 100%;
+
+    margin-top: 8px;
+}
+
+.wrapperTag > div {
+    display: flex;
+
+    padding: 4px 8px;
+    font-size: 12px;
+
+    gap: 8px;
+
+    border-radius: 30px;
+    
+    background-color: rgb(235, 235, 235);
+
+    white-space: nowrap;
+}
+
+.wrapperTag > div > .icon {
+    font-size: 16px;
+}

@@ -1,5 +1,3 @@
-// bug, se eu clicar em uma opção da nav, e dps clicar no wine para abrir o nav do wine, a função de deixar a nav fixed buga
-
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import styles from "./Menu.module.css";
@@ -19,6 +17,9 @@ import { VscSettings } from "react-icons/vsc";
 import { FaFlag, FaMapMarkerAlt } from "react-icons/fa";
 import { GiGrapes, GiWineGlass } from "react-icons/gi";
 import { MdWaterDrop } from "react-icons/md";
+import WineModal from "../../components/modals/wine_modal/WineModal";
+import WineSection from "../../components/wine_section/WineSection";
+import DishSection from "../../components/dish_section/DishSection";
 
 export default function Menu({
     name
@@ -26,22 +27,30 @@ export default function Menu({
     const navigate = useNavigate();
 
     const navRef = useRef(null);
-    const sectionRefs = useRef([]);
-    const sectionWinesRefs = useRef([]);
+    
     const dishRef = useRef([]);
+    const wineRef = useRef([])
+    
+    const sectionDishesRefs = useRef([]);
+    const sectionWinesRefs = useRef([]);
+    
+    const originalNavTopRef = useRef(null);
+    const isFixedRef = useRef(false);
 
     const [selected, setSelected] = useState(0);
     const [isFixed, setIsFixed] = useState(false);
     const [navHeight, setNavHeight] = useState(0);
     const [isClicking, setIsClicking] = useState(false);
     const [selectedDish, setSelectedDish] = useState(null);
+    const [selectedWine, setSelectedWine] = useState(null);
     const [linkProcessed, setLinkProcessed] = useState(false);
-
+    const [navPosition, setNavPosition] = useState(null);
 
     const [showWineMenu, setShowWineMenu] = useState(false);
 
     const [searchParams] = useSearchParams();
     const dishParam = searchParams.get("dish");
+    const wineParam = searchParams.get("wine");
 
     const infoFoods = [
         {
@@ -218,6 +227,7 @@ export default function Menu({
 
     const handleCloseModal = () => {
         setSelectedDish(null);
+        setSelectedWine(null);
 
         // Remove o parâmetro dish da URL sem recarregar a página
         const params = new URLSearchParams(searchParams);
@@ -225,18 +235,22 @@ export default function Menu({
         navigate({ search: params.toString() }, { replace: true });
     };
 
-    const handleClickDish = (dish) => {
+    const handleSelectDish = (dish) => {
         setSelectedDish(dish);
     }
 
     const handleClick = (index) => {
-        const element = sectionRefs.current[index];
+        const element = sectionDishesRefs.current[index];
         const offset = -100;
         
         const top = element.getBoundingClientRect().top + window.scrollY + offset;
 
         scrollOnItem(element, top, index);
     };
+
+    const handleSelectWine = (wine) => {
+        setSelectedWine(wine);
+    }
 
     const handleClickWine = (index) => {
         const element = sectionWinesRefs.current[index];        
@@ -267,16 +281,24 @@ export default function Menu({
     }
 
     useEffect(() => {
-        if (!dishParam || linkProcessed) return;
+        const nav = navRef.current;
+        if (!nav) return;
+        setNavPosition(nav.getBoundingClientRect().top + window.scrollY);
+    }, []);
+
+    const linkHandler = (param, infos, ref, types, offset, functionSelected, functionOptional) => {
+        if (!param) return;
+
+        if (functionOptional) functionOptional(true);
         
         // Achar o prato com base no ID da URL
-        const foundDish = infoFoods.flatMap(cat => cat.dishes).find(d => d.id == dishParam);
-        if (!foundDish) return
+        const found = infos.flatMap(cat => cat[types]).find(d => d.id == param);
+        if (!found) return
             
         // Rolar até a categoria do prato
-        if (dishRef.current[dishParam]) {
-            const el = dishRef.current[dishParam];
-            const top = el.getBoundingClientRect().top + window.scrollY - 320;
+        if (ref.current[param]) {
+            const el = ref.current[param];
+            const top = el.getBoundingClientRect().top + window.scrollY - offset;
             setTimeout(() => {
                 window.scrollTo({ top, behavior: "smooth" });
             }, 300);
@@ -284,64 +306,95 @@ export default function Menu({
 
             // Esperar rolar e abrir o modal
         setTimeout(() => {
-            setSelectedDish(foundDish);
+            functionSelected(found)
             setLinkProcessed(true);
         }, 600);
-    }, [dishParam, infoFoods]);
+    }
+
+    useEffect(() => {
+        if (linkProcessed) return;
+        
+        linkHandler(
+            dishParam,
+            infoFoods, 
+            dishRef,
+            "dishes",
+            320,
+            setSelectedDish
+        );
+
+        linkHandler(
+            wineParam,
+            infoWines,
+            wineRef,
+            "wines",
+            200,
+            setSelectedWine,
+            setShowWineMenu
+        )
+        
+    }, [dishParam, wineParam, infoFoods, infoWines]);
 
     useEffect(() => {
         const nav = navRef.current;
         if (!nav) return;
 
-        setNavHeight(nav.offsetHeight);
+        setTimeout(() => {
+            originalNavTopRef.current = nav.getBoundingClientRect().top + window.scrollY;
+            setNavHeight(nav.offsetHeight);
+        }, 100);
+    }, [showWineMenu]);
 
-        const originalNavTop = nav.getBoundingClientRect().top + window.scrollY;
-
-        const scrollSectionRef = () => {
-            const offset = -150;
-
-            sectionRefs.current.forEach((section, idx) => {
-                if (!section) return;
-
-                const top = section.getBoundingClientRect().top + window.scrollY + offset;
-                const bottom = top + section.offsetHeight;
-
-                if (window.scrollY >= top && window.scrollY < bottom) {
-                    setSelected(idx);
-                }
-            });
-        }
-
-        const scrollSectionWineRef = () => {
-            const offset = -150;
-
-            sectionWinesRefs.current.forEach((section, idx) => {
-                if (!section) return;
-
-                const top = section.getBoundingClientRect().top + window.scrollY + offset;
-                const bottom = top + section.offsetHeight;
-
-                if (window.scrollY >= top && window.scrollY < bottom) {
-                    setSelected(idx);
-                }
-            });
-        }
-
+    useEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;       
 
         const handleScroll = () => {
             const scrollY = window.scrollY;
+            const navTop = nav.getBoundingClientRect().top + window.scrollY;
 
-            setIsFixed(scrollY >= originalNavTop);
+            // só recalcula quando não está fixo
+            if (!isFixedRef.current && Math.abs(navTop - (originalNavTopRef.current || 0)) > 5) {
+                originalNavTopRef.current = navTop;
+            }
+
+            const shouldBeFixed = scrollY >= (originalNavTopRef.current || 0);
+            if (shouldBeFixed !== isFixedRef.current) {
+                isFixedRef.current = shouldBeFixed;
+                setIsFixed(shouldBeFixed);
+            }
 
             if (isClicking) return;
 
-            if (showWineMenu) scrollSectionWineRef(); 
-            else scrollSectionRef();
+            const refs = showWineMenu ? sectionWinesRefs.current : sectionDishesRefs.current;
+            refs.forEach((section, idx) => {
+                if (!section) return;
+                const offset = -150;
+                const top = section.getBoundingClientRect().top + window.scrollY + offset;
+                const bottom = top + section.offsetHeight;
+                if (window.scrollY >= top && window.scrollY < bottom) setSelected(idx);
+            });
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [isClicking, showWineMenu]);
+
+    // 👉 Quando troca o menu, sobe até o nav
+    useEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
+
+        setTimeout(() => {
+            
+            if (window.scrollY > navPosition + 10) {
+                window.scrollTo({
+                    top: Math.max(0, navPosition - 60), // ajusta -60 se quiser mostrar um espacinho
+                    behavior: "smooth"
+                });
+            }
+        }, 200);
+    }, [showWineMenu]);
 
     return (
         <>
@@ -432,114 +485,29 @@ export default function Menu({
 
                     {isFixed && <div style={{ height: navHeight + 16}}></div>}
                     {!showWineMenu ? (
-                        <section className={styles.wrapperFoods}>
-                            {infoFoods && infoFoods.map((it, idx) => (
-                                <div 
-                                    key={it.id}
-                                    className={styles.cotainerFoods}
-                                    ref={(el) => (sectionRefs.current[idx] = el)}
-                                >
-                                    <div className={styles.titleFoods}>
-                                        <p>{it.category}</p>
-                                    </div>
-                                    
-                                    <div className={styles.foods}>
-                                        <h2>{it.category}</h2>
-                                        <div className={styles.wrapperCards}>
-                                            {it.dishes.map((dish) => (
-                                                <div 
-                                                    className={styles.card}
-                                                    onClick={() => { handleClickDish(dish) }}
-                                                    ref={(el) => (dishRef.current[dish.id] = el)}
-                                                >
-                                                    <div className={styles.wrapperImage}>
-                                                        <img src={dish.image} alt="comida" />
-                                                    </div>
-                                                    <div className={styles.wrapperinfoFoodsFood}>
-                                                        <h3 className={styles.title}>{it.name}</h3>
-                                                        <div className={styles.priceAndCode}>
-                                                            <p className={styles.price}>
-                                                                {dish.price.toLocaleString("pt-BR", {
-                                                                    style: "currency",
-                                                                    currency: "BRL",
-                                                                })} 
-                                                            </p>
-                                                            <p className={styles.code}>
-                                                                Cód: {dish.id}
-                                                            </p>
-                                                        </div>
-                                                        <p className={styles.description}>
-                                                            {dish.description}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            ))}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </section>
-                    )
-                : (
-                    <div className={styles.wineMenu}>
-                        {infoWines && infoWines.map((it, idx) => (
-                            <div 
-                                key={it.id}
-                                className={styles.cotainerWines}
-                                ref={(el) => (sectionWinesRefs.current[idx] = el)}
-                            >
-                                <div className={styles.titleWines}>
-                                    <p>{it.tag}</p>
-                                </div>
-                                        
-                                <div className={styles.wines}>
-                                    {it.wines.map((wine) => (
-                                        <div 
-                                            className={`${styles.cardWine} /*selected ? styles.highlights : ""*/`}
-                                            onClick={() => { handleClickDish(wine) }}
-                                            ref={(el) => (dishRef.current[wine.id] = el)}
-                                        >
-                                            <div className={styles.wrapperImage}>
-                                                <img src={wine.image} alt="comida" />
-                                            </div>
-                                            <div className={styles.wrapperInfoWine}>
-                                                <h3 className={styles.title}>{wine.name}</h3>
-                                                <div className={styles.priceAndCode}>
-                                                    <p className={styles.price}>
-                                                        {wine.price.toLocaleString("pt-BR", {
-                                                            style: "currency",
-                                                            currency: "BRL",
-                                                        })} - {wine.volume  }
-                                                    </p>
-                                                    <p className={styles.code}>
-                                                        Cód: {wine.id}
-                                                    </p>
-                                                </div>
-                                                <p className={styles.description}>
-                                                    {wine.description}
-                                                </p>
-                                                <div className={styles.wrapperTag}>
-                                                    <div><FaFlag className={styles.icon}/> {wine.country}</div>
-                                                    <div><GiWineGlass className={styles.icon}/> {wine.type}</div>
-                                                    <div><GiGrapes className={styles.icon}/> {wine.grape}</div>
-                                                    <div><MdWaterDrop className={styles.icon}/> {wine.alcohol}</div>
-                                                    <div><FaMapMarkerAlt className={styles.icon}/> {wine.location}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-
-                                </div>
-                            </div>
-
-                        ))}
-                    </div>
-                )}
+                        <DishSection 
+                            info={infoFoods}
+                            onClick={handleSelectDish}
+                            sectionRefs={sectionDishesRefs}
+                            ref={dishRef}
+                        />
+                    ) : (
+                        <WineSection 
+                            info={infoWines}
+                            onClick={handleSelectWine}
+                            sectionRefs={sectionWinesRefs}
+                            ref={wineRef}
+                        />
+                    )}
                 </section>
                 {selectedDish && (
                     <DishModal 
                         {...selectedDish}
+                        onClose={handleCloseModal}
+                    />
+                ) || selectedWine && (
+                    <WineModal
+                        {...selectedWine}
                         onClose={handleCloseModal}
                     />
                 )}
