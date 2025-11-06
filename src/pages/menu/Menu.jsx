@@ -20,6 +20,7 @@ import { MdWaterDrop } from "react-icons/md";
 import WineModal from "../../components/modals/wine_modal/WineModal";
 import WineSection from "../../components/wine_section/WineSection";
 import DishSection from "../../components/dish_section/DishSection";
+import FilterModal from "../../components/modals/filter_modal/FilterModal";
 
 export default function Menu({
     name
@@ -37,6 +38,7 @@ export default function Menu({
     const originalNavTopRef = useRef(null);
     const isFixedRef = useRef(false);
 
+    const [filterOpen, setFilterOpen] = useState(false);
     const [selected, setSelected] = useState(0);
     const [isFixed, setIsFixed] = useState(false);
     const [navHeight, setNavHeight] = useState(0);
@@ -120,11 +122,11 @@ export default function Menu({
             {
                 id: 37,
                 name: "Vinho do Porto Ferreira Ruby",
-                price: 119.00,
+                price: 119.0,
                 description:
                 "Tradicional vinho do Porto com aromas intensos de frutas vermelhas e final aveludado.",
                 image: food1,
-                country: "Portugal",
+                country: { name: "Portugal", code: "PT" },
                 type: "Fortificado Doce",
                 location: "Vila Nova de Gaia",
                 alcohol: "19.5% vol",
@@ -134,11 +136,11 @@ export default function Menu({
             {
                 id: 38,
                 name: "Chandon Passion Demi-Sec",
-                price: 89.00,
+                price: 89.0,
                 description:
                 "Espumante brasileiro refrescante, com notas de frutas tropicais e toque levemente adocicado.",
                 image: food2,
-                country: "Brasil",
+                country: { name: "Brasil", code: "BR" },
                 type: "Espumante Demi-Sec",
                 location: "Serra Gaúcha - RS",
                 alcohol: "11.8% vol",
@@ -154,11 +156,11 @@ export default function Menu({
             {
                 id: 101,
                 name: "Luigi Bosca Malbec",
-                price: 149.00,
+                price: 149.0,
                 description:
                 "Vinho argentino encorpado, com notas de frutas maduras e toques sutis de baunilha e especiarias.",
                 image: food1,
-                country: "Argentina",
+                country: { name: "Argentina", code: "AR" },
                 type: "Tinto Seco",
                 location: "Mendoza",
                 alcohol: "14.2% vol",
@@ -168,11 +170,11 @@ export default function Menu({
             {
                 id: 102,
                 name: "Trumpeter Chardonnay",
-                price: 92.00,
+                price: 92.0,
                 description:
                 "Branco argentino com aroma de frutas tropicais e toque amanteigado, equilibrado e elegante.",
                 image: food2,
-                country: "Argentina",
+                country: { name: "Argentina", code: "AR" },
                 type: "Branco Seco",
                 location: "Mendoza",
                 alcohol: "13% vol",
@@ -182,11 +184,11 @@ export default function Menu({
             {
                 id: 103,
                 name: "Rutini Cabernet Malbec",
-                price: 165.00,
+                price: 165.0,
                 description:
                 "Corte argentino sofisticado, com taninos macios e notas de frutas negras e especiarias.",
                 image: food4,
-                country: "Argentina",
+                country: { name: "Argentina", code: "AR" },
                 type: "Tinto Seco",
                 location: "Mendoza",
                 alcohol: "13.5% vol",
@@ -196,11 +198,11 @@ export default function Menu({
             {
                 id: 104,
                 name: "Salentein Brut Cuvée",
-                price: 115.00,
+                price: 115.0,
                 description:
                 "Espumante argentino vibrante com notas de maçã verde e brioche, acidez equilibrada e perlage fina.",
                 image: food2,
-                country: "Argentina",
+                country: { name: "Argentina", code: "AR" },
                 type: "Espumante Brut",
                 location: "Valle de Uco - Mendoza",
                 alcohol: "12% vol",
@@ -210,11 +212,11 @@ export default function Menu({
             {
                 id: 105,
                 name: "Catena Zapata Malbec Argentino",
-                price: 395.00,
+                price: 395.0,
                 description:
                 "Um dos mais icônicos vinhos argentinos, com notas profundas de frutas negras e toques defumados.",
                 image: food1,
-                country: "Argentina",
+                country: { name: "Argentina", code: "AR" },
                 type: "Tinto Premium",
                 location: "Mendoza",
                 alcohol: "14% vol",
@@ -223,7 +225,7 @@ export default function Menu({
             },
             ],
         },
-        ];
+    ];
 
     const handleCloseModal = () => {
         setSelectedDish(null);
@@ -437,6 +439,7 @@ export default function Menu({
                                 <div className={styles.settingAndClose}>
                                     <VscSettings 
                                         className={styles.setting}
+                                        onClick={() => setFilterOpen(true)}
                                     />
                                     <IoClose 
                                         onClick={() => handleCloseWineMenu(false)}
@@ -509,6 +512,12 @@ export default function Menu({
                     <WineModal
                         {...selectedWine}
                         onClose={handleCloseModal}
+                    />
+                ) || filterOpen && (
+                    <FilterModal 
+                        contries={[...new Map(infoWines.flatMap((group) => group.wines).map((wine) => [wine.country.code, wine.country])).values()].sort((a, b) => a.name.localeCompare(b.name))}
+                        types={[...new Set(infoWines.flatMap((group) => group.wines).map(wine => wine.type))].sort()} 
+                        onClose={() => { setFilterOpen(false) }}
                     />
                 )}
             </main>

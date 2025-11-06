@@ -5,6 +5,8 @@ import Toast from "../../toast/Toast";
 import { FaFlag, FaMapMarkerAlt } from "react-icons/fa";
 import { GiGrapes, GiWineGlass } from "react-icons/gi";
 import { MdWaterDrop } from "react-icons/md";
+import { useModalHandlers, useToast, handleShare } from "@/hooks/useModalUtils";
+import ReactCountryFlag from "react-country-flag";
 
 export default function WineModal({
     price, 
@@ -21,115 +23,10 @@ export default function WineModal({
     country
 
 }) {
-    const modalRef = useRef(null);
-    const [translateY, setTranslateY] = useState(0);
-    const [transitionEnabled, setTransitionEnabled] = useState(false);
-    const [modalHeight, setModalHeight] = useState(0);
-    
-    const [visible, setVisible] = useState(false);
-    const [closing, setClosing] = useState(false);
-    const [animationDone, setAnimationDone] = useState(false);
-    const [closeByDrag, setCloseByDrag] = useState(false)
 
-    const [toastVisible, setToastVisible] = useState(false);
-    const [toastMsg, setToastMsg] = useState("");
-
-
-    const showToast = (msg) => {
-      setToastMsg(msg);
-      setToastVisible(true);
-
-      setTimeout(() => {
-        setToastVisible(false);
-      }, 1500)
-    }
-
-    const closeModal = () => {
-        setTransitionEnabled(true);
-        setTranslateY(modalHeight);
-        setClosing(true);
-
-        setTimeout(() => onClose?.(), 600);
-    };
-
-    const handleClickOutside = (e) => {
-        if (modalRef.current && !modalRef.current.contains(e.target)) closeModal();
-    };
-
-    const handleMouseDown = (e) => {
-        e.preventDefault();
-        const startY = e.clientY;
-
-        const handleMouseMove = (e) => {
-            const diff = e.clientY - startY;
-            setTranslateY(diff > 0 ? diff : 0); // só desce
-        };
-
-        const handleMouseUp = (e) => {
-            const diff = e.clientY - startY;
-            if (diff > modalHeight * 0.3) {
-                setCloseByDrag(true);
-                closeModal();
-            }
-            else {
-              setTranslateY(0);
-              setCloseByDrag(false);
-            }
-
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        };
-
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mouseup", handleMouseUp);
-    };
-
-    const handleAnimationEnd = () => {
-        setAnimationDone(true);
-    }
-
-    const handleShare = async () => {
-      const url = window.location.origin + "/cardapio?wine=" + id;
-
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: name,
-            text: description,
-            url,
-          });
-          showToast("Link compartilhado com sucesso!");
-        } catch {}
-      } else {
-        try {
-          await navigator.clipboard.writeText(url);
-          showToast("Link copiado para a área de transferência!");
-        } catch {
-          showToast("Erro ao copiar link.");
-        }
-      }
-    };
-
-    useEffect(() => {
-        setVisible(true);
-        
-        if (modalRef.current) setModalHeight(modalRef.current.offsetHeight);
-
-        document.addEventListener("mousedown", handleClickOutside);
-
-        const originalStyle = {
-            body: window.getComputedStyle(document.body).overflow,
-            html: window.getComputedStyle(document.documentElement).overflow,
-        };
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = originalStyle.body;
-            document.documentElement.style.overflow = originalStyle.html;
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [translateY]);
+    const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
+    const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
+    const onShare = () => handleShare({ id, name, description, showToast });
 
   return (
     <div className={`${styles.container} ${visible ? styles.show : styles.hide}`}>
@@ -161,12 +58,18 @@ export default function WineModal({
                     size={24}
                     color="gray"
                     className={styles.share}
-                    onClick={handleShare}
+                    onClick={onShare}
                   />
                 </div>
                 <p className={styles.description}>{description}</p>
                 <div className={styles.wrapperTag}>
-                    <div><FaFlag className={styles.icon}/> {country}</div>
+                    <div>
+                        <ReactCountryFlag 
+                            svg
+                            countryCode={country.code}
+                            className={styles.icon}
+                        /> {country.name}
+                    </div>
                     <div><GiWineGlass className={styles.icon}/> {type}</div>
                     <div><GiGrapes className={styles.icon}/> {grape}</div>
                     <div><MdWaterDrop className={styles.icon}/> {alcohol}</div>

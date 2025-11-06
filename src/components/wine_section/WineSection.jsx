@@ -3,6 +3,7 @@ import styles from "./WineSection.module.css";
 import { GiGrapes, GiWineGlass } from "react-icons/gi";
 import { MdWaterDrop } from "react-icons/md";
 import { useRef } from "react";
+import ReactCountryFlag from "react-country-flag";
 
 export default function WineSection({
     info,
@@ -50,7 +51,13 @@ export default function WineSection({
                                         {wine.description}
                                     </p>
                                     <div className={styles.wrapperTag}>
-                                        <div><FaFlag className={styles.icon}/> {wine.country}</div>
+                                        <div>
+                                            <ReactCountryFlag 
+                                                svg
+                                                countryCode={wine.country.code}
+                                                className={styles.icon}
+                                            /> {wine.country.name}
+                                        </div>
                                         <div><GiWineGlass className={styles.icon}/> {wine.type}</div>
                                         <div><GiGrapes className={styles.icon}/> {wine.grape}</div>
                                         <div><MdWaterDrop className={styles.icon}/> {wine.alcohol}</div>
