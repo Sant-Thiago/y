@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./DishSection.module.css";
 
 export default function DishSection({
@@ -7,6 +7,10 @@ export default function DishSection({
     sectionRefs,
     ref
 }) {
+
+    const hasMoreThanOne = (dish) => {
+        return dish.options.length > 1;
+    }
 
     return (
         <section className={styles.wrapperFoods}>
@@ -26,29 +30,51 @@ export default function DishSection({
                             {it.dishes.map((dish) => (
                                 <div 
                                     className={styles.card}
-                                    onClick={() => { /*handleSelectDish(dish)*/ onClick(dish) }}
+                                    onClick={() => { onClick(dish) }}
                                     ref={(el) => (ref.current[dish.id] = el)}
                                 >
                                     <div className={styles.wrapperImage}>
                                         <img src={dish.image} alt="comida" />
                                     </div>
-                                    <div className={styles.wrapperinfoFoodsFood}>
-                                        <h3 className={styles.title}>{it.name}</h3>
-                                        <div className={styles.priceAndCode}>
-                                            <p className={styles.price}>
-                                                {dish.price.toLocaleString("pt-BR", {
-                                                    style: "currency",
-                                                    currency: "BRL",
-                                                })} 
-                                            </p>
-                                            <p className={styles.code}>
-                                                Cód: {dish.id}
+                                    {!hasMoreThanOne(dish) ? (
+                                        <div className={styles.wrapperInfoFoods}>
+                                            <h3 className={styles.title}>{dish.name} {dish.options[0].weight}</h3>
+                                            <div className={styles.priceAndCode}>
+                                                <p className={styles.price}>
+                                                    {dish.options[0].price.toLocaleString("pt-BR", {
+                                                        style: "currency",
+                                                        currency: "BRL",
+                                                    })} 
+                                                </p>
+                                                <p className={styles.code}>
+                                                    Cód: {dish.options[0].code}
+                                                </p>
+                                            </div>
+                                            <p className={styles.description}>
+                                                {dish.description}
                                             </p>
                                         </div>
-                                        <p className={styles.description}>
-                                            {dish.description}
-                                        </p>
-                                    </div>
+                                    ):(
+                                        <div className={styles.wrapperInfoFoods}>
+                                            <h3 className={styles.title}>{dish.name} {dish.options[0].weight.slice(0, -1)}/{dish.options[1].weight}</h3>
+                                            <p className={styles.description}>
+                                                {dish.description}
+                                            </p>
+                                            <div className={styles.wrapperNameAndPriceAndCode}>
+                                                {dish.options.map(opt => (
+                                                    <div className={styles.nameAndPriceAndCode}>
+                                                        <p className={styles.nameAndLabel}>{dish.name} {opt.label}</p>
+                                                        <p className={styles.priceAndCode}>
+                                                            {opt.price.toLocaleString("pt-BR", {
+                                                                style: "currency",
+                                                                currency: "BRL",
+                                                            })} - ({opt.code})
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             ))}
 

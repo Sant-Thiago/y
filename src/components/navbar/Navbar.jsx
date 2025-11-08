@@ -5,6 +5,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import { FaCross, FaPlus } from 'react-icons/fa6';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
+import { IoClose } from 'react-icons/io5';
 
 export default function Navbar({
     logoName = "logoName",
@@ -109,7 +110,11 @@ export default function Navbar({
                             <div className={styles.navBurguer}>
                                 <div className={styles.backgroudNavBurguer}>
                                     
-                                    <button className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} onClick={ e => { setIsVisibleList(false) }}> x </button>
+                                    <button 
+                                        className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} 
+                                        onClick={ e => { setIsVisibleList(false) }}>
+                                            <IoClose 
+                                        /> </button>
                                     
                                     <ul className={styles.list}>
                                         {visibleLinks.map((link) => (

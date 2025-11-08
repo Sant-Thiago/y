@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Toast from "../../toast/Toast";
 import { handleShare, useModalHandlers, useToast } from "../../../hooks/useModalUtils";
 
-export default function DishModal({ price, description, image, id, name, onClose }) {
+export default function DishModal({ info, onClose }) {
     
     const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
     const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
-    const onShare = () => handleShare({ id, name, description, showToast });
+    const onShare = () => handleShare({ id: info.id, name: info.name, description: info.description, showToast });
+
+    const hasMoreThanOne = info.options.length > 1;
+
 
   return (
     <div className={`${styles.container} ${visible ? styles.show : styles.hide}`}>
@@ -30,24 +33,64 @@ export default function DishModal({ price, description, image, id, name, onClose
 
         <div className={styles.modal}>
           <div className={styles.wrapperImage}>
-            <img src={image} alt="comida" draggable={false} />
+            <img src={info.image} alt="comida" draggable={false} />
           </div>
-          <div className={styles.wrapperInfo}>
-            <div className={styles.wrapperTitle}>
-              <h3>{name}</h3>
-              <IoShareSocialOutline 
-                size={24} 
-                color="gray" 
-                className={styles.share} 
-                onClick={onShare}  
-              />
-            </div>
-            <p className={styles.price}>
-              {price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
-            </p>
-            <p className={styles.description}>{description}</p>
-            <p className={styles.code}>Cód: {id}</p>
-          </div>
+            {!hasMoreThanOne ? (
+              <div className={styles.wrapperInfo}>
+                <div className={styles.wrapperTitle}>
+                  <h3>{info.name} {info.options[0].weight}</h3>
+                  <IoShareSocialOutline 
+                    size={24} 
+                    color="gray" 
+                    className={styles.share} 
+                    onClick={onShare}  
+                  />
+                </div>
+                <p className={styles.price}>
+                  {info.options[0].price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                </p>
+                <p className={styles.description}>{info.description}</p>
+                <p className={styles.code}>Cód: {info.id}</p>
+              </div>
+            ) : (
+              <div className={styles.wrapper}> 
+                <div className={styles.wrapperInfo}>
+                  <div className={styles.wrapperTitle}>
+                    <h3>{info.name} {info.options[0].weight.slice(0, -1)}/{info.options[1].weight}</h3>
+                    <IoShareSocialOutline 
+                      size={24} 
+                      color="gray" 
+                      className={styles.share} 
+                      onClick={onShare}  
+                    />
+                  </div>
+                  <p className={styles.description}>{info.description}</p>
+                </div>
+                <div className={styles.divName}>
+                  <p>{info.name}</p>
+                </div>
+                <div className={styles.wrapperOptions}>
+                  {info.options.map(opt => (
+                    <div className={styles.nameAndPrice}>
+                      <p className={styles.nameAndLabel}>
+                        {info.name} {opt.label}
+                      </p>
+                      <p className={styles.price}>
+                        {opt.price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                      </p>
+
+                    </div>
+
+                  ))}
+                </div>
+                <div className={styles.wrapperCode}>
+                  <p className={styles.code}>
+                    Cód: {info.options.map(opt => (opt.code)).join(" - ")}
+                  </p>
+                </div>
+              </div>
+            )}
+  
           <Toast
             message={toastMsg}
             visible={toastVisible}
