@@ -1,8 +1,7 @@
-import { FaFlag, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./WineSection.module.css";
-import { GiGrapes, GiWineGlass } from "react-icons/gi";
+import { GiGrapes } from "react-icons/gi";
 import { MdWaterDrop } from "react-icons/md";
-import { useRef } from "react";
 import ReactCountryFlag from "react-country-flag";
 
 export default function WineSection({
@@ -58,7 +57,13 @@ export default function WineSection({
                                                 className={styles.icon}
                                             /> {wine.country.name}
                                         </div>
-                                        <div><GiWineGlass className={styles.icon}/> {wine.type}</div>
+                                        <div>
+                                            <span 
+                                                className={styles.color}
+                                                style={{ backgroundColor: wine.type.color }}
+                                            ></span>
+                                            {wine.type.name}
+                                        </div>
                                         <div><GiGrapes className={styles.icon}/> {wine.grape}</div>
                                         <div><MdWaterDrop className={styles.icon}/> {wine.alcohol}</div>
                                         <div><FaMapMarkerAlt className={styles.icon}/> {wine.location}</div>

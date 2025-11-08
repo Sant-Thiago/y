@@ -35,6 +35,9 @@ export function useModalHandlers(onClose) {
   };
 
   const handleMouseDown = (e) => {
+    const target = e.target.tagName.toLowerCase();
+    if (["input", "button", "select", "textarea", "label"].includes(target)) return;
+    
     e.preventDefault();
     const startY = e.clientY;
 

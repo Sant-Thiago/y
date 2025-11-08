@@ -58,11 +58,14 @@
 .wrapperImage {
     height: 100%;
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .wrapperImage > img {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
     object-position: center;
 }
@@ -142,6 +145,12 @@
     font-size: 18px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.wrapperTag > div > .color {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
 }
 
 .selectVolume {

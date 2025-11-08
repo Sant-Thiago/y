@@ -6,7 +6,8 @@ import bannerImage2 from '@/utils/assets/banner_image_2.jpeg';
 import food1 from "@/utils/assets/food_1.jpg";
 import food2 from "@/utils/assets/food_2.jpg";
 import food4 from "@/utils/assets/food_4.jpg";
-import wineImage from "@/utils/assets/wine.png";
+import wineIcon from "@/utils/assets/wine.png";
+import wineImage from "@/utils/assets/wine_image.png"; 
 
 import Banner from "../../components/banner/Banner";
 import { useEffect, useRef, useState } from "react";
@@ -14,9 +15,6 @@ import DishModal from "../../components/modals/dish_modal/DishModal";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { VscSettings } from "react-icons/vsc";
-import { FaFlag, FaMapMarkerAlt } from "react-icons/fa";
-import { GiGrapes, GiWineGlass } from "react-icons/gi";
-import { MdWaterDrop } from "react-icons/md";
 import WineModal from "../../components/modals/wine_modal/WineModal";
 import WineSection from "../../components/wine_section/WineSection";
 import DishSection from "../../components/dish_section/DishSection";
@@ -125,9 +123,9 @@ export default function Menu({
                 price: 119.0,
                 description:
                 "Tradicional vinho do Porto com aromas intensos de frutas vermelhas e final aveludado.",
-                image: food1,
+                image: wineImage,
                 country: { name: "Portugal", code: "PT" },
-                type: "Fortificado Doce",
+                type: { name: "Fortificado Doce", color: "#b03a2e" },
                 location: "Vila Nova de Gaia",
                 alcohol: "19.5% vol",
                 grape: "Touriga Franca, Tinta Roriz, Tinta Barroca",
@@ -139,9 +137,9 @@ export default function Menu({
                 price: 89.0,
                 description:
                 "Espumante brasileiro refrescante, com notas de frutas tropicais e toque levemente adocicado.",
-                image: food2,
+                image: wineImage,
                 country: { name: "Brasil", code: "BR" },
-                type: "Espumante Demi-Sec",
+                type: { name: "Espumante Demi-Sec", color: "#f7b64e" },
                 location: "Serra Gaúcha - RS",
                 alcohol: "11.8% vol",
                 grape: "Chardonnay e Moscato",
@@ -159,9 +157,9 @@ export default function Menu({
                 price: 149.0,
                 description:
                 "Vinho argentino encorpado, com notas de frutas maduras e toques sutis de baunilha e especiarias.",
-                image: food1,
+                image: wineImage,
                 country: { name: "Argentina", code: "AR" },
-                type: "Tinto Seco",
+                type: { name: "Tinto Seco", color: "#7b1e1e" },
                 location: "Mendoza",
                 alcohol: "14.2% vol",
                 grape: "Malbec",
@@ -173,9 +171,9 @@ export default function Menu({
                 price: 92.0,
                 description:
                 "Branco argentino com aroma de frutas tropicais e toque amanteigado, equilibrado e elegante.",
-                image: food2,
+                image: wineImage,
                 country: { name: "Argentina", code: "AR" },
-                type: "Branco Seco",
+                type: { name: "Branco Seco", color: "#f4e19c" },
                 location: "Mendoza",
                 alcohol: "13% vol",
                 grape: "Chardonnay",
@@ -187,9 +185,9 @@ export default function Menu({
                 price: 165.0,
                 description:
                 "Corte argentino sofisticado, com taninos macios e notas de frutas negras e especiarias.",
-                image: food4,
+                image: wineImage,
                 country: { name: "Argentina", code: "AR" },
-                type: "Tinto Seco",
+                type: { name: "Tinto Seco", color: "#7b1e1e" },
                 location: "Mendoza",
                 alcohol: "13.5% vol",
                 grape: "Cabernet Sauvignon e Malbec",
@@ -201,9 +199,9 @@ export default function Menu({
                 price: 115.0,
                 description:
                 "Espumante argentino vibrante com notas de maçã verde e brioche, acidez equilibrada e perlage fina.",
-                image: food2,
+                image: wineImage,
                 country: { name: "Argentina", code: "AR" },
-                type: "Espumante Brut",
+                type: { name: "Espumante Brut", color: "#f2d16b" },
                 location: "Valle de Uco - Mendoza",
                 alcohol: "12% vol",
                 grape: "Chardonnay e Pinot Noir",
@@ -215,9 +213,9 @@ export default function Menu({
                 price: 395.0,
                 description:
                 "Um dos mais icônicos vinhos argentinos, com notas profundas de frutas negras e toques defumados.",
-                image: food1,
+                image: wineImage,
                 country: { name: "Argentina", code: "AR" },
-                type: "Tinto Premium",
+                type: { name: "Tinto Premium", color: "#4b0000" },
                 location: "Mendoza",
                 alcohol: "14% vol",
                 grape: "Malbec",
@@ -225,7 +223,66 @@ export default function Menu({
             },
             ],
         },
-    ];
+        ];
+
+
+
+    const [currentFilters, setCurrentFilters] = useState({
+        text: "",
+        countries: [],
+        types: [],
+        grapes: [],
+        volumes: [],
+        priceRange: [0, Math.max(...infoWines.flatMap(group => group.wines.map(w => w.price)))]
+    });
+
+    const [filteredWines, setFilteredWines] = useState(infoWines);
+
+    const handleFilter = (filters) => {
+        setCurrentFilters(filters);
+        const { text, countries, types, grapes, volumes, priceRange } = filters;
+        const [minPrice, maxPrice] = priceRange;
+
+        const filtered = infoWines.map(group => {
+            const winesFiltered = group.wines.filter(wine => {
+                const matchText =
+                    !text ||
+                    wine.name.toLowerCase().includes(text.toLowerCase()) ||
+                    wine.description.toLowerCase().includes(text.toLowerCase());
+
+                const matchCountry =
+                    countries.length === 0 || countries.includes(wine.country.name);
+
+                const matchType =
+                    types.length === 0 || types.includes(wine.type.name);
+
+                const matchGrape =
+                    grapes.length === 0 ||
+                    grapes.some(g =>
+                    wine.grape.toLowerCase().includes(g.toLowerCase())
+                    );
+
+                const matchVolume =
+                    volumes.length === 0 || volumes.includes(wine.volume);
+
+                const matchPrice = wine.price >= minPrice && wine.price <= maxPrice;
+
+                return (
+                    matchText &&
+                    matchCountry &&
+                    matchType &&
+                    matchGrape &&
+                    matchVolume &&
+                    matchPrice
+                );
+            });
+
+            return { ...group, wines: winesFiltered };
+        }).filter(group => group.wines.length > 0);
+
+        setFilteredWines(filtered);
+        setFilterOpen(false); // fecha o modal
+    };
 
     const handleCloseModal = () => {
         setSelectedDish(null);
@@ -427,7 +484,7 @@ export default function Menu({
                                     className={`${styles.wineButton} ${!showWineMenu ? styles.wineButtonAbsolute : ""}`}
                                     onClick={() => handleCloseWineMenu(!showWineMenu)}
                                 >
-                                    <img src={wineImage} alt="wine" />
+                                    <img src={wineIcon} alt="wine" />
                                 </button>
                                 {showWineMenu &&
                                     <p>
@@ -468,7 +525,7 @@ export default function Menu({
                             </ul>
                         ) : (
                             <ul className={`${styles.navbarWine} ${isFixed ? styles.shadowNavWine : ""}`}>
-                                {infoWines.map((it, idx) => (
+                                {filteredWines.map((it, idx) => (
                                     <li
                                         key={idx}
                                         onClick={() => handleClickWine(idx)}
@@ -496,7 +553,7 @@ export default function Menu({
                         />
                     ) : (
                         <WineSection 
-                            info={infoWines}
+                            info={filteredWines}
                             onClick={handleSelectWine}
                             sectionRefs={sectionWinesRefs}
                             ref={wineRef}
@@ -515,9 +572,47 @@ export default function Menu({
                     />
                 ) || filterOpen && (
                     <FilterModal 
-                        contries={[...new Map(infoWines.flatMap((group) => group.wines).map((wine) => [wine.country.code, wine.country])).values()].sort((a, b) => a.name.localeCompare(b.name))}
-                        types={[...new Set(infoWines.flatMap((group) => group.wines).map(wine => wine.type))].sort()} 
-                        onClose={() => { setFilterOpen(false) }}
+                        countries={[
+                            ...new Map(
+                            infoWines
+                                .flatMap(group => group.wines)
+                                .map(wine => [wine.country.code, wine.country])
+                            ).values()
+                        ].sort((a, b) => a.name.localeCompare(b.name))}
+
+                        types={[
+                            ...new Map(
+                            infoWines
+                                .flatMap(group => group.wines)
+                                .map(wine => [wine.type.name, wine.type])
+                            ).values()
+                        ].sort((a, b) => a.name.localeCompare(b.name))}
+
+                        grapes={[
+                            ...new Set(
+                            infoWines
+                                .flatMap(group => group.wines)
+                                .flatMap(wine => 
+                                wine.grape.split(" e ").map(g => g.trim())
+                                )
+                            )
+                        ].sort((a, b) => a.localeCompare(b))}
+
+                        volumes={[
+                            ...new Set(
+                            infoWines
+                                .flatMap(group => group.wines)
+                                .map(wine => wine.volume.trim())
+                            )
+                        ].sort((a, b) => a.localeCompare(b))}
+
+                        maxPrice={Math.max(...infoWines.flatMap(group => group.wines.map(w => w.price)))
+
+                        }
+
+                        initialFilters={currentFilters}
+                        onFilter={handleFilter}
+                        onClose={() => setFilterOpen(false)}
                     />
                 )}
             </main>

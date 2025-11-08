@@ -70,7 +70,13 @@ export default function WineModal({
                             className={styles.icon}
                         /> {country.name}
                     </div>
-                    <div><GiWineGlass className={styles.icon}/> {type}</div>
+                    <div>
+                        <span 
+                          className={styles.color}
+                          style={{ backgroundColor: type.color }}
+                        ></span>
+                        {type.name}
+                      </div>
                     <div><GiGrapes className={styles.icon}/> {grape}</div>
                     <div><MdWaterDrop className={styles.icon}/> {alcohol}</div>
                     <div><FaMapMarkerAlt className={styles.icon}/> {location}</div>
