@@ -33,7 +33,13 @@ export default function Navbar({
     const [isVisibleOverflowList, setIsVisibleOverflowList] = useState(false);
     const { width }  = useWindowSize(); 
 
+    const navRef = useRef(null);
+
     const isMobile = width < 1000;
+
+    const handleClickOutside = (e) => {
+        if (navRef.current && !navRef.current.contains(e.target)) setIsVisibleList(false);
+    };
 
     useEffect(() => {
         const list = listRef?.current;
@@ -74,7 +80,6 @@ export default function Navbar({
                 setHide(true);
             } else setHide(false);
         };
-
         
         if (hideOnScroll) window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", calculateVisible);
@@ -87,6 +92,16 @@ export default function Navbar({
         };        
 
     }, [hideOnScroll, isMobile]);
+
+    useEffect(() => {   
+        if (isVisibleList) {
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }
+        
+    }, [isVisibleList]);
 
     return(
         <header 
@@ -108,7 +123,10 @@ export default function Navbar({
                         <>
                         {isVisibleList ?
                             <div className={styles.navBurguer}>
-                                <div className={styles.backgroudNavBurguer}>
+                                <div 
+                                    className={styles.backgroudNavBurguer}
+                                    ref={navRef}
+                                >
                                     
                                     <button 
                                         className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} 

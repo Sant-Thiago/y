@@ -40,7 +40,7 @@
 .navBurguer {
 
     position: absolute;
-    right: -6rem;
+    right: -5.5rem;
     top: -0.5rem; /* exemplo  de quem?*/
 
     display: flex;
