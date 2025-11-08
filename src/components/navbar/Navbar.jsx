@@ -17,7 +17,7 @@ export default function Navbar({
         { href: "/home", label: "Início" },
         { href: "/unidades", label: "Unidades" },
         { href: "/cardapio", label: "Cardápio" },
-        { href: "#reserve", label: "Reservas" },
+        { href: "/reservas", label: "Reservas" },
         { href: "#event", label: "Eventos" },
         { href: "/quem-somos", label: "Nossa História" },
         { href: "/trabalhe-conosco", label: "Contato" }

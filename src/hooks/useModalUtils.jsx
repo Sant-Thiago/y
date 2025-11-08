@@ -4,10 +4,10 @@ export function useToast() {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
 
-  const showToast = (msg) => {
+  const showToast = (msg, duration = 1500) => {
     setToastMsg(msg);
     setToastVisible(true);
-    setTimeout(() => setToastVisible(false), 1500);
+    setTimeout(() => setToastVisible(false), duration);
   };
 
   return { toastVisible, toastMsg, showToast, setToastVisible };

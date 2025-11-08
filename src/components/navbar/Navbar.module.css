@@ -8,7 +8,7 @@
     left: 0;
 
     transition: 0.5s ease;
-    z-index: 2;
+    z-index: 3;
 }
 
 .hide {
@@ -52,6 +52,7 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.24);
+    z-index: 3;
 }
 
 .backgroudNavBurguer {
