@@ -28,7 +28,7 @@ export default function Footer({
                             <Link to="/events">Eventos</Link>
                         </li>
                         <li>
-                            <Link to="/contact">Contato</Link>
+                            <Link to="/trabalhe-conosco">Contato</Link>
                         </li>
                         <li>
                             <Link to="/cardapio">Cardápio</Link>
@@ -62,10 +62,19 @@ export default function Footer({
                 <div>
                     <ul className={styles.socialList}>
                         <li>
-                            <Link to="/instagram.com"><img src={instagramIcon} alt="" /></Link>
+                            <Link 
+                                to={"https://www.instagram.com"} 
+                                target="_blank"
+                            >
+                                <img src={instagramIcon} alt="" />
+                            </Link>
                         </li>
                         <li>
-                            <Link to="/wa.me.com"><img src={whatsappIcon} alt="" /></Link>
+                            <Link to={"https://wa.me/5511999999999"}
+                                target="_blank"
+                            >
+                                <img src={whatsappIcon} alt="" />
+                            </Link>
                         </li>
                     </ul>
                 </div>
