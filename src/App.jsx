@@ -9,6 +9,7 @@ import WorkWithUs from "./pages/work_with_us/WorkWithUs";
 import WhoWeAre from "./pages/who_we_are/WhoWeAre";
 import Menu from "./pages/menu/Menu";
 import Reserve from "./pages/reserve/Reserve";
+import Event from "./pages/event/Event";
 
 function App() {
     return (
@@ -33,7 +34,7 @@ function App() {
                     />
 
                     <Route
-                        path="/trabalhe-conosco"
+                        path="/contato"
                         element={ <WorkWithUs /> }
                     />
 
@@ -50,6 +51,11 @@ function App() {
                     <Route
                         path="/reservas"
                         element={ <Reserve /> }
+                    />
+
+                    <Route
+                        path="/eventos"
+                        element={ <Event name="EmpresaX"/> }
                     />
                 </Routes>
             </Layout>

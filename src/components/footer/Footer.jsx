@@ -25,10 +25,10 @@ export default function Footer({
                             <Link to="/unidades">Unidades</Link>
                         </li>
                         <li>
-                            <Link to="/events">Eventos</Link>
+                            <Link to="/eventos">Eventos</Link>
                         </li>
                         <li>
-                            <Link to="/trabalhe-conosco">Contato</Link>
+                            <Link to="/contato">Contato</Link>
                         </li>
                         <li>
                             <Link to="/cardapio">Cardápio</Link>
@@ -37,9 +37,9 @@ export default function Footer({
                 </div>
                 <div className={styles.politycies}>
                     <ul className={styles.list}>
-                        <li>
-                            <Link to="/trabalhe-conosco">Trabalhe conosco</Link>
-                        </li>
+                        {/* <li>
+                            <Link to="/contato">Trabalhe conosco</Link>
+                        </li> */}
                         <li>
                             <Link to="/politica-privacidade">Política de privacidade</Link>
                         </li>

@@ -15,17 +15,7 @@ import Map from "../../components/map/Map";
 export default function Units({
     name = "EmpresaX",
     img = restaurantImg,
-    options = {
-        "São Paulo": [
-            { link: "/unidades/sao-paulo", value: "São Paulo" },
-            { link: "/unidades/iguatemi", value: "Iguatemi" },
-            { link: "/unidades/campinas", value: "Campinas" },
-        ],
-        "Rio de Janeiro": [
-            { link: "/unidades/rio-de-janeiro", value: "Rio de Janeiro" },
-            { link: "/unidades/niteroi", value: "Niterói" },
-        ],
-    }
+x
 }) {
 
     const images = [ image, img ]

@@ -1,0 +1,66 @@
+.container {
+    margin: 78px 0;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 80%;
+    margin: 48px  auto;
+}
+
+.wrapperImage {
+    width: 100%;
+    height: 360px;
+    
+    border-radius: 8px;
+}
+
+.wrapperImage > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wrapperInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapperInfo > h2 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.wrapperInfo > p {
+    margin: 8px 0 16px;
+}
+
+.select {
+    /* margin: 16px 0; */
+    padding: 8px 16px;
+    width: fit-content;
+
+    background-color: #e9d9b7; /* bege semelhante */
+    color: #333;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 205, 130, 0.6);
+}
