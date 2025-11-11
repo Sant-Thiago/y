@@ -316,28 +316,28 @@ export default function Event({
                                 </div>
                             </div>
                         </section>
-                        <section>
-                            <div>
-                                <h2>Conhela nossos pacotes</h2>
+                        <section className={styles.packages}>
+                            <div className={styles.title}>
+                                <h2>Conheça nossos pacotes</h2>
                             </div>
-                            <div>
-                                <div>
+                            <div className={styles.wrapperOptions}>
+                                <button>
                                     <p>Sala vip</p>
-                                </div>
-                                <div>
+                                </button>
+                                <button>
                                     <p>Geral</p>
-                                </div>
-                                <div>
+                                </button>
+                                <button>
                                     <p>Casamento</p>
-                                </div>
-                                <div>
+                                </button>
+                                <button>
                                     <p>Aniversário</p>
-                                </div>
+                                </button>
                             </div>
-                            <div>
+                            <div className={styles.wrapperFlavor}>
                                 <h2>O sabor sem igual do nosso cardápio</h2>
                             </div>
-                            <div>
+                            <div className={styles.wrapperFlavorImages}>
                                 {imagesFoods.map((img, idx) => 
                                     <div 
                                         key={idx}
@@ -347,24 +347,28 @@ export default function Event({
                                     </div>    
                                 )}
                             </div>
-                            <div>
+                            <div className={styles.description}>
                                 <p>
                                     Cardápio completo com frutos do mar, carnes, aves e sobremesas incríveis, 
-                                    que reúnem o melhor da gastronomia nacional.
+                                    que reúnem o melhor da gastronomia nacional. <br />
                                     Para brindar, uma adega com vinhos tintos, brancos, rosés e espumantes, 
                                     além dos rótulos exclusivos {name}.
                                 </p>
                             </div>
                         </section>
-                        <section>
-                            <div>
+                        <section 
+                            className={styles.eventos}
+                            style={{ backgroundImage: `url(${banenrImage})` }}
+                        >
+                            <div className={styles.background}></div>
+                            <div className={styles.info}>
                                 <h3>Seu evento no {name} - {selectedOption}</h3>
-                                <div>
+                                <div className={styles.wrapperText}>
                                     <p> 
                                         Nossos espaços contam com TVs, telões, projetores e música ambiente,
                                         além de uma excelente acústica.
                                     </p>
-                                    <p>
+                                    <p className={styles.smallText}>
                                         Também oferecemos coquetel volante, coffee-break, serviço à inglesa 
                                         e binquedoteca.
                                     </p>

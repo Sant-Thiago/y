@@ -116,12 +116,7 @@
     z-index: 1;
 }
 
-.background {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.425);      
-    z-index: 1;
-}
+
 
 .infoOrcamento {
     width: 90%;
@@ -290,4 +285,111 @@
     cursor: pointer;
 }
 
+.packages {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 32px auto;
+}
 
+.packages > .title {
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.packages > .wrapperOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: auto;
+    width: 40%;
+}
+
+
+.packages > .wrapperOptions > button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: rgba(180, 151, 64);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.wrapperFlavor {
+    text-transform: uppercase;
+    margin: auto;
+    font-size: 18px;
+}
+
+.wrapperFlavorImages {
+    margin: auto;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.wrapperFlavorImages > .image > img {
+    width: 100%;
+    height: 200px;
+}
+
+.description {
+    text-align: center;
+    font-size: 18px;
+    color: #979797;
+}
+
+.eventos {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.eventos > *{
+    position: relative;
+    z-index: 1;
+}
+
+.eventos > .info  {
+    width: 80%;
+    padding: 110px 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    color: white;
+    text-align: center;
+}
+
+.eventos > .info > h3 {
+    font-size: 32px;
+}
+
+.eventos > .info > .wrapperText {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 18px;
+}
+
+.eventos > .info > .wrapperText > .smallText {
+    width: 80%;
+    margin: auto;
+}
+
+
+.background {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.425);      
+    z-index: 1;
+}
