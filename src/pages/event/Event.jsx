@@ -6,6 +6,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import useWindowSize from "../../hooks/useWindowSize";
+import { BiCar } from "react-icons/bi";
+import { LuToyBrick } from "react-icons/lu";
+import { GiEnergyTank } from "react-icons/gi";
 
 
 export default function Event({
@@ -375,37 +378,37 @@ export default function Event({
                                 </div>
                             </div>
                         </section>
-                        <section>
-                            <div>
+                        <section className={styles.wrapperInfoSaloons}>
+                            <div className={styles.title}>
                                 <h3>Conheça nossos salões</h3>
                             </div>
-                            <div>
-                                <div>
+                            <div className={styles.wrapperImages}>
+                                <div className={styles.imageAndInfo}>
                                     <div>
-                                        <img src="" alt="" />
+                                        <img src={image} alt="" />
                                     </div>
-                                    <div>
+                                    <div className={styles.title}>
                                         <h3>Salão {selectedOption}</h3>
-                                        <p>X Pessoas</p>
+                                        <p>10 Pessoas</p>
                                     </div>
-                                    <div>
+                                    <div className={styles.description}>
                                         <p>
                                             Fazemos eventos de x lugares, salão compartilhado com o público 
-                                            do restaurante. 
+                                            do restaurante. <br /> 
                                             Disponível na quinta e sexta no almoço e de quinta a sábado no 
                                             jantar.
                                         </p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className={styles.imageAndInfo}>
                                     <div>
                                         <img src={image} alt="" />
                                     </div>
-                                    <div>
+                                    <div className={styles.title}>
                                         <h3>Salão Varanda</h3>
                                         <p>X Pessoas</p>
                                     </div>
-                                    <div>
+                                    <div className={styles.description}>
                                         <p>
                                             Fazemos eventos de 20 a 70 lugares, salão compartilhado com o 
                                             público do restaurante. Salão exclusivo para eventos acima de 70 
@@ -415,15 +418,15 @@ export default function Event({
                                         </p>
                                     </div>
                                 </div>
-                                <div>
+                                <div className={styles.imageAndInfo}>
                                     <div>
                                         <img src={image} alt="" />
                                     </div>
-                                    <div>
+                                    <div className={styles.title}>
                                         <h3>Salão Parquinho</h3>
                                         <p>X Pessoas</p>
                                     </div>
-                                    <div>
+                                    <div className={styles.description}>
                                         <p>
                                             Fazemos eventos de 20 a 50 lugares, salão compartilhado com o 
                                             público do restaurante.
@@ -435,35 +438,41 @@ export default function Event({
                                 </div>
                             </div>
                         </section>
-                        <section>
-                            <div>
+                        <section className={styles.wrapperDiferencials}>
+                            <div className={styles.title}>
                                 <h2>Diferenciais Exclusivos</h2>
                                 <p>Pensando em sua comodiadade, nossos espaços oferecem:</p>
                             </div>
-                            <div>
+                            <div className={styles.imageAndInfo}>
                                 <div>
-                                    <img src={image} alt="" />
+                                    <BiCar 
+                                        className={styles.icon} 
+                                    />
                                 </div>
                                 <p>Estacionamento Amplo e Seguro</p>
                             </div>
-                            <div>
+                            <div className={styles.imageAndInfo}>
                                 <div>
-                                    <img src={image} alt="" />
+                                    <LuToyBrick
+                                        className={styles.icon}
+                                    />
                                 </div>
                                 <p>Brinquedoteca</p>
                             </div>
-                            <div>
+                            <div className={styles.imageAndInfo}>
                                 <div>
-                                    <img src={image} alt="" />
+                                    <GiEnergyTank 
+                                        className={styles.icon}
+                                    />
                                 </div>
                                 <p>Gerador de Energia Próprio</p>
                             </div>
                         </section>
-                        <section>
-                            <div>
+                        <section className={styles.aboutUs}>
+                            <div className={styles.title}>
                                 <h2>Saiba mais sobre o {name}</h2>
                             </div>
-                            <div>
+                            <div className={styles.wrapperText}>
                                 <p>
                                     {name} - {selectedOption} possui belíssima e moderna arquitetura, cardápio 
                                     especializado em frutos do mar, adega climatizada com mais de 2000 mil garrafas.

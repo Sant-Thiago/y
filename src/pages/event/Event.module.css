@@ -339,7 +339,7 @@
     height: 200px;
 }
 
-.description {
+.packages > .description {
     text-align: center;
     font-size: 18px;
     color: #979797;
@@ -392,4 +392,151 @@
     inset: 0;
     background-color: rgba(0, 0, 0, 0.425);      
     z-index: 1;
+}
+
+.wrapperInfoSaloons {
+    margin: 32px;
+}
+
+.wrapperInfoSaloons > .title {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.wrapperInfoSaloons > .wrapperImages {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    width: 60%;
+
+    margin: 64px auto;
+}
+
+.wrapperImages > .imageAndInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;   
+}
+
+.wrapperImages > .imageAndInfo > div > img {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 240px;
+    height: 240px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.wrapperImages > .imageAndInfo > .title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.wrapperImages > .imageAndInfo > .title > h3 {
+    font-size: 28px;
+    color: rgba(180, 151, 64);
+}
+
+.wrapperImages > .imageAndInfo > .title > p {
+    font-size: 20px;
+    text-transform: lowercase;
+}
+
+.wrapperImages > .imageAndInfo > .description {
+    text-align: center;
+    color: #979797;
+    width: 90%;
+    margin: auto;
+}
+
+.wrapperDiferencials {
+    background-color: rgba(180, 151, 64);
+    padding: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    color: white;
+    text-align: center;
+}
+
+.wrapperDiferencials > .title {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.wrapperDiferencials > .title > h2 {
+    text-transform: uppercase;
+    font-size: 26px;
+}
+
+.wrapperDiferencials > .imageAndInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wrapperDiferencials > .imageAndInfo > div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid rgba(180, 151, 64, 0.555);
+}
+
+.wrapperDiferencials > .imageAndInfo > div > .icon {
+    width: 50%;
+    height: 50%;
+    color: rgba(180, 151, 64);
+}
+
+.wrapperDiferencials > .imageAndInfo > p {
+    font-size: 24px;
+    font-weight: 600;
+    width: 50%;
+    margin: auto;
+
+}
+
+
+.aboutUs {
+    margin: 32px 0;
+}
+
+.aboutUs > .title {
+    background-color: rgba(180, 151, 64);
+    padding: 48px 0;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+.aboutUs > .wrapperText {
+    padding: 64px 0;
+    width: 90%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.aboutUs > .wrapperText > p {
+    font-size: 18px;
+    color: #979797;
+    text-align: justify;
 }
