@@ -2,13 +2,14 @@ import Footer from "../../components/footer/Footer"
 import Navbar from "../../components/navbar/Navbar"
 import banenrImage from "@/utils/assets/banner_image.jpeg"
 import styles from "./Event.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import useWindowSize from "../../hooks/useWindowSize";
 import { BiCar } from "react-icons/bi";
 import { LuToyBrick } from "react-icons/lu";
 import { GiEnergyTank } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
 
 
 export default function Event({
@@ -30,6 +31,13 @@ export default function Event({
     const [isVisibleList, setIsVisibleList] = useState(false)
     const { width }  = useWindowSize(); 
     const quantity = '4 a 10';
+
+    const navOptions = [
+        {text: "Inicio", value: "#inicio"},
+        {text: "Salões e Capacidades", value: "#capacidades"},
+        {text: "Diferenciais", value: "#diferenciais"},
+        {text: "Quem Somos", value: "#quemsomos"}
+    ];
 
     const sortOptionsbyCity = (options) => {
         const sortedOptions = {};
@@ -59,6 +67,25 @@ export default function Event({
         
     }
 
+    useEffect(() => {
+        if (isVisibleList) {
+            const originalStyle = {
+              body: window.getComputedStyle(document.body).overflow,
+              html: window.getComputedStyle(document.documentElement).overflow,
+            };
+            
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+        
+            return () => {
+              document.body.style.overflow = originalStyle.body;
+              document.documentElement.style.overflow = originalStyle.html;
+            };
+        }
+    
+    }, [isVisibleList]);
+    
+
     return (
         <>
             {!selectedOption ? (
@@ -66,9 +93,35 @@ export default function Event({
             ) : (
                 <header className={styles.header}>
                 {isMobile ? (
-                    <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(true) } }> 
-                        <RxHamburgerMenu /> 
-                    </button>
+                    !isVisibleList ? (
+                        <button 
+                            className={styles.btnBurguer} 
+                            onClick={ e => { setIsVisibleList(true) } }
+                        > 
+                            <RxHamburgerMenu /> 
+                        </button>
+                    ) : ( 
+                        <div className={styles.navBurguer}>
+                            <div 
+                                className={styles.backgroudNavBurguer}
+                            >
+                                <button 
+                                    className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} 
+                                    onClick={ e => { setIsVisibleList(false) }}>
+                                        <IoClose 
+                                        
+                                        /> </button>
+                                
+                                <ul className={styles.list}>
+                                    {navOptions.map((opt) => (
+                                        <a href={opt.value}>
+                                            {opt.text}
+                                        </a>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div> 
+                    )              
                 ) : (
                     <nav className={styles.navWrapper}>
                         <div>

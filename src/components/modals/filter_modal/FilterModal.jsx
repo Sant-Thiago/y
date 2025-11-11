@@ -96,8 +96,6 @@ export default function FilterModal({
             priceRange: priceRange,
         };
 
-        console.log("Filtros aplicados:", filters);
-        
         onFilter(filters);
     };
 

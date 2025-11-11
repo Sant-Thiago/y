@@ -69,6 +69,7 @@
 .header {
     width: 100%;
     padding: 16px;
+    height: 78px;
     background-color: rgb(61, 14, 14);
     display: flex;
     justify-content: end;
@@ -539,4 +540,76 @@
     font-size: 18px;
     color: #979797;
     text-align: justify;
+}
+
+.navBurguer {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    gap: 1rem;
+
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.24);
+    z-index: 3;
+}
+
+.backgroudNavBurguer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+
+    background-color: rgb(61, 14, 14);
+
+    padding: 1rem;
+
+    gap: 1rem;
+
+    height: 100%;
+    width: 50%;
+    min-width: 360px;
+}
+
+
+.btnCloseBurguer {
+    margin-bottom: 24px;
+    color: white;
+}
+
+.btnBurguer {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    gap: 2rem;
+
+    width: 90%;
+    max-width: 420px;
+
+    text-align: right;
+    margin: 0;
+    
+    
+    font-size: 1.5rem;
 }

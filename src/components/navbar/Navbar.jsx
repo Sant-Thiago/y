@@ -96,12 +96,24 @@ export default function Navbar({
     useEffect(() => {   
         if (isVisibleList) {
             document.addEventListener("mousedown", handleClickOutside);
+            
+            const originalStyle = {
+              body: window.getComputedStyle(document.body).overflow,
+              html: window.getComputedStyle(document.documentElement).overflow,
+            };
+            
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+            
             return () => {
                 document.removeEventListener("mousedown", handleClickOutside);
+                document.body.style.overflow = originalStyle.body;
+                document.documentElement.style.overflow = originalStyle.html;
             };
         }
         
     }, [isVisibleList]);
+
 
     return(
         <header 
