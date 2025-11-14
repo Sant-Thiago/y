@@ -1,194 +1,62 @@
+import defaultLogo from "@/utils/assets/no_profile.png";
 import styles from './Navbar.module.css';
-import logoImg from '@/utils/assets/no_profile.png';
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
-import { FaCross, FaPlus } from 'react-icons/fa6';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { Link } from 'react-router-dom';
-import { IoClose } from 'react-icons/io5';
+import NavbarDesktop from './NavbarDesktop';
+import NavbarMobile from './NavbarMobile';
 
-export default function Navbar({
-    logoName = "logoName",
-    hideOnScroll = true,
-    hideAfterScroll = false
+export default function Navbar({ 
+    logoName = "logoName", hideOnScroll = true, hideAfterScroll = false 
 }) {
-    
-    const links = [
-        { href: "/home", label: "Início" },
+	const links = [
+		{ href: "/home", label: "Início" },
         { href: "/unidades", label: "Unidades" },
         { href: "/cardapio", label: "Cardápio" },
         { href: "/reservas", label: "Reservas" },
         { href: "/eventos", label: "Eventos" },
         { href: "/quem-somos", label: "Nossa História" },
-        { href: "/contato", label: "Contato" }
+        { href: "/contato", label: "Contato" },
     ];
-    
-    const listRef = useRef(null);
-    const [hide, setHide] = useState(false);
-    const navbarHeight = 76;
-    const [visibleLinks, setVisibleLinks] = useState(links);
-    const [isVisibleList, setIsVisibleList] = useState(false);
-    const [isMoreOptions, setIsMoreOptions] = useState(null);
-    const [overflowLinks, setOverflowLinks] = useState([]);
-    const [isVisibleOverflowList, setIsVisibleOverflowList] = useState(false);
-    const { width }  = useWindowSize(); 
 
-    const navRef = useRef(null);
-
+    const { width } = useWindowSize();
     const isMobile = width < 1000;
 
-    const handleClickOutside = (e) => {
-        if (navRef.current && !navRef.current.contains(e.target)) setIsVisibleList(false);
-    };
+    const [hide, setHide] = useState(false);
 
     useEffect(() => {
-        const list = listRef?.current;
-        
-        const calculateVisible = () => {
-            if (!list || isMobile) return;
-            
-            const listWidth = list.offsetWidth;
-            const children = Array.from(list.children);
-            
-            let totalWidth = 0;
-            let lastVisibleIndex = children.length - 1;
-            
-            for (let i = 0; i < children.length; i++) {
-                totalWidth += children[i].offsetWidth + 32;
-                if (totalWidth > listWidth) {
-                    lastVisibleIndex = i - 1;
-                    break;
-                }
-            }
-            
-            setVisibleLinks(links.slice(0, lastVisibleIndex + 1));
-            setOverflowLinks(links.slice(lastVisibleIndex + 1));
-            
-            if (lastVisibleIndex < children.length - 1) {
-                setIsMoreOptions(true);
-            } else setIsMoreOptions(false);
-        };
-        
+        if (!hideOnScroll) return;
+
         const handleScroll = () => {
-            if (!hideOnScroll) return;
-
             const scrolled = window.scrollY;
-
-            if (scrolled > navbarHeight * 3 && !hideAfterScroll) {
-                setHide(false);
+            const navbarHeight = 78;
+            let shouldHide = false;
+            
+            if (scrolled > navbarHeight * 4 && !hideAfterScroll) {
+                shouldHide = false;
             } else if (scrolled > navbarHeight) {
-                setHide(true);
-            } else setHide(false);
+                shouldHide = true;
+            }
+
+            setHide(shouldHide);
         };
         
-        if (hideOnScroll) window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", calculateVisible);
-        
-        calculateVisible()
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    
+    }, [hideOnScroll, hideAfterScroll]);
 
-        return () => {
-            window.removeEventListener("resize", calculateVisible);
-            if (hideOnScroll) window.removeEventListener("scroll", handleScroll);
-        };        
-
-    }, [hideOnScroll, isMobile]);
-
-    useEffect(() => {   
-        if (isVisibleList) {
-            document.addEventListener("mousedown", handleClickOutside);
-            
-            const originalStyle = {
-              body: window.getComputedStyle(document.body).overflow,
-              html: window.getComputedStyle(document.documentElement).overflow,
-            };
-            
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-            
-            return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
-                document.body.style.overflow = originalStyle.body;
-                document.documentElement.style.overflow = originalStyle.html;
-            };
-        }
-        
-    }, [isVisibleList]);
-
-
-    return(
-        <header 
-            className={`${styles.container} ${hide ? styles.hide : ""}`}>
-
-            <nav className={styles.nav}>
-
-                <div className={styles.wrapper}>
-                    
-                    <Link to="/home" className={styles.logo}>
-                        <img className={styles.logoImg} src={logoImg} alt="logomarca" /> 
-                        <p className={styles.logoNames}>
-                            {/* {logoName}     */}
-                        </p>
-                    </Link>
-
-
-                    {isMobile ?
-                        <>
-                        {isVisibleList ?
-                            <div className={styles.navBurguer}>
-                                <div 
-                                    className={styles.backgroudNavBurguer}
-                                    ref={navRef}
-                                >
-                                    
-                                    <button 
-                                        className={`${styles.btnCloseBurguer} ${styles.btnBurguer}`} 
-                                        onClick={ e => { setIsVisibleList(false) }}>
-                                            <IoClose 
-                                        /> </button>
-                                    
-                                    <ul className={styles.list}>
-                                        {visibleLinks.map((link) => (
-                                            <Link to={link.href}>
-                                                {link.label}
-                                            </Link>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                            </div> 
-                            : 
-                            <button className={styles.btnBurguer} onClick={ e => { setIsVisibleList(true) } }> <RxHamburgerMenu /> </button>
-                        }
-                        </>
-                    :
-                        <ul className={styles.list} ref={listRef}>
-                            {visibleLinks.map((link) => (
-                                <Link to={link.href}>
-                                    {link.label}
-                                </Link>                        
-                            ))}
-                            {isMoreOptions && 
-                                <div className={styles.dropdown}>
-                                    <button className={styles.btnPlus} onClick={e => { setIsVisibleOverflowList(!isVisibleOverflowList) }}>
-                                        <FaPlus /> 
-                                    </button>
-                                        {isVisibleOverflowList && (
-                                            <ul className={styles.overflowList}>
-                                                {overflowLinks.map(link  => (
-                                                    <Link to={link.href}>{link.label}</Link>
-                                                ))}
-                                            </ul>
-                                        )}
-
-                                </div>
-                            }
-                        </ul>
-                    }
-
+    return (
+        <header className={`${styles.container} ${hide ? styles.hide : ""}`}>
+            <div className={styles.wrapper}>
+                <div className={styles.logo}>
+                    <img src={defaultLogo} alt="defaultLogo" />
                 </div>
-
-            </nav>
-            
+                {isMobile ? (
+                    <NavbarMobile links={links} />
+                ) : (
+                    <NavbarDesktop links={links} />
+                )}
+            </div>
         </header>
-    )
+    );
 };

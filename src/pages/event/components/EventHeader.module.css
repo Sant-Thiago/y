@@ -1,0 +1,51 @@
+.header {
+    width: 100%;
+    padding: 16px;
+
+    background-color: rgb(61, 14, 14);
+    display: flex;
+    justify-content: end;
+    margin-top: 78px;
+    height: fit-content;
+    
+}
+
+.fixed {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    margin-top: 0;
+}
+
+.header > .btnBurguer {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+
+    color: white;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.listHorizontal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.listHorizontal > a {
+    color: white;
+    text-align: center;
+    width: fit-content;
+    font-weight: 600;
+}
