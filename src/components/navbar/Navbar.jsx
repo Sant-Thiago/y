@@ -19,7 +19,7 @@ export default function Navbar({
     ];
 
     const { width } = useWindowSize();
-    const isMobile = width < 1000;
+    const isMobile = width < 750;
 
     const [hide, setHide] = useState(false);
 

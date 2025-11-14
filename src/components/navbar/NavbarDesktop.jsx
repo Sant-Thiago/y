@@ -12,13 +12,14 @@ export default function NavbarDesktop({ links }) {
     useEffect(() => {
         const calc = () => {
             const list = listRef.current;
+            
             if (!list) return;
             const listWidth = list.offsetWidth;
             let totalWidth = 0;
             let lastVisibleIndex = links.length - 1;
 
             for (let i = 0; i < links.length; i++) {
-                totalWidth += list.children[i]?.offsetWidth || 0;
+                totalWidth += list.children[i]?.offsetWidth + 32 || 0;
                 if (totalWidth > listWidth) {
                     lastVisibleIndex = i - 1;
                     break;
@@ -31,8 +32,9 @@ export default function NavbarDesktop({ links }) {
 
         calc();
         window.addEventListener("resize", calc);
+        
         return () => window.removeEventListener("resize", calc);
-    }, [links]);
+    }, []);
 
     return (
         <ul className={styles.list} ref={listRef}>

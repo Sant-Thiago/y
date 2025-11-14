@@ -1,6 +1,5 @@
 .header {
     width: 100%;
-    padding: 16px;
 
     background-color: rgb(61, 14, 14);
     display: flex;
@@ -48,4 +47,10 @@
     text-align: center;
     width: fit-content;
     font-weight: 600;
+    padding: 16px;
+}
+
+.listHorizontal > a:hover {
+    background-color: rgba(180, 151, 64, 0.541);
+    border-bottom: 2px solid rgba(180, 151, 64);
 }

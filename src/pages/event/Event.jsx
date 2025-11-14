@@ -26,7 +26,7 @@ export default function Event({
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     const { width }  = useWindowSize(); 
 
-    const isMobile = width < 600;
+    const isMobile = width < 750;
 
     useEffect(() => {
         if (isVisibleList) {
@@ -49,9 +49,6 @@ export default function Event({
     useEffect(() => { 
         window.scrollTo(0, 0); 
 
-        console.log(isMobile);
-        
-        
         if (!selectedOption || isMobile) return;
     
         const handleScroll = () => {
