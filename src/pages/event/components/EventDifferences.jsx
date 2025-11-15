@@ -30,6 +30,7 @@ export default function EventDifferences({}) {
                 <h2>Diferenciais Exclusivos</h2>
                 <p>Pensando em sua comodiadade, nossos espaços oferecem:</p>
             </div>
+            <div className={styles.wrapperImageAndInfo}>
             {infos.map((info, idx) => (
                 <div 
                     className={styles.imageAndInfo}
@@ -42,6 +43,7 @@ export default function EventDifferences({}) {
                 </div>
 
             ))}
+            </div>
         </section>
     )
 }

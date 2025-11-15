@@ -21,13 +21,13 @@
     font-size: 26px;
 }
 
-.wrapperDiferencials > .imageAndInfo {
+.wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.wrapperDiferencials > .imageAndInfo > div {
+.wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > div {
     width: 38%;
     max-width: 264px;
 
@@ -44,16 +44,33 @@
     border: 8px solid rgba(180, 151, 64, 0.555);
 }
 
-.wrapperDiferencials > .imageAndInfo > div > .icon {
+.wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > div > .icon {
     width: 50%;
     height: 50%;
     color: rgba(180, 151, 64);
 }
 
-.wrapperDiferencials > .imageAndInfo > p {
+.wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > p {
     font-size: 24px;
     font-weight: 600;
     max-width: 272px;
     margin: auto;
+
+}
+
+
+@media (min-width: 750px) {
+
+    .wrapperDiferencials > .wrapperImageAndInfo {
+        display: flex;
+    }
+
+    .wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > div {
+        width: 184px;
+    }
+
+    .wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > p {
+        width: 240px;
+    }
 
 }

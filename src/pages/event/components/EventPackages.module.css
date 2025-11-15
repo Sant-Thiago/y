@@ -92,3 +92,45 @@
     font-size: 18px;
     color: #979797;
 }
+
+
+@media (min-width: 750px) {
+
+    .packages {
+        width: 100%;
+    }
+
+    .packages > .wrapperOptions {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        gap: unset;
+    }
+
+    .packages > .wrapperOptions > button {
+        width: fit-content;
+        white-space: nowrap;
+
+        padding: 8px;
+        min-width: 160px;
+        font-size: 24px;
+    }
+    
+    .wrapperFlavorImages {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: unset;
+    }
+
+    .wrapperFlavorImages > .image {
+        width: 160px;   
+    }
+    
+    .packages > .description {
+        width: 576px;
+        margin: auto;
+    }
+
+}

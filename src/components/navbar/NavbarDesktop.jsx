@@ -34,7 +34,7 @@ export default function NavbarDesktop({ links }) {
         window.addEventListener("resize", calc);
         
         return () => window.removeEventListener("resize", calc);
-    }, []);
+    }, [links]);
 
     return (
         <ul className={styles.list} ref={listRef}>

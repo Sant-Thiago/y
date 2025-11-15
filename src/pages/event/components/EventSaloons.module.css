@@ -66,3 +66,30 @@
     margin: auto;
     font-size: 15px;
 }
+
+
+@media (min-width: 750px) {
+
+    .wrapperInfoSaloons > .wrapperImages {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        justify-items: center;
+    }
+
+    .wrapperImages > .imageAndInfo {
+        width: 312px;
+        margin: 0;
+        align-self: start;
+    }
+
+    .wrapperInfoSaloons > .wrapperImages > div:nth-child(3) {
+        grid-column: 1 / -1;     
+        /* justify-self: center;     */
+        /* width: 60%;               */
+    }
+
+    .wrapperImages > .imageAndInfo > .imagem {
+        width: 240px;
+    }
+}

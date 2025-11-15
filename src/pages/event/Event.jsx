@@ -68,7 +68,7 @@ export default function Event({
                 hideAfterScroll={selectedOption ? true : false}
             />
 
-            {selectedOption && !isMobile && <EventHeader isHeaderFixec={isHeaderFixed} />}
+            {selectedOption && !isMobile && <EventHeader isHeaderFixed={isHeaderFixed} />}
 
             <main 
                 className={`

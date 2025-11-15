@@ -203,3 +203,47 @@
     background-color: rgba(0, 0, 0, 0.425);      
     z-index: 1;
 }
+
+@media (min-width: 750px) {
+
+    .wrapperInfoOrcamento {
+        display: flex;
+        padding: 32px 5%;
+        gap: 40px;
+    }
+    
+    .infoOrcamento {
+        width: 50%;
+        margin: auto 0;
+
+    }
+
+    .infoOrcamento > .title {
+        gap: initial;       
+    }
+
+    .infoOrcamento > .text > .orcamento > .textInfo {
+        width: 100%;
+    }
+
+    .infoOrcamento > .text > .policy {
+        width: 100%;
+    }
+
+    .wrapperInfoInput {
+        width: 50%;
+        margin: auto 0;
+        gap: 24px;
+    }
+    
+    .wrapperInfoInput > .title {
+        margin: 0;
+    }
+
+    .wrapperInput {
+        width: 100%;
+        margin: 0;
+    }
+
+
+}
