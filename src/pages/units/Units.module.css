@@ -7,12 +7,13 @@
 .wrapper {
     width: 80%;
     margin: 96px auto 156px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
-
 .wrapperText {
-    width: 80%;
+    width: 90%;
+    max-width: 500px;
 }
 
 .textHigh {
@@ -249,4 +250,64 @@
 .wrapperMap > .map {
     height: 400px;
     width: 100%;
+}
+
+@media (min-width: 1020px) {
+    .wrapper {
+        width: 90%;
+        /* margin: 88px auto 156px; */
+        flex-direction: row;
+        align-items: center;
+        height: 440px;
+        gap: 16px;
+    }
+    
+    .wrapperInfoText {
+        width: 50%;
+    }
+
+    .wrapperText {
+        width: 80%;
+    }
+    
+    .wrapperImg {
+        height: 440px;
+        width: 50%;
+        position: relative;
+        border-radius: unset;
+        box-shadow: none;
+    }
+
+    .absoluteImage {
+        position: absolute;
+        border-radius: 8px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.322);
+    }
+
+    .absoluteImage:nth-child(1) {
+        height: 90%;
+        width: 60%;
+
+        left: 14%;
+    }
+
+    .absoluteImage:nth-child(2) {
+        width: 30%;
+        height: 45%;
+
+        right: 24px;
+        top: 40px;    
+    }
+
+    .absoluteImage:nth-child(3) {
+        width: 35%;
+        height: 40%;
+        
+        left: 0;
+        bottom: 10px;
+    }
+    
+    .select {
+        margin: 48px 0 0;
+    }
 }

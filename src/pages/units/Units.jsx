@@ -30,6 +30,8 @@ export default function Units({
 
     const images = [ image, img ]
 
+    const imageUnits = [ image, img, image ];
+
     const navigate = useNavigate();
     const [selectedCity, setSelectedCity] = useState("");
 
@@ -71,32 +73,45 @@ export default function Units({
             {!selectedCity ? (
                 <main className={styles.container}>
                     <section className={styles.wrapper}>
-                        <div className={styles.wrapperText}>
-                            <h1 className={styles.textHigh}>Encontre a unidade perto de você</h1>
-                            <p className={styles.text}>Temos {quantityUnits} lojas espalhadas em todo o país.</p>
-
+                        <div className={styles.wrapperInfoText}>
+                            <div className={styles.wrapperText}>
+                                <h1 className={styles.textHigh}>Encontre a unidade <br />mais perto de você</h1>
+                                <p className={styles.text}>Temos {quantityUnits} lojas espalhadas em todo o país.</p>
+                            </div>
+                            <div className={styles.division}></div>
+                            <select
+                                className={styles.select}
+                                onChange={handleChange}
+                            >
+                                <option defaultChecked>Selecione a unidade desejada</option>
+                                {Object.entries(sortedOptions).map(([state, cities]) => (
+                                    <optgroup key={state} label={state}>
+                                        {cities.map((city, idx) => (
+                                            <option key={idx} value={city.value} >
+                                                {city.value}
+                                            </option>
+                                        ))}
+                                    </optgroup>
+                                ))}
+                            </select>
                         </div>
 
-                        <div className={styles.division}></div>
-
-                        <select 
-                            className={styles.select}
-                            onChange={handleChange}
-                        >
-                            <option defaultChecked>Selecione a unidade desejada</option>
-                            {Object.entries(sortedOptions).map(([state, cities]) => (
-                                <optgroup key={state} label={state}>
-                                    {cities.map((city, idx) => (
-                                        <option key={idx} value={city.value} >
-                                            {city.value}
-                                        </option>
-                                    ))}
-                                </optgroup>
-                            ))}
-                        </select>
-
                         <div className={styles.wrapperImg}>
-                            <img src={img} alt="restaurant" className={styles.img} />
+                            {imageUnits.length > 1 ? (
+                                imageUnits.map(img => (
+                                    <img 
+                                        src={img} 
+                                        alt="restaurant" 
+                                        className={`
+                                            ${styles.img}
+                                            ${styles.absoluteImage}
+                                        `} 
+                                            
+                                    />
+                                ))
+                            ): (
+                                <img src={imageUnits} alt="restaurant" className={styles.img} />
+                            )}
                         </div>
                     </section>
                 </main>
