@@ -1,9 +1,62 @@
 import styles from "./EventBudget.module.css";
 import defaultImage from "@/utils/assets/banner_image.jpeg"
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { formatDate, formatPhone, validateEmail } from "../../../hooks/useInputUtils";
 
 export default function EventOrcamento({ name, selectedOption }) {
-  const quantity = "4 a 10";
+    const [dateValue, setDateValue] = useState("");
+    const [numberValue, setNumberValue] = useState("");
+    const [nameValue, setNameValue] = useState("");
+    const [phoneValue, setPhoneValue] = useState("+55 ");
+    const [emailValue, setEmailValue] = useState("");
+    const [textareaValue, setTextareaValue] = useState("");
+    const [verificationValue, setVerificationValue] = useState("");
+    
+    const quantity = "4 a 10";
+
+    const handlePhoneInput = (e) => {
+        const valueInput = e.target.value.replace(/\D/g, "");
+
+        if  (valueInput.length == 0) {
+            setPhoneValue("+55 ");
+            return;
+        }
+        setPhoneValue(formatPhone(valueInput));
+    }
+
+    const handleSelect = (e) => {
+
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (
+            !dateValue ||
+            !numberValue ||
+            !nameValue ||
+            !emailValue ||
+            !phoneValue ||
+            !textareaValue ||
+            !verificationValue
+        ) {
+            alert("Preencha todos os campos.");
+            return;
+        }
+
+        if (!validateEmail(emailValue)) {
+            alert("Digite um email válido.");
+            return;
+        }
+
+        if (phoneValue.replace(/\D/g, "").length < 13) {
+            alert("Digite um telefone válido.");
+            return;
+        }
+
+        alert("Tudo certo! Pode enviar.");
+    };
+
 
   return (
     <section 
@@ -53,62 +106,69 @@ export default function EventOrcamento({ name, selectedOption }) {
             <div className={styles.wrapperInput}>
                 <div className={styles.field}>
                     <label htmlFor="tipoEvento">Tipo de Evento*</label>
-                    <select id="tipoEvento" className={styles.input}>
+                    <select id="tipoEvento" className={styles.input} onChange={e => setEventType(e.target.value)}>
                         <option>Selecione</option>
-                        <option>Noivado/Casamento</option>
-                        <option>Evento Corporativo (Privado ou Público)</option>
-                        <option>Aniversário ou Comemoração</option>
-                        <option>Confraternização de Trabalho</option>
-                        <option>Formatura</option>
-                        <option>Outro</option>
+                        <option value={"Noivado/Casamento"}>Noivado/Casamento</option>
+                        <option value={"Evento Corporativo"}>Evento Corporativo (Privado ou Público)</option>
+                        <option value={"Aniversário ou Comemoração"}>Aniversário ou Comemoração</option>
+                        <option value={"Confraternização de Trabalho"}>Confraternização de Trabalho</option>
+                        <option value={"Formatura"}>Formatura</option>
+                        <option value={"Outro"}>Outro</option>
                     </select>
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="refeicao">Almoço ou Jantar*</label>
-                    <select id="refeicao" className={styles.input}>
+                    <select id="refeicao" className={styles.input} onChange={handleSelect}>
                         <option>Selecione</option>
-                        <option>Almoço</option>
-                        <option>Jantar</option>
+                        <option value={"Almoço"}>Almoço</option>
+                        <option value={"Jantar"}>Jantar</option>
                     </select>
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="dataEvento">Data do Evento ex.: 00/00/0000*</label>
-                    <input id="dataEvento" type="text" className={styles.input} placeholder="00/00/0000" />
+                    <input id="dataEvento" type="text" className={styles.input} placeholder="00/00/0000" value={dateValue} onChange={e => setDateValue(formatDate(e.target.value))} />
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="convidados">Nº de convidados*</label>
-                    <input id="convidados" type="number" className={styles.input} />
+                    <input id="convidados" type="number" className={styles.input} value={numberValue} onChange={e => setNumberValue(e.target.value)}/>
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="nome">Nome*</label>
-                    <input id="nome" type="text" className={styles.input} />
+                    <input id="nome" type="text" className={styles.input} value={nameValue} onChange={e => setNameValue(e.target.value)}/>
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="email">Email*</label>
-                    <input id="email" type="email" className={styles.input} />
+                    <input id="email" type="email" className={styles.input} value={emailValue} onChange={e => setEmailValue(e.target.value)} />
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="telefone">Telefone*</label>
-                    <input id="telefone" type="tel" className={styles.input} value={"+55"} placeholder="(xx) xxxxx-xxxx" />
+                    <input 
+                        id="telefone" 
+                        type="tel" 
+                        className={styles.input} 
+                        value={phoneValue} 
+                        placeholder="(xx) xxxxx-xxxx"
+                        onChange={handlePhoneInput}
+                    />
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="particularidades">Particularidade do seu Evento</label>
-                    <textarea id="particularidades" className={styles.textarea} rows="2"></textarea>
+                    <textarea id="particularidades" className={styles.textarea} rows="2" value={textareaValue} onChange={e => setTextareaValue(e.target.value)}></textarea>
                 </div>
 
                 <div className={styles.field}>
                     <label htmlFor="verificacao">7 + 9 = ?</label>
-                    <input id="verificacao" type="text" className={styles.input} />
+                    <input id="verificacao" type="text" className={styles.input} value={verificationValue} onChange={e => setVerificationValue(e.target.value)}/>
                 </div>
 
-                <button className={styles.button}>Receber Orçamento</button>
+                <button className={styles.button} onClick={handleSubmit}>Receber Orçamento</button>
             </div>
         </div>
     </section>

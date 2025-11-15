@@ -16,8 +16,6 @@
     z-index: 1;
 }
 
-
-
 .infoOrcamento {
     width: 80%;
     margin: 24px auto;
@@ -215,7 +213,6 @@
     .infoOrcamento {
         width: 50%;
         margin: auto 0;
-
     }
 
     .infoOrcamento > .title {
@@ -245,5 +242,22 @@
         margin: 0;
     }
 
+}
 
+@media (min-width: 1020px) {
+
+    .wrapperInfoOrcamento {
+        padding: 32px auto;
+        gap: 56px;
+    }
+
+    .infoOrcamento {
+        width: 512px;
+        padding: 0 32px;
+    }
+
+    .wrapperInfoInput {
+        width: 512px;
+        padding: 0 32px;
+    }
 }

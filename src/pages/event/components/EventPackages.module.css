@@ -105,15 +105,17 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-around;
-        gap: unset;
+        gap: 0;
     }
 
     .packages > .wrapperOptions > button {
-        width: fit-content;
+        width: 22%;
         white-space: nowrap;
 
+        margin: 0;
+
         padding: 8px;
-        min-width: 160px;
+        max-width: 256px;
         font-size: 24px;
     }
     
@@ -125,7 +127,8 @@
     }
 
     .wrapperFlavorImages > .image {
-        width: 160px;   
+        width: 22%;   
+        max-width: 256px;
     }
     
     .packages > .description {
@@ -133,4 +136,20 @@
         margin: auto;
     }
 
+}
+
+@media (min-width: 1020px) {
+    .packages > .wrapperOptions {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .wrapperFlavorImages {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .wrapperFlavorImages > .image {
+        margin: unset;
+    }
 }
