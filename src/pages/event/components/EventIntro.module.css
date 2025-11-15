@@ -6,7 +6,7 @@
     margin: 48px  auto;
 }
 
-.reverse {
+.reverseColumn {
     flex-direction: column-reverse;
 }
 
@@ -58,4 +58,38 @@
 .wrapperInfo > .select:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(255, 205, 130, 0.6);
+}
+
+
+@media (min-width: 1020px) {
+    
+    .wrapper {
+        flex-direction: row;
+        gap: 16px;
+        width: 90%;
+        max-width: 936px;
+        margin: 48px  auto;
+        align-items: center;
+    }
+
+    .reverseRow {
+        flex-direction: row-reverse;
+    }
+
+    .wrapperImage {
+        height: 264px;
+        width: 50%;
+
+        border-radius: 8px;
+    }
+
+    .imageFree {
+        height: 360px;
+        width: 50%;
+        aspect-ratio: 1/1;
+    }
+
+    .wrapperInfo {
+        width: 50%;
+    }
 }

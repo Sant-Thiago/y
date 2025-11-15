@@ -12,3 +12,18 @@
 
     min-height: calc(100vh - 76px);
 }
+
+@media (min-width: 1020px) {
+    .sectionCards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        margin: auto;
+        padding: 0 5%;
+    }
+
+    .sectionHighlights {
+        display: flex;   
+    }
+}

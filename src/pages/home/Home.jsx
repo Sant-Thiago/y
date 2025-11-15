@@ -15,6 +15,7 @@ export default function Home() {
             <main className={styles.container}>
                 <Banner 
                     draggable={false}
+                    timeTransition={5000}
                 />
                 <section className={styles.sectionCards}>
                     <Card 
@@ -22,19 +23,19 @@ export default function Home() {
                         fstText="Faça sua"
                         sndText="Reserva"
                         trdText="Realizando a Reserva Online você garante seu lugar com segurança."
-                        btnText="Faça sua reserva"
-
+                        linkText="Faça sua reserva"
+                        link="/reservas"
                     />
                     <Card 
                         img={ifoodImg}
                         fstText="Peça pelo nosso"
                         sndText="Delivery"
                         trdText="Coma o melhor do EmpresaX em qualquer lugar! Peça nossos pratos no conforto da sua casa."
-                        btnText="Faça seu pedido"
+                        linkText="Faça seu pedido"
                         animate="top"
                     />
                 </section>
-                <section>
+                <section className={styles.sectionHighlights}>
                     <Highlights />
                 </section>
             </main>

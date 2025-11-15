@@ -168,7 +168,7 @@ a {
         align-content: center;
     }
 
-    a {
+    .list > a {
         display: inline-block;
         width: max-content;
         color: rgb(95, 95, 95);
@@ -183,7 +183,7 @@ a {
 
     }   
     
-    a:hover {
+    .list > a:hover {
         color: black;
     }
 
@@ -246,3 +246,19 @@ a {
 }
 
 
+
+
+@media (min-width: 1020px) {
+
+    .wrapper {
+        padding: 8px 0;
+        max-width: 936px;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .list { 
+        width: 80%;
+    }
+    
+}
