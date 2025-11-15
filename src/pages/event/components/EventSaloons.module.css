@@ -76,6 +76,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
         justify-items: center;
+        align-items: start;
     }
 
     .wrapperImages > .imageAndInfo {
@@ -93,4 +94,24 @@
     .wrapperImages > .imageAndInfo > .imagem {
         width: 240px;
     }
+}
+
+@media (min-width: 1020px) {
+
+    .wrapperImages {
+        column-gap: 0;
+        gap: 0;
+        align-items: start;
+        width: 1000px;
+    }
+
+    .wrapperImages > .imageAndInfo {
+        width: 440px;
+    }
+
+    .wrapperImages > .imageAndInfo > .description {
+        width: 90%;
+        max-width: unset;
+    }
+
 }

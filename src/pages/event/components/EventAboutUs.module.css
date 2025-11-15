@@ -29,3 +29,9 @@
     color: #979797;
     text-align: justify;
 }
+
+@media (min-width: 1020px) {
+    .aboutUs > .wrapperText {
+        width: 880px;
+    }
+}
