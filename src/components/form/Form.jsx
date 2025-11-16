@@ -34,8 +34,8 @@ export default function Form({
             </div>
 
             <div className={styles.group}>
-                <label htmlFor="phone">Número de telefone</label>
-                <input id="phone" type="tel" name="phone" placeholder="+55" />
+                <label htmlFor="phone">Número de telefone *</label>
+                <input id="phone" type="tel" name="phone" placeholder="+55" required />
             </div>
 
             <div className={styles.group}>
@@ -59,9 +59,9 @@ export default function Form({
                 </div>
             ) }
     
-            <div className={styles.group}>
+            <div className={`${styles.group} ${styles.menssagem}`}>
                 <label htmlFor="message">Sua mensagem *</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" required rows="3" ></textarea>
             </div>
 
             { fieldTermOn && (

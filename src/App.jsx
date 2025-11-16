@@ -10,6 +10,7 @@ import WhoWeAre from "./pages/who_we_are/WhoWeAre";
 import Menu from "./pages/menu/Menu";
 import Reserve from "./pages/reserve/Reserve";
 import Event from "./pages/event/Event";
+import UnitDetails from "./pages/unit_details/UnitDetails";
 
 function App() {
     return (
@@ -28,6 +29,11 @@ function App() {
                         path="/unidades"
                         element={ <Units />}
                     />
+                    <Route
+                        path="/unidades/:name"
+                        element={<UnitDetails />}    
+                    />
+
                     <Route 
                         path="/politica-privacidade"
                         element={ <PrivacyPolicy />}

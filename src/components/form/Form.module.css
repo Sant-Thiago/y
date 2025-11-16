@@ -74,20 +74,20 @@
 }
 
 .wrapperButton > button {
-  width: max-content;
-  margin-left: 30%;
-  background-color: rgb(180, 151, 64);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+	width: max-content;
+	margin-left: 30%;
+	background-color: rgb(180, 151, 64);
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 16px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .wrapperButton >  button:hover {
-  background-color: rgb(143, 118, 43);
+  	background-color: rgb(143, 118, 43);
 }
 
 .wasValidated input:invalid,
@@ -99,4 +99,39 @@
 .errorMessage {
   color: #c00;
   font-size: 0.9rem;
+}
+
+
+@media (min-width: 1020px) {
+	.group {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.group > label {
+		font-size: 0.95rem;
+		color: #333;
+		width: 45%;
+	}
+
+	.group textarea {
+		min-height: unset;
+      	max-height: 120px;
+  	}
+
+	.group input,
+	.group select,
+	.group textarea,
+	.group > div {
+		width: 50%;
+	}
+
+	.menssagem > label {
+		padding-bottom: 20px;
+	}
+
+	.wrapperButton > button {
+		margin-left: 50%;
+	}
 }
