@@ -1,28 +1,28 @@
-.workWithUs > h2 {
-    font-size: 26px;
-    font-weight: 500;
-    margin: 8px 0;   
-}
-
-.workWithUs > div {
+.workWithUs > .wrapperImage {
     width: 100%;
-    height: 150px;
+    height: 160px;
     overflow: hidden;
 }
 
-.workWithUs > div {
+.workWithUs > .wrapperImage {
     background-image: linear-gradient(to right, rgb(61, 14, 14), transparent);
 }
 
-.workWithUs > div > img {
+.workWithUs > .wrapperImage > img {
     width: 100%;
     height: 100%;
-
+    
     object-fit: cover;
     object-position: center;
 }
 
-.workWithUs > button {
+.wrapperText > h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 8px 0;   
+}
+
+.workWithUs > .wrapperText > button {
     margin: 16px 0;
  
     background-color: rgb(230, 205, 132);
@@ -37,6 +37,19 @@
     transition: background-color 0.3s ease;
 }
 
-.workWithUs > button:hover {
+.workWithUs > .wrapperText > button:hover {
     background-color: rgb(212, 184, 100);
+}
+
+@media (min-width: 1020px) {
+    .workWithUs {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        
+    }
+    
+    .workWithUs > .wrapperImage {
+        height: 144px;
+    }
 }

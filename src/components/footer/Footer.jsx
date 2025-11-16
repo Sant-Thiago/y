@@ -19,47 +19,50 @@ export default function Footer({
     return (
         <footer className={styles.container}>
             <div className={styles.wrapper}>
-                <div className={styles.redirections}>
-                    <ul className={styles.list}>
-                        <li>
-                            <Link to="/unidades">Unidades</Link>
-                        </li>
-                        <li>
-                            <Link to="/eventos">Eventos</Link>
-                        </li>
-                        <li>
-                            <Link to="/contato">Contato</Link>
-                        </li>
-                        <li>
-                            <Link to="/cardapio">Cardápio</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className={styles.politycies}>
-                    <ul className={styles.list}>
-                        {/* <li>
-                            <Link to="/contato">Trabalhe conosco</Link>
-                        </li> */}
-                        <li>
-                            <Link to="/politica-privacidade">Política de privacidade</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className={styles.information}>
-                    <p className={styles.label}>Apresentação</p>
-                    <div className={styles.inputWrapper}>
-                        <input 
-                            className={styles.input} 
-                            type="text" 
-                            value={inputValue} 
-                            onChange={e => { setInputValue(e.target.value)} } 
-                            placeholder="Seu e-mail..."    
-                        />
-                        <button className={styles.button} onClick={e => { handleClick(e) }}>Inscrever</button>
+                <div className={styles.wrapperText}>
+                    <div className={styles.redirections}>
+                        <ul className={styles.list}>
+                            <li>
+                                <Link to="/unidades">Unidades</Link>
+                            </li>
+                            <li>
+                                <Link to="/eventos">Eventos</Link>
+                            </li>
+                            <li>
+                                <Link to="/contato">Contato</Link>
+                            </li>
+                            <li>
+                                <Link to="/cardapio">Cardápio</Link>
+                            </li>
+                        </ul>
+                    {/* </div> */}
+                    {/* <div className={styles.politycies}> */}
+                        <ul className={styles.list}>
+                            {/* <li>
+                                <Link to="/contato">Trabalhe conosco</Link>
+                            </li> */}
+                            <li>
+                                <Link to="/politica-privacidade">Política de privacidade</Link>
+                            </li>
+                        </ul>
                     </div>
-                    <img className={styles.logo} src={img} alt="imagem" />
+                    <div className={styles.information}>
+                        <label htmlFor="apresentacao" className={styles.label}>Apresentação</label>
+                        <div className={styles.inputWrapper}>
+                            <input
+                                id="apresentacao"
+                                className={styles.input}
+                                type="text"
+                                value={inputValue}
+                                onChange={e => { setInputValue(e.target.value)} }
+                                placeholder="Seu e-mail..."
+                            />
+                            <button className={styles.button} onClick={e => { handleClick(e) }}>Inscrever</button>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className={styles.wrapperImageAndSocial}>
+                    <img className={styles.logo} src={img} alt="imagem" />
                     <ul className={styles.socialList}>
                         <li>
                             <Link 

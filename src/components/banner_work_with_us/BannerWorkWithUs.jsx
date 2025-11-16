@@ -7,12 +7,15 @@ export default function BannerWorkWithUs({
     return (
 
         <div className={styles.workWithUs}>
-            <h2>Trabalhe conosco</h2>
-            <div>
+            {/* <h2>Trabalhe conosco</h2> */}
+            <div className={styles.wrapperImage}>
                 <img src={workWithUsImg} alt="trabalhe conosco" />
             </div>
-            <p>Quer fazer parte do nosso time de campeões, clique no botão abaixo e faça sua inscrição para uma de nossas vagas disponíveis.</p>
-            <button>Quero me inscrever</button>
+            <div className={styles.wrapperText}>
+                <h2>Trabalhe conosco</h2>
+                <p>Quer fazer parte do nosso time de campeões, clique no botão abaixo e faça sua inscrição para uma de nossas vagas disponíveis.</p>
+                <button>Quero me inscrever</button>
+            </div>
         </div>
     )
 }

@@ -171,7 +171,7 @@
 .wrapperContactUs > h2 {
     margin: 8px auto;
     width: fit-content;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 500;
     color: var(--redColor);
 }
@@ -242,6 +242,10 @@
         overflow: hidden;
     }
 
+    .wrapperContactUs {
+        padding: 64px 5%;
+
+    }
 
     .wrapperMapAndForm {
         flex-direction: row;
