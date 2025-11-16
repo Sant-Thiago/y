@@ -132,6 +132,7 @@
         gap: 40px;
 
         width: 90%;
+        max-width: 936px;
     }
 
     .wrapperText {

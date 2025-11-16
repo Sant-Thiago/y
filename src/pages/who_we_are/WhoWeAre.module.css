@@ -3,12 +3,16 @@
     width: 100vw;
 }
 
+.background {
+    background-color: rgb(240, 240, 240);
+}
+
 .wrapperText {
     width: 100%;
     padding: 48px 16px 16px;
     gap: 8px;
-    display: grid;
-    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
 }
 
 .wrapperText > h1 {
@@ -19,7 +23,6 @@
 
 .wrapperImage {
     width: 100%;
-    background-color: rgb(240, 240, 240);
     padding-bottom: 20px;
 }
 
@@ -57,11 +60,19 @@
     color: var(--goldColor);
 }
 
+.wrapperHistory {
+    height: 100%;
+    border: 1px solid;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
 .divisor {
     width: 100%;
     position: relative;
     margin: 96px 0;
-    height: 500px;
 }
 
 .divisor::before {
@@ -131,4 +142,68 @@
     font-weight: 600;
     
     height: 32px;
+}
+
+@media (min-width: 1020px) {
+    .wrapper {
+        width: 90%;
+        max-width: 936px;
+        margin: auto;
+        padding: 40px 0;
+        display: flex;
+        gap: 24px;
+    }
+ 
+    .wrapperText {
+        width: 40%;
+        padding: 0;
+        gap: 16px;
+    }
+
+    .wrapperText > h1 {
+        width: 100%;
+    }
+
+    .wrapperImage {
+        display: flex; 
+        flex-direction: column;
+        
+        width: 60%;
+        padding-bottom: unset;
+        gap: 16px;
+    }
+
+    .wrapperImage > h2 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 16px;
+        row-gap: 40px;
+    }
+
+    .images > img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+    }   
+    
+    .history > h2 {
+        width: 100%;
+    }
+
+    .cardHistory {
+        width: 296px;
+    }
+
+    .hideCard {
+        width: 296px;
+    }
+
+    .wrapperCardHistory {
+        gap: 24px;
+    }
 }

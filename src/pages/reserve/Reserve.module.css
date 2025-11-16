@@ -1,20 +1,22 @@
 .container {
     display: flex;
-    
-    margin: 120px auto 0;
+    flex-direction: column;
+
+    margin: 78px auto;
     
     background: #fff;
     
-    height: 62vh;
-    /* width: 90vw; */
+    height: 100vh;
+    width: 80%;
 
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* HEADER */
 .wrapperImage {
-    height: 100%;
-    width: 50%;
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .image {
@@ -27,7 +29,8 @@
 .content {
   padding-left: 20px;
   padding-top: 40px;
-  width: 40%;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .title {
@@ -109,7 +112,8 @@
     flex-direction: column;
     gap: 16px;
     padding: 10px 0 0 20px;
-    width: 40%;
+    width: 60%;
+	margin: 0 auto;
 }
 
 .buttonBack {
@@ -153,4 +157,41 @@
 .contentInputs {
     display: flex;
     flex-direction: column;
+}
+
+@media (min-width: 1020px) {
+	.container {
+		flex-direction: row;
+
+		margin: 102px auto;
+		
+		height: calc(100vh - 102px);
+		width: 90%;
+		max-width: 936px;
+	}
+
+	/* HEADER */
+	.wrapperImage {
+		height: 100%;
+		width: 50%;
+		margin: 0 0;
+	}
+
+	.image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	/* CONTENT */
+	.content {
+		padding: 40px 20px;
+		width: 50%;
+	}
+
+	.contentReserve {
+		width: 50%;
+		padding: 10px 20px;
+	}
+	
 }
