@@ -11,6 +11,7 @@ import Menu from "./pages/menu/Menu";
 import Reserve from "./pages/reserve/Reserve";
 import Event from "./pages/event/Event";
 import UnitDetails from "./pages/unit_details/UnitDetails";
+import EventDetails from "./pages/event_details/EventDetails";
 
 function App() {
     return (
@@ -62,6 +63,11 @@ function App() {
                     <Route
                         path="/eventos"
                         element={ <Event name="EmpresaX"/> }
+                    />
+
+                    <Route
+                        path="/eventos/:name"
+                        element={ <EventDetails name="EmpresaX"/> }
                     />
                 </Routes>
             </Layout>
