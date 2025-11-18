@@ -4,13 +4,35 @@
     gap: 2px;
     margin-top: 78px;
     /* overflow-y: scroll; */
+    height: 100%;
+}
+
+.sectionBanner {
+    width: 100vw;
+    height: calc(100vh - 78px);
 }
 
 .sectionCards {
-    width: 100vw;
-
+    width: 90%;
+    margin: auto;
 
     min-height: calc(100vh - 76px);
+}
+
+
+.sectionHighlights {
+    width: 90%;
+    margin: auto;
+}   
+
+@media (min-width: 750px) {
+    .sectionCards {
+        width: 80%;
+    }
+
+    .sectionHighlights {
+        width: 80%;
+    }   
 }
 
 @media (min-width: 1020px) {

@@ -7,7 +7,7 @@
     background: #fff;
     
     height: 100vh;
-    width: 80%;
+    width: 90%;
 
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.08);
 }
@@ -27,9 +27,8 @@
 
 /* CONTENT */
 .content {
-  padding-left: 20px;
-  padding-top: 40px;
-  width: 60%;
+  padding: 40px 20px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -111,8 +110,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 10px 0 0 20px;
-    width: 60%;
+    padding: 10px 20px;
+    width: 100%;
 	margin: 0 auto;
 }
 
@@ -145,7 +144,7 @@
 
 
 .buttonNext {
-    padding: 8px;
+    padding: 12px 8px;
     background-color: rgb(156, 29, 29);
     color: white;
     border: none;
@@ -185,7 +184,6 @@
 
 	/* CONTENT */
 	.content {
-		padding: 40px 20px;
 		width: 50%;
 	}
 

@@ -62,7 +62,7 @@ export default function WhoWeAre({
                 </section>
                 <section className={styles.history}>
                         <h2>Conheça nossa linha do tempo de sucesso!</h2>
-                            <div className={styles.divisor}>
+                        <div className={styles.divisor}>
                             {history && history.map((it, idx) => (
                                 <div 
                                     key={idx}
@@ -71,12 +71,19 @@ export default function WhoWeAre({
                                         ${(idx % 2 == 0) ? styles.reverse : ""}
                                     `}  // Nesse codigo posso tanto usar essa condição para revesar os lados das imagens quanto alternar o class.fstStyle e sndStyle
                                 >
-                                    <div className={it.class.fstStyle}>
-                                        <h3>{it.title}</h3>
-                                        <p>{it.text}</p>
-                                        <img src={it.image.src} alt={it.image.alt} />
+                                    <div className={`
+                                        ${styles.wrapperCard}
+                                        ${(idx % 2 == 0) ? styles.reverse : ""}
+                                    `}>
+                                        <div className={it.class.fstStyle}>
+                                            <h3>{it.title}</h3>
+                                            <p>{it.text}</p>
+                                            <img src={it.image.src} alt={it.image.alt} />
+                                        </div>
                                     </div>
+
                                     <p>{it.year}</p>
+                                    
                                     <div className={it.class.sndStyle} ></div>
                                 </div>
                             ))}

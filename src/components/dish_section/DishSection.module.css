@@ -57,7 +57,7 @@
 .wrapperCards {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 24px;
 }
 
@@ -140,6 +140,14 @@
     font-size: 12px;
 }
 
+
+@media (min-width: 750px) {
+
+    .wrapperCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 @media (min-width: 1020px) {
 

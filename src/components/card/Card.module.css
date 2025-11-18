@@ -13,9 +13,9 @@
 
 .card {
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 720px;
-    height: 340px;
+    height: 276px;
 
     margin: 40px auto 40px;
 
@@ -55,7 +55,7 @@
     /* justify-content: space-between; */
 
     position: relative;
-    padding: 8%;
+    padding: 40px;
 
     height: 100%;
 
@@ -66,37 +66,38 @@
     text-transform: uppercase;
     color: rgb(180, 151, 64);
     font-weight: 600;
+    font-size: 12px;
 }
 
 .sndText {
     color: white;
-    font-weight: 900;
-    font-size: 64px;
-    /* line-height: 1; */
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1;
 }
 
 .trdText {
     color: white;
     font-weight: 600;
-    width: 65%;
-    font-size: 18px; /* 18 a 20 */
-    margin: 20px 0;
+    width: 70%;
+    font-size: 14px; /* 18 a 20 */
+    margin-top: 16px;
 }
 
 .btnCard {
-    margin-top: 10px;
-
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 
     color: white;
 
     background-color: rgb(180, 151, 64);
 
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
 
-    padding: 14px 20px;
+    padding: 8px 16px;
+
+    margin-top: auto;
 
     max-width: fit-content;
 
@@ -138,6 +139,27 @@
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@media (min-width: 750px) {
+    .card {
+        height: 300px;
+    }
+
+    .sndText {
+        font-size: 64px;
+    }
+
+    .trdText {
+        font-size: 16px;
+        width: 65%;
+        height: 70px;
+    }
+
+    .btnCard {
+        padding: 8px 20px;
+        font-size: 16px;
     }
 }
 

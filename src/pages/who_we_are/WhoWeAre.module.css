@@ -46,9 +46,9 @@
 }
 
 .history {
-    width: 100%;
+    width: 90%;
     margin: auto;
-    padding: 48px;   
+    padding: 48px 0;   
 }
 
 .history > h2 {
@@ -73,6 +73,7 @@
     width: 100%;
     position: relative;
     margin: 96px 0;
+    padding: 24px 0;
 }
 
 .divisor::before {
@@ -90,21 +91,37 @@
 
 .wrapperCardHistory {
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    /* justify-content: space-evenly; */
     
     height: fit-content;
     
-    position: relative;
+    /* position: relative; */
+    
+}
+
+.wrapperCard {
+    /* border: 1px solid; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .cardHistory {
-    width: 224px;
+    width: 60%;
     height: fit-content;
     
     border: 1px solid rgb(212, 212, 212);
     border-radius: 5px;
     
-    margin: 0 2.5rem;
+    background-color: white;
+
+    position: relative;
+    /* left: 10%; */
+
+    /* margin: 0 2.5rem; */
     padding: 1rem ;
     
     gap: 1rem;
@@ -124,17 +141,16 @@
 }
 
 .hideCard {
-    width: 224px;
-    margin: 0 2.5rem;
+    width: 45%;
+    display: none;
 } 
 
 .wrapperCardHistory > p {
-    margin: 0 10px;
+    margin: 24px 10px;
     align-content: center;
     
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    /* top: 24px; */
     
     background-color: white;
     color: var(--goldColor);
@@ -142,6 +158,40 @@
     font-weight: 600;
     
     height: 32px;
+}
+
+@media (min-width: 750px) {
+
+    .history {
+        width: 80%;
+    }
+
+
+    .wrapperCardHistory {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .wrapperCard {
+        /* border: 1px solid; */
+        width: 45%;
+    }
+
+
+    .cardHistory {
+        justify-content: center;
+        width: 96%;
+    }
+
+    .reverse {
+        flex-direction: row-reverse;
+    }
+
+    .hideCard {
+        display: block;
+    } 
+
 }
 
 @media (min-width: 1020px) {
@@ -197,11 +247,7 @@
     }
 
     .cardHistory {
-        width: 296px;
-    }
-
-    .hideCard {
-        width: 296px;
+        width: 80%;
     }
 
     .wrapperCardHistory {

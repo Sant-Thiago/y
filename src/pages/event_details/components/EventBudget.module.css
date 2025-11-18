@@ -31,6 +31,9 @@
     flex-direction: column;
     gap: 8px;
 
+    width: 90%;
+    margin: auto;
+
     text-align: center;
     color: white;
 }

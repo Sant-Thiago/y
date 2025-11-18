@@ -12,8 +12,6 @@ import Toast from "../../components/toast/Toast";
 import { useToast } from "../../hooks/useModalUtils";
 import InputText from "../../components/input/InputText";
 import { BsPhone } from "react-icons/bs";
-import { TfiEmail } from "react-icons/tfi";
-import { TbMail } from "react-icons/tb";
 import { VscMail } from "react-icons/vsc";
 
 export default function Reserve({ name = "empresaX" }) {

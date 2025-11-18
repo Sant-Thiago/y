@@ -37,13 +37,17 @@
     top: 50%;
     left: 50%;
 
+    width: 70%;
+
+    text-align: center;
+
     transform: translate(-50%, -50%);
 
     color: white;
 
     font-size: 40px;
     font-weight: 600;
-    width: max-content;
+    z-index: 2;
 }
 
 .wrapperText {

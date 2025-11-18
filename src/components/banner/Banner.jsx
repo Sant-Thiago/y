@@ -10,6 +10,7 @@ export default function Banner({
         { id: 2, img: bannerImage2},
     ],
     height,
+    margin,
     animationOn = true,
     arrowOn = true,
     timeTransition = 4000,
@@ -127,7 +128,7 @@ export default function Banner({
     return (
         <div 
             className={styles.container}
-            style={{ height }}    
+            style={{ height, margin }}    
             onMouseDown={e => e.preventDefault()}
         >
             <div

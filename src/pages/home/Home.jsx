@@ -13,10 +13,15 @@ export default function Home() {
         <>
             <Navbar />
             <main className={styles.container}>
-                <Banner 
-                    draggable={false}
-                    timeTransition={5000}
-                />
+                <section className={styles.sectionBanner}>
+                    <Banner 
+                        draggable={false}
+                        timeTransition={5000}
+                        height={"calc(100% - 78px)"}
+                        // margin={"0 0 70px"}
+                    />
+
+                </section>
                 <section className={styles.sectionCards}>
                     <Card 
                         img={restaurantImg}
