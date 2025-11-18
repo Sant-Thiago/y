@@ -36,6 +36,36 @@ export default function Banner({
         }
      }
 
+     const handleTouchStart = (e) => {
+        const touch = e.touches[0];
+        setIsDragging(true);
+        setStartX(touch.pageX);
+        setSliderTransform(currentRef.current, false);
+    }
+
+    const handleTouchMove = (e) => {
+        if (!isDragging) return;
+
+        const touch = e.touches[0];
+        const walk = (touch.pageX - startX);
+        const movePercentage = (walk / sliderRef.current.offsetWidth) * 100;
+
+        setSliderTransform(currentRef.current - movePercentage / 100, false);
+    }
+
+    const handleTouchEnd = (e) => {
+        if (!isDragging) return;
+        setIsDragging(false);
+    
+        const touch = e.changedTouches[0];
+        const walk = touch.pageX - startX;
+        const threshold = sliderRef.current.offsetWidth / 3;
+        
+        if (walk < -threshold) nextSlide();
+        else if (walk > threshold) prevSlide();
+        else setSliderTransform(currentRef.current, true);
+    }
+
     const handleMouseDown = (e) => {
         setIsDragging(true);
         setStartX(e.pageX);
@@ -134,10 +164,15 @@ export default function Banner({
             <div
                 ref={sliderRef}
                 className={styles.slider}
+                
                 onMouseDown={draggable ? handleMouseDown : undefined}
                 onMouseLeave={draggable ? handleMouseLeave : undefined}
                 onMouseUp={draggable ? handleMouseUp : undefined}
                 onMouseMove={draggable ? handleMouseMove : undefined}
+            
+                onTouchStart={draggable ? handleTouchStart : undefined}
+                onTouchMove={draggable ? handleTouchMove : undefined}
+                onTouchEnd={draggable ? handleTouchEnd : undefined}
             >
                 {extendedSlides.map((s, idx) => (
                     <img 
