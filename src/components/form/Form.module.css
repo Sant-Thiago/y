@@ -124,7 +124,7 @@
 	.group select,
 	.group textarea,
 	.group > div {
-		width: 50%;
+		width: 55%;
 	}
 
 	.menssagem > label {
@@ -132,6 +132,6 @@
 	}
 
 	.wrapperButton > button {
-		margin-left: 50%;
+		margin-left: 45%;
 	}
 }

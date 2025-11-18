@@ -31,7 +31,7 @@ export default function Banner({
     const setSliderTransform = (index, withTransition = true) => { 
         if (sliderRef.current) { 
             sliderRef.current.style.transition = withTransition ? `transform ${transitionDurationMs}ms ease` : "none"; 
-            sliderRef.current.style.transform = `translateX(-${index * 100}vw)`;
+            sliderRef.current.style.transform = `translateX(-${index * 100}%)`;
         }
      }
 

@@ -605,7 +605,7 @@ export default function Menu({
                                 }
                             </ul>
                         ) : (
-                            <ul className={`${styles.navbarWine} ${isFixed ? styles.shadowNavWine : ""}`}>
+                            <ul className={styles.navbarWine}>
                                 {filteredWines.map((it, idx) => (
                                     <li
                                         key={idx}
@@ -671,13 +671,18 @@ export default function Menu({
 
                         grapes={[
                             ...new Set(
-                            infoWines
+                                infoWines
                                 .flatMap(group => group.wines)
-                                .flatMap(wine => 
-                                wine.grape.split(" e ").map(g => g.trim())
+                                .flatMap(wine =>
+                                    wine.grape
+                                    .replace(/ e /gi, ",")     // troca " e " por vírgula
+                                    .split(",")                // separa por vírgula
+                                    .map(g => g.trim())        // remove espaços
+                                    .filter(g => g.length > 0) // remove strings vazias
                                 )
                             )
                         ].sort((a, b) => a.localeCompare(b))}
+
 
                         volumes={[
                             ...new Set(

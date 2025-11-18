@@ -47,16 +47,51 @@
 }
 
 .wrapper {
+    max-width: 1000px;
+    /* border: 1px solid; */
     width: 80%;
     margin: 96px auto;
 }
 
-.wrapper > h2 {
-    font-size: 20px;
+.wrapper > .wrapperForm > h2 {
+    font-size: 24px;
     font-weight: 500;
 }
 
-.wrapper > p {
+.wrapper > .wrapperForm > p {
     font-size: 14px;
-    width: 600px;
+    width: 80%;
+}
+
+.wrapper > .wrapperBanner > h2 { 
+    font-size: 32px;
+    font-weight: 500;
+    margin: 8px 0
+}
+
+@media (min-width: 1020px) {
+    .wrapper {
+        display: flex;
+        width: 90%;
+        margin: 78px auto 156px;
+        justify-content: space-between;
+        max-width: 1104px;
+    }
+
+    .wrapper > .wrapperForm {
+        width: 55%;
+    }
+    
+    .wrapper > .wrapperForm > p {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .wrapper > .wrapperBanner {
+        width: 35%;
+    }
+
+    .wrapper > .wrapperBanner > h2 { 
+        margin: 0 0 8px;
+    }
 }

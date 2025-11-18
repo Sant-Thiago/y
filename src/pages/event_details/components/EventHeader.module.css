@@ -3,7 +3,6 @@
 
     background-color: rgb(61, 14, 14);
     display: flex;
-    justify-content: end;
     margin-top: 78px;
     height: fit-content;
     
@@ -38,8 +37,10 @@
 .listHorizontal {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1104px;
+    margin: auto;
 }
 
 .listHorizontal > a {
@@ -53,4 +54,8 @@
 .listHorizontal > a:hover {
     background-color: rgba(180, 151, 64, 0.541);
     border-bottom: 2px solid rgba(180, 151, 64);
+}
+
+@media (min-width: 1020px) {
+
 }

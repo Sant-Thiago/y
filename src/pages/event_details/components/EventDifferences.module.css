@@ -63,6 +63,7 @@
 
     .wrapperDiferencials > .wrapperImageAndInfo {
         display: flex;
+        margin: auto;
     }
 
     .wrapperDiferencials > .wrapperImageAndInfo > .imageAndInfo > div {

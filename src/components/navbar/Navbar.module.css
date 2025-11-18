@@ -138,8 +138,12 @@ a {
         align-items: center;
         justify-content: space-between;
 
+        padding: 8px 0;
         /* gap: 16px; */
-        max-width: 1600px;
+        margin: auto;
+        width: 80%;
+        max-width: 1000px;
+        /* border: 1px solid; */
     }
 
     .list {
@@ -252,13 +256,13 @@ a {
 
     .wrapper {
         padding: 8px 0;
-        max-width: 936px;
+        max-width: 1104px;
         width: 90%;
         margin: auto;
     }
     
     .list { 
-        width: 80%;
+        width: 90%;
     }
     
 }

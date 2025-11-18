@@ -147,7 +147,7 @@
 @media (min-width: 1020px) {
     .wrapper {
         width: 90%;
-        max-width: 936px;
+        max-width: 1312px;
         margin: auto;
         padding: 40px 0;
         display: flex;
@@ -181,14 +181,15 @@
     .images {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 16px;
+        column-gap: 8px;
         row-gap: 40px;
     }
 
     .images > img {
         width: 100%;
         height: 100%;
-        aspect-ratio: 1/1;
+        height: 240px;
+        /* aspect-ratio: 1/1; */
     }   
     
     .history > h2 {

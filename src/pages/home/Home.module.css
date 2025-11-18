@@ -18,12 +18,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        min-height: unset;
+
+        width: 90%;
+        max-width: 1104px;
+
         gap: 24px;
         margin: auto;
-        padding: 0 5%;
+        padding: 64px 0;
     }
-
+    
     .sectionHighlights {
+        width: 90%;
+        max-width: 1104px;
         display: flex;   
+        margin: auto;
+        /* border: 2px solid; */
     }
 }

@@ -1,14 +1,15 @@
+.backgroundInfoOrcamento {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
 .wrapperInfoOrcamento {
     width: 100%;
     margin: auto;
-
-    position: relative;
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    z-index: 1;
 }
 
 .wrapperInfoOrcamento > * {
@@ -247,17 +248,27 @@
 @media (min-width: 1020px) {
 
     .wrapperInfoOrcamento {
-        padding: 32px auto;
+        padding: unset;
+        margin: auto;
+        width: 90%;
+        max-width: 1104px;
         gap: 56px;
-    }
 
+        justify-content: space-between;
+        margin: 40px auto;
+    }
+    
     .infoOrcamento {
         width: 512px;
-        padding: 0 32px;
+        /* padding: 0 32px; */
     }
 
     .wrapperInfoInput {
         width: 512px;
-        padding: 0 32px;
+        /* padding: 0 32px; */
+    }
+
+    .wrapperInfoInput > .title > h3 {
+        width: 100%;
     }
 }

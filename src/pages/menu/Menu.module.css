@@ -4,6 +4,7 @@
 
 .cardapio {
     margin: 8px 0;
+    /* box-shadow: 0 2px 10px rgb(0, 0, 0, 0.1); */
 }
 
 .wrapperNav {
@@ -171,10 +172,6 @@
     list-style: none;
 }
 
-.shadowNavWine {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.37);
-}
-
 
 .wineSelected {
     padding: 8px 16px;
@@ -245,3 +242,24 @@
     }
 }
 
+
+
+@media (min-width: 1020px) {
+    .container {
+        margin: 78px auto 96px;
+        max-width: 1104px;
+    }   
+
+    .wrapperNav {
+        max-width: 1104px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .fixed {
+        box-shadow: 0px 2px 10px rgb(0, 0, 0, 0.1);
+        z-index: 2;
+        margin: 0;
+    }
+
+}

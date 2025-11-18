@@ -26,13 +26,19 @@ export default function WorkWithUs({
                 />
 
                 <section className={styles.wrapper}>
-                    <h2>Dúvidas, críticas ou sugestões, entre em contato conosco.</h2>
-                    <p>Para reservas, acesse a página Unidades e selecione a unidade mais próxima ou uma de sua escolha.</p>
-                    
-                    <Form 
-                        fieldUnitOn={true}
-                    />
-                    <BannerWorkWithUs />
+                    <div className={styles.wrapperForm}>
+                        <h2>Dúvidas, críticas ou sugestões, entre em contato conosco.</h2>
+                        <p>Para reservas, acesse a página Unidades e selecione a unidade mais próxima ou uma de sua escolha.</p>
+                        
+                        <Form 
+                            fieldUnitOn={true}
+                        />
+
+                    </div>
+                    <div className={styles.wrapperBanner}>
+                        <h2>Trabalhe conosco</h2>
+                        <BannerWorkWithUs noTitle noResponsive height={104}/>
+                    </div>
                 </section>
 
             </main>

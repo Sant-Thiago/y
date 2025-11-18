@@ -63,7 +63,7 @@ export default function DishSection({
                                             <div className={styles.wrapperNameAndPriceAndCode}>
                                                 {dish.options.map(opt => (
                                                     <div className={styles.nameAndPriceAndCode}>
-                                                        <p className={styles.nameAndLabel}>{dish.name} {opt.label}</p>
+                                                        <p className={styles.nameAndLabel}>{dish.name} {opt.label}{" "}</p>
                                                         <p className={styles.priceAndCode}>
                                                             {opt.price.toLocaleString("pt-BR", {
                                                                 style: "currency",

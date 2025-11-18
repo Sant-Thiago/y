@@ -66,6 +66,8 @@ body.dragging {
     width: 100%;
     background-color: white;
 
+    max-width: 1104px;
+
     border-radius: 16px 16px 0 0;
     overflow: hidden;
     position: relative;

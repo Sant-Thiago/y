@@ -64,7 +64,11 @@ export default function WineSection({
                                             ></span>
                                             {wine.type.name}
                                         </div>
-                                        <div><GiGrapes className={styles.icon}/> {wine.grape}</div>
+                                        <div className={styles.grape}><GiGrapes className={styles.icon}/> 
+                                            <span>
+                                                {wine.grape}
+                                            </span>
+                                        </div>
                                         <div><MdWaterDrop className={styles.icon}/> {wine.alcohol}</div>
                                         <div><FaMapMarkerAlt className={styles.icon}/> {wine.location}</div>
                                     </div>

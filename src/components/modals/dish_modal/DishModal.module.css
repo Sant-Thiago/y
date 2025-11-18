@@ -49,6 +49,8 @@
     width: 100%;
     background-color: white;
 
+    max-width: 1104px;
+
     display: flex;
     border-radius: 16px 16px 0 0;
     overflow: hidden;
@@ -110,6 +112,10 @@
 .code {
     color: rgb(102, 102, 102);
 
+}
+
+.wrapper {
+    width: 100%;
 }
 
 .wrapper > .wrapperInfo {

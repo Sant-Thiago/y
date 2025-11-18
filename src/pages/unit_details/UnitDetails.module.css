@@ -161,9 +161,12 @@
     object-position: center;
 }   
 
+.backgroundContactUs {
+    background-color: #ebebeb;
+}
+
 .wrapperContactUs {
     width: 100%;
-    background-color: #ebebeb;
 
     padding: 64px 10%;
 }
@@ -227,6 +230,7 @@
 
     .wrapperImages {
         width: 90%;
+        max-width: 1104px;
     }
 
     .wrapperImages > .images {
@@ -243,8 +247,10 @@
     }
 
     .wrapperContactUs {
-        padding: 64px 5%;
-
+        padding: 64px 0;
+        width: 90%;
+        max-width: 1104px;
+        margin: auto;
     }
 
     .wrapperMapAndForm {

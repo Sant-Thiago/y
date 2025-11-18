@@ -42,14 +42,14 @@
 }
 
 @media (min-width: 1020px) {
-    .workWithUs {
+    .responsive {
         display: flex;
         align-items: center;
         gap: 24px;
         
     }
-    
-    .workWithUs > .wrapperImage {
+        
+    .responsive > .wrapperImage {
         height: 144px;
     }
 }
