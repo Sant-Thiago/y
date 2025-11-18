@@ -49,8 +49,15 @@ export default function Banner({
         const touch = e.touches[0];
         const walk = (touch.pageX - startX);
         const movePercentage = (walk / sliderRef.current.offsetWidth) * 100;
+        
+        const maxIndex = extendedSlides.length - 1;
+        let targetIndex = currentRef.current - movePercentage / 100;
 
-        setSliderTransform(currentRef.current - movePercentage / 100, false);
+        // LIMITA para não extrapolar o clone inicial e final
+        if (targetIndex < 0) targetIndex = 0;
+        if (targetIndex > maxIndex) targetIndex = maxIndex;
+
+        setSliderTransform(targetIndex, false);
     }
 
     const handleTouchEnd = (e) => {
@@ -99,8 +106,15 @@ export default function Banner({
         
         const walk = (e.pageX - startX);
         const movePercentage = (walk / sliderRef.current.offsetWidth) * 100;
+        
+        const maxIndex = extendedSlides.length - 1;
+        let targetIndex = currentRef.current - movePercentage / 100;
 
-        setSliderTransform(currentRef.current - movePercentage / 100, false);
+        // LIMITA para não extrapolar o clone inicial e final
+        if (targetIndex < 0) targetIndex = 0;
+        if (targetIndex > maxIndex) targetIndex = maxIndex;
+
+        setSliderTransform(targetIndex, false);
     }
 
     const nextSlide = () => {
@@ -122,6 +136,7 @@ export default function Banner({
             setIsAnimating(false); 
         
         }, transitionDurationMs);
+
     };
 
     const prevSlide = () => {
