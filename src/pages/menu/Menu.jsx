@@ -546,6 +546,7 @@ export default function Menu({
                     <Banner 
                         height={"400px"}
                         timeTransition={5000}
+                        transitionDurationMs={300}
                         images={[{img: bannerImage}, {img: bannerImage2}, {img: bannerImage}]}
                         arrowOn={false}
                    />

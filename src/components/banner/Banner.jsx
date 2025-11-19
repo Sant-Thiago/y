@@ -14,6 +14,7 @@ export default function Banner({
     animationOn = true,
     arrowOn = true,
     timeTransition = 4000,
+    transitionDurationMs = 900,
     draggable = true
 }) {
     const [isDragging, setIsDragging] = useState(false);
@@ -26,7 +27,6 @@ export default function Banner({
 
 
     const activeIndex = ((current - 1) % images.length + images.length) % images.length;
-    const transitionDurationMs = 300;
     const extendedSlides = [images[images.length - 1], ...images, images[0]];
 
     const setSliderTransform = (index, withTransition = true) => { 
