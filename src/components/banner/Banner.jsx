@@ -26,7 +26,7 @@ export default function Banner({
 
 
     const activeIndex = ((current - 1) % images.length + images.length) % images.length;
-    const transitionDurationMs = 900
+    const transitionDurationMs = 300;
     const extendedSlides = [images[images.length - 1], ...images, images[0]];
 
     const setSliderTransform = (index, withTransition = true) => { 
@@ -37,6 +37,8 @@ export default function Banner({
      }
 
      const handleTouchStart = (e) => {
+        if (isAnimating) return;
+
         const touch = e.touches[0];
         setIsDragging(true);
         setStartX(touch.pageX);
@@ -44,7 +46,7 @@ export default function Banner({
     }
 
     const handleTouchMove = (e) => {
-        if (!isDragging) return;
+        if (!isDragging || isAnimating) return;
 
         const touch = e.touches[0];
         const walk = (touch.pageX - startX);
@@ -74,6 +76,8 @@ export default function Banner({
     }
 
     const handleMouseDown = (e) => {
+        if (isAnimating) return;
+
         setIsDragging(true);
         setStartX(e.pageX);
         setSliderTransform(currentRef.current, false);
@@ -100,7 +104,7 @@ export default function Banner({
     }
 
     const handleMouseMove = (e) => {
-        if (!isDragging) return;
+        if (!isDragging || isAnimating) return;
 
         e.preventDefault();
         
