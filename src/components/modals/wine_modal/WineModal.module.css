@@ -2,7 +2,7 @@
     background-color: rgba(0, 0, 0, 0.521);
     position: fixed;
     inset: 0;
-    z-index: 2;
+    z-index: 3;
 
     display: flex;
     align-items: flex-end;
@@ -23,7 +23,7 @@
 .modalWrapper {
     position: relative;
     width: 100%;
-    height: 42%;
+    height: 80%;
     display: flex;
     justify-content: center;
 }
@@ -52,14 +52,15 @@
     max-width: 1104px;
 
     display: flex;
+    flex-direction: column;
     border-radius: 16px 16px 0 0;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 
 .wrapperImage {
-    height: 100%;
-    width: 50%;
+    height: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,11 +74,10 @@
 }
 
 .wrapperWine {
-    width: 50%;
+    width: 100%;
     
     display: flex;
     flex-direction: column;    
-    overflow: auto;
 }
 
 .wrapperInfo {
@@ -201,4 +201,26 @@
   to {
     transform: translateY(105%);
   }
+}
+
+
+@media (min-width: 750px) {
+
+    .modalWrapper {
+        height: 45%;
+    }
+
+    .modal {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .wrapperImage {
+        height: 100%;
+        width: 50%;
+    }
+
+    .wrapperWine {
+        width: 50%;
+    }
 }
