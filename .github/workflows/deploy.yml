@@ -21,22 +21,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install
         run: npm install
 
       - name: Build (with base path)
         env:
-          VITE_BASE: "/${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          VITE_BASE: "/${{ github.event.repository.name }}/"
         run: |
-          echo "export default { base: '$VITE_BASE' }" > vite.config.deploy.js
-          mv vite.config.js vite.config.local.js
-          mv vite.config.deploy.js vite.config.js
-
-          npm run build
-
-          mv vite.config.local.js vite.config.js
+          VITE_BASE=$VITE_BASE npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
