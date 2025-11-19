@@ -19,7 +19,7 @@ body.dragging {
     background-color: rgba(0, 0, 0, 0.521);
     position: fixed;
     inset: 0;
-    z-index: 2;
+    z-index: 3;
 
     display: flex;
     align-items: flex-end;
@@ -142,8 +142,17 @@ body.dragging {
 .wrapper > ul {
     display: flex;
     list-style: none;
+    flex-wrap: nowrap;
+    overflow: auto;
     gap: 8px;
     margin: 16px 0;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge antigo */
+}
+
+.wrapper > ul::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Opera */
 }
 
 .countryIcon {
@@ -160,6 +169,8 @@ body.dragging {
     display: flex;
     gap: 5px;
     align-items: center;
+
+    white-space: nowrap;
 
     font-size: 14px;
     padding: 5px 8px;
@@ -312,11 +323,11 @@ body.dragging {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: white;
-  border: 3px solid #9c1d1d;
+  border: 2px solid #9c1d1d;
   cursor: pointer;
   pointer-events: all;
   z-index: 5;

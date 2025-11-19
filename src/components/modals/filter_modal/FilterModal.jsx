@@ -113,6 +113,29 @@ export default function FilterModal({
         selectedVolumes.length > 0 ||
         isAdvancedSearch;
 
+    const handleSeeAll = (field) => {
+        switch (field) {
+            case "countries":
+                setVisibleCountries(countries);
+                setIsSeeAllCountries(false);
+                break;
+            case "types":
+                setVisibleTypes(types);
+                setIsSeeAllTypes(false);
+                break;
+            case "grapes":
+                setVisibleGrapes(grapes);
+                setIsSeeAllGrapes(false);
+                break;
+            case "volumes":
+                setVisibleVolumes(volumes);
+                setIsSeeAllVolumes(false);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     useEffect(() => {
         setSelectedCountries(initialFilters.countries);
@@ -123,31 +146,31 @@ export default function FilterModal({
         setText(initialFilters.text);
     }, [initialFilters]);
     
-    useEffect(() => {
-        const calculateVisible = (list, setVisible, itens, setIsSeeAllItens) => {
-            if (!list) return;
-            
-            const listWidth = list.offsetWidth;
-            const children = Array.from(list.children);
-            
-            let totalWidth = 0;
-            let lastVisibleIndex = children.length - 1;
-            
-            for (let i = 0; i < children.length; i++) {
-                totalWidth += children[i].offsetWidth + 32;
-                if (totalWidth > listWidth) {
-                    lastVisibleIndex = i - 1;
-                    break;
-                }
+    const calculateVisible = (list, setVisible, itens, setIsSeeAllItens) => {
+        if (!list) return;
+        
+        const listWidth = list.offsetWidth;
+        const children = Array.from(list.children);
+        
+        let totalWidth = 0;
+        let lastVisibleIndex = children.length - 1;
+        
+        for (let i = 0; i < children.length; i++) {
+            totalWidth += children[i].offsetWidth + 8;
+            if (totalWidth > listWidth) {
+                lastVisibleIndex = i - 1;
+                break;
             }
+        }
+        
+        setVisible(itens.slice(0, lastVisibleIndex + 1));
+        
+        if (lastVisibleIndex < children.length - 1) {
+            setIsSeeAllItens(true);
+        } else setIsSeeAllItens(false);
+    };
             
-            setVisible(itens.slice(0, lastVisibleIndex + 1));
-            
-            if (lastVisibleIndex < children.length - 1) {
-                setIsSeeAllItens(true);
-            } else setIsSeeAllItens(false);
-        };
-                
+    useEffect(() => {
         const handleResize = () => {
             calculateVisible(
                 listCountriesRef?.current,
@@ -162,7 +185,16 @@ export default function FilterModal({
                 types,
                 setIsSeeAllTypes
             );
-    
+        }
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    },[]);
+
+    useEffect(() => {
+        const handleResize = () => {
             calculateVisible(
                 listGrapesRef?.current,
                 setVisibleGrapes,
@@ -176,15 +208,13 @@ export default function FilterModal({
                 volumes,
                 setIsSeeAllVolumes
             );
-
         }
-
+        
         window.addEventListener("resize", handleResize);
         handleResize();
-
-        return () => window.removeEventListener("resize", calculateVisible);
-    },[]);
-
+        
+        return () => window.removeEventListener("resize", handleResize);
+    },[isAdvancedSearch]);
 
     useEffect(() => {
         if (activeThumb) {
@@ -275,7 +305,7 @@ export default function FilterModal({
                 <div className={styles.wrapper}>
                     <div>
                         <p>País</p>
-                        {isSeeAllCountries && <button>Ver todos</button>}
+                        {isSeeAllCountries && <button onClick={ () => handleSeeAll("countries")}>Ver todos</button>}
                     </div>
                     <ul ref={listCountriesRef}>
                         {countries && visibleCountries.map((it, idx) => (
@@ -298,7 +328,7 @@ export default function FilterModal({
                 <div className={styles.wrapper}>
                     <div>
                         <p>Tipo</p>
-                        {isSeeAllTypes && <button>Ver todos</button>}
+                        {isSeeAllTypes && <button onClick={ () => handleSeeAll("types")}>Ver todos</button>}
                     </div>
                     <ul ref={listTypesRef}>
                         {types && visibleTypes.map((it, idx) => (
@@ -327,7 +357,7 @@ export default function FilterModal({
                         <div className={styles.wrapper}>
                             <div>
                                 <p>Uva</p>
-                                {isSeeAllGrapes && <button>Ver todos</button>}
+                                {isSeeAllGrapes && <button onClick={ () => handleSeeAll("grapes")}>Ver todos</button>}
                             </div>
                             <ul ref={listGrapesRef}>
                                 {grapes && visibleGrapes.map((grape, idx) => (
@@ -344,7 +374,7 @@ export default function FilterModal({
                         <div className={styles.wrapper}>
                             <div>
                                 <p>Volume</p>
-                                {isSeeAllVolumes && <button>Ver todos</button>}
+                                {isSeeAllVolumes && <button onClick={ () => handleSeeAll("volumes")}>Ver todos</button>}
                             </div>
                             <ul ref={listVolumesRef}>
                                 {volumes && visibleVolumes.map((volume, idx) => (
