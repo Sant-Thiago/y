@@ -1,5 +1,8 @@
 
-import { /*BrowserRouter*/ HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from "react-router-dom";
+
+const Router = import.meta.env.MODE === "production" ? HashRouter : BrowserRouter; 
+
 import './App.css';
 import Home from "./pages/home/Home";
 import Units from "./pages/units/Units";
