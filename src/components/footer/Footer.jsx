@@ -3,12 +3,15 @@ import styles from "./Footer.module.css";
 import logoImg from '@/utils/assets/no_profile.png';
 import instagramIcon from "@/utils/assets/instagram.png"
 import whatsappIcon from "@/utils/assets/whatsapp.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
 
 
-export default function Footer({
-    img = logoImg 
-}) {
+export default function Footer() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
+    const img = data.logo;
 
     const [inputValue, setInputValue] = useState(null);
     const handleClick = (e) => {

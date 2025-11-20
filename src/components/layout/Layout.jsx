@@ -1,11 +1,17 @@
 import { useEffect } from "react"; 
-import { useLocation } from "react-router-dom"; 
+import { Navigate, Outlet, useLocation, useParams } from "react-router-dom"; 
+import { validCompanies } from "../../data/Companies";
 
-export default function Layout({ children }) { 
+export default function Layout() { 
     const { pathname } = useLocation(); 
+    const { empresa } = useParams();
+    
+if (!validCompanies.includes(empresa)) {
+        return <Navigate to="/not-found" replace />;
+    }
     useEffect(() => { 
         window.scrollTo(0, 0); 
-    }, [pathname]); // toda vez que muda a rota 
+    }, [pathname, empresa]); // toda vez que muda a rota 
     
-    return <div>{children}</div>; 
+    return <div><Outlet /></div>; 
 }

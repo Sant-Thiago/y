@@ -5,10 +5,7 @@ import bannerImage2 from '@/utils/assets/banner_image_2.jpeg';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function Banner({
-    images = [
-        { id: 1, img: bannerImage},
-        { id: 2, img: bannerImage2},
-    ],
+    images = [],
     height,
     margin,
     animationOn = true,
@@ -193,9 +190,9 @@ export default function Banner({
                 onTouchMove={draggable ? handleTouchMove : undefined}
                 onTouchEnd={draggable ? handleTouchEnd : undefined}
             >
-                {extendedSlides.map((s, idx) => (
+                {extendedSlides.map((img, idx) => (
                     <img 
-                        src={s.img} 
+                        src={img} 
                         alt="banner" 
                         className={styles.bannerImage} 
                         key={idx}

@@ -4,10 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import NavbarDesktop from './NavbarDesktop';
 import NavbarMobile from './NavbarMobile';
+import { useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
 
 export default function Navbar({ 
-    logoName = "logoName", hideOnScroll = true, hideAfterScroll = false 
+    hideOnScroll = true, hideAfterScroll = false 
 }) {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
+
 	const links = [
 		{ href: "/home", label: "Início" },
         { href: "/unidades", label: "Unidades" },
@@ -49,7 +55,7 @@ export default function Navbar({
         <header className={`${styles.container} ${hide ? styles.hide : ""}`}>
             <div className={styles.wrapper}>
                 <div className={styles.logo}>
-                    <img src={defaultLogo} alt="defaultLogo" />
+                    <img src={data.logo} alt={`logo ${data.name}`} />
                 </div>
                 {isMobile ? (
                     <NavbarMobile links={links} />

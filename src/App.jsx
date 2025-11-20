@@ -15,65 +15,86 @@ import Reserve from "./pages/reserve/Reserve";
 import Event from "./pages/event/Event";
 import UnitDetails from "./pages/unit_details/UnitDetails";
 import EventDetails from "./pages/event_details/EventDetails";
+import EmpresaFallback from "./routes/EmpresaFallback";
+import NotFound from "./pages/not_found/NotFound";
 
 function App() {
     return (
         <Router>
-            <Layout>
-                <Routes>
+            <Routes>
+                <Route
+                    path="/:empresa/*"
+                    element={ <Layout /> }
+                >
                     <Route
-                        path="/"
-                        element={ <Navigate to="/home" /> }
+                        path=""
+                        element={ <Navigate to="home" replace/> }
                     />
                     <Route 
-                        path="/home"
+                        path="home"
                         element={ <Home /> }
                     />
                     <Route 
-                        path="/unidades"
+                        path="unidades"
                         element={ <Units />}
                     />
                     <Route
-                        path="/unidades/:name"
+                        path="unidades/:name"
                         element={<UnitDetails />}    
                     />
 
                     <Route 
-                        path="/politica-privacidade"
+                        path="politica-privacidade"
                         element={ <PrivacyPolicy />}
                     />
 
                     <Route
-                        path="/contato"
+                        path="contato"
                         element={ <WorkWithUs /> }
                     />
 
                     <Route
-                        path="/quem-somos"
+                        path="quem-somos"
                         element={ <WhoWeAre /> }
                     />
 
                     <Route
-                        path="/cardapio"
+                        path="cardapio"
                         element={ <Menu /> }
                     />
-                    
+
                     <Route
-                        path="/reservas"
+                        path="reservas"
                         element={ <Reserve /> }
                     />
 
                     <Route
-                        path="/eventos"
+                        path="eventos"
                         element={ <Event name="EmpresaX"/> }
                     />
 
                     <Route
-                        path="/eventos/:name"
+                        path="eventos/:name"
                         element={ <EventDetails name="EmpresaX"/> }
                     />
-                </Routes>
-            </Layout>
+                
+                    <Route 
+                        path="*"
+                        element={ <EmpresaFallback /> }
+                    />
+                    
+                </Route>
+
+                <Route 
+                    path="/not-found"
+                    element={ <NotFound /> }
+                />
+
+                <Route 
+                    path="*" 
+                    element={ <Navigate to="/not-found" replace /> }
+                />
+            </Routes>
         </Router>    
     );
 }
