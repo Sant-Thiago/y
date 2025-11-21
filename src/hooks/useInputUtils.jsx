@@ -3,6 +3,7 @@ export function formatPhone(value) {
 
     let result = "+";
 
+    if (numbers.length == 0) result += "55 ";
     if (numbers.length > 0) result += numbers.slice(0, 2);
     if (numbers.length >= 3) result += " (" + numbers.slice(2, 4);
     if (numbers.length >= 5) result += ") " + numbers.slice(4, 5);

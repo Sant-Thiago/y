@@ -15,16 +15,6 @@ export default function EventOrcamento({ name, selectedOption }) {
     
     const quantity = "4 a 10";
 
-    const handlePhoneInput = (e) => {
-        const valueInput = e.target.value.replace(/\D/g, "");
-
-        if  (valueInput.length == 0) {
-            setPhoneValue("+55 ");
-            return;
-        }
-        setPhoneValue(formatPhone(valueInput));
-    }
-
     const handleSelect = (e) => {
 
     }
@@ -155,7 +145,7 @@ export default function EventOrcamento({ name, selectedOption }) {
                             className={styles.input} 
                             value={phoneValue} 
                             placeholder="(xx) xxxxx-xxxx"
-                            onChange={handlePhoneInput}
+                            onChange={setPhoneValue(formatPhone(valueInput))}
                         />
                     </div>
 

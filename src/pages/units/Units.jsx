@@ -3,34 +3,42 @@ import Navbar from "../../components/navbar/Navbar";
 import restaurantImg from "@/utils/assets/restaurant.jpeg"
 import styles from "./Units.module.css";
 import image from "@/utils/assets/banner_image.jpeg"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
+import { useEffect } from "react";
 
 
 export default function Units({
-    name = "EmpresaX",
-    img = restaurantImg,
     options = {
         "São Paulo": [
-            { link: "/unidades/sao-paulo", value: "São Paulo" },
-            { link: "/unidades/iguatemi", value: "Iguatemi" },
-            { link: "/unidades/campinas", value: "Campinas" },
+            { link: "/unidade/sao-paulo", value: "São Paulo" },
+            { link: "/unidade/iguatemi", value: "Iguatemi" },
+            { link: "/unidade/campinas", value: "Campinas" },
         ],
         "Rio de Janeiro": [
-            { link: "/unidades/rio-de-janeiro", value: "Rio de Janeiro" },
-            { link: "/unidades/niteroi", value: "Niterói" },
+            { link: "/unidade/rio-de-janeiro", value: "Rio de Janeiro" },
+            { link: "/unidade/niteroi", value: "Niterói" },
         ],
     }
 }) {
+    
+    const { empresa } = useParams();
+    const data = companies[empresa]; 
 
+    const formatLink = (cidade) => {
+        const base = import.meta.env.BASE_URL || "/";
+        return `${base}${empresa}/unidade/${cidade}`;
+    };
+    
 
-    const imageUnits = [ image, img, image ];
+    const imageUnits = data.units;
 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const option = e.target.value;
 
-        navigate(`/unidades/${option}`);
+        navigate(formatLink(empresa, option));
     }
 
     const sortOptionsbyCity = (options) => {
@@ -51,6 +59,12 @@ export default function Units({
 
     const sortedOptions = sortOptionsbyCity(options);
     const quantityUnits = getQuantityUnits(options);
+
+    useEffect(() => {
+        if (data.units.quantity === 1) {
+            navigate(formatLink(""));
+        }
+    })
 
     return (
         <>

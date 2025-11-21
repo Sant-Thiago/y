@@ -12,17 +12,19 @@ import wineImage from "@/utils/assets/wine_image.png";
 import Banner from "../../components/banner/Banner";
 import { useEffect, useRef, useState } from "react";
 import DishModal from "../../components/modals/dish_modal/DishModal";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { VscSettings } from "react-icons/vsc";
 import WineModal from "../../components/modals/wine_modal/WineModal";
 import WineSection from "../../components/wine_section/WineSection";
 import DishSection from "../../components/dish_section/DishSection";
 import FilterModal from "../../components/modals/filter_modal/FilterModal";
+import { companies } from "../../data/Companies";
 
-export default function Menu({
-    name
-}) {
+export default function Menu() {
+    const { empresa } = useParams();
+    const data = companies[empresa];
+    
     const navigate = useNavigate();
 
     const navRef = useRef(null);
@@ -319,6 +321,8 @@ export default function Menu({
 
     const [filteredWines, setFilteredWines] = useState(infoWines);
 
+    const bannerImages = [data.banners[5], data.banners[0], data.banners[2]];
+
     const handleFilter = (filters) => {
         setCurrentFilters(filters);
         const { text, countries, types, grapes, volumes, priceRange } = filters;
@@ -547,7 +551,7 @@ export default function Menu({
                         height={"400px"}
                         timeTransition={5000}
                         transitionDurationMs={300}
-                        images={[{img: bannerImage}, {img: bannerImage2}, {img: bannerImage}]}
+                        images={bannerImages}
                         arrowOn={false}
                    />
                 </section>

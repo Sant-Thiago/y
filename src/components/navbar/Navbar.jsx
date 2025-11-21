@@ -15,19 +15,26 @@ export default function Navbar({
     const data = companies[empresa];
 
 	const links = [
-		{ href: "/home", label: "Início" },
-        { href: "/unidades", label: "Unidades" },
-        { href: "/cardapio", label: "Cardápio" },
-        { href: "/reservas", label: "Reservas" },
-        { href: "/eventos", label: "Eventos" },
-        { href: "/quem-somos", label: "Nossa História" },
-        { href: "/contato", label: "Contato" },
+		{ href: "home", label: "Início" },
+        { href: "unidades", label: "Unidades" },
+        { href: "cardapio", label: "Cardápio" },
+        { href: "reservas", label: "Reservas" },
+        { href: "eventos", label: "Eventos" },
+        { href: "quem-somos", label: "Nossa História" },
+        { href: "contato", label: "Contato" },
     ];
 
     const { width } = useWindowSize();
     const isMobile = width < 750;
 
     const [hide, setHide] = useState(false);
+
+    const baseURL = import.meta.env.BASE_URL || "/";
+
+    const formatedLinks = links.map(link => ({
+        ...link,
+        href: `${baseURL}${empresa}/${link.href}`
+    }));
 
     useEffect(() => {
         if (!hideOnScroll) return;
@@ -58,9 +65,9 @@ export default function Navbar({
                     <img src={data.logo} alt={`logo ${data.name}`} />
                 </div>
                 {isMobile ? (
-                    <NavbarMobile links={links} />
+                    <NavbarMobile links={formatedLinks} />
                 ) : (
-                    <NavbarDesktop links={links} />
+                    <NavbarDesktop links={formatedLinks} />
                 )}
             </div>
         </header>

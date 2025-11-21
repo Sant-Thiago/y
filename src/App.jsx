@@ -39,7 +39,7 @@ function App() {
                         element={ <Units />}
                     />
                     <Route
-                        path="unidades/:name"
+                        path="unidade/:name?"
                         element={<UnitDetails />}    
                     />
 
