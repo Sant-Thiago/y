@@ -6,22 +6,22 @@ export const companies = {
     "casa-pellegrini": {
         name: "Casa Pellegrini",
         themeColor: "#8B4513",
-        logo: "@/utils/assets/companies/casa-pellegrini/logo.png",
+        logo: "companies/casa-pellegrini/logo.png",
         banners: [
-            "@/utils/assets/companies/casa-pellegrini/banner_1.jpg",
-            "@/utils/assets/companies/casa-pellegrini/banner_2.jpg",
-            "@/utils/assets/companies/casa-pellegrini/banner_3.jpg",
-            "@/utils/assets/companies/casa-pellegrini/banner_4.jpg",
-            "@/utils/assets/companies/casa-pellegrini/banner_5.jpg",
-            "@/utils/assets/companies/casa-pellegrini/banner_6.jpg",
+            "companies/casa-pellegrini/banner_1.jpg",
+            "companies/casa-pellegrini/banner_2.jpg",
+            "companies/casa-pellegrini/banner_3.jpg",
+            "companies/casa-pellegrini/banner_4.jpg",
+            "companies/casa-pellegrini/banner_5.jpg",
+            "companies/casa-pellegrini/banner_6.jpg",
         ],
         highlights: [
-            "@/utils/assets/companies/casa-pellegrini/highlight_1.jpg",
-            "@/utils/assets/companies/casa-pellegrini/highlight_2.jpg",
-            "@/utils/assets/companies/casa-pellegrini/highlight_3.jpg",
+            "companies/casa-pellegrini/highlight_1.jpg",
+            "companies/casa-pellegrini/highlight_2.jpg",
+            "companies/casa-pellegrini/highlight_3.jpg",
         ],
         cards: [
-            "@/utils/assets/companies/casa-pellegrini/inner_restaurant.jpg",
+            "companies/casa-pellegrini/inner_restaurant.jpg",
         ],
         links: {
             instagram: "https://www.instagram.com/casapellegrini/",
