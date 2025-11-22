@@ -26,8 +26,7 @@ export default function Units({
     const data = companies[empresa]; 
 
     const formatLink = (cidade) => {
-        const base = import.meta.env.BASE_URL || "/";
-        return `${base}${empresa}/unidade/${cidade}`;
+        return `/${empresa}/unidade/${cidade}`;
     };
     
 
