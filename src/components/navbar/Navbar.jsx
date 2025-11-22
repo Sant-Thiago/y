@@ -33,7 +33,7 @@ export default function Navbar({
 
     const formatedLinks = links.map(link => ({
         ...link,
-        href: `${baseURL}${empresa}/${link.href}`
+        href: `/${empresa}/${link.href}`
     }));
 
     useEffect(() => {
