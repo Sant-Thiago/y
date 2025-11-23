@@ -8,8 +8,10 @@ export default function DishSection({
     ref
 }) {
 
-    const hasMoreThanOne = (dish) => {
-        return dish.options.length > 1;
+    const hasMoreThanOne = (it) => {
+        if (!it.options) return false;
+
+        return it.options.length > 1;
     }
 
     return (
@@ -27,7 +29,7 @@ export default function DishSection({
                     <div className={styles.foods}>
                         <h2>{it.category}</h2>
                         <div className={styles.wrapperCards}>
-                            {it.dishes.map((dish) => (
+                            {it.itens.map((dish) => (
                                 <div 
                                     className={styles.card}
                                     onClick={() => { onClick(dish) }}
@@ -38,16 +40,18 @@ export default function DishSection({
                                     </div>
                                     {!hasMoreThanOne(dish) ? (
                                         <div className={styles.wrapperInfoFoods}>
-                                            <h3 className={styles.title}>{dish.name} {dish.options[0].weight}</h3>
+                                            <h3 className={styles.title}>{dish.name} {dish.options?.[0].weight}</h3>
                                             <div className={styles.priceAndCode}>
                                                 <p className={styles.price}>
-                                                    {dish.options[0].price.toLocaleString("pt-BR", {
+                                                    {/* {dish.options?.[0].price.toLocaleString("pt-BR", {
                                                         style: "currency",
                                                         currency: "BRL",
-                                                    })} 
+                                                    })}  */}
+                                                    {dish.price.formatted}
                                                 </p>
                                                 <p className={styles.code}>
-                                                    Cód: {dish.options[0].code}
+                                                    {/* Cód: {dish.options?.[0].code} */}
+                                                    Cód: {dish.id}
                                                 </p>
                                             </div>
                                             <p className={styles.description}>
@@ -56,12 +60,12 @@ export default function DishSection({
                                         </div>
                                     ):(
                                         <div className={styles.wrapperInfoFoods}>
-                                            <h3 className={styles.title}>{dish.name} {dish.options[0].weight.slice(0, -1)}/{dish.options[1].weight}</h3>
+                                            <h3 className={styles.title}>{dish.name} {dish.options?.[0].weight.slice(0, -1)}/{dish.options?.[1].weight}</h3>
                                             <p className={styles.description}>
                                                 {dish.description}
                                             </p>
                                             <div className={styles.wrapperNameAndPriceAndCode}>
-                                                {dish.options.map(opt => (
+                                                {dish.options?.map(opt => (
                                                     <div className={styles.nameAndPriceAndCode}>
                                                         <p className={styles.nameAndLabel}>{dish.name} {opt.label}{" "}</p>
                                                         <p className={styles.priceAndCode}>

@@ -25,6 +25,8 @@ export default function Menu() {
     const { empresa } = useParams();
     const data = companies[empresa];
     
+    const itens = data.menuItens;
+
     const navigate = useNavigate();
 
     const navRef = useRef(null);
@@ -53,147 +55,6 @@ export default function Menu() {
     const [searchParams] = useSearchParams();
     const dishParam = searchParams.get("dish");
     const wineParam = searchParams.get("wine");
-
-    const infoFoods = [
-        {
-            id: 1,
-            category: "Entradinhas",
-            dishes: [
-            {
-                id: 429,
-                name: "Bruschetta Italiana",
-                description: "Pão italiano torrado com tomates frescos, azeite e manjericão.",
-                image: food1,
-                options: [
-                { code: 4291, label: "Individual", weight: "200g", price: 39.0 },
-                { code: 4292, label: "Família", weight: "400g", price: 69.0 },
-                ],
-            },
-            {
-                id: 430,
-                name: "Tábua de Frios",
-                description: "Queijos, salames, azeitonas e frutas secas, perfeita pra compartilhar.",
-                image: food4,
-                options: [
-                { code: 4301, label: "Pequena", weight: "400g", price: 59.0 },
-                { code: 4302, label: "Grande", weight: "800g", price: 95.0 },
-                ],
-            },
-            ],
-        },
-        {
-            id: 2,
-            category: "Carnes",
-            dishes: [
-            {
-                id: 101,
-                name: "Picanha na Brasa",
-                description: "Corte nobre de picanha assada no carvão, suculenta e dourada.",
-                image: food1,
-                options: [
-                { code: 1011, label: "Individual", weight: "350g", price: 89.9 },
-                { code: 1012, label: "Família", weight: "900g", price: 159.9 },
-                ],
-            },
-            {
-                id: 102,
-                name: "Parmegiana de Filé Mignon",
-                description: "Filé mignon empanado, coberto com molho de tomate e queijo gratinado.",
-                image: food4,
-                options: [
-                { code: 1021, label: "Individual", weight: "300g", price: 68.0 },
-                { code: 1022, label: "Família", weight: "850g", price: 125.0 },
-                ],
-            },
-            {
-                id: 103,
-                name: "Costela ao Molho Barbecue",
-                description: "Costela bovina desfiando, coberta com molho barbecue artesanal.",
-                image: food2,
-                options: [
-                { code: 1031, label: "Porção", weight: "400g", price: 74.5 },
-                ],
-            },
-            ],
-        },
-        {
-            id: 3,
-            category: "Massas",
-            dishes: [
-            {
-                id: 201,
-                name: "Lasanha Bolonhesa",
-                description: "Lasanha de carne com molho bolonhesa e queijo gratinado.",
-                image: food1,
-                options: [
-                { code: 2011, label: "Individual", weight: "350g", price: 58.0 },
-                { code: 2012, label: "Família", weight: "900g", price: 108.0 },
-                ],
-            },
-            {
-                id: 202,
-                name: "Spaghetti ao Sugo",
-                description: "Massa artesanal com molho de tomate fresco e manjericão.",
-                image: food2,
-                options: [
-                { code: 2021, label: "Individual", weight: "400g", price: 45.0 },
-                ],
-            },
-            ],
-        },
-        {
-            id: 4,
-            category: "Bebidas",
-            dishes: [
-            {
-                id: 301,
-                name: "Caipirinha Clássica",
-                description: "Feita com cachaça artesanal, limão fresco e açúcar.",
-                image: food2,
-                options: [
-                { code: 3011, label: "Copo", weight: "350ml", price: 22.0 },
-                { code: 3012, label: "Jarra", weight: "1L", price: 55.0 },
-                ],
-            },
-            {
-                id: 302,
-                name: "Suco Natural de Maracujá",
-                description: "Suco natural e gelado, feito com polpa fresca de maracujá.",
-                image: food4,
-                options: [
-                { code: 3021, label: "Copo", weight: "400ml", price: 12.0 },
-                { code: 3022, label: "Jarra", weight: "1L", price: 25.0 },
-                ],
-            },
-            ],
-        },
-        {
-            id: 5,
-            category: "Sobremesas",
-            dishes: [
-            {
-                id: 401,
-                name: "Petit Gâteau",
-                description: "Bolo de chocolate com recheio cremoso e sorvete de creme.",
-                image: food4,
-                options: [
-                { code: 4011, label: "Individual", weight: "180g", price: 34.0 },
-                ],
-            },
-            {
-                id: 402,
-                name: "Torta de Limão",
-                description: "Base crocante com creme de limão e cobertura de merengue.",
-                image: food1,
-                options: [
-                { code: 4021, label: "Fatia", weight: "150g", price: 22.0 },
-                { code: 4022, label: "Inteira", weight: "900g", price: 110.0 },
-                ],
-            },
-            ],
-        },
-    ];
-
 
     const infoWines = [
         {
@@ -460,7 +321,7 @@ export default function Menu() {
         
         linkHandler(
             dishParam,
-            infoFoods, 
+            itens, 
             dishRef,
             "dishes",
             320,
@@ -477,7 +338,7 @@ export default function Menu() {
             setShowWineMenu
         )
         
-    }, [dishParam, wineParam, infoFoods, infoWines]);
+    }, [dishParam, wineParam, itens, infoWines]);
 
     useEffect(() => {
         const nav = navRef.current;
@@ -590,9 +451,9 @@ export default function Menu() {
                                 </div>
                             }
                         </div>
-                        {!showWineMenu && infoFoods ? (
+                        {!showWineMenu && itens ? (
                             <ul className={styles.navbar}>
-                                {infoFoods.map((it, idx) => (
+                                {itens.map((it, idx) => (
                                     <li 
                                         key={idx}
                                         onClick={() => handleClick(idx)}
@@ -632,7 +493,7 @@ export default function Menu() {
                     {isFixed && <div style={{ height: navHeight + 16}}></div>}
                     {!showWineMenu ? (
                         <DishSection 
-                            info={infoFoods}
+                            info={itens}
                             onClick={handleSelectDish}
                             sectionRefs={sectionDishesRefs}
                             ref={dishRef}
