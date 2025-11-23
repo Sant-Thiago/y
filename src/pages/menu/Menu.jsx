@@ -53,7 +53,7 @@ export default function Menu() {
     const [showWineMenu, setShowWineMenu] = useState(false);
 
     const [searchParams] = useSearchParams();
-    const dishParam = searchParams.get("dish");
+    const itemParam = searchParams.get("item");
     const wineParam = searchParams.get("wine");
 
     const infoWines = [
@@ -236,7 +236,7 @@ export default function Menu() {
 
         // Remove o parâmetro dish da URL sem recarregar a página
         const params = new URLSearchParams(searchParams);
-        params.delete("dish");
+        params.delete("item");
         navigate({ search: params.toString() }, { replace: true });
     };
 
@@ -297,6 +297,8 @@ export default function Menu() {
         if (functionOptional) functionOptional(true);
         
         // Achar o prato com base no ID da URL
+        console.log();
+        
         const found = infos.flatMap(cat => cat[types]).find(d => d.id == param);
         if (!found) return
             
@@ -320,10 +322,10 @@ export default function Menu() {
         if (linkProcessed) return;
         
         linkHandler(
-            dishParam,
+            itemParam,
             itens, 
             dishRef,
-            "dishes",
+            "itens",
             320,
             setSelectedDish
         );
@@ -338,7 +340,7 @@ export default function Menu() {
             setShowWineMenu
         )
         
-    }, [dishParam, wineParam, itens, infoWines]);
+    }, [itemParam, wineParam, itens, infoWines]);
 
     useEffect(() => {
         const nav = navRef.current;

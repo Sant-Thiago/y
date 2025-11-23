@@ -40,7 +40,7 @@ export default function DishSection({
                                     </div>
                                     {!hasMoreThanOne(dish) ? (
                                         <div className={styles.wrapperInfoFoods}>
-                                            <h3 className={styles.title}>{dish.name} {dish.options?.[0].weight}</h3>
+                                            <h3 className={styles.title}>{dish.name} {dish.measure.formatted}{/*{dish.options?.[0].weight}*/}</h3>
                                             <div className={styles.priceAndCode}>
                                                 <p className={styles.price}>
                                                     {/* {dish.options?.[0].price.toLocaleString("pt-BR", {

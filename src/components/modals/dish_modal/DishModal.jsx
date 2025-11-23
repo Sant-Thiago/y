@@ -3,14 +3,17 @@ import styles from "./DishModal.module.css";
 import { useEffect, useRef, useState } from "react";
 import Toast from "../../toast/Toast";
 import { handleShare, useModalHandlers, useToast } from "../../../hooks/useModalUtils";
+import { useParams } from "react-router-dom";
 
 export default function DishModal({ info, onClose }) {
 	
+	const { empresa } = useParams();
+
 	const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
 	const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
-	const onShare = () => handleShare({ id: info.id, name: info.name, description: info.description, showToast });
+	const onShare = () => handleShare({ id: info.id, name: info.name, description: info.description, empresa, showToast });
 
-	const hasMoreThanOne = info.options.length > 1;
+	const hasMoreThanOne = info.options?.length > 1;
 
 
   return (
@@ -38,7 +41,7 @@ export default function DishModal({ info, onClose }) {
 			{!hasMoreThanOne ? (
 			  <div className={styles.wrapperInfo}>
 				<div className={styles.wrapperTitle}>
-				  <h3>{info.name} {info.options[0].weight}</h3>
+				  <h3>{info.name} {info.measure.formatted}{/*info.options?.[0].weight*/}</h3>
 				  <IoShareSocialOutline 
 					size={24} 
 					color="gray" 
@@ -47,7 +50,8 @@ export default function DishModal({ info, onClose }) {
 				  />
 				</div>
 				<p className={styles.price}>
-				  {info.options[0].price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+					{info.price.formatted}
+				  {/* {info.options?.[0].price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} */}
 				</p>
 				<p className={styles.description}>{info.description}</p>
 				<p className={styles.code}>Cód: {info.id}</p>

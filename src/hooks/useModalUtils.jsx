@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 
 export function useToast() {
   const [toastVisible, setToastVisible] = useState(false);
@@ -101,8 +102,8 @@ export function useModalHandlers(onClose) {
   };
 }
 
-export async function handleShare({ id, name, description, showToast }) {
-  const url = `${window.location.origin}/cardapio?item=${id}`;
+export async function handleShare({ id, name, description, empresa, showToast }) {
+  const url = `${window.location.origin}/${empresa}/cardapio?item=${id}`;
   if (navigator.share) {
     try {
       await navigator.share({ title: name, text: description, url });
