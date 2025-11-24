@@ -90,7 +90,7 @@ export default function Event() {
     }
 
     useEffect(() => {
-        if (data.units.length == 1) navigate(formatLink())
+        if (data.units.length == 1) navigate(formatLink(""))
     }, [])
 
     return (
