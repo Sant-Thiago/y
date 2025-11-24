@@ -1,10 +1,18 @@
 import styles from "./EventBudget.module.css";
 import defaultImage from "@/utils/assets/banner_image.jpeg"
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { data, Link, useParams } from "react-router-dom";
 import { formatDate, formatPhone, validateEmail } from "../../../hooks/useInputUtils";
+import { companies } from "../../../data/Companies";
+import { useToast } from "../../../hooks/useModalUtils";
+import Toast from "../../../components/toast/Toast";
+import { emailService } from "../../../services/emailService";
 
-export default function EventOrcamento({ name, selectedOption }) {
+export default function EventBudget({ name, selectedOption }) {
+
+    const { empresa } = useParams(); 
+    const data = companies[empresa];
+
     const [dateValue, setDateValue] = useState("");
     const [numberValue, setNumberValue] = useState("");
     const [nameValue, setNameValue] = useState("");
@@ -12,14 +20,20 @@ export default function EventOrcamento({ name, selectedOption }) {
     const [emailValue, setEmailValue] = useState("");
     const [textareaValue, setTextareaValue] = useState("");
     const [verificationValue, setVerificationValue] = useState("");
+    const [eventType, setEventType] = useState("");
+    const [meal, setMeal] = useState("")
+    const [loading, setLoading] = useState(null);
+
+    const [ policyPrivacyLink  ] = useState(`/${empresa}/politica-privacidade`);
     
     const quantity = "4 a 10";
 
-    const handleSelect = (e) => {
+    const { toastVisible, toastMsg, showToast, setToastVisible } = useToast()
 
-    }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setLoading(true)
 
         if (
             !dateValue ||
@@ -27,24 +41,80 @@ export default function EventOrcamento({ name, selectedOption }) {
             !nameValue ||
             !emailValue ||
             !phoneValue ||
-            !textareaValue ||
-            !verificationValue
+            !meal ||
+            !eventType ||
+            !verificationValue 
         ) {
-            alert("Preencha todos os campos.");
+            showToast("Preencha todos os campos.");
+            return;
+        }
+
+        if (verificationValue != 16) {
+            showToast("Campo de verificação errado!")
             return;
         }
 
         if (!validateEmail(emailValue)) {
-            alert("Digite um email válido.");
+            showToast("Digite um email válido.");
             return;
         }
 
         if (phoneValue.replace(/\D/g, "").length < 13) {
-            alert("Digite um telefone válido.");
+            showToast("Digite um telefone válido.");
             return;
         }
+    
+        const message = `
+            <p style="font-size:18px; color:#000; line-height:1.5">
+                <strong>Detalhes do Evento</strong><br>
+                Tipo de evento: ${eventType}<br>
+                Data desejada: ${dateValue}<br>
+                Número estimado de convidados: ${numberValue}<br>
+                Serviço de refeição selecionado: ${meal}<br>
+            </p>
+            <br>
+            <p style="font-size:18px; color:#000; line-height:1.5">
+                <strong>Observações adicionais</strong><br>
+                ${textareaValue}
+            </p>
+        `;
 
-        alert("Tudo certo! Pode enviar.");
+        const res = await emailService({
+            templateId: import.meta.env.VITE_EMAIL_TEMPLATE_CONTACTUS_ID,
+            params: {
+                name: nameValue,
+                title: "Confirmação de Evento",
+                email_user: emailValue,
+                email_client: "thiago.santos@sptech.school",
+                phone: phoneValue,
+                subject: `Evento - ${data.name} - ${dateValue}`,
+                message: message,
+            }
+        });
+
+        showToast(
+            res.success ? 
+            "Reserva realizada com sucesso!" : 
+            "Erro ao enviar a mensagem. Tente novamente.",
+            3000
+        );
+
+        if (res.success) {
+            // console.log(res);
+            
+            setDateValue("")
+            setNumberValue("")
+            setNameValue("")
+            setPhoneValue("+ 55")
+            setEmailValue("")
+            setTextareaValue("")
+            setVerificationValue("")
+            setEventType("")
+            setMeal("")
+        }
+
+        setLoading(false);
+
     };
 
 
@@ -52,7 +122,7 @@ export default function EventOrcamento({ name, selectedOption }) {
     <section 
         id="inicio"
         className={styles.backgroundInfoOrcamento}
-        style={{ backgroundImage: `url(${defaultImage})` }}    
+        style={{ backgroundImage: `url(${data.images[0]})` }}    
     >
         <div className={styles.background}></div>
         
@@ -76,14 +146,13 @@ export default function EventOrcamento({ name, selectedOption }) {
                         </div>
                         <div className={styles.textInfo}>
                             <p>Espaços amplos, com capacidade para receber de {quantity} pessoas</p>
-                            <p>Salões equipados com isolamento acústico, ar-condicionado, sistema de som, projetores e microfones.</p>
-                            <p>Formatos personalizados: coquetel volante, serviço à inglesa.</p>
-                            <p>Privacidade: ambientes climatizados e ao ar livre.</p>
+                            <p>Salões equipados com sistema de som, projetores.</p>
+                            <p>Privacidade: ambientes climatizados, espaçoso e aconchegante.</p>
                         </div>
                     </div>
                     <p className={styles.policy}>
                         Ao enviar seus dados, você concorda com nossa <br />
-                        <Link to="/politica-privacidade" className={styles.linkPrivacyPolicy}>
+                        <Link to={policyPrivacyLink} className={styles.linkPrivacyPolicy}>
                             Politica de Privacidade
                         </Link>
                     </p>
@@ -110,7 +179,7 @@ export default function EventOrcamento({ name, selectedOption }) {
 
                     <div className={styles.field}>
                         <label htmlFor="refeicao">Almoço ou Jantar*</label>
-                        <select id="refeicao" className={styles.input} onChange={handleSelect}>
+                        <select id="refeicao" className={styles.input} onChange={e => setMeal(e.target.value)}>
                             <option>Selecione</option>
                             <option value={"Almoço"}>Almoço</option>
                             <option value={"Jantar"}>Jantar</option>
@@ -145,7 +214,7 @@ export default function EventOrcamento({ name, selectedOption }) {
                             className={styles.input} 
                             value={phoneValue} 
                             placeholder="(xx) xxxxx-xxxx"
-                            onChange={setPhoneValue(formatPhone(valueInput))}
+                            onChange={(e) => setPhoneValue(formatPhone(e.target.value))}
                         />
                     </div>
 
@@ -159,10 +228,15 @@ export default function EventOrcamento({ name, selectedOption }) {
                         <input id="verificacao" type="text" className={styles.input} value={verificationValue} onChange={e => setVerificationValue(e.target.value)}/>
                     </div>
 
-                    <button className={styles.button} onClick={handleSubmit}>Receber Orçamento</button>
+                    <button className={styles.button} onClick={handleSubmit}>{loading ? "Enviando..." : "Receber Orçamento"}</button>
                 </div>
             </div>
         </div>
+        <Toast
+            message={toastMsg}
+            visible={toastVisible}
+            onClose={() => setToastVisible(false)}
+        />
     </section>
   );
 }

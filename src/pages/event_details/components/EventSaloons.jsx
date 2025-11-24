@@ -1,26 +1,24 @@
 import defaultImage from "@/utils/assets/banner_image.jpeg" 
 import styles from "./EventSaloons.module.css"
+import { useParams } from "react-router-dom"
+import { companies } from "../../../data/Companies";
 
-export default function EventSaloons({
-    selectedOption
-}) {
+export default function EventSaloons() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
 
     const infoSaloons = [
         {
-            image: {src: defaultImage, alt: "defaulImage"},
-            title: {saloon: `Salão ${selectedOption}`, quantity: "10 Pessoas"},
-            text:  `Fazemos eventos de x lugares, salão compartilhado com o público do restaurante. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
+            image: {src: data.images[1], alt: "defaulImage"},
+            title: {saloon: `Salão Principal`, quantity: "16 Pessoas"},
+            text:  `Fazemos eventos de 8 lugares, salão compartilhado com o público do restaurante. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
         },
         {
-            image: {src: defaultImage, alt: "defaulImage"},
-            title: {saloon: `Salão Varanda`, quantity: "X Pessoas"},
-            text:  `Fazemos eventos de 20 a 70 lugares, salão compartilhado com o público do restaurante. \nSalão exclusivo para eventos acima de 70 pessoas com capacidade máxima de 150 pessoas. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
-        },
-        {
-            image: {src: defaultImage, alt: "defaulImage"},
-            title: {saloon: `Salão Parquinho`, quantity: "X Pessoas"},
-            text:  `Fazemos eventos de 20 a 50 lugares, salão compartilhado com o público do restaurante. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar. Salão não climatizado.`
-        },
+            image: {src: data.images[2], alt: "defaulImage"},
+            title: {saloon: `Salão Segundo Andar`, quantity: "16 Pessoas"},
+            text:  `Fazemos eventos de 8 a 16 lugares, salão compartilhado com o público do restaurante. \nSalão exclusivo e confortaveis para eventos acima de 8 pessoas com capacidade máxima de 16 pessoas. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
+        }
     ]
 
     return (

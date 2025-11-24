@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import styles from './Select.module.css';
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -12,8 +13,25 @@ export default function Select({
     placeholder,
     icon
 }) {
+
+    const selectRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (selectRef.current && !selectRef.current.contains(event.target)) {
+                setOpenSelect(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [setOpenSelect])
+
     return (
         <div 
+            ref={selectRef}
             className={`${styles.container} ${selectedOption ? styles.selected : ""}`}
             onClick={() => setOpenSelect(!openSelect)}
             >

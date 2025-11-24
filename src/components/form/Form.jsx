@@ -38,12 +38,17 @@ export default function Form({
         setLoading(true);
 
         const res = await emailService({
-            name: nameValue,
-            email: emailValue,
-            phone: phoneValue,
-            subject: subjectValue,
-            unit: unitValue,
-            message: messageValue,
+            templateId: import.meta.env.VITE_EMAIL_TEMPLATE_CONTACTUS_ID,
+            params: {
+                title: "Notificação de Contato",
+                name: nameValue,
+                email_user: emailValue,
+                email_client: "thiago.santos@sptech.school",
+                phone: phoneValue,
+                subject: subjectValue,
+                unit: unitValue,
+                message: messageValue,
+            }
         });
         
         showToast(

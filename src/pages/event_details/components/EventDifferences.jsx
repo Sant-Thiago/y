@@ -2,6 +2,7 @@ import { BiCar } from "react-icons/bi";
 import styles from "./EventDifferences.module.css";
 import { LuToyBrick } from "react-icons/lu";
 import { GiEnergyTank } from "react-icons/gi";
+import { IoIosFootball } from "react-icons/io";
 
 export default function EventDifferences({}) {
 
@@ -11,8 +12,8 @@ export default function EventDifferences({}) {
             iconText: "Estacionamento Amplo e Seguro"
         },
         {
-            icon: <LuToyBrick className={styles.icon}/>,
-            iconText: "Brinquedoteca"
+            icon: <IoIosFootball className={styles.icon}/>,
+            iconText: "Jogos de Futebol"
         },
         {
             icon: <GiEnergyTank className={styles.icon}/>,

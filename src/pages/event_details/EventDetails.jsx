@@ -12,15 +12,20 @@ import useWindowSize from "../../hooks/useWindowSize.jsx";
 import { useEffect, useState } from "react";
 import styles from "./EventDetails.module.css";
 import { CITY_MAP } from "../../data/Units.jsx";
+import { companies } from "../../data/Companies.jsx";
+import Toast from "../../components/toast/Toast.jsx";
 
-export default function EventDetails({
-    name
-}) {
+export default function EventDetails() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
+    const name = data.name;
+    const unitName = "";
+
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     
     const { width }  = useWindowSize(); 
     
-    const unitName = CITY_MAP[useParams().name] || useParams().name;
 
     const isMobile = width < 750;
     
@@ -64,19 +69,21 @@ export default function EventDetails({
                 />
                 <section 
                     className={styles.eventos}
-                    style={{ backgroundImage: `url(${bannerImage})` }}
+                    style={{ backgroundImage: `url(${data.images[1]})` }}
                 >
                     <div className={styles.background}></div>
                     <div className={styles.info}>
-                        <h3>Seu evento no {name} - {unitName}</h3>
+                        <h3>Seu evento no {name} {unitName !== "" ? `- ${unitName}` : ""}</h3>
                         <div className={styles.wrapperText}>
                             <p> 
-                                Nossos espaços contam com TVs, telões, projetores e música ambiente, <br />
-                                além de uma excelente acústica.
+                                Nossos espaços foram projetados para oferecer conforto e flexibilidade 
+                                em qualquer ocasião. Os ambientes com uma atmosfera agradável e acolhedora para 
+                                grupos de todos os tamanhos.
                             </p>
                             <p className={styles.smallText}>
-                                Também oferecemos coquetel volante, coffee-break, <br /> 
-                                serviço à inglesa e brinquedoteca.
+                                Além disso, nossa equipe está sempre disponível para apoiar na organização e 
+                                ajustar os serviços conforme cada necessidade, garantindo praticidade, 
+                                qualidade e uma experiência positiva para todos os que escolhem nossos espaços.
                             </p>
                         </div>
                     </div>
@@ -90,6 +97,7 @@ export default function EventDetails({
                     selectedOption={unitName}
                 />
             </main>
+            
             <Footer />
         </>
     );

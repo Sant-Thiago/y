@@ -2,7 +2,6 @@ import styles from "./EventAboutUs.module.css";
 
 export default function EventAboutUs({
     name,
-    selectedOption
 }) {
     return (
         <section 
@@ -10,28 +9,23 @@ export default function EventAboutUs({
             className={styles.aboutUs}
         >
             <div className={styles.title}>
-                <h2>Saiba mais sobre o {name}</h2>
+                <h2>Saiba mais sobre a {name}</h2>
             </div>
             <div className={styles.wrapperText}>
                 <p>
-                    {name} - {selectedOption} possui belíssima e moderna arquitetura, cardápio 
-                    especializado em frutos do mar, adega climatizada com mais de 2000 mil garrafas.
+                    O Casa Pellegrini é um restaurante tradicional de Petrópolis, conhecido 
+                    pela combinação entre boa comida, ambiente acolhedor e um atendimento 
+                    que valoriza cada cliente. Nosso cardápio reúne os pratos que fazem parte 
+                    da identidade da casa: hambúrgueres artesanais, sanduíches especiais, 
+                    porções variadas, massas e opções clássicas pensadas para todos os gostos. 
+                    Cada preparo é feito com ingredientes selecionados e foco total na qualidade.
                 </p>
                 <p>    
-                    Os salões para eventos do {name} têm capacidade para receber até 150 pessoas 
-                    simultaneamente. Nosso cardápio completo contempla frutos do mar, carnes, aves e 
-                    sobremesas incríveis, reunindo o melhor da gastronomia nacional. Para brindar, 
-                    uma adega com vinhos tintos, brancos, rosés e espumantes, além dos rótulos 
-                    exclusivos {name}.     
-                </p>
-                <p>
-                    Cada espaço possui sistema de som, microfone e projetores individualizados, 
-                    contando com um isolamento acústico perfeito e permitindo um evento exclusivo para 
-                    cada ocasião. Além disso, temos uma brinquedoteca fantástica, com várias atrações 
-                    para garantir a diversão dos pequenos.
-                </p>
-                <p>
-                    Aqui os convidados também encontram um amplo estacionamento.
+                    Com um clima descontraído e moderno, o Casa Pellegrini se tornou ponto de encontro 
+                    para quem busca sabor, conforto e uma experiência gastronômica leve e marcante. 
+                    Aqui, cada visita é uma oportunidade de aproveitar boas refeições, bons momentos 
+                    e a essência do que mais gostamos de oferecer: comida bem feita e hospitalidade 
+                    de verdade.     
                 </p>
                 <p>
                     {name}, o lugar perfeito para momentos inesquecíveis!

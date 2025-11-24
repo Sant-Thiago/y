@@ -17,15 +17,16 @@ import Toast from "../../components/toast/Toast";
 export default function UnitDetails() {
 
     const { empresa } = useParams();
+    const unitName = useParams()?.name;
     const data = companies[empresa];
+    const unit = data.units.find(it => it.value === unitName) || data.units[0];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [indexImageSelected, setIndexImageSelected] = useState(null);
 
-    const unitName = useParams().name;
     const navigate = useNavigate();
 
-    const images = [...data.units.images].reverse();
+    const images = [...unit.images].reverse();
 
     const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
 
@@ -55,7 +56,7 @@ export default function UnitDetails() {
             </div>
             <section className={styles.wrapper}>
                 <div className={styles.imagem}>
-                    <img src={data.units.images[1]} alt="banner" />
+                    <img src={images[1]} alt="banner" />
                 </div>
                 <div className={styles.wrapperDivs}>
                     <div className={styles.darkerDiv}>
@@ -94,7 +95,7 @@ export default function UnitDetails() {
                     ))}
                 </div>
                 <div className={styles.wrapperInfo}>
-                    <p>Essa loja está localizada na {data.location.extended}</p>
+                    <p>Essa loja está localizada na {unit.location.extended}</p>
                     <p>Entre os diferenciais da casa, incluem-se</p>
 
                     <h3>Gastronomia de Excelência</h3>

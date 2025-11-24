@@ -74,7 +74,7 @@ function App() {
                     />
 
                     <Route
-                        path="eventos/:name"
+                        path="evento/:name?"
                         element={ <EventDetails name="EmpresaX"/> }
                     />
                 

@@ -1,57 +1,71 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../components/footer/Footer"
 import Navbar from "../../components/navbar/Navbar.jsx"
 import styles from "./Event.module.css";
 import defaultImage from "@/utils/assets/banner_image.jpeg"
+import { companies } from "../../data/Companies.jsx";
 
-export default function Event({
-    name = "EmpresaX",
-}) {
+export default function Event() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
 
     const navigate = useNavigate();
     const infos = [
         {
-            image: {src: defaultImage, alt: "defaultImage" },
+            image: {src: data.images[2], alt: "Casa Pellegrini Imagem" },
             title: "Eventos Corporativos",
             text: `Reuniões externas entre empresas e profissionais são bastante comuns. Sendo assim, há necessidade de um espaço amplo e confortável pararealização de diversas atividades que contribuem para o desenvolvimento corporativo. Conte com a estrutura dos restaurantes ${name} para conceder eventos com o que há de melhor em culinária para seus funcionários, parceiros e convidados.`,
             reverse: {column: false, row: true},
             imageFree: true
         },
         {
-            image: {src: defaultImage, alt: "defaultImage" },
+            image: {src: data.images[1], alt: "Casa Pellegrini Imagem" },
             title: "Confraternizações",
             text: `Sabe aqueles momentos entre amigos e/ou familiares que ficam guardados na memória? Pois é, muitos deles ocorrem aqui no ${name}. Com um espaço acolhedor e uma culinária praticamente perfeita em sabor, fica difícil esquecer. Traga sua confraternização para um de nossos restaurantes. Sinta a verdadeira alegria e tenha ótimas recordações.`,
             reverse: {column: false, row: false}
         },
         {
-            image: {src: defaultImage, alt: "defaultImage" },
+            image: {src: data.images[0], alt: "Casa Pellegrini Imagem" },
             title: "Aniversário",
             text: `A comemoração da chegada de mais um ano para viver, com certeza, é digna de uma grande festa. E para acompanhá-la, além de um espaço requintado e confortável, nada melhor que as delícias dos pratos ${name}. Nossos restaurantes estão plenamente disponíveis para receber o aniversariante e seus convidados para, juntos, realizarmos um evento inesquecível.`,
             reverse: {column: true, row: true}
         },
         {
-            image: {src: defaultImage, alt: "defaultImage" },
+            image: {src: data.images[2], alt: "Casa Pellegrini Imagem" },
             title: "Casamentos",
             text: `Em uma festa de matrimônio refinada, um buffet sofisticado, com entradas, pratos principais e sobremesas de sabor ímpar, é algo imprescindível. Portanto, o ${name} está ao seu lado no objetivo de deixar o casal e seus convidados plenamente satisfeitos. Realize sua festa de casamento em um dos nossos restaurantes e conceda a todos os presentes uma experiência que irá engrandecer ainda mais este momento tão especial.`,
             reverse: {column: false, row: false}
         },
     ];
 
-    // const opt = [
-    //     { state: "São Paulo", cities: ["São Paulo", "Iguatemi", ]}
-    // ]
+    function buildOptionGroups(units) {
+        const groups = {};
 
-    const options = {
-        "São Paulo": [
-            { link: "/eventos/sao-paulo", value: "São Paulo" },
-            { link: "/eventos/iguatemi", value: "Iguatemi" },
-            { link: "/eventos/campinas", value: "Campinas" },
-        ],
-        "Rio de Janeiro": [
-            { link: "/eventos/rio-de-janeiro", value: "Rio de Janeiro" },
-            { link: "/eventos/niteroi", value: "Niterói" },
-        ],
+        units.forEach((unit) => {
+            const state = unit.location.state.extended;      // "Rio de Janeiro"
+            const city = unit.location.city;                 // "Petrópolis"
+            const value = unit.value;                        // "casa-pellegrini"
+            const name = unit.name;                          // "Casa Pellegrini"
+
+            if (!groups[state]) {
+                groups[state] = [];
+            }
+
+            groups[state].push({
+                label: city,
+                value: value,
+            });
+        });
+
+        return groups;
+    }
+
+    const formatLink = (option) => {
+        return `/${empresa}/evento/${option}`;
     };
+
+    const options = buildOptionGroups([...data.units].sort((a, b) => a.name.localeCompare(b.name)));
 
     const sortOptionsbyCity = (options) => {
         const sortedOptions = {};
@@ -67,8 +81,11 @@ export default function Event({
     const sortedOptions = sortOptionsbyCity(options);
     
 
-    const handleSelect = () => {
-        navigate(link)
+    const handleSelect = (e) => {
+        const link = e.target.value;
+
+        if (data.units.length > 1) navigate(formatLink(link));
+        navigate(formatLink(""))
     }
 
     return (
@@ -97,14 +114,14 @@ export default function Event({
                             </p>
                             <select
                                 className={styles.select}
-                                onChange={(e) => navigate(e.target.value)}
+                                onChange={handleSelect}
                             >
                                 <option defaultChecked>Selecione a unidade</option>
                                 {Object.entries(sortedOptions).map(([state, cities]) => (
                                     <optgroup key={state} label={state}>
                                         {cities.map((city, idx) => (
-                                            <option key={idx} value={city.link} >
-                                                {city.value}
+                                            <option key={idx} value={city.value} >
+                                                {city.label}
                                             </option>
                                         ))}
                                     </optgroup>

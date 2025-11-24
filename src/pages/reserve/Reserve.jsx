@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Reserve.module.css";
 import Navbar from "../../components/navbar/Navbar";
@@ -13,10 +13,21 @@ import { useToast } from "../../hooks/useModalUtils";
 import InputText from "../../components/input/InputText";
 import { BsPhone } from "react-icons/bs";
 import { VscMail } from "react-icons/vsc";
+import { useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
+import { formatPhone } from "../../hooks/useInputUtils";
+import { emailService } from "../../services/emailService";
 
-export default function Reserve({ name = "empresaX" }) {
+export default function Reserve() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
+
+    const name = data.name;
 
     const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
+
+    const [loading, setLoading] = useState(false);
 
     function validate() {
         let errorMessage;
@@ -32,11 +43,11 @@ export default function Reserve({ name = "empresaX" }) {
             errorMessage = "Informe nome e sobrenome.";
         }
         
-        // Telefone brasileiro
-        const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-\d{4}$/;
-        if (!phoneRegex.test(inputNumberValue)) {
-            errorMessage = "Número de telefone inválido.";
-        }
+        // // Telefone brasileiro
+        // const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-\d{4}$/;
+        // if (!phoneRegex.test(inputNumberValue)) {
+        //     errorMessage = "Número de telefone inválido.";
+        // }
 
         return errorMessage;
     }
@@ -78,9 +89,9 @@ export default function Reserve({ name = "empresaX" }) {
     }
 
     const [selectedCity, setSelectedCity] = useState("");
-    const [selectedLocation, setSelectedLocation] = useState(null);
+    const [selectedLocation, setSelectedLocation] = useState(data.units.length <= 1 ? data.units[0].location : null);
 
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(data.units.quantity > 1 ? 1 : 2);
 
     const reservationDays = generateReservationDays();
     const partySizes = generatePartySizes();
@@ -99,38 +110,23 @@ export default function Reserve({ name = "empresaX" }) {
     const [openSelectPartySize, setOpenSelectPartySize] = useState(false);
     const [openSelectHourly, setOpenSelectHourly] = useState(false);
 
-    const locations = [
-        {
-            name: `${name} - Shopping Estação BH`,
-            city: "Belo Horizonte",
-            state: "MG",
-        },
-        {
-            name: `${name} Águas Claras`,
-            city: "Brasília",
-            state: "DF",
-        },
-        {
-            name: `${name} Alphaville`,
-            city: "Barueri",
-            state: "SP",
-        },
-        {
-            name: `${name} Amazonas`,
-            city: "Manaus",
-            state: "AM",
-        },
-    ];
+    // const locations = [
+    //     {
+    //         name: name,
+    //         city: data.location.city,
+    //         state: data.location.state,
+    //     },
+    // ];
 
     // Gera lista única e ordena por UF (abreviação do estado)
-    const locationsSorted = locations
-    .sort((a, b) => a.state.localeCompare(b.state)
+    const locationsSorted = data.units
+    .sort((a, b) => a.name.localeCompare(b.name)
     );
 
   const filtered =
     selectedCity === ""
-      ? locations
-      : locations.filter((l) => l.state === selectedCity);
+      ? data.units
+      : data.units.filter((l) => l.name === selectedCity);
 
     const handleSelectLocation = (location) => {
         setSelectedLocation(location);
@@ -150,13 +146,53 @@ export default function Reserve({ name = "empresaX" }) {
         nextStep();
     }
 
-    const handleReserveClick = () => {
+    const handleReserveClick = async () => {
         const errorMessage = validate();
         if (errorMessage) {
             showToast("Por favor, corrija os erros antes de continuar " + errorMessage, 3000);
-        } else {
-            showToast("Reserva realizada com sucesso!", 3000);
+            return;
+        } 
+
+        setLoading(true);
+
+        const res = await emailService({
+            templateId: import.meta.env.VITE_EMAIL_TEMPLATE_RESERVE_ID,
+            params: {
+                name: inputNameValue,
+                email_user: inputEmailValue,
+                phone: inputNumberValue,
+                company: name,
+                email_client: "thiago.santos@sptech.school",
+                date: selectedReservationDay,
+                hourly: selectedHourly,
+                quantity: selectedPartySize,
+                observations: inputOptionalValue,
+            }
+        });
+        
+        showToast(
+            res.success ? 
+            "Reserva realizada com sucesso!" : 
+            "Erro ao enviar a mensagem. Tente novamente.",
+            3000
+        );
+
+        if (res.success) {
+            // console.log(res);
+            
+            setSelectedReservationDay(null);
+            setSelectedPartySize(null);
+            setSelectedHourly(null);
+            setInputOptionalValue("");
+            setInputNumberValue("");
+            setInputNameValue("");
+            setInputEmailValue("");
+    
+            setStep(data.units.quantity > 1 ? 1 : 2);            
         }
+
+        setLoading(false);
+    
     }
 
     const nextStep = () => {
@@ -167,6 +203,20 @@ export default function Reserve({ name = "empresaX" }) {
         setStep(prev => prev - 1);
     }
 
+    const handleKeyDownNext = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleNextClick();
+        }
+    }
+
+    const handleKeyDownReserve = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleReserveClick();
+        }
+    }
+
   return (
     <>
         <Navbar 
@@ -175,9 +225,9 @@ export default function Reserve({ name = "empresaX" }) {
         <main className={styles.container}>
             <div className={styles.wrapperImage}>
                 <img
-                src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1200"
-                alt="Restaurant"
-                className={styles.image}
+                    src={data.cards[0]}
+                    alt="Restaurant"
+                    className={styles.image}
                 />
             </div>
 
@@ -195,9 +245,9 @@ export default function Reserve({ name = "empresaX" }) {
                             onChange={(e) => setSelectedCity(e.target.value)}
                         >
                             <option value="">Selecione a cidade</option>
-                            {locationsSorted.map((loc, idx) => (
-                                <option key={idx} value={loc.state}>
-                                    {loc.city} - {loc.state}
+                            {locationsSorted.map((unit, idx) => (
+                                <option key={idx} value={unit.state}>
+                                    {unit.location.city} - {unit.location.state.abbreviation}
                                 </option>
                             ))}
                         </select>
@@ -205,17 +255,17 @@ export default function Reserve({ name = "empresaX" }) {
 
                     {/* Locations */}
                     <div className={styles.locations}>
-                    {filtered.map((loc, i) => (
+                    {filtered.map((unit, i) => (
                         <div 
                             key={i} 
                             className={styles.locationItem}
-                            onClick={() => handleSelectLocation(loc)}
+                            onClick={() => handleSelectLocation(unit.location)}
                         >
                             <FaMapMarkerAlt className={styles.icon} />
                             <div>
-                                <div className={styles.locationName}>{loc.name}</div>
+                                <div className={styles.locationName}>{unit.name}</div>
                                 <div className={styles.locationCity}>
-                                    {loc.city} • {loc.state}
+                                    {unit.location.city} • {unit.location.state.abbreviation}
                                 </div>
                             </div>
                         </div>
@@ -233,9 +283,9 @@ export default function Reserve({ name = "empresaX" }) {
                     </div>
                     <div className={styles.titleAndCity}>
                         <h2 className={styles.title}>
-                            {selectedLocation.name}
+                            {name}
                         </h2>
-                        <p className={styles.city}>{selectedLocation.city} <span>-</span> {selectedLocation.state}</p>
+                        <p className={styles.city}>{selectedLocation.city} <span>-</span> {selectedLocation.state?.abbreviation}</p>
                     </div>
 
                     {step === 2 ? (
@@ -280,6 +330,7 @@ export default function Reserve({ name = "empresaX" }) {
                                 placeholder="Ex: Aniversário, Ocasiões especiais, etc."
                                 icon={<FiEdit2 />}
                                 isOptional={true}
+                                onKeyDown={handleKeyDownNext}
                             />
                         </div>
                         
@@ -288,7 +339,7 @@ export default function Reserve({ name = "empresaX" }) {
                             <InputText
                                 label="Número de Telefone"
                                 value={inputNumberValue}
-                                onChange={(e) => setInputNumberValue(e.target.value)}
+                                onChange={(e) => setInputNumberValue(formatPhone(e.target.value))}
                                 placeholder="(00) 12345-6789"
                                 icon={<BsPhone />}
                             />
@@ -305,6 +356,7 @@ export default function Reserve({ name = "empresaX" }) {
                                 onChange={(e) => setInputEmailValue(e.target.value)}
                                 placeholder="Ex: henriquefreitas@gmail.com"
                                 icon={<VscMail />}
+                                onKeyDown={handleKeyDownReserve}
                             />
                         </div>
                         
@@ -313,7 +365,7 @@ export default function Reserve({ name = "empresaX" }) {
                             className={styles.buttonNext}
                             onClick={step == 2 ? handleNextClick : handleReserveClick}
                         >
-                            {step === 2 ? "Próximo" : "Reservar"}
+                            {step === 2 ? "Próximo" : loading ? "Reservando..." : "Reservar"}
                     </button>
                     </div>
             )}

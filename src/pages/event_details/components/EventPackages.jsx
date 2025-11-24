@@ -1,17 +1,26 @@
 import defaultImage from "@/utils/assets/banner_image.jpeg"
 import styles from "./EventPackages.module.css";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { companies } from "../../../data/Companies";
 
 export default function EventPackages({
     name
 }) {
 
-    const imagesFoods = [defaultImage, defaultImage, defaultImage, defaultImage];
+    const { empresa } = useParams();
+    const data = companies[empresa];
+
+    const imagesFoods = [data.images[9], data.images[10], data.images[8]];
 
     return (
         <section 
             id="pacotes"
             className={styles.packages}
         >
+            {/* 
+                # SE A EMPRESA TIVER PACOTE, FUTURAMENTE SUJESTÃO PARA EMPRESA 
+
             <div className={styles.title}>
                 <h2>Conheça nossos pacotes</h2>
             </div>
@@ -28,7 +37,7 @@ export default function EventPackages({
                 <button>
                     <p>Aniversário</p>
                 </button>
-            </div>
+            </div> */}
             <div className={styles.wrapperFlavor}>
                 <h2>O sabor sem igual do nosso cardápio</h2>
             </div>
@@ -44,10 +53,13 @@ export default function EventPackages({
             </div>
             <div className={styles.description}>
                 <p>
-                    Cardápio completo com frutos do mar, carnes, aves e sobremesas incríveis, 
-                    que reúnem o melhor da gastronomia nacional. <br />
-                    Para brindar, uma adega com vinhos tintos, brancos, rosés e espumantes, 
-                    além dos rótulos exclusivos {name}.
+                    Um cardápio completo com os clássicos. <br />
+                    Hambúrgueres artesanais, sanduíches especiais, porções, caldos, 
+                    saladas e sobremesas marcantes — tudo com ingredientes selecionados. <br />
+                    Para acompanhar, sucos naturais, chopes, cervejas, drinks clássicos e 
+                    autorais. 
+                    E para brindar, vinhos tintos, brancos, rosés, espumantes e rótulos 
+                    exclusivos da {name}.
                 </p>
             </div>
         </section>

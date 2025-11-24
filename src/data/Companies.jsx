@@ -9,25 +9,41 @@ export const companies = {
         name: "Casa Pellegrini",
         themeColor: "#8B4513",
         logo: `${baseURL}companies/casa-pellegrini/logo.png`,
-        location: {
-            extended: "Rua Treze de Maio, 184 - Centro, Petrópolis - RJ, 25685-231",
-            street: "Rua Treze de Maio, 184",
-            city: "Petrópolis",
-            state: "RJ",
-            number: "184",
-            zipCode: "25685-231",
-        },
-        units: {
-            quantity: 1,
-            name: "Casa Pellegrini",
-            value: "casa-pellegrini",
-            images: [
-                `${baseURL}companies/casa-pellegrini/banner_1.jpg`,
-                `${baseURL}companies/casa-pellegrini/inner_restaurant_1.jpg`,
-                `${baseURL}companies/casa-pellegrini/inner_restaurant_2.jpg`,
-            ]
-
-        },
+        units: [
+            {
+                name: "Casa Pellegrini",
+                value: "casa-pellegrini",
+                location: {
+                    extended: "Rua Treze de Maio, 184 - Centro, Petrópolis - RJ, 25685-231",
+                    street: "Rua Treze de Maio",
+                    city: "Petrópolis",
+                    state: {
+                        abbreviation: "RJ",
+                        extended: "Rio de Janeiro",
+                    },
+                    number: "184",
+                    zipCode: "25685-231",
+                },
+                images: [
+                    `${baseURL}companies/casa-pellegrini/banner_1.jpg`,
+                    `${baseURL}companies/casa-pellegrini/inner_restaurant_1.jpg`,
+                    `${baseURL}companies/casa-pellegrini/inner_restaurant_2.jpg`,
+                ]
+            }
+        ],
+        images: [
+            `${baseURL}companies/casa-pellegrini/banner_1.jpg`,
+            `${baseURL}companies/casa-pellegrini/inner_restaurant_1.jpg`,
+            `${baseURL}companies/casa-pellegrini/inner_restaurant_2.jpg`,
+            `${baseURL}companies/casa-pellegrini/banner_2.jpg`,
+            `${baseURL}companies/casa-pellegrini/banner_3.jpg`,
+            `${baseURL}companies/casa-pellegrini/banner_4.jpg`,
+            `${baseURL}companies/casa-pellegrini/banner_5.jpg`,
+            `${baseURL}companies/casa-pellegrini/banner_6.jpg`,
+            `${baseURL}companies/casa-pellegrini/highlight_1.jpg`,
+            `${baseURL}companies/casa-pellegrini/highlight_2.jpg`,
+            `${baseURL}companies/casa-pellegrini/highlight_3.jpg`,
+        ],
         banners: [
             `${baseURL}companies/casa-pellegrini/banner_1.jpg`,
             `${baseURL}companies/casa-pellegrini/banner_2.jpg`,
@@ -130,7 +146,7 @@ export const companies = {
                     {
                         id: 33,
                         name: "Caldo de Abóbora c/ Gorgonzola",
-                        image: `${baseURL}companies/casa-pellegrini/food_9.png}`,
+                        image: `${baseURL}companies/casa-pellegrini/food_9.png`,
                         description: "Caldo de Abóbora com Gorgonzola! Acompanha Torradas! Porção de 400ml.",
                         measure: { value: 400, formatted: "400ml" },
                         price: { value: 29.90, formatted: "R$ 29,90" }

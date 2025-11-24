@@ -9,7 +9,8 @@ export default function InputText({
     disabled = false,
     error = "",
     icon,
-    isOptional = false
+    isOptional = false,
+    onKeyDown
 }) {            
     return (
         <div className={styles.container}>
@@ -24,6 +25,7 @@ export default function InputText({
                     value={value}
                     onChange={onChange}
                     placeholder={placeholder}
+                    onKeyDown={onKeyDown}
                 />
             </div>
         </div>

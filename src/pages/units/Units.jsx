@@ -8,29 +8,42 @@ import { companies } from "../../data/Companies";
 import { useEffect } from "react";
 
 
-export default function Units({
-    options = {
-        "São Paulo": [
-            { link: "/unidade/sao-paulo", value: "São Paulo" },
-            { link: "/unidade/iguatemi", value: "Iguatemi" },
-            { link: "/unidade/campinas", value: "Campinas" },
-        ],
-        "Rio de Janeiro": [
-            { link: "/unidade/rio-de-janeiro", value: "Rio de Janeiro" },
-            { link: "/unidade/niteroi", value: "Niterói" },
-        ],
-    }
-}) {
+export default function Units() {
     
     const { empresa } = useParams();
     const data = companies[empresa]; 
+
+    function buildOptionGroups(units) {
+        const groups = {};
+
+        units.forEach((unit) => {
+            const state = unit.location.state.extended;      // "Rio de Janeiro"
+            const city = unit.location.city;                 // "Petrópolis"
+            const value = unit.value;                        // "casa-pellegrini"
+            const name = unit.name;                          // "Casa Pellegrini"
+
+            if (!groups[state]) {
+                groups[state] = [];
+            }
+
+            groups[state].push({
+                label: city,
+                value: value,
+            });
+        });
+
+        return groups;
+    }
+
+
+    const options = buildOptionGroups([...data.units].sort((a, b) => a.name.localeCompare(b.name)));
 
     const formatLink = (cidade) => {
         return `/${empresa}/unidade/${cidade}`;
     };
     
 
-    const imageUnits = data.units;
+    const imageUnits = data.images;
 
     const navigate = useNavigate();
 
@@ -40,30 +53,13 @@ export default function Units({
         navigate(formatLink(empresa, option));
     }
 
-    const sortOptionsbyCity = (options) => {
-        const sortedOptions = {};
-
-        Object.entries(options).forEach(([estado, cidades]) => {
-            const sortedCidades = cidades.sort((a, b) => a.value.localeCompare(b.value));
-            sortedOptions[estado] = sortedCidades;
-        });
-
-        return sortedOptions;
-    }
-
-    const getQuantityUnits = (options) => {
-        return Object.values(options).reduce((acc, cidades) => acc + cidades.length, 0);
-    }
-
-
-    const sortedOptions = sortOptionsbyCity(options);
-    const quantityUnits = getQuantityUnits(options);
+    const quantityUnits = data.units.length;
 
     useEffect(() => {
-        if (data.units.quantity === 1) {
+        if (data.units.length === 1) {
             navigate(formatLink(""));
         }
-    })
+    }, [])
 
     return (
         <>
@@ -81,11 +77,11 @@ export default function Units({
                             onChange={handleChange}
                         >
                             <option defaultChecked>Selecione a unidade desejada</option>
-                            {Object.entries(sortedOptions).map(([state, cities]) => (
+                            {Object.entries(options).map(([state, cities]) => (
                                 <optgroup key={state} label={state}>
                                     {cities.map((city, idx) => (
                                         <option key={idx} value={city.value} >
-                                            {city.value}
+                                            {city.label}
                                         </option>
                                     ))}
                                 </optgroup>
