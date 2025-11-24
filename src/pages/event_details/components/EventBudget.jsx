@@ -26,7 +26,7 @@ export default function EventBudget({ name, selectedOption }) {
 
     const [ policyPrivacyLink  ] = useState(`/${empresa}/politica-privacidade`);
     
-    const quantity = "4 a 10";
+    const quantity = "8 a 16";
 
     const { toastVisible, toastMsg, showToast, setToastVisible } = useToast()
 
@@ -38,7 +38,7 @@ export default function EventBudget({ name, selectedOption }) {
         if (
             !dateValue ||
             !numberValue ||
-            !nameValue ||
+            !nameValue || !nameValue.trim() ||
             !emailValue ||
             !phoneValue ||
             !meal ||
@@ -46,6 +46,12 @@ export default function EventBudget({ name, selectedOption }) {
             !verificationValue 
         ) {
             showToast("Preencha todos os campos.");
+            return;
+        }
+
+        const phoneRegex = /^\+55\s?\(\d{2}\)\s?0?\d{4,5}-\d{4}$/;
+        if (!phoneRegex.test(phoneValue)) {
+            showToast("Número de telefone inválido.");
             return;
         }
 

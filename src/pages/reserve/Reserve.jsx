@@ -43,11 +43,11 @@ export default function Reserve() {
             errorMessage = "Informe nome e sobrenome.";
         }
         
-        // // Telefone brasileiro
-        // const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-\d{4}$/;
-        // if (!phoneRegex.test(inputNumberValue)) {
-        //     errorMessage = "Número de telefone inválido.";
-        // }
+        // Telefone brasileiro
+        const phoneRegex = /^\+55\s?\(\d{2}\)\s?0?\d{4,5}-\d{4}$/;
+        if (!phoneRegex.test(inputNumberValue)) {
+            errorMessage = "Número de telefone inválido.";
+        }
 
         return errorMessage;
     }
@@ -340,7 +340,7 @@ export default function Reserve() {
                                 label="Número de Telefone"
                                 value={inputNumberValue}
                                 onChange={(e) => setInputNumberValue(formatPhone(e.target.value))}
-                                placeholder="(00) 12345-6789"
+                                placeholder="(00) 1 2345-6789"
                                 icon={<BsPhone />}
                             />
                             <InputText
