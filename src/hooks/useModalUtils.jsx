@@ -103,18 +103,24 @@ export function useModalHandlers(onClose) {
 }
 
 export async function handleShare({ id, name, description, empresa, showToast }) {
-  const url = `${window.location.origin}/${empresa}/cardapio?item=${id}`;
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: name, text: description, url });
-      showToast("Link compartilhado com sucesso!");
-    } catch {}
-  } else {
-    try {
-      await navigator.clipboard.writeText(url);
-      showToast("Link copiado para a área de transferência!");
-    } catch {
-      showToast("Erro ao copiar link.");
-    }
-  }
+	const isGithubPages = window.location.hostname.includes("github.io"); 
+	const baseURL = import.meta.env.BASE_URL
+
+	const url = isGithubPages 
+	? `${window.location.origin}${baseURL}#/${empresa}/cardapio?item=${id}`
+	: `${window.location.origin}${baseURL}${empresa}/cardapio?item=${id}`;
+
+	if (navigator.share) {
+		try {
+			await navigator.share({ title: name, text: description, url });
+			showToast("Link compartilhado com sucesso!");
+		} catch {}
+	} else {
+		try {
+			await navigator.clipboard.writeText(url);
+			showToast("Link copiado para a área de transferência!");
+		} catch {
+			showToast("Erro ao copiar link.");
+		}
+	}
 }

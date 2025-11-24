@@ -2,24 +2,25 @@ import Navbar from "@/components/navbar/Navbar";
 import companyImg from "@/utils/assets/company.jpeg";
 import styles from "./PrivacyPolicy.module.css";
 import Footer from "../../components/footer/Footer";
+import { useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
 
 export default function PrivacyPolicy({ 
-    name,
-    cnpj,
-    address,
-    email,
-    inChange,
-    dpoName,
-    dpoEmail,
-    img = companyImg
+    inChange = "",
 }) {
+
+    const { empresa } = useParams()
+    const data = companies[empresa];
+    
+    const { cnpj, name, email } = data;
+    const address = data.units.length == 1 ? data.units[0].location.extended : "";
 
   return (
     <>
         <Navbar />
         <main className={styles.container}>
             <section className={styles.wrapperImg}>
-                <img src={img} alt="" className={styles.img} />
+                <img src={data.images[1]} alt="" className={styles.img} />
                 <div className={styles.backgroundImg}></div>
                 <h1 className={styles.textImg}>Política de Privacidade</h1>
             </section>
@@ -27,8 +28,8 @@ export default function PrivacyPolicy({
             <section className={styles.wrapperText}>
                 <div className={styles.description}>
                     <p>
-                        A proteção de suas informações é nossa prioridade. Nós, da <b>{name}</b> (“Empresa” ou “nós”),
-                        inscrita no CNPJ/ME sob o n.º <b>{cnpj}</b>, levamos a sua privacidade e a proteção dos seus
+                        A proteção de suas informações é nossa prioridade. Nós, da <b>{name}</b>,
+                        inscrita no CNPJ/ME sob o n.º <b>{cnpj.formatted}</b>, levamos a sua privacidade e a proteção dos seus
                         dados a sério.
                     </p>
 
@@ -154,7 +155,7 @@ export default function PrivacyPolicy({
                 <div>
                     <h2>5 – Compartilhamento de Informações</h2>
                     <p>
-                        5.1 A {name} ({cnpj}) poderá compartilhar seus dados pessoais com terceiros ou parceiros de negócios que sejam relevantes 
+                        5.1 A {name} ({cnpj.formatted}) poderá compartilhar seus dados pessoais com terceiros ou parceiros de negócios que sejam relevantes 
                         para fins de viabilizar a utilização do site e da internet em nossos restaurantes. Referido compartilhamento ocorre com 
                         base nos seguintes critérios e para as finalidades descritas abaixo.
                     </p>
@@ -213,7 +214,7 @@ export default function PrivacyPolicy({
                 <div>
                     <h2>7 – Por Quanto Tempo os Dados Pessoais Serão Armazenados?</h2>
                     <p>
-                        7.1 A {name} ({cnpj}) possui uma política de retenção de dados pessoais alinhada com a lei aplicável. Os dados pessoais são 
+                        7.1 A {name} ({cnpj.formatted}) possui uma política de retenção de dados pessoais alinhada com a lei aplicável. Os dados pessoais são 
                         armazenados somente pelo tempo que forem legalmente permitidos e necessários para cumprir com as finalidades para as quais 
                         foram coletados, salvo se houver qualquer outra razão para sua manutenção — como, por exemplo, cumprimento de quaisquer 
                         obrigações legais, regulatórias, contratuais, entre outras permitidas sob a lei.

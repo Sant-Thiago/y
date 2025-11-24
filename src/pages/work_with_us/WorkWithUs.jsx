@@ -7,21 +7,31 @@ import trabalheConoscoImg from "@/utils/assets/trabalhe_conosco.png";
 import LilBanner from "../../components/lil_banner/LilBanner";
 import BannerWorkWithUs from "../../components/banner_work_with_us/BannerWorkWithUs";
 import Form from "../../components/form/Form";
+import { useParams } from "react-router-dom";
+import { companies } from "../../data/Companies";
+import { useToast } from "../../hooks/useModalUtils";
+import Toast from "../../components/toast/Toast";
 
 
 // essa tela tem que ter uma integração para enviar email
 
-export default function WorkWithUs({
-    img = companyImg,
-    workWithUsImg = trabalheConoscoImg
-}) {
+export default function WorkWithUs() {
+
+    const { empresa } = useParams();
+    const data = companies[empresa];
+
+    const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
+    
+    const showToastForm = (message) => {
+        showToast(message);
+    }
 
     return(
         <>
             <Navbar />
             <main className={styles.container}>
                 <LilBanner 
-                    image={ img }
+                    image={ data.images[2] }
                     text={"Fale conosco"}
                 />
 
@@ -31,17 +41,27 @@ export default function WorkWithUs({
                         <p>Para reservas, acesse a página Unidades e selecione a unidade mais próxima ou uma de sua escolha.</p>
                         
                         <Form 
-                            fieldUnitOn={true}
+                            showToast={showToastForm}
                         />
 
                     </div>
                     <div className={styles.wrapperBanner}>
                         <h2>Trabalhe conosco</h2>
-                        <BannerWorkWithUs noTitle noResponsive height={104}/>
+                        <BannerWorkWithUs 
+                            noButton
+                            noTitle 
+                            noResponsive 
+                            height={104}
+                        />
                     </div>
                 </section>
 
             </main>
+            <Toast
+                message={toastMsg}
+                visible={toastVisible}
+                onClose={() => setToastVisible(false)}
+            />
             <Footer />
         </>
     )

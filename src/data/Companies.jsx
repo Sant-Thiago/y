@@ -9,6 +9,12 @@ export const companies = {
         name: "Casa Pellegrini",
         themeColor: "#8B4513",
         logo: `${baseURL}companies/casa-pellegrini/logo.png`,
+        cnpj: {
+            value: 12345678000099,
+            formatted: "12.345.678/0000-99",
+        },
+        email: "augustonicodemus@gmail.com",
+        phone: "(24) 2231-6110",
         units: [
             {
                 name: "Casa Pellegrini",

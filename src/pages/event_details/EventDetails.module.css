@@ -60,3 +60,10 @@
     background-color: rgba(0, 0, 0, 0.425);      
     z-index: 1;
 }
+
+
+@media (min-width: 1020px) {
+    .info {
+        max-width: 1104px;
+    }
+}

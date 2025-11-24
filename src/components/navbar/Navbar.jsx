@@ -29,8 +29,6 @@ export default function Navbar({
 
     const [hide, setHide] = useState(false);
 
-    const baseURL = import.meta.env.BASE_URL || "/";
-
     const formatedLinks = links.map(link => ({
         ...link,
         href: `/${empresa}/${link.href}`

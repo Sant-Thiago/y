@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar.jsx"
 import styles from "./Event.module.css";
 import defaultImage from "@/utils/assets/banner_image.jpeg"
 import { companies } from "../../data/Companies.jsx";
+import { useEffect } from "react";
 
 export default function Event() {
 
@@ -87,6 +88,10 @@ export default function Event() {
         if (data.units.length > 1) navigate(formatLink(link));
         navigate(formatLink(""))
     }
+
+    useEffect(() => {
+        if (data.units.length == 1) navigate(formatLink())
+    }, [])
 
     return (
         <>

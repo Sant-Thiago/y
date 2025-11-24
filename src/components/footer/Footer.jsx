@@ -14,6 +14,7 @@ export default function Footer() {
     const img = data.logo;
 
     const [inputValue, setInputValue] = useState(null);
+    
     const handleClick = (e) => {
         const email = inputValue;
         if (!email) return;
@@ -26,16 +27,16 @@ export default function Footer() {
                     <div className={styles.redirections}>
                         <ul className={styles.list}>
                             <li>
-                                <Link to="/unidades">Unidades</Link>
+                                <Link to={`/${empresa}/unidades`}>Unidades</Link>
                             </li>
                             <li>
-                                <Link to="/eventos">Eventos</Link>
+                                <Link to={`/${empresa}/eventos`}>Eventos</Link>
                             </li>
                             <li>
-                                <Link to="/contato">Contato</Link>
+                                <Link to={`/${empresa}/contato`}>Contato</Link>
                             </li>
                             <li>
-                                <Link to="/cardapio">Cardápio</Link>
+                                <Link to={`/${empresa}/cardapio`}>Cardápio</Link>
                             </li>
                         </ul>
                     {/* </div> */}
@@ -45,7 +46,7 @@ export default function Footer() {
                                 <Link to="/contato">Trabalhe conosco</Link>
                             </li> */}
                             <li>
-                                <Link to="/politica-privacidade">Política de privacidade</Link>
+                                <Link to={`/${empresa}/politica-privacidade`}>Política de privacidade</Link>
                             </li>
                         </ul>
                     </div>

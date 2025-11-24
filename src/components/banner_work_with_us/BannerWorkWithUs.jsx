@@ -1,14 +1,24 @@
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./BannerWorkWithUs.module.css";
 import trabalheConoscoImg from "@/utils/assets/trabalhe_conosco.png";
 
 export default function BannerWorkWithUs({
     workWithUsImg = trabalheConoscoImg,
+    noButton = false,
     noTitle = false,
     noResponsive = false,
     height
 }) {
-    return (
 
+    const { empresa } = useParams();
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/${empresa}/contato`)
+    }
+
+    return (
         <div className={`
                 ${styles.workWithUs}
                 ${!noResponsive ? styles.responsive : ""}
@@ -22,7 +32,7 @@ export default function BannerWorkWithUs({
             <div className={styles.wrapperText}>
                 {!noTitle && <h2>Trabalhe conosco</h2>}
                 <p>Quer fazer parte do nosso time de campeões, clique no botão abaixo e faça sua inscrição para uma de nossas vagas disponíveis.</p>
-                <button>Quero me inscrever</button>
+                {!noButton && <button onClick={handleClick}>Quero me inscrever</button>}
             </div>
         </div>
     )

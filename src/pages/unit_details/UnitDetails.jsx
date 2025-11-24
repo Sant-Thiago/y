@@ -32,9 +32,10 @@ export default function UnitDetails() {
 
     const handleNavigate = (info) => {
         if (info === "whatsapp") {
-            window.open("", "_blank");
+            window.open(data.links.whatsapp, "_blank");
         } else {
-            navigate(info);
+
+            navigate(`/${empresa}/${info}`);
         }
     }
 
@@ -118,10 +119,10 @@ export default function UnitDetails() {
                     </p>
 
                     <p>Horário de funcionamento:</p>
-                    <p>SEG A SEX - 11h30 às 15:30 | 17h à 00h</p>
-                    <p>Telefone: (24) 2231-6110 | 99 87654-3210</p>
-                    <p>Contato: exemplo@empresax.com</p>
-                    <p>CNPJ: 12.345.678/0001-09</p>
+                    <p>DOM A QUI - 11h às 00:00h | SEX A SAB - 11h às 01:30h</p>
+                    <p>Telefone: {data.phone}</p>
+                    <p>Contato: {data.email}</p>
+                    <p>CNPJ: {data.cnpj.formatted}</p>
                 </div>
                 <div className={styles.socialMidias}>
                     <h2>Visite nossas redes sociais</h2>
