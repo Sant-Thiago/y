@@ -27,10 +27,35 @@ export default function Form({
         const form = e.target;
 
         // Verifica erros nativos HTML
-        if (!form.checkValidity()) {
+        if (
+            !form.checkValidity() ||
+            !nameValue || !nameValue.trim() ||
+            !emailValue || emailValue.trim() ||
+            !phoneValue || phoneValue.trim() ||
+            !messageValue || messageValue.trim() ||
+            !subjectValue || subjectValue.trim()
+        ) {
             e.stopPropagation();
-            validateEmail(emailValue);
+            
             setValidated(true);
+
+            showToast("Preencha todos os campos.");
+            return;
+        }
+
+        if (fieldTermOn && !checkedTermValue) {
+            showToast("Você precisa aceitar os termos.")
+            return;
+        }
+
+        if (!validateEmail(emailValue)) {
+            showToast("Digite um email válido.");
+            return;
+        }
+
+        const phoneRegex = /^\+55\s?\(\d{2}\)\s?0?\d{4,5}-\d{4}$/;
+        if (!phoneRegex.test(phoneValue)) {
+            showToast("Número de telefone inválido.");
             return;
         }
 
