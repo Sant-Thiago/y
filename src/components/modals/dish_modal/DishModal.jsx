@@ -41,7 +41,7 @@ export default function DishModal({ info, onClose }) {
 			{!hasMoreThanOne ? (
 			  <div className={styles.wrapperInfo}>
 				<div className={styles.wrapperTitle}>
-				  <h3>{info.name} {info.measure.formatted}{/*info.options?.[0].weight*/}</h3>
+				  <h3>{info.name} {info?.measure?.formatted}{/*info.options?.[0].weight*/}</h3>
 				  <IoShareSocialOutline 
 					size={24} 
 					color="gray" 
