@@ -182,7 +182,7 @@ export default function Menu() {
 
     const [filteredWines, setFilteredWines] = useState(infoWines);
 
-    const bannerImages = [data.banners[5], data.banners[0], data.banners[2]];
+    const bannerImages = [data.images[5], data.images[0], data.images[4]];
 
     const handleFilter = (filters) => {
         setCurrentFilters(filters);

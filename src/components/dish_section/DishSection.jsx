@@ -14,6 +14,10 @@ export default function DishSection({
         return it.options.length > 1;
     }
 
+    const hasMeasure = (it) => {
+        return it.options?.measure;
+    }
+
     return (
         <section className={styles.wrapperFoods}>
             {info && info.map((it, idx) => (
@@ -40,7 +44,7 @@ export default function DishSection({
                                     </div>
                                     {!hasMoreThanOne(dish) ? (
                                         <div className={styles.wrapperInfoFoods}>
-                                            <h3 className={styles.title}>{dish.name} {dish.measure.formatted}{/*{dish.options?.[0].weight}*/}</h3>
+                                            <h3 className={styles.title}>{dish.name} {dish.measure?.formatted}{/*{dish.options?.[0].weight}*/}</h3>
                                             <div className={styles.priceAndCode}>
                                                 <p className={styles.price}>
                                                     {/* {dish.options?.[0].price.toLocaleString("pt-BR", {
@@ -60,7 +64,7 @@ export default function DishSection({
                                         </div>
                                     ):(
                                         <div className={styles.wrapperInfoFoods}>
-                                            <h3 className={styles.title}>{dish.name} {dish.options?.[0].weight.slice(0, -1)}/{dish.options?.[1].weight}</h3>
+                                            <h3 className={styles.title}>{dish.name} {hasMeasure(dish.options?.[0]) && ( dish.options?.[0]?.measure + " / " + dish.options?.[1]?.measure ) }</h3>
                                             <p className={styles.description}>
                                                 {dish.description}
                                             </p>
@@ -69,10 +73,7 @@ export default function DishSection({
                                                     <div className={styles.nameAndPriceAndCode}>
                                                         <p className={styles.nameAndLabel}>{dish.name} {opt.label}{" "}</p>
                                                         <p className={styles.priceAndCode}>
-                                                            {opt.price.toLocaleString("pt-BR", {
-                                                                style: "currency",
-                                                                currency: "BRL",
-                                                            })} - ({opt.code})
+                                                            {opt.price.formatted} - ({opt.id})
                                                         </p>
                                                     </div>
                                                 ))}

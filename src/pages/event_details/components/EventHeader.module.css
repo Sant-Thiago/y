@@ -1,7 +1,7 @@
 .header {
     width: 100vw;
 
-    background-color: rgb(61, 14, 14);
+    background-color: var(--redColor);
     display: flex;
     margin-top: 78px;
     height: fit-content;

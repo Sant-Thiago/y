@@ -14,13 +14,7 @@ export default function Home() {
     const { empresa } = useParams();
     const data = companies[empresa];
 
-    const bannerImages = [
-        data.banners[0],
-        data.banners[1],
-        data.banners[2],
-        data.banners[3],
-        data.banners[4],
-    ];
+    const bannerImages = [...data.banners];
 
     const highlightImages = data.highlights.map((img, idx) => ({
         img: img,

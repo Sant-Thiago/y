@@ -91,7 +91,7 @@
     height: 180px;
     margin: 8px 0;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 

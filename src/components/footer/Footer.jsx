@@ -20,6 +20,9 @@ export default function Footer() {
         if (!email) return;
     }
 
+    const themeColor = data.themeColor;
+    themeColor && document.documentElement.style.setProperty("--redColor", themeColor) 
+
     return (
         <footer className={styles.container}>
             <div className={styles.wrapper}>

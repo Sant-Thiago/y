@@ -91,10 +91,13 @@ export default function EventDetails() {
                 <EventSaloons
                     selectedOption={unitName}
                 />
-                <EventDifferences />
+                <EventDifferences 
+                    data={data}
+                />
                 <EventAboutUs
                     name={name}
                     selectedOption={unitName}
+                    data={data}
                 />
             </main>
             

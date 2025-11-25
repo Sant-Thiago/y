@@ -19,7 +19,7 @@ export default function UnitDetails() {
     const { empresa } = useParams();
     const unitName = useParams()?.name;
     const data = companies[empresa];
-    const unit = data.units.find(it => it.value === unitName) || data.units[0];
+    const unit = data.units.find(it => it.value === unitName) || data.units[0];    
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [indexImageSelected, setIndexImageSelected] = useState(null);
@@ -119,7 +119,7 @@ export default function UnitDetails() {
                     </p>
 
                     <p>Horário de funcionamento:</p>
-                    <p>DOM A QUI - 11h às 00:00h | SEX A SAB - 11h às 01:30h</p>
+                    <p>{data.units[0].hourly}</p>
                     <p>Telefone: {data.phone}</p>
                     <p>Contato: {data.email}</p>
                     <p>CNPJ: {data.cnpj.formatted}</p>
@@ -157,7 +157,7 @@ export default function UnitDetails() {
                         <div className={styles.wrapperMap}>
                             <div className={styles.map}>
                                 <Map
-                                    src={"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1646.617777338797!2d-43.18276181918622!3d-22.50461940636588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9908077a9a1a29%3A0xf57c6c57443ad9c0!2sCasa%20Pellegrini!5e0!3m2!1spt-BR!2sbr!4v1763756459035!5m2!1spt-BR!2sbr"}
+                                    src={unit.location.linkMap}
                                 />
                             </div>
                         </div>

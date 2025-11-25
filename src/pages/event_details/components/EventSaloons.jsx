@@ -8,19 +8,6 @@ export default function EventSaloons() {
     const { empresa } = useParams();
     const data = companies[empresa];
 
-    const infoSaloons = [
-        {
-            image: {src: data.images[1], alt: "defaulImage"},
-            title: {saloon: `Salão Principal`, quantity: "16 Pessoas"},
-            text:  `Fazemos eventos de 8 lugares, salão compartilhado com o público do restaurante. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
-        },
-        {
-            image: {src: data.images[2], alt: "defaulImage"},
-            title: {saloon: `Salão Segundo Andar`, quantity: "16 Pessoas"},
-            text:  `Fazemos eventos de 8 a 16 lugares, salão compartilhado com o público do restaurante. \nSalão exclusivo e confortaveis para eventos acima de 8 pessoas com capacidade máxima de 16 pessoas. \nDisponível na quinta e sexta no almoço e de quinta a sábado no jantar.`
-        }
-    ]
-
     return (
         <section 
             id="capacidades"
@@ -30,7 +17,7 @@ export default function EventSaloons() {
                 <h3>Conheça nossos salões</h3>
             </div>
             <div className={styles.wrapperImages}>
-                {infoSaloons.map((info, idx) => (
+                {data.units[0].info["saloons"].map((info, idx) => (
                     <div className={styles.imageAndInfo}>
                         <div className={styles.imagem}>
                             <img src={info.image.src} alt={info.image.alt} />

@@ -53,13 +53,7 @@ export default function EventPackages({
             </div>
             <div className={styles.description}>
                 <p>
-                    Um cardápio completo com os clássicos. <br />
-                    Hambúrgueres artesanais, sanduíches especiais, porções, caldos, 
-                    saladas e sobremesas marcantes — tudo com ingredientes selecionados. <br />
-                    Para acompanhar, sucos naturais, chopes, cervejas, drinks clássicos e 
-                    autorais. 
-                    E para brindar, vinhos tintos, brancos, rosés, espumantes e rótulos 
-                    exclusivos da {name}.
+                    {data.texts[0]}
                 </p>
             </div>
         </section>

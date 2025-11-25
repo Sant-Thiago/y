@@ -4,23 +4,14 @@ import { LuToyBrick } from "react-icons/lu";
 import { GiEnergyTank } from "react-icons/gi";
 import { IoIosFootball } from "react-icons/io";
 
-export default function EventDifferences({}) {
+export default function EventDifferences({data}) {
 
-    const infos = [
-        {
-            icon: <BiCar className={styles.icon} />,
-            iconText: "Estacionamento Amplo e Seguro"
-        },
-        {
-            icon: <IoIosFootball className={styles.icon}/>,
-            iconText: "Jogos de Futebol"
-        },
-        {
-            icon: <GiEnergyTank className={styles.icon}/>,
-            iconText: "Gerador de Energia Próprio"
-        },
-        
-    ]
+    const iconsMap = {
+        car: <BiCar className={styles.icon} />,
+        brick: <LuToyBrick className={styles.icon} />,
+        tank: <GiEnergyTank className={styles.icon} />,
+        ball: <IoIosFootball className={styles.icon} />
+    };
 
     return (
         <section 
@@ -32,13 +23,13 @@ export default function EventDifferences({}) {
                 <p>Pensando em sua comodiadade, nossos espaços oferecem:</p>
             </div>
             <div className={styles.wrapperImageAndInfo}>
-            {infos.map((info, idx) => (
+            {data.units[0].info["differences"].map((info, idx) => (
                 <div 
                     className={styles.imageAndInfo}
                     key={idx}
                 >
                     <div>
-                        {info.icon}
+                        {iconsMap[info.icon]}
                     </div>
                     <p>{info.iconText}</p>
                 </div>
