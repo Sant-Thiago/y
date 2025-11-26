@@ -2,11 +2,27 @@ import defaultImage from "@/utils/assets/banner_image.jpeg"
 import styles from "./EventSaloons.module.css"
 import { useParams } from "react-router-dom"
 import { companies } from "../../../data/Companies";
+import { useEffect } from "react";
 
 export default function EventSaloons() {
 
     const { empresa } = useParams();
     const data = companies[empresa];
+
+    const saloons = data?.units?.[0]?.info?.saloons || [];
+
+    useEffect(() => {
+        const wrapper = document.querySelector(`.${styles.wrapperImages}`);
+        if (!wrapper) return;
+
+        const itens = wrapper.querySelectorAll(`.${styles.imageAndInfo}`);
+
+        itens.forEach(item => item.classList.remove(styles.fullRow));
+
+        if (itens.length % 2 !== 0 && itens.length >= 1) {
+            itens[itens.length - 1].classList.add(styles.fullRow);
+        }
+    }, [saloons]);
 
     return (
         <section 
@@ -17,7 +33,7 @@ export default function EventSaloons() {
                 <h3>Conheça nossos salões</h3>
             </div>
             <div className={styles.wrapperImages}>
-                {data.units[0].info["saloons"].map((info, idx) => (
+                {saloons.map((info, idx) => (
                     <div className={styles.imageAndInfo}>
                         <div className={styles.imagem}>
                             <img src={info.image.src} alt={info.image.alt} />

@@ -68,6 +68,12 @@
     font-size: 15px;
 }
 
+/* classe criada dentro do module (será usada com styles.fullRow) */
+.fullRow {
+    grid-column: 1 / -1;      
+    justify-self: center;     
+}
+
 
 @media (min-width: 750px) {
 
@@ -83,12 +89,6 @@
         width: 312px;
         margin: 0;
         align-self: start;
-    }
-
-    .wrapperInfoSaloons > .wrapperImages > div:nth-child(3) {
-        grid-column: 1 / -1;     
-        /* justify-self: center;     */
-        /* width: 60%;               */
     }
 
     .wrapperImages > .imageAndInfo > .imagem {
