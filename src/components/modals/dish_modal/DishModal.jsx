@@ -60,7 +60,7 @@ export default function DishModal({ info, onClose }) {
 			  <div className={styles.wrapper}> 
 				<div className={styles.wrapperInfo}>
 				  <div className={styles.wrapperTitle}>
-					<h3>{info.name} {info.options[0].weight.slice(0, -1)}/{info.options[1].weight}</h3>
+					<h3>{info.name} {info?.options[0]?.measure && ( info?.options[0]?.measure?.formatted.split(" ")[0] + "/" + info?.options[1]?.measure?.formatted )}</h3>
 					<IoShareSocialOutline 
 					  size={24} 
 					  color="gray" 
@@ -80,7 +80,7 @@ export default function DishModal({ info, onClose }) {
 						{info.name} {opt.label}
 					  </p>
 					  <p className={styles.price}>
-						{opt.price?.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+						{opt.price.formatted}
 					  </p>
 
 					</div>
@@ -89,7 +89,7 @@ export default function DishModal({ info, onClose }) {
 				</div>
 				<div className={styles.wrapperCode}>
 				  <p className={styles.code}>
-					Cód: {info.options.map(opt => (opt.code)).join(" - ")}
+					Cód: {info.options.map(opt => (opt.id)).join(" - ")}
 				  </p>
 				</div>
 			  </div>

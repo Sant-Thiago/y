@@ -73,14 +73,14 @@ export default function Footer() {
                     <ul className={styles.socialList}>
                         <li>
                             <Link 
-                                to={"https://www.instagram.com"} 
+                                to={data.links.instagram} 
                                 target="_blank"
                             >
                                 <img src={instagramIcon} alt="" />
                             </Link>
                         </li>
                         <li>
-                            <Link to={"https://wa.me/5511999999999"}
+                            <Link to={data.links.whatsapp}
                                 target="_blank"
                             >
                                 <img src={whatsappIcon} alt="" />
