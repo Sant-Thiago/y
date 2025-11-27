@@ -1,7 +1,7 @@
 import { BiCar } from "react-icons/bi";
 import { GiEnergyTank } from "react-icons/gi";
 import { IoIosFootball } from "react-icons/io";
-
+import defaultDish from '/src/utils/assets/default_dish.jpg';
 const baseURL = import.meta.env.BASE_URL
 
 export const validCompanies = [
@@ -138,7 +138,7 @@ export const companies = {
                     {
                         id: 11,
                         name: "Marmitex de Costela Assada",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, feijão carioca, farofa e vinagrete",
                         // measure: { value: 125, formatted: "125g" },
                         price: { value: 30.00, formatted: "R$ 30,00" }
@@ -146,7 +146,7 @@ export const companies = {
                     {
                         id: 12,
                         name: "Marmitex de Contra Filé",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, contra em tiras, feijão carioca, batata frita e vinagrete",
                         // measure: { value: 125, formatted: "125g" },
                         price: { value: 35.00, formatted: "R$ 35,00" }
@@ -154,7 +154,7 @@ export const companies = {
                     {
                         id: 13,
                         name: "Marmitex de Arrumadinho",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, feijão de corda, linguiça calabresa, farofa Jabá e vinagrete",
                         // measure: { value: 125, formatted: "125g" },
                         price: { value: 33.00, formatted: "R$ 33,00" }
@@ -169,7 +169,7 @@ export const companies = {
                     {
                         id: 21,
                         name: "Baião de Dois",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz, feijão de corda, linguiça calabresa, carne seca desfiada, queijo coalho e contra filé em tiras",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -195,7 +195,7 @@ export const companies = {
                     {
                         id: 22,
                         name: "Maria Bonita",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz com jabá desfiado, feijão de corda, mandioca frita, contra filé em tiras e vinagrete",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -221,7 +221,7 @@ export const companies = {
                     {
                         id: 23,
                         name: "Lampião",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz com jabá desfiado, feijão de corda, mandioca frita, torresmo e contra filé em tiras",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -247,7 +247,7 @@ export const companies = {
                     {
                         id: 24,
                         name: "Escondidinho de Carne Seca",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Carne seca desfiada, purê de mandioca e queijo parmesão gratinado",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -273,7 +273,7 @@ export const companies = {
                     {
                         id: 25,
                         name: "Moda Kactos",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Contra em tiras na manteiga, feijão tropeiro, mandioca frita, torresmo, banana da terra frita, arroz e vinagrete. ",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -299,7 +299,7 @@ export const companies = {
                     {
                         id: 26,
                         name: "Favada",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Linguiça, costelinha de porco, jaba, pe de porco, rabo de porco",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -320,7 +320,7 @@ export const companies = {
                     {
                         id: 27,
                         name: "Favada sem arroz",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Linguiça, costelinha de porco, jaba, pe de porco, rabo de porco",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -348,7 +348,7 @@ export const companies = {
                     {
                         id: 31,
                         name: "Frango a Parmegiana",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, feijão carioca, batata frita e vinagrete",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -381,7 +381,7 @@ export const companies = {
                     {
                         id: 41,
                         name: "Filé de Frango Milanesa",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, feijão carioca, batata frita e vinagrete",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -407,7 +407,7 @@ export const companies = {
                     {
                         id: 42,
                         name: "Filé de Frango Milanesa",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, feijão carioca, batata frita e vinagrete",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -440,7 +440,7 @@ export const companies = {
                     {
                         id: 51,
                         name: "Salada simples",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Salada simples",
                         // measure: { value: 500, formatted: "500ml" },
                         price: { value: 15.00, formatted: "R$ 15,00" }
@@ -448,7 +448,7 @@ export const companies = {
                     {
                         id: 52,
                         name: "Pirão",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Pirão",
                         // measure: { value: 500, formatted: "500ml" },
                         price: { value: 25.00, formatted: "R$ 25,00" }
@@ -456,7 +456,7 @@ export const companies = {
                     {
                         id: 53,
                         name: "Ovo frito",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Ovo frito",
                         // measure: { value: 500, formatted: "500ml" },
                         price: { value: 3.00, formatted: "R$ 3,00" }
@@ -464,7 +464,7 @@ export const companies = {
                     {
                         id: 54,
                         name: "Torresmo (unidade)",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Torresmo (unidade)",
                         // measure: { value: 500, formatted: "500ml" },
                         price: { value: 5.00, formatted: "R$ 5,00" }
@@ -472,7 +472,7 @@ export const companies = {
                     {
                         id: 55,
                         name: "Porção Batata Frita",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Porção Batata Frita",
                         // measure: { value: 500, formatted: "500ml" },
                         price: { value: 30.00, formatted: "R$ 30,00" }
@@ -486,7 +486,7 @@ export const companies = {
                     {
                         id: 61,
                         name: "Arrumadinho",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Maravilhoso Arrumadinho",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -512,7 +512,7 @@ export const companies = {
                     {
                         id: 62,
                         name: "Costela Assada",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suculosa Costela Assada",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -538,7 +538,7 @@ export const companies = {
                     {
                         id: 63,
                         name: "Vaca Atolada",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Irresistivel Vaca Atolada",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -570,7 +570,7 @@ export const companies = {
                     {
                         id: 71,
                         name: "Virado Paulista",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Arroz branco, tutu de feijão, couve, torresmo, bisteca, ovo, linguiça e banana empanada",
                         // measure: { value: 4, formatted: "4 unidades" },
                         options: [
@@ -597,7 +597,7 @@ export const companies = {
                     {
                         id: 81,
                         name: "Caldo de Mocotó",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Caldo de Mocotó",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -607,7 +607,7 @@ export const companies = {
                     {
                         id: 82,
                         name: "Caldo Verde",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Caldo Verde",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -617,7 +617,7 @@ export const companies = {
                     {
                         id: 83,
                         name: "Feijãozinho",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Feijãozinho",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -633,7 +633,7 @@ export const companies = {
                     {
                         id: 91,
                         name: "Suco Goiaba Poupa Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Goiaba Poupa Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -643,7 +643,7 @@ export const companies = {
                     {
                         id: 92,
                         name: "Suco Abacaxi Poupa Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Abacaxi Poupa Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -653,7 +653,7 @@ export const companies = {
                     {
                         id: 93,
                         name: "Suco Uva Poupa Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Uva Poupa Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -669,7 +669,7 @@ export const companies = {
                     {
                         id: 101,
                         name: "Suco Maracuja Natural Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Maracuja Natural Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -679,7 +679,7 @@ export const companies = {
                     {
                         id: 102,
                         name: "Suco Limão Natural Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Limão Natural Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -689,7 +689,7 @@ export const companies = {
                     {
                         id: 103,
                         name: "Suco Laranja Natural Grande",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suco Laranja Natural Grande",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -705,7 +705,7 @@ export const companies = {
                     {
                         id: 111,
                         name: "Torta Suprise",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Torta de chocolate com castanha",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -715,7 +715,7 @@ export const companies = {
                     {
                         id: 112,
                         name: "Torta de Limão",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Massa sablee com recheio de creme de limão e marshmallow",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -725,7 +725,7 @@ export const companies = {
                     {
                         id: 113,
                         name: "Quiejo com melasso",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Quiejo com melasso",
                         // measure: { value: 4, formatted: "4 unidades" },
                         price: {
@@ -741,7 +741,7 @@ export const companies = {
                     {
                         id: 121,
                         name: "Água Sem Gás",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Água sem gás",
                         price: {
                             value: 3.00, 
@@ -751,7 +751,7 @@ export const companies = {
                     {
                         id: 122,
                         name: "Água Com Gás",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Água com gás",
                         price: {
                             value: 4.00, 
@@ -761,7 +761,7 @@ export const companies = {
                     {
                         id: 123,
                         name: "Água Tônica",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Água tônica",
                         price: {
                             value: 7.00, 
@@ -777,7 +777,7 @@ export const companies = {
                     {
                         id: 131,
                         name: "Skol lata",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Skol lata",
                         measure: {
                             value: 269,
@@ -791,7 +791,7 @@ export const companies = {
                     {
                         id: 132,
                         name: "Brahma 0",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Brahma Zero",
                         measure: {
                             value: 269,
@@ -805,7 +805,7 @@ export const companies = {
                     {
                         id: 133,
                         name: "Long Neck Heineken",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Long Neck Heineken",
                         price: {
                             value: 12.00, 
@@ -821,7 +821,7 @@ export const companies = {
                     {
                         id: 141,
                         name: "Picanha na Chapa",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Suculosa Picanha feita na Chapa",
                         options: [
                             { 
@@ -847,7 +847,7 @@ export const companies = {
                     {
                         id: 151,
                         name: "Macarrão",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Macarrão ao molho ou alho e óleo",
                         price: {
                             value: 25.00, formatted: "R$ 25,00" 
@@ -1169,7 +1169,7 @@ export const companies = {
         },
         email: "quintaldavila634@gmail.com",
         phone: "(11) 2916-9723 | (11) 97322-3740",
-       texts: [
+        texts: [
             "No Sertão Bar e Restaurante você encontra pratos que equilibram tradição e sabor: carnes bem preparadas, vegetais frescos, massas e petiscos — tudo feito com cuidado. É o lugar ideal para uma refeição de qualidade ou para compartilhar momentos com amigos, em um ambiente realmente acolhedor.",
     
             "O Sertão Bar e Restaurante aposta em um cardápio variado e equilibrado: cortes de carne suculentos, massas, petiscos, saladas e opções leves — perfeito para agradar diferentes gostos. O clima é descontraído, simples e convidativo, ideal para quem busca uma refeição saborosa, prática e sem complicação. A casa recebe bem, trata com atenção e faz você se sentir em casa.",
@@ -1288,7 +1288,7 @@ export const companies = {
                     {
                         id: 11,
                         name: "Escondidinho Pequeno",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Purê de mandioca, jabá desfiado, mussarela e Catupiry",
                         // measure: { value: "?", formatted: "?" },
                         options: [
@@ -1435,7 +1435,7 @@ export const companies = {
                 {
                     id: 32,
                     name: "Filé de Frango Grelhado",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Com arroz e graga e Fritas.",
                     // measure: { value: "?", formatted: "?" },
                     price: { value: 95.00, formatted: "R$ 95,00" }
@@ -1443,7 +1443,7 @@ export const companies = {
                 {
                     id: 33,
                     name: "Filé de Frango à Milanesa",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Com arroz e batata souté.",
                     // measure: { value: "?", formatted: "?" },
                     price: { value: 95.00, formatted: "R$ 95,00" }
@@ -1457,7 +1457,7 @@ export const companies = {
                     {
                         id: 41,
                         name: "Pirão de Carne Seca",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Pirão levar.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 28.00, formatted: "R$ 28,00" }
@@ -1471,7 +1471,7 @@ export const companies = {
                     {
                         id: 51,
                         name: "Salada De Alface",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Tomate, cebola e cenoura",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 15.00, formatted: "R$ 15,00" }
@@ -1479,7 +1479,7 @@ export const companies = {
                     {
                         id: 52,
                         name: "Salada Mista",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Alface, tomate, cebola, cenoura, beterraba, batata e azeitona",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 44.00, formatted: "R$ 44,00" }
@@ -1487,7 +1487,7 @@ export const companies = {
                     {
                         id: 53,
                         name: "Salada Completa",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Alface, tomate, cebola, ervilha, azeitona, cenoura, beterraba, brócolis, ovos, presunto, mussarela, palmito, vagem e batata",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 59.90, formatted: "R$ 59,90" }
@@ -1564,7 +1564,7 @@ export const companies = {
                 {
                     id: 71,
                     name: "Filé de Tilápia à Milanesa",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Com arroz e grega e purê",
                     // measure: { value: "?", formatted: "?" },
                     options: [
@@ -1583,7 +1583,7 @@ export const companies = {
                 {
                     id: 72,
                     name: "Filé de Tilápia ao Mol de Camarão",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Com arroz e grega e purê.",
                     // measure: { value: "?", formatted: "?" },
                     options: [
@@ -1602,7 +1602,7 @@ export const companies = {
                 {
                     id: 73,
                     name: "Salmão Grelhado",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Com arroz e grega e legumes.",
                     // measure: { value: "?", formatted: "?" },
                     options: [
@@ -1627,7 +1627,7 @@ export const companies = {
                 {
                     id: 81,
                     name: "Ovo Frito",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Unidade",
                     // measure: { value: "?", formatted: "?" },
                     price: { value: 7.00, formatted: "R$ 7,00" },
@@ -1635,7 +1635,7 @@ export const companies = {
                 {
                     id: 82,
                     name: "Banana à Milanesa",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Unidade",
                     // measure: { value: "?", formatted: "?" },
                     price: { value: 7.00, formatted: "R$ 7,00" },
@@ -1643,7 +1643,7 @@ export const companies = {
                 {
                     id: 83,
                     name: "Luinguiça Frita",
-                    image: `/src/utils/assets/default_dish.jpg`,
+                    image: defaultDish,
                     description: "Unidade",
                     // measure: { value: "?", formatted: "?" },
                     price: { value: 9.00, formatted: "R$ 9,00" },
@@ -1657,7 +1657,7 @@ export const companies = {
                     {
                         id: 91,
                         name: "Frango Grelhado",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Frango Grelhado com Arroz, Tomate e Fritas",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 33.00, formatted: "R$ 33,00" },
@@ -1665,7 +1665,7 @@ export const companies = {
                     {
                         id: 92,
                         name: "Nuggets",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Nuggets com Arroz e Fritas",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 33.00, formatted: "R$ 33,00" },
@@ -1673,7 +1673,7 @@ export const companies = {
                     {
                         id: 93,
                         name: "Filé Mignon",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Filé Mignon com Arroz e Fritas",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 38.00, formatted: "R$ 38,00" },
@@ -1687,7 +1687,7 @@ export const companies = {
                     {
                         id: 101,
                         name: "Dadinhos",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Dadinho 06 Unidades",
                         options: [
                             {
@@ -1707,7 +1707,7 @@ export const companies = {
                     {
                         id: 102,
                         name: "Batata Frita",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Batatas fritas",
                         options: [
                             {
@@ -1736,21 +1736,21 @@ export const companies = {
                     {
                         id: 111,
                         name: "Mousse de Chocolate",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Mousse de Chocolate",
                         price: { value: 17.00, formatted: "R$ 17,00" },
                     },
                     {
                         id: 112,
                         name: "Torta Holandesa",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Torta Holandesa",
                         price: { value: 17.00, formatted: "R$ 17,00" },
                     },
                     {
                         id: 113,
                         name: "Jaca em Calda",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Jaca em Calda",
                         price: { value: 18.90, formatted: "R$ 18,90" },
                     },
@@ -1779,7 +1779,7 @@ export const companies = {
                     {
                         id: 123,
                         name: "Água Mineral",
-                        image: `/src/utils/assets/default_dish.jpg`,
+                        image: defaultDish,
                         description: "Água Mineral",
                         price: { value: 6.00, formatted: "R$ 6,00" },
                     },
