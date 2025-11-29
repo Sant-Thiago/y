@@ -24,7 +24,7 @@ import { companies } from "../../data/Companies";
 export default function Menu() {
     const { empresa } = useParams();
     const data = companies[empresa];
-    
+
     const itens = data.menuItens;
 
     const navigate = useNavigate();

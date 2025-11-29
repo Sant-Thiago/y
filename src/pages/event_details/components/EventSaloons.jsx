@@ -4,12 +4,9 @@ import { useParams } from "react-router-dom"
 import { companies } from "../../../data/Companies";
 import { useEffect } from "react";
 
-export default function EventSaloons() {
+export default function EventSaloons({unit}) {
 
-    const { empresa } = useParams();
-    const data = companies[empresa];
-
-    const saloons = data?.units?.[0]?.info?.saloons || [];
+    const saloons = unit.info.saloons || [];
 
     useEffect(() => {
         const wrapper = document.querySelector(`.${styles.wrapperImages}`);

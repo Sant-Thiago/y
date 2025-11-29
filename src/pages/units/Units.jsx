@@ -17,17 +17,16 @@ export default function Units() {
         const groups = {};
 
         units.forEach((unit) => {
-            const state = unit.location.state.extended;      // "Rio de Janeiro"
-            const city = unit.location.city;                 // "Petrópolis"
-            const value = unit.value;                        // "casa-pellegrini"
-            const name = unit.name;                          // "Casa Pellegrini"
+            const state = unit.location.state.extended;      
+            const value = unit.value;                        
+            const neighborhood = unit.location.neighborhood;
 
             if (!groups[state]) {
                 groups[state] = [];
             }
 
             groups[state].push({
-                label: city,
+                label: neighborhood,
                 value: value,
             });
         });
@@ -50,7 +49,7 @@ export default function Units() {
     const handleChange = (e) => {
         const option = e.target.value;
 
-        navigate(formatLink(empresa, option));
+        navigate(formatLink(option));
     }
 
     const quantityUnits = data.units.length;

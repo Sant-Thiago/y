@@ -30,7 +30,8 @@ export default function WorkWithUs() {
         <>
             <Navbar />
             <main className={styles.container}>
-                <LilBanner 
+                <LilBanner
+                    data={data} 
                     image={ data.images[2] }
                     text={"Fale conosco"}
                 />

@@ -40,33 +40,10 @@ export default function Event() {
         },
     ];
 
-    function buildOptionGroups(units) {
-        const groups = {};
-
-        units.forEach((unit) => {
-            const state = unit.location.state.extended;      // "Rio de Janeiro"
-            const city = unit.location.city;                 // "Petrópolis"
-            const value = unit.value;                        // "casa-pellegrini"
-            const name = unit.name;                          // "Casa Pellegrini"
-
-            if (!groups[state]) {
-                groups[state] = [];
-            }
-
-            groups[state].push({
-                label: city,
-                value: value,
-            });
-        });
-
-        return groups;
-    }
-
     const formatLink = (option) => {
         return `/${empresa}/evento/${option}`;
     };
 
-    const options = buildOptionGroups([...data.units].sort((a, b) => a.name.localeCompare(b.name)));
 
     const sortOptionsbyCity = (options) => {
         const sortedOptions = {};
@@ -79,13 +56,40 @@ export default function Event() {
         return sortedOptions;
     }
 
+
+    function buildOptionGroups(units) {
+        const groups = {};
+
+        units.forEach((unit) => {
+            const state = unit.location.state.extended;      
+            const value = unit.value;                        
+            const neighborhood = unit.location.neighborhood;
+
+            if (!groups[state]) {
+                groups[state] = [];
+            }
+
+            groups[state].push({
+                label: neighborhood,
+                value: value,
+            });
+        });
+
+        return groups;
+    }
+
+    const options = buildOptionGroups([...data.units].sort((a, b) => a.name.localeCompare(b.name)));
+
     const sortedOptions = sortOptionsbyCity(options);
     
 
     const handleSelect = (e) => {
         const link = e.target.value;
 
-        if (data.units.length > 1) navigate(formatLink(link));
+        if (data.units.length > 1) {
+            navigate(formatLink(link));
+            return;
+        }
         navigate(formatLink(""))
     }
 

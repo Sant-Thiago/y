@@ -36,6 +36,7 @@ export default function Home() {
                 </section>
                 <section className={styles.sectionCards}>
                     <Card 
+                        data={data}
                         img={data.cards[0]}
                         fstText="Faça sua"
                         sndText="Reserva"
@@ -44,6 +45,7 @@ export default function Home() {
                         link="/reservas"
                     />
                     <Card 
+                        data={data}
                         img={ifoodImg}
                         fstText="Peça pelo nosso"
                         sndText="Delivery"

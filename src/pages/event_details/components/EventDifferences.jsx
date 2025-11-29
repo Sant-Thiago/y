@@ -4,7 +4,7 @@ import { LuToyBrick } from "react-icons/lu";
 import { GiEnergyTank } from "react-icons/gi";
 import { IoIosFootball } from "react-icons/io";
 
-export default function EventDifferences({data}) {
+export default function EventDifferences({unit}) {
 
     const iconsMap = {
         car: <BiCar className={styles.icon} />,
@@ -23,7 +23,7 @@ export default function EventDifferences({data}) {
                 <p>Pensando em sua comodiadade, nossos espaços oferecem:</p>
             </div>
             <div className={styles.wrapperImageAndInfo}>
-            {data.units[0].info["differences"].map((info, idx) => (
+            {unit.info["differences"].map((info, idx) => (
                 <div 
                     className={styles.imageAndInfo}
                     key={idx}

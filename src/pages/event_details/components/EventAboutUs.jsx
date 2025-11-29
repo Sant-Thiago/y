@@ -3,7 +3,8 @@ import styles from "./EventAboutUs.module.css";
 
 export default function EventAboutUs({
     name,
-    data
+    data,
+    unit
 }) {
     return (
         <section 
@@ -11,7 +12,7 @@ export default function EventAboutUs({
             className={styles.aboutUs}
         >
             <div className={styles.title}>
-                <h2>Saiba mais sobre a {name}</h2>
+                <h2>Saiba mais sobre a {name} - {unit.location.neighborhood}</h2>
             </div>
             <div className={styles.wrapperText}>
                 <p>

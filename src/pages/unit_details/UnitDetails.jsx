@@ -16,10 +16,9 @@ import Toast from "../../components/toast/Toast";
 
 export default function UnitDetails() {
 
-    const { empresa } = useParams();
-    const unitName = useParams()?.name;
+    const { empresa, name } = useParams();
     const data = companies[empresa];
-    const unit = data.units.find(it => it.value === unitName) || data.units[0];    
+    const unit = data.units.find(it => it.value === name) || data.units[0];    
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [indexImageSelected, setIndexImageSelected] = useState(null);
@@ -53,7 +52,7 @@ export default function UnitDetails() {
         <Navbar />
         <main className={styles.container}>
             <div className={styles.title}>
-                <h1>Bem-vindo(a) à {data.name} {unitName}</h1>
+                <h1>Bem-vindo(a) à {unit.name}</h1>
             </div>
             <section className={styles.wrapper}>
                 <div className={styles.imagem}>
@@ -119,7 +118,7 @@ export default function UnitDetails() {
                     </p>
 
                     <p>Horário de funcionamento:</p>
-                    <p>{data.units[0].hourly}</p>
+                    <p>{unit.hourly}</p>
                     <p>Telefone: {data.phone}</p>
                     <p>Contato: {data.email}</p>
                     <p>CNPJ: {data.cnpj.formatted}</p>

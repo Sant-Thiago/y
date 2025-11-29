@@ -20,7 +20,8 @@ export default function EventDetails() {
     const { empresa } = useParams();
     const data = companies[empresa];
     const name = data.name;
-    const unitName = "";
+    const unit = data.units.find(it => it.value === useParams().name) || data.units[0];    
+
 
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     
@@ -61,7 +62,7 @@ export default function EventDetails() {
             >
                 <EventBudget 
                     name={name}
-                    selectedOption={unitName}
+                    selectedOption={unit.location.neighborhood}
                     isHeaderFixed={isHeaderFixed}
                 />
                 <EventPackages 
@@ -73,7 +74,7 @@ export default function EventDetails() {
                 >
                     <div className={styles.background}></div>
                     <div className={styles.info}>
-                        <h3>Seu evento no {name} {unitName !== "" ? `- ${unitName}` : ""}</h3>
+                        <h3>Seu evento no {name} {unit.location.neighborhood !== "" ? `- ${unit.location.neighborhood}` : ""}</h3>
                         <div className={styles.wrapperText}>
                             <p> 
                                 Nossos espaços foram projetados para oferecer conforto e flexibilidade 
@@ -89,15 +90,16 @@ export default function EventDetails() {
                     </div>
                 </section>
                 <EventSaloons
-                    selectedOption={unitName}
+                    unit={unit}
                 />
                 <EventDifferences 
                     data={data}
+                    unit={unit}
                 />
                 <EventAboutUs
                     name={name}
-                    selectedOption={unitName}
                     data={data}
+                    unit={unit}
                 />
             </main>
             

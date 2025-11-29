@@ -9,13 +9,13 @@ import outSideRestaurant from "@/utils/assets/outter_restaurant.jpg";
 import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import { companies } from "../../data/Companies";
+import { useEffect, useRef } from "react";
 
 
 
 export default function WhoWeAre() {
     const { empresa } = useParams();
     const data = companies[empresa];
-
 
     const images = [...data.images].slice(0, 3);
 
@@ -24,6 +24,7 @@ export default function WhoWeAre() {
             <Navbar />
             <main className={styles.container}>
                 <LilBanner
+                    data={data}
                     image={data.images[1]}
                     text={"Quem Somos"}
                 />

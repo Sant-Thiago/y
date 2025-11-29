@@ -91,7 +91,7 @@ export default function Reserve() {
     const [selectedCity, setSelectedCity] = useState("");
     const [selectedLocation, setSelectedLocation] = useState(data.units.length <= 1 ? data.units[0].location : null);
 
-    const [step, setStep] = useState(data.units.quantity > 1 ? 1 : 2);
+    const [step, setStep] = useState(data.units.length > 1 ? 1 : 2);
 
     const reservationDays = generateReservationDays();
     const partySizes = generatePartySizes();
