@@ -244,7 +244,7 @@ export default {
                     {
                         id: 11,
                         name: "Cappuccino",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_1.png`,
                         description: "Cappuccino.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 8.00, formatted: "R$ 8,00" }
@@ -252,7 +252,7 @@ export default {
                     {
                         id: 12,
                         name: "Café Expresso",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_2.png`,
                         description: "Café Expresso",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 7.00, formatted: "R$ 7,00" }
@@ -312,21 +312,21 @@ export default {
                     {
                         id: 31,
                         name: "Pudim",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_19.png`,
                         description: "Sobremesa de Pudim.",
                         price: { value: 10.00, formatted: "R$ 10,00" }
                     },
                     {
                         id: 32,
                         name: "Pettit Gateau",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_20.png`,
                         description: "Sobremesa de Pettit Gateau.",
                         price: { value: 24.00, formatted: "R$ 24,00" }
                     },
                     {
                         id: 33,
                         name: "Creme de Papaya",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_21.png`,
                         description: "Sobremesa de Creme Papaya.",
                         price: { value: 20.00, formatted: "R$ 20,00" }
                     }
@@ -445,7 +445,7 @@ export default {
                     {
                         id: 72,
                         name: "Strogonoff (Filé Mignon)",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_9.png`,
                         description: "Nosso Strognoff de Filé Mignon acompanha arroz e batata palha. Prato da Terça Feira",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 43.00, formatted: "R$ 43,00" }
@@ -461,7 +461,7 @@ export default {
                     {
                         id: 74,
                         name: "Risoto de Alho Poró com Contra filé",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_10.png`,
                         description: "Nosso imperdível Risoto de Alho Poró c/ Contra Filé acompanha arroz, couve, torresmo, farofa, banan à milanesa, bisteca, calabresa defumada e batida. Prato da Quarta Feira.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 44.90, formatted: "R$ 44,90" }
@@ -474,7 +474,7 @@ export default {
                     {
                         id: 81,
                         name: "Filé de Frango",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_11.png`,
                         description: "Nosso Saboroso Filé de Frango acompanhado com arroz, feijão, fritas ou legumes.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 30.00, formatted: "R$ 30,00" }
@@ -510,7 +510,7 @@ export default {
                     {
                         id: 91,
                         name: "Contra Filé à Cavalo",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_12.png`,
                         description: "Nosso Saboroso Contra Filé à Cavalo acompanha arroz, feijão, fritas e 2 ovos.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 43.00, formatted: "R$ 43,00" }
@@ -570,7 +570,7 @@ export default {
                     {
                         id: 111,
                         name: "Arroz Branco",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_13.png`,
                         description: "Arroz Branco.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 6.00, formatted: "R$ 6,00" }
@@ -607,7 +607,7 @@ export default {
                     {
                         id: 122,
                         name: "Filé de Frango",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_14.png`,
                         description: "Filé de Frango à Parmegiana, arroz e fritas.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 40.00, formatted: "R$ 40,00" }
@@ -666,7 +666,7 @@ export default {
                     {
                         id: 142,
                         name: "Filé de Saint Peter à Milanesa",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_15.png`,
                         description: "Filé de Saint Peter à Milanesa, mix de folhas, tomate, palmito, cenoura e azeitona, molho de mostarda e mel.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 37.00, formatted: "R$ 37,00" }
@@ -808,7 +808,7 @@ export default {
                     {
                         id: 191,
                         name: "X Burguer",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_16.png`,
                         description: "X Burguer - Hamburguer com queijo prato. Acompanha fritas e maionese da casa.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 26.90, formatted: "R$ 26,90" }
@@ -816,7 +816,7 @@ export default {
                     {
                         id: 192,
                         name: "X Salada",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_17.png`,
                         description: "X Salada - Hamburguer, queijo, alface e tomate. Acompanha fritas e maionese da casa.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 28.90, formatted: "R$ 28,90" }
@@ -824,7 +824,7 @@ export default {
                     {
                         id: 193,
                         name: "X Tudo",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/food_18.png`,
                         description: "X Tudo - Hamburguer, ovo, bacon, presunto, queijo e salada. Acompanha fritas e maionese da casa.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 32.90, formatted: "R$ 32,90" }
@@ -996,21 +996,21 @@ export default {
                     {
                         id: 251,
                         name: "Pina Colada",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_3.png`,
                         description: "Pina Colada, rum bacardi, suco de abacaxi, leite de coco e leite condesado.",
                         price: { value: 35.90, formatted: "R$ 35,90" }
                     },
                     {
                         id: 252,
                         name: "Sex On The Beach",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_4.png`,
                         description: "Sex On The Beach, suco de laranja, licor de pêssego, vodka e xarope de cramberry.",
                         price: { value: 35.90, formatted: "R$ 35,90" }
                     },
                     {
                         id: 253,
                         name: "Gin Tônica",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_5.png`,
                         description: "Gin Tônica, gin, tônica antarctica, zimbro, limão siciliano e alecrim.",
                         price: { value: 34.90, formatted: "R$ 34,90" }
                     }
@@ -1022,7 +1022,7 @@ export default {
                     {
                         id: 261,
                         name: "Seleta",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_6.png`,
                         description: "Caipirinha de Seleta - Kiwi, Limão, Abacaxi, Maracuja, Morango, Caju, Frutas Vermelhas.",
                         price: { value: 29.90, formatted: "R$ 29,90" }
                     },
@@ -1036,7 +1036,7 @@ export default {
                     {
                         id: 263,
                         name: "Vodka Smirnoff",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_7.png`,
                         description: "Caipirinha de Vodka Smirnoff - Kiwi, Limão, Abacaxi, Maracuja, Morango, Caju, Frutas Vermelhas.",
                         price: { value: 29.90, formatted: "R$ 29,90" }
                     }
@@ -1048,7 +1048,7 @@ export default {
                     {
                         id: 271,
                         name: "Original",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_8.png`,
                         description: "Cerveja Original.",
                         options: [
                             {
@@ -1068,7 +1068,7 @@ export default {
                     {
                         id: 272,
                         name: "Heineken",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_9.png`,
                         description: "Cerveja Heineken.",
                         options: [
                             {
@@ -1094,7 +1094,7 @@ export default {
                     {
                         id: 273,
                         name: "Serramalte",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_10.png`,
                         description: "Cerveja Serramalte.",
                         measure: { value: 600, formatted: "600ml"}, 
                         price: { value: 17.00, formatted: "R$ 17,00" }
@@ -1165,7 +1165,7 @@ export default {
                     {
                         id: 301,
                         name: "Smirnoff",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_11.png`,
                         description: "Vodka Smirnoff.",
                         measure: { value: 0, formatted: "Dose" },
                         price: { value: 16.00, formatted: "R$ 16,00" }
@@ -1173,7 +1173,7 @@ export default {
                     {
                         id: 302,
                         name: "Absolut",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_12.png`,
                         description: "Vodka Absolut.",
                         measure: { value: 0, formatted: "Dose" },
                         price: { value: 22.00, formatted: "R$ 22,00" }
@@ -1193,19 +1193,24 @@ export default {
                 itens: [
                     {
                         id: 311,
-                        name: "José Cuervo Ouro",
-                        image: defaultDish,
-                        description: "Tequila José Cuervo Ouro.",
-                        measure: { value: 0, formatted: "Dose" },
-                        price: { value: 24.00, formatted: "R$ 24,00" }
-                    },
-                    {
-                        id: 312,
-                        name: "José Cuervo Prata",
-                        image: defaultDish,
-                        description: "Tequila José Cuervo Prata.",
-                        measure: { value: 0, formatted: "Dose" },
-                        price: { value: 24.00, formatted: "R$ 24,00" }
+                        name: "José Cuervo",
+                        image: `${baseURL}companies/seu-joao/drink_13.png`,
+                        description: "Dose de Tequila José Cuervo Prata ou Ouro.",
+                        options: [
+                            {
+                                id: 3110, 
+                                label: "Ouro Dose", 
+                                // measure: { value: 600, formatted: "600ml"}, 
+                                price: { value: 24.00, formatted: "R$ 24,00" }
+                            },
+                            {
+                                id: 3111, 
+                                label: "Prata Dose", 
+                                // measure: { value: 600, formatted: "600ml"}, 
+                                price: { value: 24.00, formatted: "R$ 24,00" }
+                            }
+
+                        ]
                     },
                 ]
             }, {
@@ -1215,7 +1220,7 @@ export default {
                     {
                         id: 321,
                         name: "Licor 43",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_14.png`,
                         description: "Licor 43.",
                         measure: { value: 0, formatted: "Dose" },
                         price: { value: 30.00, formatted: "R$ 30,00" }
@@ -1244,7 +1249,7 @@ export default {
                     {
                         id: 331,
                         name: "Old Parr",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_16.png`,
                         description: "Whisky Old Parr.",
                         options: [
                             {
@@ -1262,7 +1267,7 @@ export default {
                     {
                         id: 332,
                         name: "Jack Daniel's",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_15.png`,
                         description: "Whisky Jack Daniel's.",
                         options: [
                             {
@@ -1280,7 +1285,7 @@ export default {
                     {
                         id: 333,
                         name: "Black Label",
-                        image: defaultDish,
+                        image: `${baseURL}companies/seu-joao/drink_17.png`,
                         description: "Whisky Black Label.",
                         options: [
                             {
