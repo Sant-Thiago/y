@@ -106,7 +106,7 @@
     display: flex;
     align-items: center;
     
-    width: max-content;
+    width: calc(100% - 50px);
     height: 48px;
     
     scroll-behavior: smooth;
@@ -114,9 +114,9 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
 
-    padding-left: 50px;
 
     position: relative;
+    left: 50px;
 
     overflow-x: scroll;
 

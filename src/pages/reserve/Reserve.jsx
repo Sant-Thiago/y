@@ -247,7 +247,7 @@ export default function Reserve() {
                             <option value="">Selecione a cidade</option>
                             {locationsSorted.map((unit, idx) => (
                                 <option key={idx} value={unit.name}>
-                                    {unit.location.city} - {unit.location.state.abbreviation}
+                                    {unit.location.neighborhood} - {unit.location.state.abbreviation}
                                 </option>
                             ))}
                         </select>

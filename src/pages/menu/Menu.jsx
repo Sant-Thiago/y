@@ -56,6 +56,10 @@ export default function Menu() {
     const itemParam = searchParams.get("item");
     const wineParam = searchParams.get("wine");
 
+    const ulRef = useRef(null);
+    const liRefs = useRef([]);
+    liRefs.current = [];
+
     const infoWines = [
         {
             id: 1,
@@ -403,6 +407,19 @@ export default function Menu() {
         }, 200);
     }, [showWineMenu]);
 
+    useEffect(() => {
+        if (!ulRef.current || !liRefs.current[selected]) return;
+        
+        const item = liRefs.current[selected];
+
+        item.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "nearest"
+        });
+
+    }, [selected])
+
     return (
         <>
             <Navbar 
@@ -454,10 +471,11 @@ export default function Menu() {
                             }
                         </div>
                         {!showWineMenu && itens ? (
-                            <ul className={styles.navbar}>
+                            <ul ref={ulRef} className={styles.navbar}>
                                 {itens.map((it, idx) => (
                                     <li 
                                         key={idx}
+                                        ref={el => liRefs.current[idx] = el}
                                         onClick={() => handleClick(idx)}
                                     >
                                         <a 

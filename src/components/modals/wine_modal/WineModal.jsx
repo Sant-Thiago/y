@@ -25,7 +25,7 @@ export default function WineModal({
 }) {
 
     const { toastVisible, toastMsg, showToast, setToastVisible } = useToast();
-    const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
+    const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown, handleTouchStart,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
     const onShare = () => handleShare({ id, name, description, showToast });
 
   return (
@@ -42,9 +42,10 @@ export default function WineModal({
         }}
         ref={modalRef}
         onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
         onAnimationEnd={handleAnimationEnd}
       >
-        <div className={styles.modalHandle} onMouseDown={handleMouseDown}></div>
+        <div className={styles.modalHandle} onMouseDown={handleMouseDown} onTouchStart={handleTouchStart}></div>
 
         <div className={styles.modal}>
           <div className={styles.wrapperImage}>

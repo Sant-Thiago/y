@@ -15,7 +15,7 @@ export default function FilterModal({
     onClose
 }) {
     
-    const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
+    const { modalRef, translateY, transitionEnabled, visible, closing, animationDone, closeByDrag, handleMouseDown, handleTouchStart,  handleAnimationEnd, closeModal } = useModalHandlers(onClose);
 
     const listCountriesRef = useRef(null);
     const listTypesRef = useRef(null);
@@ -280,9 +280,10 @@ export default function FilterModal({
             }}
             ref={modalRef}
             onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
             onAnimationEnd={handleAnimationEnd}
         >
-            <div className={styles.modalHandle} onMouseDown={handleMouseDown}></div>
+            <div className={styles.modalHandle} onMouseDown={handleMouseDown} onTouchStart={handleTouchStart}></div>
 
             <div className={styles.modal}>
                 <div className={styles.headerModal}>

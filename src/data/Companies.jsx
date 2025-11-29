@@ -2,7 +2,9 @@ export const validCompanies = [
     "casa-do-norte-kactos", 
     "mari-maria",
     "sertao-bar-e-restaurante", 
-    "seu-joao"
+    "seu-joao",
+    "millo",
+    "casa-pellegrini"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
