@@ -3,7 +3,7 @@ const baseURL = import.meta.env.BASE_URL
 
 export default {
     "sertao-bar-e-restaurante": {
-        name: "Sertão Bar e Restauranrate",
+        name: "Sertão Bar e Restaurante",
         themeColor: "",
         logo: `${baseURL}companies/sertao-bar-e-restaurante/logo.jpg`,
         cnpj: {
@@ -47,7 +47,7 @@ export default {
         ],
         units: [
             {
-                name: "Sertão Bar e Restauranrate",
+                name: "Sertão Bar e Restaurante",
                 value: "sertao-bar-e-restaurante",
                 hourly: "DOM A SAB - 11h às 23h",
                 location: {

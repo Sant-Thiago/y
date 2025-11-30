@@ -17,6 +17,7 @@ import UnitDetails from "./pages/unit_details/UnitDetails";
 import EventDetails from "./pages/event_details/EventDetails";
 import EmpresaFallback from "./routes/EmpresaFallback";
 import NotFound from "./pages/not_found/NotFound";
+import Root from "./pages/root/Root";
 
 function App() {
     return (
@@ -93,6 +94,11 @@ function App() {
                 <Route 
                     path="*" 
                     element={ <Navigate to="/not-found" replace /> }
+                />
+
+                <Route
+                    path="/root"
+                    element={ <Root/>}
                 />
             </Routes>
         </Router>    
