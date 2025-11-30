@@ -284,7 +284,7 @@ export default {
         links: {
             facebook: "https://www.facebook.com/bardobetaocacapava?locale=pt_BR",
             instagram: "https://www.instagram.com/bardobetaocpv/",
-            whatsapp: "https://api.whatsapp.com/send/?phone=5519983362834",
+            whatsapp: "https://api.whatsapp.com/send/?phone=5512997212665",
         }
     }
 }
