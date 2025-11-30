@@ -4,7 +4,8 @@ export const validCompanies = [
     "sertao-bar-e-restaurante", 
     "seu-joao",
     "millo",
-    "maria-maria"
+    "maria-maria",
+    "bar-do-betao"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });

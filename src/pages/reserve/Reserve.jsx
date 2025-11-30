@@ -244,7 +244,7 @@ export default function Reserve() {
                             value={selectedCity}
                             onChange={(e) => setSelectedCity(e.target.value)}
                         >
-                            <option value="">Selecione a cidade</option>
+                            <option value="">Selecione a unidade</option>
                             {locationsSorted.map((unit, idx) => (
                                 <option key={idx} value={unit.name}>
                                     {unit.location.neighborhood} - {unit.location.state.abbreviation}
