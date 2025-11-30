@@ -4,6 +4,7 @@ export const validCompanies = [
     "sertao-bar-e-restaurante", 
     "seu-joao",
     "millo",
+    "maria-maria"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
@@ -18,3 +19,4 @@ export const companies = arrayRestaurants.reduce((acc, item) => {
 // OU const companies = Object.assign({}, ...arrayRestaurants)
 
 // ucytwat x three 6 mafia "lethal" type beat
+//futebol7k.com/jogo
