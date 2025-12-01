@@ -3,67 +3,67 @@ import defaultDish from '/src/utils/assets/default_dish.jpg';
 
 
 export default {
-    "terracinho": {
-        name: "Terracinho Lounge e Bar",
-        themeColor: "#000000ff",
-        logo: `${baseURL}companies/terracinho/logo.jpg`,
+    "ecobier-itaipava": {
+        name: "Ecobier Itaipava",
+        themeColor: "#234123",
+        logo: `${baseURL}companies/ecobier-itaipava/logo.png`,
         cnpj: {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
         },
-        email: "terracinho.exemplob@gmail.com",
-        phone: "(11) 97053-1689",
+        email: "ecobier-itaipava.exemplob@gmail.com",
+        phone: "(24) 2017-2994",
         texts: [
-            "O Terracinho Lounge e Bar é um dos pontos mais acolhedores e animados da Cidade Tiradentes. Com uma proposta descontraída, música boa e um atendimento próximo, o espaço se tornou referência para quem busca um ambiente agradável para relaxar, confraternizar e aproveitar bons momentos em São Paulo.",
+            "O Ecobier Itaipava é um dos pontos mais acolhedores e animados de Petrópolis. Com uma proposta descontraída, música boa e um atendimento próximo, o espaço se tornou referência para quem busca um ambiente agradável para relaxar, confraternizar e aproveitar bons momentos na região de Itaipava.",
 
-            "Conhecido pela atmosfera leve e pelo clima sempre movimentado, o Terracinho oferece uma experiência completa para quem gosta de aproveitar o dia ou a noite com conforto. Aqui, cada detalhe é pensado para receber bem: iluminação agradável, áreas amplas e um serviço sempre atencioso garantem momentos especiais para todos os públicos.",
+            "Conhecido pela atmosfera leve e pelo clima sempre movimentado, o Ecobier Itaipava oferece uma experiência completa para quem gosta de aproveitar o dia ou a noite com conforto. Cada detalhe é pensado para receber bem: iluminação agradável, espaço convidativo e um serviço atencioso garantem momentos especiais para todos os públicos.",
 
-            "O bar combina um ambiente urbano com toques modernos, criando um cenário perfeito para encontros, aniversários, confraternizações ou simplesmente para curtir a vibe do bairro. Seja no almoço, no fim de tarde ou à noite, o Terracinho mantém o mesmo padrão: energia boa, comida gostosa e um espaço feito para se sentir à vontade.",
+            "O ambiente combina elementos urbanos e modernos, criando o cenário ideal para encontros, aniversários, comemorações, happy hours ou simplesmente para curtir a vibe local. Seja no almoço, no fim da tarde ou ao longo da noite, o Ecobier mantém um padrão que valoriza energia positiva, boa comida e um clima sempre acolhedor.",
 
-            /*A proposta do Terracinho Lounge e Bar é simples e clara: */"Oferece experiências que unem gastronomia, música e convivência em um espaço que celebra o melhor da vida em comunidade."/* Um lugar onde cada visita tem seu próprio charme, seja pela companhia, pelo clima ou por aquela pausa merecida no meio da correria.*/,
+            "Cada visita carrega seu próprio charme, seja pelo ambiente, pelos sabores ou pela companhia.",
 
-            "Com uma presença cada vez mais forte na região, o Terracinho é o tipo de bar que convida naturalmente para fotos, encontros e boas lembranças. Sua essência está no ambiente acolhedor e no cuidado com cada detalhe, garantindo que cada passagem por lá se torne uma experiência marcante.",
+            "Com uma presença cada vez mais forte em Itaipava, o Ecobier é o tipo de bar que convida naturalmente para fotos, encontros e boas lembranças. Sua essência está no ambiente acolhedor e no cuidado com cada detalhe, garantindo que cada passagem por lá se torne marcante.",
 
-            "Misturando autenticidade, simplicidade e boa energia, o Terracinho Lounge e Bar conquistou moradores e visitantes da Cidade Tiradentes. Um espaço que une sabor, descontração e aquele espírito de bairro que transforma cada momento em algo especial."
+            "Misturando autenticidade, simplicidade e boa energia, o Ecobier Itaipava conquistou moradores e visitantes da região. Um espaço que combina sabor, descontração e aquele espírito de bairro que transforma cada momento em algo especial."
         ],
         history: [
             {
-                title: "Terracinho Hoje: Experiência Acolhedora e Completa",
+                title: "Ecobier Itaipava Hoje: Experiência Acolhedora e Completa",
                 year: "Atual",
-                image: { src: `${baseURL}companies/terracinho/highlight_1.jpg`, alt: "Terracinho Atual" },
+                image: { src: `${baseURL}companies/ecobier-itaipava/highlight_1.jpg`, alt: "Ecobier Itaipava Atual" },
                 text: `
-                Atualmente, o Terracinho Lounge e Bar é um dos pontos mais queridos da Cidade Tiradentes.
-                Com um ambiente descontraído, atendimento amigável e uma proposta que valoriza boa
+                Atualmente, o Ecobier Itaipava é um dos pontos mais queridos de Petrópolis.
+                Com um ambiente descontraído, atendimento amigável e uma proposta que valoriza a boa
                 convivência, o espaço se tornou escolha frequente de moradores e visitantes que buscam
                 um lugar agradável para aproveitar o dia ou a noite. O bar segue evoluindo e mantendo
-                sua essência acolhedora, formada pela energia única do bairro e pelas pessoas que fazem
-                parte da sua história.
+                sua essência acolhedora, marcada pela energia única de Itaipava e pelas pessoas que
+                fazem parte da sua história.
                 `
             }
         ],
         units: [           
             {
-                name: "Terracinho Louge e Bar",
-                value: "terracinho",
-                hourly: "SEG - 17h às 01h | TER A DOM - 12h às 01h",
-                phone: "(11) 97053-1689",
+                name: "Ecobier Itaipava",
+                value: "ecobier-itaipava",
+                hourly: "TER A QUI - 10h às 00h | SEX A DOM - 10h às 03h",
+                phone: "(24) 2017-2994",
                 location: {
-                    extended: "R. Dona Eloá Do Valle Quadros, 426 - Cidade Tiradentes, São Paulo - SP, 08485-130",
-                    street: "R. Dona Eloá Do Valle Quadros",
-                    city: "São Paulo",
-                    neighborhood: "Cidade Tiradentes",
+                    extended: "Estr. União e Indústria, 9116 - Itaipava, Petrópolis - RJ, 25730-735",
+                    street: "Estr. União e Indústria",
+                    city: "Petrópolis",
+                    neighborhood: "Itaipava",
                     state: {
                         abbreviation: "SP",
                         extended: "São Paulo",
                     },
-                    number: "426",
-                    zipCode: "08060-090",
-                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6705.9184471009075!2d-46.414560573507195!3d-23.588977262328672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6f0012c941d9%3A0xb529279ee5878b5d!2sO%20terracinho%20lounge%20bar%20%26%20restaurante!5e0!3m2!1spt-BR!2sbr!4v1764609484933!5m2!1spt-BR!2sbr"
+                    number: "9116",
+                    zipCode: "25730-735",
+                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10135.670934186366!2d-43.14301488886132!3d-22.409990420963016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99ab2e576aef6f%3A0xbfcf36b6579a6bf6!2sEcobier%20-%20Loja%20Premium!5e0!3m2!1spt-BR!2sbr!4v1764619638219!5m2!1spt-BR!2sbr"
                 },
                 info: {
                     "saloons": [
                         {
-                            image: {src: `${baseURL}companies/terracinho/inner_1.jpg`, alt: "defaulImage"},
+                            image: {src: `${baseURL}companies/ecobier-itaipava/inner_1.jpg`, alt: "defaulImage"},
                             title: {saloon: `Salão Principal`, quantity: "48 Pessoas"},
                             text:  `Fazemos eventos de 32 lugares, salão compartilhado com o público do restaurante. \nDisponível na segunda e quarta no almoço e de quinta a sexta no jantar.`
                         },
@@ -82,51 +82,50 @@ export default {
                     ],
                 },
                 images: [
-                    `${baseURL}companies/terracinho/inner_1.jpg`,
-                    `${baseURL}companies/terracinho/highlight_1.jpg`,
-                    `${baseURL}companies/terracinho/highlight_2.jpg`,
-                    `${baseURL}companies/terracinho/highlight_3.jpg`,
-                    `${baseURL}companies/terracinho/highlight_4.jpg`,
-                    `${baseURL}companies/terracinho/highlight_5.jpg`,
-                    `${baseURL}companies/terracinho/highlight_6.jpg`,
-                    `${baseURL}companies/terracinho/highlight_7.jpg`,
-                    `${baseURL}companies/terracinho/highlight_8.jpg`,
-                    `${baseURL}companies/terracinho/highlight_9.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/inner_1.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_1.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_2.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_3.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_4.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_5.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_6.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_8.jpg`,
+                    `${baseURL}companies/ecobier-itaipava/highlight_7.jpg`,
                 ]
             },                  
         ],
         images: [
-            `${baseURL}companies/terracinho/inner_1.jpg`,
-            `${baseURL}companies/terracinho/highlight_1.jpg`,
-            `${baseURL}companies/terracinho/highlight_2.jpg`,
-            `${baseURL}companies/terracinho/highlight_3.jpg`,
-            `${baseURL}companies/terracinho/highlight_4.jpg`,
-            `${baseURL}companies/terracinho/highlight_5.jpg`,
-            `${baseURL}companies/terracinho/highlight_6.jpg`,
-            `${baseURL}companies/terracinho/highlight_7.jpg`,
-            `${baseURL}companies/terracinho/highlight_8.jpg`,
-            `${baseURL}companies/terracinho/highlight_9.jpg`,
-            `${baseURL}companies/terracinho/highlight_2.jpg`,
-            `${baseURL}companies/terracinho/highlight_3.jpg`,
-            `${baseURL}companies/terracinho/highlight_4.jpg`,
-            `${baseURL}companies/terracinho/highlight_5.jpg`,
-            `${baseURL}companies/terracinho/highlight_6.jpg`,
-            `${baseURL}companies/terracinho/highlight_7.jpg`,
-            `${baseURL}companies/terracinho/highlight_8.jpg`,
-            `${baseURL}companies/terracinho/highlight_9.jpg`,
+            `${baseURL}companies/ecobier-itaipava/inner_1.jpg`,
+            `${baseURL}companies/ecobier-itaipava/inner_2.jpg`,
+            `${baseURL}companies/ecobier-itaipava/inner_3.jpg`,
+            `${baseURL}companies/ecobier-itaipava/inner_4.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_1.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_2.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_3.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_4.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_5.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_6.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_1.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_2.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_3.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_4.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_5.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_6.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_7.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_8.jpg`,
         ],
         banners: [
-            `${baseURL}companies/terracinho/highlight_1.jpg`,
-            `${baseURL}companies/terracinho/inner_1.jpg`,
-            `${baseURL}companies/terracinho/highlight_9.jpg`,
+            `${baseURL}companies/ecobier-itaipava/inner_3.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_1.jpg`,
+            `${baseURL}companies/ecobier-itaipava/outter_6.jpg`,
         ],
         highlights: [
-            `${baseURL}companies/terracinho/highlight_4.jpg`,
-            `${baseURL}companies/terracinho/highlight_7.jpg`,
-            `${baseURL}companies/terracinho/highlight_6.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_4.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_7.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_6.jpg`,
         ],
         cards: [
-            `${baseURL}companies/terracinho/highlight_5.jpg`,
+            `${baseURL}companies/ecobier-itaipava/highlight_5.jpg`,
         ],
         menuItens: [
             {
@@ -288,9 +287,9 @@ export default {
             }
         ],
         links: {
-            facebook: "https://www.facebook.com/TerracoLoungeeBar/",
-            instagram: "https://www.instagram.com/oterracinho",
-            whatsapp: "https://api.whatsapp.com/send/?phone=5511970531689",
+            facebook: "https://www.facebook.com/itaipavaecobier/",
+            instagram: "https://www.instagram.com/ecobieritaipava/",
+            whatsapp: "https://api.whatsapp.com/send/?phone=552420172994",
         }
     },
 }
