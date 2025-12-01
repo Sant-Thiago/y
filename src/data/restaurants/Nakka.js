@@ -119,7 +119,7 @@ export default {
             {
                 name: "Nakka Bar",
                 value: "nakka-bar",
-                hourly: "SEG A SEX - 11h30 às 14h30",
+                hourly: "TER - 20h às 00h | QUA A QUI - 19h às 01h | SEX A SAB - 19h às 03h | DOM - 17h às 00h",
                 phone: "(11) 92034-0531",
                 location: {
                     extended: "R. Vilma, 51 - São Miguel Paulista, São Paulo - SP, 08060-090",
