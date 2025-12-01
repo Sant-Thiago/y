@@ -1,11 +1,11 @@
 export const validCompanies = [
-    "casa-do-norte-kactos", 
     "mari-maria",
     "sertao-bar-e-restaurante", 
     "seu-joao",
     "millo",
     "maria-maria",
-    "bar-do-betao"
+    "bar-do-betao",
+    "nakka"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
