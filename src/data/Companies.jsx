@@ -7,7 +7,8 @@ export const validCompanies = [
     "bar-do-betao",
     "nakka",
     "terracinho",
-    "ecobier-itaipava"
+    "ecobier-itaipava",
+    "amarelinho-bar"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
