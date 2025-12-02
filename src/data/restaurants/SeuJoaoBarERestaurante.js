@@ -48,6 +48,10 @@ export default {
                 name: "Seu João Bar e Restaurante Moema",
                 value: "seu-joao-moema",
                 hourly: "DOM A SAB - 06h às 00h",
+                phone: {
+                    value: 11960273275,
+                    formatted:"11 96027-3275"
+                },
                 location: {
                     extended: "Av. Ibirapuera, 2495 - Indianópolis, São Paulo - SP, 04029-200",
                     street: "Av. Ibirapuera",
@@ -104,6 +108,10 @@ export default {
                 name: "Seu João Bar e Restaurante Bela Vista",
                 value: "seu-joao-bela-vista",
                 hourly: "DOM A SAB - 06h às 00h",
+                phone: {
+                    value: 11960273275,
+                    formatted:"11 96027-3275"
+                },
                 location: {
                     extended: "Av. Brigadeiro Luís Antônio, 2150 - Bela Vista, São Paulo - SP, 01317-002",
                     street: "Av. Brigadeiro Luís Antônio",
@@ -152,7 +160,10 @@ export default {
                 name: "Seu João Bar e Restaurante Jardim Paulista",
                 value: "seu-joao-jardim-paulista",
                 hourly: "DOM A SAB - 06h às 00h",
-                phone: "11 94962-9521",
+                phone: {
+                    value: 11949629521,
+                    formatted:"11 94962-9521"
+                },
                 location: {
                     extended: "R. Pamplona, 1501 - Jardim Paulista, São Paulo - SP, 01405-003",
                     street: "R. Pamplona",

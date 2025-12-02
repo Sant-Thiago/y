@@ -46,7 +46,10 @@ export default {
                 name: "Ecobier Itaipava",
                 value: "ecobier-itaipava",
                 hourly: "TER A QUI - 10h às 00h | SEX A DOM - 10h às 03h",
-                phone: "(24) 2017-2994",
+                phone: {
+                    value: 2420172994,
+                    formatted: "(24) 2017-2994"
+                },
                 location: {
                     extended: "Estr. União e Indústria, 9116 - Itaipava, Petrópolis - RJ, 25730-735",
                     street: "Estr. União e Indústria",

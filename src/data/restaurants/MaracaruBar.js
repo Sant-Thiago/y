@@ -46,7 +46,10 @@ export default {
                 name: "Maracatu Bar",
                 value: "maracatu-bar",
                 hourly: "QUA A SEX - 17h às 01h | SAB - 12h às 01h | DOM - 12h às 22h",
-                phone: "(11) 99887-0295",
+                phone: {
+                    value: 11998870295,
+                    formatted:"(11) 99887-0295"
+                },
                 email: "matacatu.bar.marketing@gmail.com",
                 location: {
                     extended: "Alameda dos Aicás, 1245 - Indianópolis, São Paulo - SP, 04086-003",

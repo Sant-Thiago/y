@@ -50,6 +50,10 @@ export default {
                 name: "Sertão Bar e Restaurante",
                 value: "sertao-bar-e-restaurante",
                 hourly: "DOM A SAB - 11h às 23h",
+                phone: {
+                    value: 11973223740,
+                    formatted:"(11) 97322-3740"
+                },
                 location: {
                     extended: "Av. João XXIII, 634 - Vila Formosa, São Paulo - SP, 03361-000",
                     street: "Av. João XXIII",

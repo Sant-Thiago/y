@@ -23,6 +23,8 @@ import { companies } from "../../data/Companies";
 import MenuNavbar from "./MenuNavbar";
 import useMenuLogic from "./useMenuLogic";
 import MenuModals from "./MenuModals";
+import Basket from "../../components/basket/Basket";
+import { useCart } from "../../context/CartContext";
 
 export default function Menu() {
     const { empresa } = useParams();
@@ -148,6 +150,8 @@ export default function Menu() {
     const logic = useMenuLogic(data, itens, infoWines);
     const { isFixed, showWineMenu, filteredWines, navHeight, sectionDishesRefs, sectionWinesRefs, dishRef, wineRef, setSelectedDish, setSelectedWine } = logic;
 
+    const { items } = useCart();
+
     return (
         <>
             <Navbar 
@@ -185,6 +189,7 @@ export default function Menu() {
                 <MenuModals {...logic}/>
             </main>
             <Footer />
+            {items.length > 0 && <Basket data={data}/>}
         </>
     )
 }

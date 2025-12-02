@@ -49,6 +49,10 @@ export default {
                 name: "Maria Maria Bar e Restauranrate",
                 value: "maria-maria",
                 hourly: "SEG, TER e QUI - 10h30 às 14h | SEX - 10h30 às 15h | SAB A DOM - 11h30 às 15h",
+                phone: {
+                    value: 19983362834,
+                    formatted: "(19) 98336-2834"
+                },
                 location: {
                     extended: "Av. Washington Luíz, 725 - Jardim Leonor, Campinas - SP, 13041-005",
                     street: "Av. Washington Luíz",

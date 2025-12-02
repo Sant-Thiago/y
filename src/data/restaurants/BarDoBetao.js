@@ -49,6 +49,10 @@ export default {
                 name: "Bar do Betão",
                 value: "bar-do-betao",
                 hourly: "TER A SEX - 15h36 às 00h | SAB - 12h36 às 19h36",
+                phone: {
+                    value: 12997212665,
+                    formatted: "(12) 99721-2665"
+                },
                 location: {
                     extended: "R. Padre José Benedito Alves Monteiro, 330 - Jardim Amália, Caçapava - SP, 12280-016",
                     street: "R. Padre José Benedito Alves Monteiro",

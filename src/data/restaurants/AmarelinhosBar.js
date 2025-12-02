@@ -45,7 +45,10 @@ export default {
                 name: "Amarelinho Bar",
                 value: "amarelinho-bar",
                 hourly: "TER A QUI E DOM - 17h às 02h | SEX A SAB - 17h às 03h",
-                phone: "(11) 97830-1699",
+                phone: {
+                    value: 11978301699,
+                    formatted:"(11) 97830-1699",
+                },
                 email: "amarelinhosguarulhosbar@gmail.com",
                 location: {
                     extended: "R. Sílvio Barbosa, 44 - Vila Camargos, Guarulhos - SP, 07111-020",
@@ -99,7 +102,10 @@ export default {
                 name: "Amarelinho Bar Bela Vista",
                 value: "amarelinho-bar-bela-vista",
                 hourly: "TER A QUI E DOM - 17h às 01h | SEX - 17h às 03h | SAB - 12h às 03h",
-                phone: "(11) 98968-9989",
+                phone: {
+                    value: 11989689989,
+                    formatted:"(11) 98968-9989",
+                },
                 email: "amarelinhosbarbelavista@gmail.com",
                 location: {
                     extended: "Praça Juscelino Kubitschek de Oliveira, 105 - Jardim Bela Vista, Guarulhos - SP, 07133-420",

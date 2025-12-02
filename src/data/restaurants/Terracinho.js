@@ -46,7 +46,10 @@ export default {
                 name: "Terracinho Louge e Bar",
                 value: "terracinho",
                 hourly: "SEG - 17h às 01h | TER A DOM - 12h às 01h",
-                phone: "(11) 97053-1689",
+                phone: {
+                    value: 11970531689,
+                    formatted:"(11) 97053-1689"
+                },
                 location: {
                     extended: "R. Dona Eloá Do Valle Quadros, 426 - Cidade Tiradentes, São Paulo - SP, 08485-130",
                     street: "R. Dona Eloá Do Valle Quadros",

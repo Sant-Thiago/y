@@ -64,7 +64,10 @@ export default {
                 name: "Nakka Club",
                 value: "nakka-club",
                 hourly: "QUI A SAB - 22h às 5h",
-                phone: "(11) 92042-1757",
+                phone: {
+                    value: 11920421757,
+                    formatted:"(11) 92042-1757"
+                },
                 location: {
                     extended: "Av. Amador Bueno da Veiga, 751 - Vila Lais, São Paulo - SP, 03635-000",
                     street: "Av. Amador Bueno da Veiga",
@@ -120,7 +123,10 @@ export default {
                 name: "Nakka Bar",
                 value: "nakka-bar",
                 hourly: "TER - 20h às 00h | QUA A QUI - 19h às 01h | SEX A SAB - 19h às 03h | DOM - 17h às 00h",
-                phone: "(11) 92034-0531",
+                phone: {
+                    value: 11920340531,
+                    formatted:"(11) 92034-0531"
+                },
                 location: {
                     extended: "R. Vilma, 51 - São Miguel Paulista, São Paulo - SP, 08060-090",
                     street: "R. Vilma",

@@ -39,6 +39,10 @@ export default {
                 name: "Mari Mariá",
                 value: "mari-maria",
                 hourly: "SEG A SEX - 11h às 15:30h",
+                phone: {
+                    value: 11996020769,
+                    formatted:"11 99602-0769"
+                },
                 location: {
                     extended: "Largo do Café, 14 - 1° andar - Centro Histórico de São Paulo, São Paulo - SP, 01012-030",
                     street: "Largo do Café",

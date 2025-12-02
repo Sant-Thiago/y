@@ -73,7 +73,10 @@ export default {
                 name: "Milló Moema",
                 value: "millo-jardim-paulista",
                 hourly: "SEG A SEX - 11h30 às 15h",
-                phone: "(11) 94079-6750",
+                phone: {
+                    value: 11940796750,
+                    formatted:"(11) 94079-6750"
+                },
                 location: {
                     extended: "Alameda Santos, 831 - Jardim Paulista, São Paulo - SP, 01419-001",
                     street: "Alameda Santos",
@@ -126,7 +129,10 @@ export default {
                 name: "Milló Frei Caneca",
                 value: "millo-frei-caneca",
                 hourly: "SEG A SEX - 06h às 16h",
-                phone: "(11) 99194-0507",
+                phone: {
+                    value: 11991940507,
+                    formatted: "(11) 99194-0507"
+                },
                 location: {
                     extended: "R. Frei Caneca, 1395 - Consolação, São Paulo - SP, 01307-003",
                     street: "R. Frei Caneca",
@@ -179,7 +185,10 @@ export default {
                 name: "Milló Morumbi",
                 value: "millo-morumbi",
                 hourly: "SEG A SEX - 11h30 às 14h30",
-                phone: "(11) 5181-7008",
+                phone: {
+                    value: 1151817008,
+                    formatted:"(11) 5181-7008"
+                },
                 location: {
                     extended: "R. Joerg Bruder, 149 - Morumbi, São Paulo - SP, 04710-200",
                     street: "R. Joerg Bruder",
@@ -226,7 +235,10 @@ export default {
                 name: "Milló Consolação",
                 value: "millo-consolacao",
                 hourly: "SEG A SEX - 11h30 às 14h45",
-                phone: "(11) 5181-7008",
+                phone: {
+                    value: 1151817008,
+                    formatted:"(11) 5181-7008"
+                },
                 location: {
                     extended: "R. Matias Aires, 413 - Consolação, São Paulo - SP, 01309-020",
                     street: "R. Matias Aires",
@@ -275,7 +287,10 @@ export default {
                 name: "Milló Itaim Bibi",
                 value: "millo-itaim-bibi",
                 hourly: "SEG A SEX - 11h30 às 15h00",
-                phone: "(11) 5181-7008",
+                phone: {
+                    value: 1151817008,
+                    formatted:"(11) 5181-7008"
+                },
                 location: {
                     extended: "R. Joaquim Floriano, 473 - Itaim Bibi, São Paulo - SP, 04534-011",
                     street: "R. Joaquim Floriano",
