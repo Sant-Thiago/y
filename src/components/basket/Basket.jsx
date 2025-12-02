@@ -2,9 +2,9 @@ import { BsCartCheck } from "react-icons/bs";
 import { useCart } from "../../context/CartContext";
 import styles from "./Basket.module.css";
 import { useEffect, useRef, useState } from "react";
-import BasketButton from "./BasketButton";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { LuSquarePen } from "react-icons/lu";
 
 export default function Basket({data}) {
 
@@ -119,9 +119,9 @@ export default function Basket({data}) {
 
                 </div>
             : 
-                <BasketButton
-                    openModal={setIsOpen}
-                />
+                <button className={styles.wrapperIcon} onClick={() => setIsOpen(true)}>
+                    <LuSquarePen className={styles.icon} />
+                </button>
             }
         </div>
     )

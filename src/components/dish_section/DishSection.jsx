@@ -20,7 +20,7 @@ export default function DishSection({
         return it.options?.measure;
     }
 
-    const { addToCart, removeFromCart, items, getItem } = useCart();
+    const { addToCart, removeFromCart, getItem } = useCart();
 
     return (
         <section className={styles.wrapperFoods}>

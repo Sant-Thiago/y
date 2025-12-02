@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Toast from "../../toast/Toast";
 import { handleShare, useModalHandlers, useToast } from "../../../hooks/useModalUtils";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 export default function DishModal({ info, onClose }) {
 	
@@ -14,6 +16,8 @@ export default function DishModal({ info, onClose }) {
 	const onShare = () => handleShare({ id: info.id, name: info.name, description: info.description, empresa, showToast });
 
 	const hasMoreThanOne = info.options?.length > 1;
+
+	const { addToCart, removeFromCart, getItem } = useCart();
 
 
   return (
