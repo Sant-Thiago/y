@@ -28,6 +28,7 @@
     font-size: 18px;
     color: #979797;
     text-align: justify;
+    white-space: pre-line;
 }
 
 @media (min-width: 1020px) {

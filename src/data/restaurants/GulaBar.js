@@ -14,30 +14,33 @@ export default {
         email: "gulabarelanches@gmail.com",
         phone: "11 2272-1050",
         texts: [
-            "O Gula Bar é um dos pontos mais acolhedores e animados da Cidade Tiradentes. Com uma proposta descontraída, música boa e um atendimento próximo, o espaço se tornou referência para quem busca um ambiente agradável para relaxar, confraternizar e aproveitar bons momentos em São Paulo.",
+            "O Gula Bar é um dos pontos mais acolhedores e animados da Vila Heliópolis. Com um clima descontraído, música de qualidade e um atendimento sempre próximo, o espaço se tornou referência para quem busca um ambiente agradável para relaxar e aproveitar bons momentos em São Paulo.",
 
-            "Conhecido pela atmosfera leve e pelo clima sempre movimentado, o gula oferece uma experiência completa para quem gosta de aproveitar o dia ou a noite com conforto. Aqui, cada detalhe é pensado para receber bem: iluminação agradável, áreas amplas e um serviço sempre atencioso garantem momentos especiais para todos os públicos.",
+            "Conhecido pela atmosfera leve e pelo fluxo constante de clientes, o Gula oferece uma experiência completa — seja para curtir o dia ou a noite. Cada detalhe é pensado para receber bem: iluminação confortável, áreas amplas e um serviço atencioso que faz todo mundo se sentir à vontade.",
 
-            "O bar combina um ambiente urbano com toques modernos, criando um cenário perfeito para encontros, aniversários, confraternizações ou simplesmente para curtir a vibe do bairro. Seja no almoço, no fim de tarde ou à noite, o gula mantém o mesmo padrão: energia boa, comida gostosa e um espaço feito para se sentir à vontade.",
+            "O bar combina um estilo urbano com toques modernos, criando o cenário ideal para encontros, aniversários, comemorações ou simplesmente para curtir a energia da região. No almoço, no fim de tarde ou à noite, o Gula mantém a mesma identidade: boa comida, ambiente agradável e aquela vibe que só o bairro tem.",
 
-            /*A proposta do Gula Bar é simples e clara: */"Oferece experiências que unem gastronomia, música e convivência em um espaço que celebra o melhor da vida em comunidade."/* Um lugar onde cada visita tem seu próprio charme, seja pela companhia, pelo clima ou por aquela pausa merecida no meio da correria.*/,
+            "A essência do Gula Bar: gastronomia, música e boa convivência.",
 
-            "Com uma presença cada vez mais forte na região, o gula é o tipo de bar que convida naturalmente para fotos, encontros e boas lembranças. Sua essência está no ambiente acolhedor e no cuidado com cada detalhe, garantindo que cada passagem por lá se torne uma experiência marcante.",
+            "A proposta do Gula Bar é criar experiências que unem gastronomia, música e convivência, celebrando o melhor da vida em comunidade. Cada visita tem seu próprio charme — seja pela companhia, pelo clima descontraído ou por aquela pausa merecida no meio da rotina.",
 
-            "Misturando autenticidade, simplicidade e boa energia, o Gula Bar conquistou moradores e visitantes da Cidade Tiradentes. Um espaço que une sabor, descontração e aquele espírito de bairro que transforma cada momento em algo especial."
+            "Com presença cada vez mais forte na região, o Gula Bar se tornou um ponto de encontro natural: cenário de fotos, reuniões e boas lembranças. Sua essência está no cuidado com cada detalhe e no ambiente acolhedor, que transforma qualquer passagem por lá em um momento especial.\nMisturando autenticidade, simplicidade e boa energia, o Gula Bar conquistou moradores e visitantes da Vila Heliópolis. É um espaço que une sabor, descontração e o verdadeiro espírito de bairro — aquele clima gostoso que faz cada momento valer a pena."
         ],
         history: [
             {
                 title: "Gula Bar Hoje: Experiência Acolhedora e Completa",
                 year: "Atual",
-                image: { src: `${baseURL}companies/gula-bar/highlight_1.jpg`, alt: "gula Atual" },
+                image: {
+                    src: `${baseURL}companies/gula-bar/highlight_1.jpg`,
+                    alt: "Gula Bar Atual"
+                },
                 text: `
-                Atualmente, o Gula Bar é um dos pontos mais queridos da Cidade Tiradentes.
-                Com um ambiente descontraído, atendimento amigável e uma proposta que valoriza boa
-                convivência, o espaço se tornou escolha frequente de moradores e visitantes que buscam
-                um lugar agradável para aproveitar o dia ou a noite. O bar segue evoluindo e mantendo
-                sua essência acolhedora, formada pela energia única do bairro e pelas pessoas que fazem
-                parte da sua história.
+                    Atualmente, o Gula Bar é um dos favoritos da Vila Heliópolis.
+                    Com um ambiente descontraído, atendimento cordial e uma proposta voltada
+                    à convivência, o espaço se tornou parada obrigatória para quem procura
+                    um lugar agradável para aproveitar o dia ou a noite. O bar segue 
+                    crescendo sem perder sua essência: acolhedora, vibrante e marcada pela 
+                    energia única do bairro e das pessoas que fazem parte da sua história.
                 `
             }
         ],
