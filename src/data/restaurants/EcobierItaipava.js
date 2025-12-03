@@ -135,7 +135,7 @@ export default {
                     {
                         id: 11,
                         name: "Virado à Paulista",
-                        image: `${baseURL}companies/seu-joao/food_5.jpeg`,
+                        image: `${baseURL}default/food_1.png`,
                         description: "Nosso Virado à Paulista suculento acompanha arroz, feijão, fritas ou legumes. Pratos da Segunda Feira.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 40.00, formatted: "R$ 40,00" }
@@ -143,7 +143,7 @@ export default {
                     {
                         id: 12,
                         name: "Strogonoff (Filé Mignon)",
-                        image: `${baseURL}companies/seu-joao/food_9.png`,
+                        image: `${baseURL}default/food_2.png`,
                         description: "Nosso Strognoff de Filé Mignon acompanha arroz e batata palha. Prato da Terça Feira",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 43.00, formatted: "R$ 43,00" }
@@ -159,7 +159,7 @@ export default {
                     {
                         id: 14,
                         name: "Risoto de Alho Poró com Contra filé",
-                        image: `${baseURL}companies/seu-joao/food_10.png`,
+                        image: `${baseURL}default/food_3.png`,
                         description: "Nosso imperdível Risoto de Alho Poró c/ Contra Filé acompanha arroz, couve, torresmo, farofa, banan à milanesa, bisteca, calabresa defumada e batida. Prato da Quarta Feira.",
                         // measure: { value: "?", formatted: "?" },
                         price: { value: 44.90, formatted: "R$ 44,90" }

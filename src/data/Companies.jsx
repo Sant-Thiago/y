@@ -9,7 +9,8 @@ export const validCompanies = [
     "terracinho",
     "ecobier-itaipava",
     "amarelinho-bar",
-    "maracatu-bar"
+    "maracatu-bar",
+    "gula-bar"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
