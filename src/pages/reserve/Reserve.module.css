@@ -145,7 +145,8 @@
 
 .buttonNext {
     padding: 12px 8px;
-    background-color: var(--redColor);
+    /* background-color: var(--redColor); */
+    background-color: rgb(156, 29, 29);
     color: white;
     border: none;
     border-radius: 8px;

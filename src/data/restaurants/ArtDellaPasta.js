@@ -3,70 +3,67 @@ import defaultDish from '/src/utils/assets/default_dish.jpg';
 
 
 export default {
-    "gula-bar": {
-        name: "Gula Bar",
-        themeColor: "#000000ff",
-        logo: `${baseURL}companies/gula-bar/logo.jpg`,
+    "art-della-pasta": {
+        name: "Art Della Pasta | Cantina Italiana",
+        themeColor: "",
+        logo: `${baseURL}companies/art-della-pasta/logo.jpg`,
         cnpj: {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
         },
-        email: "gulabarelanches@gmail.com",
-        phone: "11 2272-1050",
+        email: "artdellapasta@gmail.com",
+        phone: "(11) 2533-3003",
         texts: [
-            "O Gula Bar é um dos pontos mais acolhedores e animados da Vila Heliópolis. Com um clima descontraído, música de qualidade e um atendimento sempre próximo, o espaço se tornou referência para quem busca um ambiente agradável para relaxar e aproveitar bons momentos em São Paulo.",
+            "O Art Della Pasta é um dos pontos mais tradicionais e queridos da Vila Ré. Com clima leve, atendimento próximo e aquele espírito acolhedor de bairro, o espaço atrai quem busca um lugar agradável para conversar, comer bem e curtir bons momentos.",
 
-            "Conhecido pela atmosfera leve e pelo fluxo constante de clientes, o Gula oferece uma experiência completa — seja para curtir o dia ou a noite. Cada detalhe é pensado para receber bem: iluminação confortável, áreas amplas e um serviço atencioso que faz todo mundo se sentir à vontade.",
+            "A atmosfera vibrante e descontraída faz do Art Della Pasta um destino perfeito tanto para quem quer relaxar depois do trabalho quanto para quem prefere estender a noite. Iluminação aconchegante, música no ponto certo e um serviço sempre atencioso criam o ambiente ideal.",
 
-            "O bar combina um estilo urbano com toques modernos, criando o cenário ideal para encontros, aniversários, comemorações ou simplesmente para curtir a energia da região. No almoço, no fim de tarde ou à noite, o Gula mantém a mesma identidade: boa comida, ambiente agradável e aquela vibe que só o bairro tem.",
+            "Os detalhes da casa misturam simplicidade bem-feita, charme urbano e personalidade, formando o cenário ideal para encontros, aniversários, celebrações, happy hours ou aquela pausa estratégica no fim do dia. Em qualquer horário, o padrão é o mesmo: boa comida, boa vibe e conforto o tempo todo.",
 
-            "A essência do Gula Bar: gastronomia, música e boa convivência.",
+            "Cada visita tem um encanto próprio — seja pelo cardápio, pelo clima acolhedor ou pela companhia.",
 
-            "A proposta do Gula Bar é criar experiências que unem gastronomia, música e convivência, celebrando o melhor da vida em comunidade. Cada visita tem seu próprio charme — seja pela companhia, pelo clima descontraído ou por aquela pausa merecida no meio da rotina.",
+            "Com presença forte na região, o Art Della Pasta já se tornou ponto de encontro natural para conversas, fotos e boas lembranças. A essência da casa está no acolhimento, na comida feita com carinho e no cuidado com cada detalhe do atendimento. O ambiente foi pensado para ser leve, convidativo e marcante, criando uma experiência que combina autenticidade e conforto.",
 
-            "Com presença cada vez mais forte na região, o Gula Bar se tornou um ponto de encontro natural: cenário de fotos, reuniões e boas lembranças. Sua essência está no cuidado com cada detalhe e no ambiente acolhedor, que transforma qualquer passagem por lá em um momento especial.\nMisturando autenticidade, simplicidade e boa energia, o Gula Bar conquistou moradores e visitantes da Vila Heliópolis. É um espaço que une sabor, descontração e o verdadeiro espírito de bairro — aquele clima gostoso que faz cada momento valer a pena."
+            "Misturando autenticidade, alegria e o espírito de bairro que todo mundo reconhece, o Art Della Pasta conquistou moradores e visitantes. É o tipo de lugar que transforma qualquer ocasião em um momento especial."
         ],
         history: [
             {
-                title: "Gula Bar Hoje: Experiência Acolhedora e Completa",
+                title: "Art Della Pasta Hoje: Tradição e Convivência na Vila Ré",
                 year: "Atual",
-                image: {
-                    src: `${baseURL}companies/gula-bar/highlight_1.jpg`,
-                    alt: "Gula Bar Atual"
-                },
+                image: { src: `${baseURL}companies/art-della-pasta/highlight_1.jpg`, alt: "Art Della Pasta Atual" },
                 text: `
-                    Atualmente, o Gula Bar é um dos favoritos da Vila Heliópolis.
-                    Com um ambiente descontraído, atendimento cordial e uma proposta voltada
-                    à convivência, o espaço se tornou parada obrigatória para quem procura
-                    um lugar agradável para aproveitar o dia ou a noite. O bar segue 
-                    crescendo sem perder sua essência: acolhedora, vibrante e marcada pela 
-                    energia única do bairro e das pessoas que fazem parte da sua história.
+                    Hoje, o Art Della Pasta é uma referência querida na Vila Ré, em São Paulo.
+                    Mantendo um ambiente leve, atendimento amigável e a proposta de ser um ponto de encontro
+                    para todos os estilos, a casa segue evoluindo sem perder sua essência. Com boa comida,
+                    clima acolhedor e aquele carisma típico de bairro, o restaurante continua fazendo parte
+                    da rotina e das memórias de quem passa por lá.
                 `
             }
         ],
         units: [           
             {
-                name: "Gula Bar",
-                value: "gula-bar",
-                hourly: "DOM A SAB - 12h às 02h",
-                phone: "(11) 2272-1050",
+                name: "Art Della Pasta",
+                value: "art-della-pasta",
+                hourly: "SEG A SAB - 09h às 22h30 | DOM - 09h às 17h",
+                phone: "11 2533-3003",
+                email: "artdellapasta@gmail.com",
                 location: {
-                    extended: "Av. Almirante Delamare, 592 - Vila Heliopolis, São Paulo - SP, 04230-000",
-                    street: "Av. Almirante Delamare",
+                    extended: "R. Itinguçu, 1700 - Vila Ré, São Paulo - SP, 03658-001",
+                    street: "R. Itinguçu",
                     city: "São Paulo",
-                    neighborhood: "Vila Heliopolis",
+                    neighborhood: "Vila Ré",
                     state: {
                         abbreviation: "SP",
                         extended: "São Paulo",
                     },
-                    number: "592",
-                    zipCode: "04230-000",
-                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.9724233296915!2d-46.59744892394527!3d-23.605318078769702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b86e3ba9a35%3A0x4efb8ce5882565b4!2sGula%20Bar!5e0!3m2!1spt-BR!2sbr!4v1764778668049!5m2!1spt-BR!2sbr"
+                    number: "1700",
+                    zipCode: "03658-001",
+                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14632.460142473521!2d-46.50981994492676!3d-23.528364587301763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce60b9b31e0fa9%3A0x2119ad9719b3ff1c!2sArt%20Della%20Pasta!5e0!3m2!1spt-BR!2sbr!4v1765214150250!5m2!1spt-BR!2sbr"
                 },
                 info: {
                     "saloons": [
                         {
-                            image: {src: `${baseURL}companies/gula-bar/inner_1.jpg`, alt: "defaulImage"},
+                            image: {src: `${baseURL}companies/art-della-pasta/inner_1.jpg`, alt: "defaulImage"},
                             title: {saloon: `Salão Principal`, quantity: "48 Pessoas"},
                             text:  `Fazemos eventos de 32 lugares, salão compartilhado com o público do restaurante. \nDisponível na segunda e quarta no almoço e de quinta a sexta no jantar.`
                         },
@@ -85,47 +82,46 @@ export default {
                     ],
                 },
                 images: [
-                    `${baseURL}companies/gula-bar/inner_1.jpg`,
-                    `${baseURL}companies/gula-bar/outter_1.jpg`,
-                    `${baseURL}companies/gula-bar/outter_2.jpg`,
-                    `${baseURL}companies/gula-bar/outter_3.jpg`,
-                    `${baseURL}companies/gula-bar/outter_4.jpg`,
-                    `${baseURL}companies/gula-bar/outter_5.jpg`,
-                    `${baseURL}companies/gula-bar/outter_6.jpg`,
-                    `${baseURL}companies/gula-bar/highlight_1.jpg`,
-                    `${baseURL}companies/gula-bar/highlight_2.jpg`,
-                    `${baseURL}companies/gula-bar/highlight_3.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_1.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_2.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_3.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_4.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_5.jpg`,
+                    `${baseURL}companies/art-della-pasta/inner_6.jpg`,
+                    `${baseURL}companies/art-della-pasta/highlight_1.jpg`,
+                    `${baseURL}companies/art-della-pasta/highlight_2.jpg`,
+                    `${baseURL}companies/art-della-pasta/highlight_3.jpg`,
+                    `${baseURL}companies/art-della-pasta/outter_1.jpg`,
                 ]
-            },                  
+            },
         ],
         images: [
-            `${baseURL}companies/gula-bar/inner_1.jpg`,
-            `${baseURL}companies/gula-bar/outter_1.jpg`,
-            `${baseURL}companies/gula-bar/outter_2.jpg`,
-            `${baseURL}companies/gula-bar/outter_3.jpg`,
-            `${baseURL}companies/gula-bar/outter_4.jpg`,
-            `${baseURL}companies/gula-bar/outter_5.jpg`,
-            `${baseURL}companies/gula-bar/outter_6.jpg`,
-            `${baseURL}companies/gula-bar/highlight_1.jpg`,
-            `${baseURL}companies/gula-bar/highlight_2.jpg`,
-            `${baseURL}companies/gula-bar/highlight_3.jpg`,
-
-            `${baseURL}companies/gula-bar/highlight_1.jpg`,
-            `${baseURL}companies/gula-bar/highlight_2.jpg`,
-            `${baseURL}companies/gula-bar/highlight_3.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_1.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_2.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_3.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_4.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_5.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_6.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_1.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_2.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_3.jpg`,
+            `${baseURL}companies/art-della-pasta/outter_1.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_2.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_3.jpg`,
+            
         ],
         banners: [
-            `${baseURL}companies/gula-bar/outter_1.jpg`,
-            `${baseURL}companies/gula-bar/highlight_1.jpg`,
-            `${baseURL}companies/gula-bar/outter_3.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_3.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_2.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_4.jpg`,
         ],
         highlights: [
-            `${baseURL}companies/gula-bar/highlight_1.jpg`,
-            `${baseURL}companies/gula-bar/highlight_2.jpg`,
-            `${baseURL}companies/gula-bar/highlight_3.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_1.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_2.jpg`,
+            `${baseURL}companies/art-della-pasta/highlight_3.jpg`,
         ],
         cards: [
-            `${baseURL}companies/gula-bar/inner_1.jpg`,
+            `${baseURL}companies/art-della-pasta/inner_2.jpg`,
         ],
         menuItens: [
             {
@@ -287,9 +283,9 @@ export default {
             }
         ],
         links: {
-            facebook: "https://www.facebook.com/Gulabaroficial/?locale=pt_BR",
-            instagram: "https://www.instagram.com/gulabaroficial/",
-            whatsapp: "https://api.whatsapp.com/send/?phone=551122721050",
+            facebook: "https://www.facebook.com/artdellapasta/?locale=pt_BR",
+            instagram: "https://www.instagram.com/artdellapasta/",
+            whatsapp: "https://api.whatsapp.com/send/?phone=5511988272240",
         }
     },
 }
