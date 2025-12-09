@@ -10,7 +10,8 @@ export const validCompanies = [
     "ecobier-itaipava",
     "amarelinho-bar",
     "maracatu-bar",
-    "art-della-pasta"
+    "art-della-pasta",
+    "picanha-na-tabua"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });

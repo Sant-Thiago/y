@@ -11,7 +11,6 @@ import Footer from "../../components/footer/Footer.jsx";
 import useWindowSize from "../../hooks/useWindowSize.jsx";
 import { useEffect, useState } from "react";
 import styles from "./EventDetails.module.css";
-import { CITY_MAP } from "../../data/Units.jsx";
 import { companies } from "../../data/Companies.jsx";
 import Toast from "../../components/toast/Toast.jsx";
 
