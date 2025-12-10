@@ -1,17 +1,12 @@
 export const validCompanies = [
-    "mari-maria",
-    "sertao-bar-e-restaurante", 
-    "seu-joao",
-    "millo",
     "maria-maria",
     "bar-do-betao",
     "nakka",
-    "terracinho",
     "ecobier-itaipava",
-    "amarelinho-bar",
     "maracatu-bar",
     "art-della-pasta",
-    "picanha-na-tabua"
+    "picanha-na-tabua",
+    "villa-gastro"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
