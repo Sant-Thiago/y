@@ -56,8 +56,15 @@ export default function Navbar({
     
     }, [hideOnScroll, hideAfterScroll]);
 
+    const temaClaro = data.theme.white
+
+    console.log(temaClaro);
+    
     return (
-        <header className={`${styles.container} ${hide ? styles.hide : ""}`}>
+        <header 
+            className={`${styles.container} ${hide ? styles.hide : ""} ${temaClaro ? styles.lightTheme : ""}`}
+            style={{ backgroundColor: data.color.navbar ?? "#fff"}}    
+        >
             <div className={styles.wrapper}>
                 <div className={styles.logo}>
                     <img src={data.logo} alt={`logo ${data.name}`} />

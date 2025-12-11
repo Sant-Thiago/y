@@ -105,6 +105,15 @@
     font-size: 1.5rem;
 }
 
+   /* Quando for cliente específico */
+/* .lightTheme .list > a {
+    color: #ffffff;
+} */
+
+.lightTheme .list > a:hover {
+    color: #f1f1f1;
+}
+
 a {
     width: 60%;
     
@@ -175,7 +184,7 @@ a {
     .list > a {
         display: inline-block;
         width: max-content;
-        color: rgb(95, 95, 95);
+        color: var(--text-color, rgb(95, 95, 95));
 
         flex-shrink: 0;
 
@@ -186,6 +195,21 @@ a {
         transition: 0.3s;
 
     }   
+
+
+
+   /* Quando for cliente específico */
+.light-theme .list > a {
+    color: #ffffff;
+}
+
+.light-theme .list > a:hover {
+    color: #f1f1f1;
+}
+
+    .color-white {
+        color: white;
+    }
     
     .list > a:hover {
         color: black;
