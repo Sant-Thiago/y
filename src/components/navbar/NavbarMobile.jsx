@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { useRef, useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 
-export default function NavbarMobile({ links }) {
+export default function NavbarMobile({ links, textColor }) {
     const [isVisibleList, setIsVisibleList] = useState(false);
     const navRef = useRef(null);
 

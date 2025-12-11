@@ -44,7 +44,8 @@ export default function Reserve() {
         }
         
         // Telefone brasileiro
-        const phoneRegex = /^\+55\s?\(\d{2}\)\s?0?\d{4,5}-\d{4}$/;
+        const phoneRegex = /^\+55\s?\(\d{2}\)\s?[\d\s]{4,6}-\d{4}$/;
+        
         if (!phoneRegex.test(inputNumberValue)) {
             errorMessage = "Número de telefone inválido.";
         }
@@ -109,6 +110,7 @@ export default function Reserve() {
     const [openSelectReservationDay, setOpenSelectReservationDay] = useState(false);
     const [openSelectPartySize, setOpenSelectPartySize] = useState(false);
     const [openSelectHourly, setOpenSelectHourly] = useState(false);
+    const [whatsappMessageLink, setWhatsappMessageLink] = useState(null);
 
     // const locations = [
     //     {
@@ -170,6 +172,22 @@ export default function Reserve() {
             }
         });
         
+        
+        const whatsappMessage = `
+            Olá! Quero confirmar minha reserva:
+
+            • Nome: ${inputNameValue}
+            • Telefone: ${inputNumberValue}
+            • Data: ${selectedReservationDay}
+            • Horário: ${selectedHourly}
+            • Quantidade de pessoas: ${selectedPartySize}
+            • Observações: ${inputOptionalValue || "Nenhuma"}
+
+            Reservado pelo site do ${name}.
+        `;
+
+        setWhatsappMessageLink(`${data.links.whatsapp}&text=${encodeURIComponent(whatsappMessage)}`);
+
         showToast(
             res.success ? 
             "Reserva realizada com sucesso!" : 
@@ -177,19 +195,19 @@ export default function Reserve() {
             3000
         );
 
-        if (res.success) {
-            // console.log(res);
+        // if (res.success) {
+        //     // console.log(res);
             
-            setSelectedReservationDay(null);
-            setSelectedPartySize(null);
-            setSelectedHourly(null);
-            setInputOptionalValue("");
-            setInputNumberValue("");
-            setInputNameValue("");
-            setInputEmailValue("");
+        //     setSelectedReservationDay(null);
+        //     setSelectedPartySize(null);
+        //     setSelectedHourly(null);
+        //     setInputOptionalValue("");
+        //     setInputNumberValue("");
+        //     setInputNameValue("");
+        //     setInputEmailValue("");
     
-            setStep(data.units.quantity > 1 ? 1 : 2);            
-        }
+        //     setStep(data.units.quantity > 1 ? 1 : 2);            
+        // }
 
         setLoading(false);
     
@@ -376,6 +394,7 @@ export default function Reserve() {
             />
         </main>
         <Footer />
+        {whatsappMessageLink && <button className={styles.buttonWhats}><a href={whatsappMessageLink} target="_blank" rel="noopener noreferrer">Confitmar no WhatsApp</a></button>}
     </>
   );
 }

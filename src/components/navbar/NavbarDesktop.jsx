@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa6";
 import styles from "./Navbar.module.css";
 import { useRef, useState, useEffect } from "react";
 
-export default function NavbarDesktop({ links }) {
+export default function NavbarDesktop({ links, textColor }) {
     const listRef = useRef(null);
     const [visibleLinks, setVisibleLinks] = useState(links);
     const [overflowLinks, setOverflowLinks] = useState([]);

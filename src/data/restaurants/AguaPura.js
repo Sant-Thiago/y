@@ -6,7 +6,14 @@ export default {
     "agua-pura": {
         name: "Água Pura",
         themeColor: "#000",
-        logo: `${baseURL}companies/agua-pura/logo.png`,
+        theme: {
+            white: true,
+            custom: ""
+        },
+        color: {
+            navbar: "#000",
+        },
+        logo: `${baseURL}companies/agua-pura/AguaPura.logo(1).png`,
         cnpj: {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
