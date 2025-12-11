@@ -6,7 +6,8 @@ export const validCompanies = [
     "maracatu-bar",
     "art-della-pasta",
     "picanha-na-tabua",
-    "villa-gastro"
+    "villa-gastro",
+    'agua-pura'
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
