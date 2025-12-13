@@ -420,6 +420,8 @@ export default function Menu() {
 
     }, [selected])
 
+    // fazer uma função para a pessoa clicar na imagem e abrir ela completa, mas em imagens especifica tipo a da cobrança com  couver artistico
+
     return (
         <>
             <Navbar 

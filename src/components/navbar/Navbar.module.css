@@ -88,6 +88,14 @@
     cursor: pointer;
 }
 
+.lightTheme .btnBurguer {
+    color: white;
+}
+
+.lightTheme .btnCloseBurguer {
+    color: black;
+}
+
 .list {
     display: flex;
     flex-direction: column;

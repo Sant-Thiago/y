@@ -169,6 +169,8 @@ export default function Banner({
         return () => clearInterval(interval)
     }, [animationOn, isDragging]);
 
+    // fazer uma função para a pessoa clicar na imagem e abrir ela completa, mas em imagens especifica tipo a da cobrança com  couver artistico
+
 
 
     return (
@@ -191,13 +193,16 @@ export default function Banner({
                 onTouchEnd={draggable ? handleTouchEnd : undefined}
             >
                 {extendedSlides.map((img, idx) => (
-                    <img 
-                        src={img} 
-                        alt="banner" 
-                        className={styles.bannerImage} 
-                        key={idx}
-                        draggable={false}
-                    />
+                    <a href="" target='_blank' className={styles.wrapperImage}>
+                        <img 
+                            src={img} 
+                            alt="banner" 
+                            className={styles.bannerImage} 
+                            key={idx}
+                            draggable={false}
+
+                        />
+                    </a>
                 ))}
                 
             </div>
