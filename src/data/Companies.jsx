@@ -7,7 +7,8 @@ export const validCompanies = [
     "art-della-pasta",
     "picanha-na-tabua",
     "villa-gastro",
-    'agua-pura'
+    'agua-pura',
+    "o-canto-da-costela",
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
