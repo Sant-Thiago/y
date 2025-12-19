@@ -13,6 +13,7 @@ import { companies } from "../../data/Companies";
 export default function Home() {
     const { empresa } = useParams();
     const data = companies[empresa];
+console.log(data);
 
     const bannerImages = [...data.banners];
 

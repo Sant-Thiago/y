@@ -1,38 +1,39 @@
 const baseURL = import.meta.env.BASE_URL
 import defaultDish from '/src/utils/assets/default_dish.jpg';
-
+import defaultLogo from '/public/default/logo_default.png'
 
 export default {
     "nakka": {
-        name: "Nakka",
+        name: "X",
         themeColor: "#161616",
-        logo: `${baseURL}companies/nakka/logo.jpg`,
+        logo: defaultLogo,
         cnpj: {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
         },
-        email: "nakkaclub@gmail.com",
+        email: "x@gmail.com",
+        theme: "",
         phone: "(11) 92042-1757",
         texts: [
-            "O Nakka Bar é um ponto vibrante da cultura urbana, reunindo criatividade, música, gastronomia e experiências únicas em um só lugar. Com uma comunicação leve e autêntica, o Nakka se aproxima do público, criando conexões reais e oferecendo um atendimento acolhedor que convida todos a interagir, tirar dúvidas e aproveitar o espaço ao máximo.",
+            "O X Bar é um ponto vibrante da cultura urbana, reunindo criatividade, música, gastronomia e experiências únicas em um só lugar. Com uma comunicação leve e autêntica, o X se aproxima do público, criando conexões reais e oferecendo um atendimento acolhedor que convida todos a interagir, tirar dúvidas e aproveitar o espaço ao máximo.",
 
             "Além dos clássicos gin, Moscow Mule e Jager Bomb, o bar conta com uma seleção exclusiva de drinks autorais. Cada drink é uma experiência sensorial completa: visual marcante, sabores criativos e combinações que agradam desde paladares curiosos até os mais exigentes. Tudo pensado para ser irresistível — no gosto e nas fotos.",
 
             "O espaço possui quatro ambientes distintos e cheios de personalidade. Há um salão amplo; uma área aberta com bar, mesa de DJ e sinuca; um ambiente coberto com deck; e um quintal decorado com grafites e cadeiras de praia. O rooftop, iluminado pelo céu e neons, completa a atmosfera, criando um cenário perfeito para quem busca leveza, diversão e estilo.",
 
-            "A proposta do Nakka Bar é oferecer uma experiência multissensorial." /*O cliente pode desfrutar de gastronomia japonesa, hambúrgueres artesanais, áreas ao ar livre no rooftop, tabacaria, headshop e até fazer uma tatuagem no estúdio próprio. Eventos de flash tattoo, skate e grafite reforçam ainda mais a essência criativa do espaço."*/,
+            "A proposta do X Bar é oferecer uma experiência multissensorial." /*O cliente pode desfrutar de gastronomia japonesa, hambúrgueres artesanais, áreas ao ar livre no rooftop, tabacaria, headshop e até fazer uma tatuagem no estúdio próprio. Eventos de flash tattoo, skate e grafite reforçam ainda mais a essência criativa do espaço."*/,
 
-            "O ambiente é repleto de cenários instagramáveis: paredes grafitadas, quadros artísticos e vegetação exuberante compõem um visual marcante. Como o espaço está sempre em constante transformação, cada visita entrega algo novo — mantendo o Nakka Bar como referência cultural e visual da região.",
+            "O ambiente é repleto de cenários instagramáveis: paredes grafitadas, quadros artísticos e vegetação exuberante compõem um visual marcante. Como o espaço está sempre em constante transformação, cada visita entrega algo novo — mantendo o X Bar como referência cultural e visual da região.",
 
-            "Com sua mistura de arte, gastronomia, música e lifestyle urbano, o Nakka Bar se tornou um destino certo para quem busca experiências intensas, criativas e envolventes. Um lugar onde cada detalhe — do drink à decoração — foi pensado para inspirar, divertir e marcar presença."
+            "Com sua mistura de arte, gastronomia, música e lifestyle urbano, o X Bar se tornou um destino certo para quem busca experiências intensas, criativas e envolventes. Um lugar onde cada detalhe — do drink à decoração — foi pensado para inspirar, divertir e marcar presença."
         ],
         history: [
             {
-                title: "A Transformação do Nakka em Polo Cultural",
+                title: "A Transformação do X em Polo Cultural",
                 year: "2018 — 2020",
-                image: { src: `${baseURL}companies/nakka/outter_1.jpg`, alt: "Primeiros anos do Nakka Bar" },
+                image: { src: `${baseURL}companies/nakka/outter_1.jpg`, alt: "Primeiros anos do X Bar" },
                 text: `
-                Neste período, o Nakka começou a consolidar sua identidade ligada à cultura urbana.
+                Neste período, o X começou a consolidar sua identidade ligada à cultura urbana.
                 Grafites, eventos artísticos e experiências interativas passaram a fazer parte do
                 cotidiano do bar, criando uma atmosfera única que conectou o público jovem e criativo.
                 `
@@ -40,19 +41,19 @@ export default {
             {
                 title: "Expansão dos Ambientes e Novas Experiências",
                 year: "2021 — 2023",
-                image: { src: `${baseURL}companies/nakka/inner_4.jpg`, alt: "Expansão Nakka Bar" },
+                image: { src: `${baseURL}companies/nakka/inner_4.jpg`, alt: "Expansão X Bar" },
                 text: `
-                O Nakka ampliou seus ambientes, adicionando rooftop, área aberta com DJ,
+                O X ampliou seus ambientes, adicionando rooftop, área aberta com DJ,
                 sinuca e espaços temáticos. Essa evolução trouxe novos públicos e transformou o bar
                 em um verdadeiro playground cultural, misturando música, gastronomia, arte e lifestyle.
                 `
             },
             {
-                title: "Nakka Hoje: Experiência Multissensorial",
+                title: "X Hoje: Experiência Multissensorial",
                 year: "Atual",
-                image: { src: `${baseURL}companies/nakka/inner_3.jpg`, alt: "Nakka Atual" },
+                image: { src: `${baseURL}companies/nakka/inner_3.jpg`, alt: "X Atual" },
                 text: `
-                Atualmente, o Nakka Bar é referência em experiências criativas e ambientes instagramáveis.
+                Atualmente, o X Bar é referência em experiências criativas e ambientes instagramáveis.
                 Drinks autorais, decoração imersiva e eventos especiais fazem do espaço um dos pontos mais
                 vibrantes da região. O bar segue em constante mudança, mantendo sua essência jovem,
                 artística e acolhedora.
@@ -61,10 +62,10 @@ export default {
         ],
         units: [
             {
-                name: "Nakka Club",
-                value: "nakka-club",
+                name: "X Club",
+                value: "X-club",
                 hourly: "QUI A SAB - 22h às 5h",
-                phone: "(11) 92042-1757",
+                phone: "(11) 91234-1757",
                 location: {
                     extended: "Av. Amador Bueno da Veiga, 751 - Vila Lais, São Paulo - SP, 03635-000",
                     street: "Av. Amador Bueno da Veiga",
@@ -76,7 +77,7 @@ export default {
                     },
                     number: "751",
                     zipCode: "03635-000",
-                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.2883828888794!2d-46.53765015557384!3d-23.52212800013075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ff56f2d2a4b%3A0x723ce66fe89a1bfe!2sNakka%20Club%20-%20Penha%20de%20fran%C3%A7a!5e0!3m2!1spt-BR!2sbr!4v1764606075691!5m2!1spt-BR!2sbr"
+                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.2883828888794!2d-46.53765015557384!3d-23.52212800013075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ff56f2d2a4b%3A0x723ce66fe89a1bfe!2sNaka%20Club%20-%20Penha%20de%20fran%C3%A7a!5e0!3m2!1spt-BR!2sbr!4v1764606075691!5m2!1spt-BR!2sbr"
                 },
                 info: {
                     "saloons": [
@@ -117,10 +118,10 @@ export default {
             },
             
             {
-                name: "Nakka Bar",
-                value: "nakka-bar",
+                name: "X Bar",
+                value: "X-bar",
                 hourly: "TER - 20h às 00h | QUA A QUI - 19h às 01h | SEX A SAB - 19h às 03h | DOM - 17h às 00h",
-                phone: "(11) 92034-0531",
+                phone: "(11) 91234-0531",
                 location: {
                     extended: "R. Vilma, 51 - São Miguel Paulista, São Paulo - SP, 08060-090",
                     street: "R. Vilma",
@@ -371,9 +372,9 @@ export default {
             }
         ],
         links: {
-            facebook: "https://www.facebook.com/nakkaclub",
-            instagram: "https://www.instagram.com/nakkaclub/",
-            whatsapp: "https://api.whatsapp.com/send/?phone=5511920421757",
+            facebook: "https://www.facebook.com/x",
+            instagram: "https://www.instagram.com/x/",
+            whatsapp: "https://api.whatsapp.com/send/?phone=5511",
         }
     },
 }
