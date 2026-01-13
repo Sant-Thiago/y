@@ -122,13 +122,13 @@ export default {
         ],
         banners: [
             `${baseURL}companies/o-canto-da-costela/outter_2.jpg`,
-            `${baseURL}companies/o-canto-da-costela/highlight_1.jpg`,
+            `${baseURL}companies/o-canto-da-costela/highlight_7.jpg`,
             `${baseURL}companies/o-canto-da-costela/outter_1.jpg`,
         ],
         highlights: [
-            `${baseURL}companies/o-canto-da-costela/highlight_1.jpg`,
-            `${baseURL}companies/o-canto-da-costela/highlight_4.jpg`,
-            `${baseURL}companies/o-canto-da-costela/highlight_5.jpg`,
+            `${baseURL}companies/o-canto-da-costela/highlight_7.jpg`,
+            `${baseURL}companies/o-canto-da-costela/highlight_6.jpg`,
+            `${baseURL}companies/o-canto-da-costela/food_1.jpg`,
         ],
         cards: [
             `${baseURL}companies/o-canto-da-costela/inner_2.jpg`,
