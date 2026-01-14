@@ -3,10 +3,10 @@ import defaultDish from '/src/utils/assets/default_dish.jpg';
 
 
 export default {
-    "zucca-burger": {
-        name: "Zucca Burger",
-        themeColor: "#5f3833",// fece00
-        logo: `${baseURL}companies/zucca-burger/logo.png`,
+    "taquaral-cafe": {
+        name: "Taquaral Café",
+        themeColor: "#432004",
+        logo: `${baseURL}companies/taquaral-cafe/logo.png`,
         cnpj: {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
@@ -14,28 +14,28 @@ export default {
         email: "zuccaburger@gmail.com",
         phone: "(11) 99598-4598",
         texts: [
-            "Localizado no coração de Bragança Paulista, o Zucca Burger & Restaurante Artesanal é um espaço que une sabor, conforto e um atendimento que faz o cliente se sentir em casa. Um ambiente acolhedor, ideal para quem busca boa comida e momentos agradáveis.",
+            "Localizado no coração de Bragança Paulista, o Taquaral Café & Restaurante Artesanal é um espaço que une sabor, conforto e um atendimento que faz o cliente se sentir em casa. Um ambiente acolhedor, ideal para quem busca boa comida e momentos agradáveis.",
 
-            "Com clima descontraído e atendimento atencioso — frequentemente elogiado, com destaque especial para a equipe — o Zucca Burger conquista pela experiência completa, desde a recepção até o último pedido da mesa.",
+            "Com clima descontraído e atendimento atencioso — frequentemente elogiado, com destaque especial para a equipe — o Taquaral Café conquista pela experiência completa, desde a recepção até o último pedido da mesa.",
 
             "O cardápio é o grande protagonista: burgers artesanais suculentos, bem temperados e preparados com cuidado, acompanhados de batatas fritas crocantes e porções que se destacam, como coxinhas e queijo empanado.",
 
             "Cada detalhe reflete a proposta da casa: ingredientes bem escolhidos, preparo artesanal e uma cozinha que valoriza sabor, textura e apresentação, entregando conforto em forma de comida.",
 
-            "Seja para um almoço descontraído, um jantar com amigos, encontros especiais ou aquele momento de pausa para comer bem, o Zucca Burger se consolida como uma das principais referências gastronômicas da cidade.",
+            "Seja para um almoço descontraído, um jantar com amigos, encontros especiais ou aquele momento de pausa para comer bem, o Taquaral Café se consolida como uma das principais referências gastronômicas da cidade.",
 
-            "Mais do que um restaurante, o Zucca Burger é um ponto de encontro para quem aprecia burgers artesanais, atendimento humano e uma experiência que deixa vontade de voltar."
+            "Mais do que um restaurante, o Taquaral Café é um ponto de encontro para quem aprecia burgers artesanais, atendimento humano e uma experiência que deixa vontade de voltar."
         ],
         history: [
             {
-                title: "Zucca Burger Hoje: Referência em Burgers Artesanais em Bragança Paulista",
+                title: "Taquaral Café Hoje: Referência em Burgers Artesanais em Bragança Paulista",
                 year: "Atual",
                 image: { 
-                    src: `${baseURL}companies/zucca-burger/outter_2.jpg`, 
-                    alt: "Zucca Burger Bragança Paulista" 
+                    src: `${baseURL}companies/taquaral-cafe/outter_2.jpg`, 
+                    alt: "Taquaral Café Bragança Paulista" 
                 },
                 text: `
-                    Hoje, o Zucca Burger & Restaurante Artesanal é reconhecido como um dos melhores
+                    Hoje, o Taquaral Café & Restaurante Artesanal é reconhecido como um dos melhores
                     destinos para quem busca burgers artesanais em Bragança Paulista. Localizado
                     na Avenida Antonio Pires Pimentel, no Centro da cidade, a casa se tornou referência
                     por unir sabor, ambiente acolhedor e atendimento de qualidade.
@@ -45,7 +45,7 @@ export default {
                     queijo empanado. A experiência é completada por um serviço atencioso, frequentemente
                     lembrado pelos clientes como um diferencial da casa.
 
-                    Mesmo com percepções pontuais sobre preços ou entregas, o Zucca Burger segue
+                    Mesmo com percepções pontuais sobre preços ou entregas, o Taquaral Café segue
                     sendo apontado por muitos como o melhor burger da cidade, reafirmando sua missão
                     de oferecer conforto, sabor e uma experiência gastronômica marcante em cada visita.
                 `
@@ -53,28 +53,28 @@ export default {
         ],
         units: [           
             {
-                name: "Zucca Burger",
-                value: "zucca-burger",
+                name: "Taquaral Café",
+                value: "taquaral-cafe",
                 hourly: "TER - 18h30 às 23h | QUA A DOM - 12h às 15h e 18h30 às 23h",
-                phone: "(11) 99598-4598",
+                phone: "019999910606",
                 email: "zuccaburger@gmail.com",
                 location: {
-                    extended: "Av. Antonio Pires Pimentel, 1824 - Centro, Bragança Paulista - SP, 12914-001",
-                    street: "Av. Antonio Pires Pimentel",
-                    city: "Bragança Paulista",
-                    neighborhood: "Centro",
+                    extended: "Rodovia do Açúcar SP - KM 154,5 - SN - Batistada, Piracicaba - SP, 13423-070",
+                    street: "Rodovia do Açúcar SP",
+                    city: "Piracicaba",
+                    neighborhood: "Batistada",
                     state: {
                         abbreviation: "SP",
                         extended: "São Paulo",
                     },
-                    number: "1824",
-                    zipCode: "12914-001",
-                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.6164063007786!2d-46.536178199999995!3d-22.9643501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec9902c9f0993%3A0x1e48c233f500c755!2sZucca%20Burger%20%26%20Restaurante%20Artesanal!5e0!3m2!1spt-BR!2sbr!4v1768348807238!5m2!1spt-BR!2sbr"
+                    number: "SN",
+                    zipCode: "13423-070",
+                    linkMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.4384783394485!2d-47.5846155!3d-22.786210999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c6256ed0a3e573%3A0xaab5a960bb7a8a29!2sTaquaral%20Caf%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1768414757272!5m2!1spt-BR!2sbr"
                 },
                 info: {
                     "saloons": [
                         {
-                            image: {src: `${baseURL}companies/zucca-burger/outter_2.jpg`, alt: "defaulImage"},
+                            image: {src: `${baseURL}companies/taquaral-cafe/outter_2.jpg`, alt: "defaulImage"},
                             title: {saloon: `Salão Principal`, quantity: "48 Pessoas"},
                             text:  `Fazemos eventos de 32 lugares, salão compartilhado com o público do restaurante. \nDisponível na segunda e quarta no almoço e de quinta a sexta no jantar.`
                         },
@@ -91,44 +91,50 @@ export default {
                     ],
                 },
                 images: [
-                    `${baseURL}companies/zucca-burger/highlight_1.jpg`,
-                    `${baseURL}companies/zucca-burger/highlight_2.jpg`,
-                    `${baseURL}companies/zucca-burger/highlight_3.jpg`,
-                    `${baseURL}companies/zucca-burger/highlight_4.jpg`,
-                    `${baseURL}companies/zucca-burger/highlight_5.jpg`,
-                    `${baseURL}companies/zucca-burger/highlight_6.jpg`,
-                    `${baseURL}companies/zucca-burger/outter_1.jpg`,
-                    `${baseURL}companies/zucca-burger/outter_2.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_1.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_2.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_3.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_4.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_5.jpg`,
+                    `${baseURL}companies/taquaral-cafe/inner_6.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_1.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
+                    `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
+                    `${baseURL}companies/taquaral-cafe/outter_2.jpg`,
                 ]
             },
         ],
         images: [
-            `${baseURL}companies/zucca-burger/highlight_1.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_2.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_3.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_4.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_5.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_6.jpg`,
-            `${baseURL}companies/zucca-burger/outter_1.jpg`,
-            `${baseURL}companies/zucca-burger/outter_2.jpg`,      
-            `${baseURL}companies/zucca-burger/highlight_3.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_4.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_5.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_6.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_2.jpg`,      
+            `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
       
         ],
         banners: [
-            `${baseURL}companies/zucca-burger/highlight_6.jpg`,
-            `${baseURL}companies/zucca-burger/outter_2.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_2.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
         ],
         highlights: [
-            `${baseURL}companies/zucca-burger/highlight_3.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_4.jpg`,
-            `${baseURL}companies/zucca-burger/highlight_2.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
         ],
         cards: [
-            `${baseURL}companies/zucca-burger/outter_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
         ],
         menuItens: [
             {
@@ -290,9 +296,9 @@ export default {
             }
         ],
         links: {
-            facebook: "https://www.facebook.com/zuccaburger/",
-            instagram: "https://www.instagram.com/zucca_burger/",
-            whatsapp: "https://api.whatsapp.com/send/?phone=5511995984598",
+            facebook: "https://www.facebook.com/Ocantodacostela/",
+            instagram: "https://www.instagram.com/ocantodacostela/",
+            whatsapp: "https://api.whatsapp.com/send/?phone=5511975692111",
         }
     },
 }
