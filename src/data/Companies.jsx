@@ -1,9 +1,5 @@
 export const validCompanies = [
-    "maria-maria",
-    "bar-do-betao",
     "nakka",
-    "ecobier-itaipava",
-    "maracatu-bar",
     "art-della-pasta",
     "picanha-na-tabua",
     "villa-gastro",
