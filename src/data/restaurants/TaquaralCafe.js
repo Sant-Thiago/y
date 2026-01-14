@@ -11,43 +11,43 @@ export default {
             value: 12345678000099,
             formatted: "12.345.678/0000-99",
         },
-        email: "zuccaburger@gmail.com",
-        phone: "(11) 99598-4598",
+        email: "taquaralcafe.exemplo@gmail.com",
+        phone: "(19) 99991-0606",
         texts: [
-            "Localizado no coração de Bragança Paulista, o Taquaral Café & Restaurante Artesanal é um espaço que une sabor, conforto e um atendimento que faz o cliente se sentir em casa. Um ambiente acolhedor, ideal para quem busca boa comida e momentos agradáveis.",
+            "Localizado na Rodovia do Açúcar, em Piracicaba, o Taquaral Café é um espaço pensado para quem aprecia boa comida, café de qualidade e um ambiente acolhedor, ideal para momentos tranquilos e agradáveis.",
 
-            "Com clima descontraído e atendimento atencioso — frequentemente elogiado, com destaque especial para a equipe — o Taquaral Café conquista pela experiência completa, desde a recepção até o último pedido da mesa.",
+            "Com um clima leve e um ambiente espetacular, o Taquaral Café conquista logo na chegada. O atendimento é um dos pontos mais elogiados, com uma equipe atenciosa e sempre pronta para receber bem.",
 
-            "O cardápio é o grande protagonista: burgers artesanais suculentos, bem temperados e preparados com cuidado, acompanhados de batatas fritas crocantes e porções que se destacam, como coxinhas e queijo empanado.",
+            "O cardápio agrada os amantes da culinária artesanal, com destaque especial para as queijadas, que encantam pelo sabor, além do café, frequentemente lembrado pelos clientes como excelente.",
 
-            "Cada detalhe reflete a proposta da casa: ingredientes bem escolhidos, preparo artesanal e uma cozinha que valoriza sabor, textura e apresentação, entregando conforto em forma de comida.",
+            "Cada detalhe da casa reflete cuidado e simplicidade: ingredientes bem preparados, serviço ágil e uma atmosfera que convida a desacelerar e aproveitar a experiência.",
 
-            "Seja para um almoço descontraído, um jantar com amigos, encontros especiais ou aquele momento de pausa para comer bem, o Taquaral Café se consolida como uma das principais referências gastronômicas da cidade.",
+            "Seja para um café da manhã, um almoço leve ou uma pausa durante o dia, o Taquaral Café se destaca como uma excelente opção para quem busca qualidade e conforto.",
 
-            "Mais do que um restaurante, o Taquaral Café é um ponto de encontro para quem aprecia burgers artesanais, atendimento humano e uma experiência que deixa vontade de voltar."
+            "Mais do que um café, o Taquaral Café é um ponto de encontro para quem valoriza bom atendimento, sabores marcantes e um ambiente que dá vontade de voltar."
         ],
         history: [
             {
-                title: "Taquaral Café Hoje: Referência em Burgers Artesanais em Bragança Paulista",
+                title: "Taquaral Café Hoje: Qualidade, Aconchego e Sabor em Piracicaba",
                 year: "Atual",
                 image: { 
                     src: `${baseURL}companies/taquaral-cafe/outter_2.jpg`, 
-                    alt: "Taquaral Café Bragança Paulista" 
+                    alt: "Taquaral Café Piracicaba" 
                 },
                 text: `
-                    Hoje, o Taquaral Café & Restaurante Artesanal é reconhecido como um dos melhores
-                    destinos para quem busca burgers artesanais em Bragança Paulista. Localizado
-                    na Avenida Antonio Pires Pimentel, no Centro da cidade, a casa se tornou referência
-                    por unir sabor, ambiente acolhedor e atendimento de qualidade.
+                    Hoje, o Taquaral Café é reconhecido como um espaço acolhedor em Piracicaba,
+                    localizado na Rodovia do Açúcar, no bairro Batistada. A casa se destaca por
+                    oferecer uma experiência simples e bem executada, focada em qualidade,
+                    atendimento e sabores artesanais.
 
-                    O destaque fica para os burgers suculentos, bem temperados e preparados de forma
-                    artesanal, além das porções que conquistaram o público, como as coxinhas e o
-                    queijo empanado. A experiência é completada por um serviço atencioso, frequentemente
-                    lembrado pelos clientes como um diferencial da casa.
+                    O cardápio agrada especialmente os amantes da culinária e do café, com
+                    queijadas que se tornaram um dos destaques do local, além de um café
+                    elogiado por quem passa pela casa. O serviço rápido e os funcionários
+                    amigáveis reforçam a sensação de conforto em cada visita.
 
-                    Mesmo com percepções pontuais sobre preços ou entregas, o Taquaral Café segue
-                    sendo apontado por muitos como o melhor burger da cidade, reafirmando sua missão
-                    de oferecer conforto, sabor e uma experiência gastronômica marcante em cada visita.
+                    Com avaliação positiva no Google e reconhecimento do público, o Taquaral
+                    Café reafirma sua proposta de ser um ambiente agradável, onde bom atendimento,
+                    sabor e tranquilidade caminham juntos.
                 `
             }
         ],
@@ -55,9 +55,9 @@ export default {
             {
                 name: "Taquaral Café",
                 value: "taquaral-cafe",
-                hourly: "TER - 18h30 às 23h | QUA A DOM - 12h às 15h e 18h30 às 23h",
-                phone: "019999910606",
-                email: "zuccaburger@gmail.com",
+                hourly: "TER A DOM - 8h às 14h30 e TER A SAB - 11h40 às 15h | DOM - 11h40 às 14h30",
+                phone: "(19) 99991-0606",
+                email: "taquaralcafe.exemplo@gmail.com",
                 location: {
                     extended: "Rodovia do Açúcar SP - KM 154,5 - SN - Batistada, Piracicaba - SP, 13423-070",
                     street: "Rodovia do Açúcar SP",
@@ -93,40 +93,42 @@ export default {
                 images: [
                     `${baseURL}companies/taquaral-cafe/inner_1.jpg`,
                     `${baseURL}companies/taquaral-cafe/inner_2.jpg`,
-                    `${baseURL}companies/taquaral-cafe/inner_3.jpg`,
-                    `${baseURL}companies/taquaral-cafe/inner_4.jpg`,
-                    `${baseURL}companies/taquaral-cafe/inner_5.jpg`,
                     `${baseURL}companies/taquaral-cafe/inner_6.jpg`,
-                    `${baseURL}companies/taquaral-cafe/highlight_1.jpg`,
                     `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
-                    `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
-                    `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
                     `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
-                    `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
+                    `${baseURL}companies/taquaral-cafe/highlight_7.jpg`,
                     `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
+                    `${baseURL}companies/taquaral-cafe/outter_5.jpg`,
+                    `${baseURL}companies/taquaral-cafe/outter_6.jpg`,
                     `${baseURL}companies/taquaral-cafe/outter_2.jpg`,
                 ]
             },
         ],
         images: [
+            `${baseURL}companies/taquaral-cafe/inner_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_2.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_4.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_6.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_1.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
             `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_7.jpg`,
             `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
-            `${baseURL}companies/taquaral-cafe/outter_2.jpg`,      
-            `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
-            `${baseURL}companies/taquaral-cafe/highlight_4.jpg`,
-            `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
-            `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
-      
+            `${baseURL}companies/taquaral-cafe/outter_2.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_4.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_6.jpg`,
         ],
         banners: [
-            `${baseURL}companies/taquaral-cafe/highlight_6.jpg`,
-            `${baseURL}companies/taquaral-cafe/outter_2.jpg`,
-            `${baseURL}companies/taquaral-cafe/highlight_5.jpg`,
+            `${baseURL}companies/taquaral-cafe/outter_3.jpg`,
+            `${baseURL}companies/taquaral-cafe/highlight_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_2.jpg`,
         ],
         highlights: [
             `${baseURL}companies/taquaral-cafe/highlight_3.jpg`,
@@ -134,7 +136,7 @@ export default {
             `${baseURL}companies/taquaral-cafe/highlight_2.jpg`,
         ],
         cards: [
-            `${baseURL}companies/taquaral-cafe/outter_1.jpg`,
+            `${baseURL}companies/taquaral-cafe/inner_4.jpg`,
         ],
         menuItens: [
             {
@@ -296,9 +298,9 @@ export default {
             }
         ],
         links: {
-            facebook: "https://www.facebook.com/Ocantodacostela/",
-            instagram: "https://www.instagram.com/ocantodacostela/",
-            whatsapp: "https://api.whatsapp.com/send/?phone=5511975692111",
+            facebook: "https://www.facebook.com/taquaralcafe/",
+            instagram: "https://www.instagram.com/taquaralcafe/#",
+            whatsapp: "https://api.whatsapp.com/send/?phone=5519999910606",
         }
     },
 }
