@@ -9,6 +9,7 @@ export const validCompanies = [
     "villa-gastro",
     'agua-pura',
     "o-canto-da-costela",
+    "zucca-burger"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
