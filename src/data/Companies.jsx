@@ -6,7 +6,8 @@ export const validCompanies = [
     'agua-pura',
     "o-canto-da-costela",
     "zucca-burger",
-    "taquaral-cafe"
+    "taquaral-cafe",
+    "amarals-restaurante"
 ];
 
 const modules = import.meta.glob("./restaurants/*.js", { eager: true });
